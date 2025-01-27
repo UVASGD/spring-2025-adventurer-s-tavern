@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 7bb1b561d87f9f8498c5a35fa704c9bd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 470112306571589264
+    second: goldenmushroomcut_0
+  - first:
+      213: -69474217022605888
+    second: goldenmushroomcut_1
+  - first:
+      213: 3036126838689609372
+    second: goldenmushroomcut_2
+  - first:
+      213: -7291217345571427806
+    second: goldenmushroomcut_3
+  - first:
+      213: 1239574533510902903
+    second: goldenmushroomcut_4
+  - first:
+      213: -8003948614434614794
+    second: goldenmushroomcut_5
+  - first:
+      213: -1030187931188275571
+    second: goldenmushroomcut_6
+  - first:
+      213: 6077841740312057183
+    second: goldenmushroomcut_7
+  - first:
+      213: 8646934789917104922
+    second: goldenmushroomcut_8
+  - first:
+      213: -8507564666397367029
+    second: goldenmushroomcut_9
+  - first:
+      213: 1323550086062069176
+    second: goldenmushroomcut_10
+  - first:
+      213: 712722752203091441
+    second: goldenmushroomcut_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: goldenmushroomcut_0
+      rect:
+        serializedVersion: 2
+        x: 2467
+        y: 1425
+        width: 52
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0963dbde6ac268600800000000000000
+      internalID: 470112306571589264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_1
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 784
+        width: 266
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c5b155519d290ff0800000000000000
+      internalID: -69474217022605888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_2
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 503
+        width: 306
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96bf11164d722a20800000000000000
+      internalID: 3036126838689609372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_3
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 526
+        width: 291
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22a6c09647460da90800000000000000
+      internalID: -7291217345571427806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_4
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 634
+        width: 264
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774b98e787ad33110800000000000000
+      internalID: 1239574533510902903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_5
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 0
+        width: 212
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f1152454234ce090800000000000000
+      internalID: -8003948614434614794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_6
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 601
+        width: 400
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d86d0a5e88904b1f0800000000000000
+      internalID: -1030187931188275571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_7
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 337
+        width: 304
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f55975c6cd4d85450800000000000000
+      internalID: 6077841740312057183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_8
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 344
+        width: 307
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1bd9f4c065100870800000000000000
+      internalID: 8646934789917104922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_9
+      rect:
+        serializedVersion: 2
+        x: 1822
+        y: 251
+        width: 336
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0568bbc20f0fe980800000000000000
+      internalID: -8507564666397367029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_10
+      rect:
+        serializedVersion: 2
+        x: 2067
+        y: 368
+        width: 336
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5da227ac13e5210800000000000000
+      internalID: 1323550086062069176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcut_11
+      rect:
+        serializedVersion: 2
+        x: 2377
+        y: 194
+        width: 53
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fd6764219914e900800000000000000
+      internalID: 712722752203091441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      goldenmushroomcut_0: 470112306571589264
+      goldenmushroomcut_1: -69474217022605888
+      goldenmushroomcut_10: 1323550086062069176
+      goldenmushroomcut_11: 712722752203091441
+      goldenmushroomcut_2: 3036126838689609372
+      goldenmushroomcut_3: -7291217345571427806
+      goldenmushroomcut_4: 1239574533510902903
+      goldenmushroomcut_5: -8003948614434614794
+      goldenmushroomcut_6: -1030187931188275571
+      goldenmushroomcut_7: 6077841740312057183
+      goldenmushroomcut_8: 8646934789917104922
+      goldenmushroomcut_9: -8507564666397367029
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

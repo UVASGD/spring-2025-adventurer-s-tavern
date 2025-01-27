@@ -1,0 +1,41 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/TastyTavern/UIMenus/TestMenu.uss?fileID=7433441132597879392&amp;guid=f1cc1217737253140819cbb2be7e2192&amp;type=3#TestMenu" />
+    <engine:VisualElement name="RootPanel" style="flex-grow: 1; flex-direction: row;">
+        <engine:VisualElement name="MainPanel" style="flex-grow: 1; height: 1070px; width: 756px;">
+            <engine:VisualElement name="OrderContainer" style="flex-grow: 1; height: 10%; background-color: rgba(255, 255, 255, 0.14);" />
+            <engine:VisualElement name="BarAndStation" style="flex-grow: 1; height: 825px; width: 1336px; flex-direction: column-reverse;">
+                <engine:VisualElement name="StationWorkspaceContainer" style="flex-grow: 1; height: 20%; max-height: 100%; background-color: rgba(232, 71, 5, 0.13);" />
+            </engine:VisualElement>
+            <engine:VisualElement name="BottomPanel" style="flex-grow: 1; height: 15%; background-color: rgba(255, 255, 255, 0.11);" />
+        </engine:VisualElement>
+        <engine:VisualElement name="SidePanel" style="flex-grow: 1; align-items: flex-end; background-color: rgba(128, 128, 128, 0); -unity-text-outline-color: rgba(0, 0, 0, 0); height: 1078px; width: 0; -unity-text-align: upper-left; align-self: flex-end; -unity-background-image-tint-color: rgb(0, 0, 0);">
+            <engine:VisualElement name="SideMenuContainer" style="flex-grow: 1; height: 1082px; width: 579px; flex-direction: column;">
+                <engine:VisualElement name="ActionIngredientPanel" style="flex-grow: 1; height: 291px; width: 581px; flex-direction: row;">
+                    <engine:VisualElement name="ActionSlotContainer" style="flex-grow: 1; flex-direction: row; height: 671px; width: 316px; color: rgb(27, 27, 27); background-color: rgba(0, 0, 0, 0.15); align-self: flex-end;">
+                        <engine:Button class="action-slot slot">
+                            <engine:VisualElement class="action-icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TastyTavern/Art/Demo/knife.png?fileID=2800000&amp;guid=353ea572d83b485418eeed2fad5fc138&amp;type=3#knife&quot;); background-size: 130% 100%;" />
+                            <engine:Label text="Label" class="action-label" />
+                        </engine:Button>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="IngredientsPanel" style="flex-grow: 1; height: 675px; width: 574px;">
+                        <engine:Label text="Ingredients" style="height: 60px; width: 368px; font-size: 40px; -unity-text-align: middle-center;" />
+                        <engine:VisualElement name="IngredientSlotContainer" style="flex-grow: 1; height: 615px; width: 381px; flex-direction: row; background-color: rgba(0, 0, 0, 0.23); flex-wrap: wrap;">
+                            <engine:Button text="Onion" name="onion" class="ingredient-slot" style="background-color: rgb(195, 174, 174);" />
+                            <engine:Button name="Button" class="ingredient-slot" style="-unity-text-align: lower-center; text-overflow: clip; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 15px; margin-right: 0; margin-bottom: 0; margin-left: 15px;">
+                                <engine:VisualElement class="ingredient-icon" style="height: 100%; width: 87%; background-image: url(&quot;project://database/Assets/TastyTavern/Art/Demo/genshinfish.png?fileID=2800000&amp;guid=e61fbf0a0c3e43142b614778b574aa3c&amp;type=3#genshinfish&quot;);" />
+                                <engine:Label text="Golden Mushroom&#10;" selectable="true" class="ingredient-label" />
+                            </engine:Button>
+                            <engine:Button class="ingredient-slot">
+                                <engine:VisualElement class="ingredient-icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TastyTavern/Art/Demo/genshinmushroom.png?fileID=2800000&amp;guid=62c76adf3224d174a94475997571184a&amp;type=3#genshinmushroom&quot;);" />
+                                <engine:Label text="Basilisk Tail" class="ingredient-label" />
+                            </engine:Button>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="OrderInstructionsPanel" style="flex-grow: 1; flex-direction: row; align-self: flex-end; height: 1px; width: 379px;">
+                    <engine:Label text="insert order requirements here" style="height: 392px; width: 363px; font-size: 30px; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0.19);" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

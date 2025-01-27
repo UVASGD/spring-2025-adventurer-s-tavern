@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 047316af9c6fee84e9c195e07132a6db
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5472209900704599258
+    second: goldenmushroomcutcooked_0
+  - first:
+      213: 277792180981133808
+    second: goldenmushroomcutcooked_1
+  - first:
+      213: -2182266895691251133
+    second: goldenmushroomcutcooked_2
+  - first:
+      213: -2716006427795809891
+    second: goldenmushroomcutcooked_3
+  - first:
+      213: -8224129164862812150
+    second: goldenmushroomcutcooked_4
+  - first:
+      213: 1903860314264539187
+    second: goldenmushroomcutcooked_5
+  - first:
+      213: -3592499655166769426
+    second: goldenmushroomcutcooked_6
+  - first:
+      213: -4880859172800849980
+    second: goldenmushroomcutcooked_7
+  - first:
+      213: 5358759959762678659
+    second: goldenmushroomcutcooked_8
+  - first:
+      213: 6093888040550252087
+    second: goldenmushroomcutcooked_9
+  - first:
+      213: 7617392142388234711
+    second: goldenmushroomcutcooked_10
+  - first:
+      213: -8960842291316779459
+    second: goldenmushroomcutcooked_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_0
+      rect:
+        serializedVersion: 2
+        x: 2467
+        y: 1425
+        width: 52
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc8fd369e131fb40800000000000000
+      internalID: 5472209900704599258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_1
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 784
+        width: 266
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1f2cc448aead300800000000000000
+      internalID: 277792180981133808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_2
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 503
+        width: 306
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3428a3d02d707b1e0800000000000000
+      internalID: -2182266895691251133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_3
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 526
+        width: 291
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d999d8f3b8ece4ad0800000000000000
+      internalID: -2716006427795809891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_4
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 634
+        width: 264
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a001c6d09160edd80800000000000000
+      internalID: -8224129164862812150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_5
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 0
+        width: 212
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33093b56ededb6a10800000000000000
+      internalID: 1903860314264539187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_6
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 601
+        width: 400
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee64216f890e42ec0800000000000000
+      internalID: -3592499655166769426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_7
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 337
+        width: 304
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c79f763174b34cb0800000000000000
+      internalID: -4880859172800849980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_8
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 344
+        width: 307
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 383bd3e9ac32e5a40800000000000000
+      internalID: 5358759959762678659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_9
+      rect:
+        serializedVersion: 2
+        x: 1822
+        y: 251
+        width: 336
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ebff5d2e6d19450800000000000000
+      internalID: 6093888040550252087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_10
+      rect:
+        serializedVersion: 2
+        x: 2067
+        y: 368
+        width: 336
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d907e97bc966b960800000000000000
+      internalID: 7617392142388234711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenmushroomcutcooked_11
+      rect:
+        serializedVersion: 2
+        x: 2377
+        y: 194
+        width: 53
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3614c1a961b4a380800000000000000
+      internalID: -8960842291316779459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      goldenmushroomcutcooked_0: 5472209900704599258
+      goldenmushroomcutcooked_1: 277792180981133808
+      goldenmushroomcutcooked_10: 7617392142388234711
+      goldenmushroomcutcooked_11: -8960842291316779459
+      goldenmushroomcutcooked_2: -2182266895691251133
+      goldenmushroomcutcooked_3: -2716006427795809891
+      goldenmushroomcutcooked_4: -8224129164862812150
+      goldenmushroomcutcooked_5: 1903860314264539187
+      goldenmushroomcutcooked_6: -3592499655166769426
+      goldenmushroomcutcooked_7: -4880859172800849980
+      goldenmushroomcutcooked_8: 5358759959762678659
+      goldenmushroomcutcooked_9: 6093888040550252087
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,21 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/TastyTavern/UIMenus/TestMenu.uss?fileID=7433441132597879392&amp;guid=f1cc1217737253140819cbb2be7e2192&amp;type=3#TestMenu" />
+    <engine:VisualElement name="Panel" style="flex-grow: 1; align-items: flex-end; background-color: rgba(128, 128, 128, 0); -unity-text-outline-color: rgba(0, 0, 0, 0); height: 1042px; width: 557px; -unity-text-align: upper-left; align-self: flex-end; -unity-background-image-tint-color: rgb(0, 0, 0);">
+        <engine:VisualElement name="Container" style="flex-grow: 1; height: 1082px; width: 556px; flex-direction: column;">
+            <engine:VisualElement name="CutMenu" style="flex-grow: 1; height: 276px; width: 553px; flex-direction: row;">
+                <engine:VisualElement name="ActionContainer" style="flex-grow: 1; flex-direction: row; height: 671px; width: 257px; color: rgb(27, 27, 27); background-color: rgba(0, 0, 0, 0.15); align-self: flex-end;">
+                    <engine:Button text="Knife" name="Knife" style="height: 281px; width: 155px; background-image: url(&quot;project://database/Assets/TastyTavern/Art/References/knife.png?fileID=761100573506273824&amp;guid=353ea572d83b485418eeed2fad5fc138&amp;type=3#knife_0&quot;); background-size: 100% 100%; font-size: 34px; align-self: center;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="IngredientsPanel" style="flex-grow: 1; height: 675px; width: 574px;">
+                    <engine:Label text="Ingredients" style="height: 60px; width: 368px; font-size: 40px; -unity-text-align: middle-center;" />
+                    <engine:VisualElement name="IngredientsContainer" style="flex-grow: 1; height: 608px; width: 376px; flex-direction: row; background-color: rgba(0, 0, 0, 0.23); flex-wrap: wrap;">
+                        <engine:Button text="Onion" name="onion" class="ingredient" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="OrderInstructionsPanel" style="flex-grow: 1; flex-direction: row; align-self: flex-end; height: 1px; width: 379px;">
+                <engine:Label text="insert order requirements here" style="height: 392px; width: 363px; font-size: 30px; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0.19);" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
