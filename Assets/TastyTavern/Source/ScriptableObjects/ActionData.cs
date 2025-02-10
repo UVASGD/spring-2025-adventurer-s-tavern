@@ -5,7 +5,7 @@ using System.Collections;
 
 public class ActionData : ScriptableObject
 {
-    [field:SerializeField]
+    [field: SerializeField]
     public double ActionTime { get; set; }
 
     [field: SerializeField]
