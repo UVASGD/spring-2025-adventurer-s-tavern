@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "TastyTavern.sln"
+    "dotnet.defaultSolution": "spring-2025-adventurer-s-tavern.sln"
 }

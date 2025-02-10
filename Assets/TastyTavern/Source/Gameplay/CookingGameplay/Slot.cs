@@ -8,6 +8,7 @@ public class Slot : Button {
 
     public Ingredient Ingredient { get; set; }
 
+    // In StationView, each generated IngredientSlot subscribes OnAddIngredient to this
     public event Action<Slot> OnClickIngredient = delegate { };
 
     public Slot(Ingredient ingredient)
