@@ -61,6 +61,12 @@ public class StationView : MonoBehaviour {
         // stationWorkspaceContainer.Clear();
     }
 
+    // combine with initialize?
+    private void LoadStationView(Station station){
+        Debug.Log("View recieved loading request from event channel");
+        InitializeView(station,station.Data.ActionData,station.StockIngredients);
+    }
+
     // ingredients --> live ingredients in the station storage/stock
     // TODO: Change params to just use station
     public void InitializeView(Station station, ActionData actionData,List<Ingredient> ingredients){
@@ -74,9 +80,30 @@ public class StationView : MonoBehaviour {
         // make visible the parent elements for station menus (everything except order tabs)
     }
 
-    private void LoadStationView(Station station){
-        Debug.Log("View recieved loading request from event channel");
-        InitializeView(station,station.Data.ActionData,station.StockIngredients);
+    private void GenerateActionButton(ActionData actionData){
+        ActionButton actionButton = new(actionData);
+        Debug.Log($"Slot created for {actionButton.Data.Name}");
+        actionButton.AddToClassList("action-slot");
+        actionButton.AddToClassList("slot");
+        actionSlotContainer.Add(actionButton);
+        actionButton.OnClickButton += OnAddProperty;
+    }
+
+    private void GenerateIngredientButtons(List<Ingredient> ingredients){
+        foreach(Ingredient ingredient in ingredients){
+            Slot slot = new(ingredient);
+            Debug.Log("Slot created for " + slot.Ingredient.Data.Name);
+            slot.AddToClassList("ingredient-slot"); 
+            slot.AddToClassList("slot");
+            ingredientSlotContainer.Add(slot);
+            slot.OnClickIngredient += OnAddIngredient;
+        }
+    }
+
+    private void GenerateStationBackground(Station station){
+        stationBG = new(){ image = station.Data.Background.texture };
+        stationWorkspaceContainer.Add(stationBG);
+        stationTop = stationBG;
     }
 
     private void OnAddIngredient(Slot slot) {
@@ -109,33 +136,6 @@ public class StationView : MonoBehaviour {
         foreach (var ingredient in station.ActiveIngredients){
             AddToStationWorkspace(ingredient);
         }
-    }
-
-    private void GenerateActionButton(ActionData actionData){
-        ActionButton actionButton = new(actionData);
-        Debug.Log($"Slot created for {actionButton.Data.Name}");
-        actionButton.AddToClassList("action-slot");
-        actionButton.AddToClassList("slot");
-        actionSlotContainer.Add(actionButton);
-        actionButton.OnClickButton += OnAddProperty;
-        // actionSlot.visible = false;
-    }
-
-    private void GenerateIngredientButtons(List<Ingredient> ingredients){
-        foreach(Ingredient ingredient in ingredients){
-            Slot slot = new(ingredient);
-            Debug.Log("Slot created for " + slot.Ingredient.Data.Name);
-            slot.AddToClassList("ingredient-slot"); // make helper methods?
-            slot.AddToClassList("slot");
-            ingredientSlotContainer.Add(slot);
-            slot.OnClickIngredient += OnAddIngredient;
-        }
-    }
-
-    private void GenerateStationBackground(Station station){
-        stationBG = new(){ image = station.Data.Background.texture };
-        stationWorkspaceContainer.Add(stationBG);
-        stationTop = stationBG;
     }
 
 }

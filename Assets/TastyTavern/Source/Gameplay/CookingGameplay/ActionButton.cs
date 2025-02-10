@@ -7,7 +7,7 @@ public class ActionButton : DataButton {
 
     public ActionData Data { get; set; }
 
-    public new event Action<ActionButton> OnClickButton = delegate { };
+    public event Action<ActionButton> OnClickButton = delegate { };
 
     public ActionButton(ActionData data) 
     {

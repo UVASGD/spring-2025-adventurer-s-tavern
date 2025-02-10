@@ -7,9 +7,6 @@ public abstract class DataButton : Button {
     public Label Label = new();
     public Image Icon;
 
-    // This delegate is used to forward OnClick to StationView, where unique logic is applied via subscription
-    public event Action<DataButton> OnClickButton = delegate { };
-
     public DataButton()
     {
         this.clicked += OnClick;
@@ -23,6 +20,7 @@ public abstract class DataButton : Button {
         this.Add(Icon);
     }
 
+    // in concrete child, invoke a delegate
     protected abstract void OnClick();
     
     protected abstract void AddStyles();
