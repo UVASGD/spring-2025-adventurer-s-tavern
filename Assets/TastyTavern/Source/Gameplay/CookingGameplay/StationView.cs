@@ -83,20 +83,16 @@ public class StationView : MonoBehaviour {
     private void GenerateActionButton(ActionData actionData){
         ActionButton actionButton = new(actionData);
         Debug.Log($"Slot created for {actionButton.Data.Name}");
-        actionButton.AddToClassList("action-slot");
-        actionButton.AddToClassList("slot");
         actionSlotContainer.Add(actionButton);
         actionButton.OnClickButton += OnAddProperty;
     }
 
     private void GenerateIngredientButtons(List<Ingredient> ingredients){
         foreach(Ingredient ingredient in ingredients){
-            Slot slot = new(ingredient);
-            Debug.Log("Slot created for " + slot.Ingredient.Data.Name);
-            slot.AddToClassList("ingredient-slot"); 
-            slot.AddToClassList("slot");
-            ingredientSlotContainer.Add(slot);
-            slot.OnClickIngredient += OnAddIngredient;
+            IngredientButton ingredientButton = new(ingredient);
+            Debug.Log("Slot created for " + ingredientButton.Ingredient.Data.Name);
+            ingredientSlotContainer.Add(ingredientButton);
+            ingredientButton.OnClickButton += OnAddIngredient;
         }
     }
 
@@ -106,10 +102,10 @@ public class StationView : MonoBehaviour {
         stationTop = stationBG;
     }
 
-    private void OnAddIngredient(Slot slot) {
-        cookingUIEventChannel.RaiseOnAddIngredient(slot.Ingredient); // adds ingredient, calls refresh
-        slot.SetEnabled(false);
-        slot.RemoveFromClassList("slot");
+    private void OnAddIngredient(IngredientButton ingredientButton ) {
+        cookingUIEventChannel.RaiseOnAddIngredient(ingredientButton.Ingredient); // adds ingredient, calls refresh
+        ingredientButton.SetEnabled(false);
+        ingredientButton.RemoveFromClassList("slot");
     }
 
     private void OnAddProperty(ActionButton actionButton){
@@ -136,6 +132,7 @@ public class StationView : MonoBehaviour {
         foreach (var ingredient in station.ActiveIngredients){
             AddToStationWorkspace(ingredient);
         }
+        Debug.Log(station.ActiveIngredients[0]);
     }
 
 }

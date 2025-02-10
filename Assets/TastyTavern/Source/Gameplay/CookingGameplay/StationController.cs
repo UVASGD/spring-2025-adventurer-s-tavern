@@ -23,11 +23,6 @@ public class StationController : MonoBehaviour
         LoadStation();
     }
 
-    // handle other logic
-
-    // subscribe to view evt, model evt, refresh
-    // REFRESH VIEW HERE 7:34
-
     private void OnEnable()
     {
         cookingUIEventChannel.OnAddIngredient += AddIngredient;
