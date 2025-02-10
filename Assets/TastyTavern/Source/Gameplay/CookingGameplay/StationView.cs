@@ -61,36 +61,17 @@ public class StationView : MonoBehaviour {
         // stationWorkspaceContainer.Clear();
     }
 
-    // add action item in param
     // ingredients --> live ingredients in the station storage/stock
     // TODO: Change params to just use station
     public void InitializeView(Station station, ActionData actionData,List<Ingredient> ingredients){
         Debug.Log("Initializing Station view");
-
         actionSlotContainer.Clear();
-        ActionButton actionButton = new(actionData);
-        // Debug.Log($"Slot created for {actionButton.Data.Name}");
-        actionButton.AddToClassList("action-slot");
-        actionButton.AddToClassList("slot");
-        actionSlotContainer.Add(actionButton);
-        actionButton.OnClickButton += OnAddProperty;
-        // actionSlot.visible = false;
-
         ingredientSlotContainer.Clear();
-        foreach(Ingredient ingredient in ingredients){
-            Slot slot = new(ingredient);
-            Debug.Log("Slot created for " + slot.Ingredient.Data.Name);
-            slot.AddToClassList("ingredient-slot"); // make helper methods?
-            slot.AddToClassList("slot");
-            ingredientSlotContainer.Add(slot);
-            slot.OnClickIngredient += OnAddIngredient;
-        }
-        // if (stationWorkspaceContainer.visible == false){
-        //     stationWorkspaceContainer.visible = true;
-        // }
-        stationBG = new(){ image = station.Data.Background.texture };
-        stationWorkspaceContainer.Add(stationBG);
-        stationTop = stationBG;
+        stationWorkspaceContainer.Clear();
+        GenerateActionButton(actionData);
+        GenerateIngredientButtons(ingredients);
+        GenerateStationBackground(station);
+        // make visible the parent elements for station menus (everything except order tabs)
     }
 
     private void LoadStationView(Station station){
@@ -104,8 +85,8 @@ public class StationView : MonoBehaviour {
         slot.RemoveFromClassList("slot");
     }
 
-    private void OnAddProperty(DataButton actionButton){//is this casting okay? or too jank?
-        cookingUIEventChannel.RaiseOnAddProperty(((ActionData)actionButton.Data).Property); // Property enum actionProperty
+    private void OnAddProperty(ActionButton actionButton){
+        cookingUIEventChannel.RaiseOnAddProperty(actionButton.Data.Property); // Property enum actionProperty
     }
 
     private void AddToStationWorkspace(Ingredient ingredient){
@@ -128,6 +109,33 @@ public class StationView : MonoBehaviour {
         foreach (var ingredient in station.ActiveIngredients){
             AddToStationWorkspace(ingredient);
         }
+    }
+
+    private void GenerateActionButton(ActionData actionData){
+        ActionButton actionButton = new(actionData);
+        Debug.Log($"Slot created for {actionButton.Data.Name}");
+        actionButton.AddToClassList("action-slot");
+        actionButton.AddToClassList("slot");
+        actionSlotContainer.Add(actionButton);
+        actionButton.OnClickButton += OnAddProperty;
+        // actionSlot.visible = false;
+    }
+
+    private void GenerateIngredientButtons(List<Ingredient> ingredients){
+        foreach(Ingredient ingredient in ingredients){
+            Slot slot = new(ingredient);
+            Debug.Log("Slot created for " + slot.Ingredient.Data.Name);
+            slot.AddToClassList("ingredient-slot"); // make helper methods?
+            slot.AddToClassList("slot");
+            ingredientSlotContainer.Add(slot);
+            slot.OnClickIngredient += OnAddIngredient;
+        }
+    }
+
+    private void GenerateStationBackground(Station station){
+        stationBG = new(){ image = station.Data.Background.texture };
+        stationWorkspaceContainer.Add(stationBG);
+        stationTop = stationBG;
     }
 
 }

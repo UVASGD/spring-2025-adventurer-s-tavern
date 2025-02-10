@@ -2,16 +2,26 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+// Inherits helper classes and returns itself on OnClick() with OnClickButton delegate
 public class ActionButton : DataButton {
 
-    public ActionButton(ActionData data) : base(data)
+    public ActionData Data { get; set; }
+
+    public new event Action<ActionButton> OnClickButton = delegate { };
+
+    public ActionButton(ActionData data) 
     {
-        Icon = new(){ image = ((ActionData)Data).Sprite.texture };
-        Label.text = ((ActionData)Data).Name;
+        Data = data;
+        Icon = new(){ image = Data.Sprite.texture };
+        Label.text = Data.Name;
 
         AddStyles();
         AttachIcon();
         AttachLabel();
+    }
+
+    protected override void OnClick(){
+        OnClickButton.Invoke(this);
     }
     
     protected override void AddStyles(){
