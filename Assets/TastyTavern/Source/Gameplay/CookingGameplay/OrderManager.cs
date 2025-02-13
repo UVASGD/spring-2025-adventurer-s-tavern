@@ -63,10 +63,10 @@ public class OrderManager : MonoBehaviour
     {
         allOrders.Add(order);
     }
-    public void SubmitOrder(Order order)
+    public void SubmitOrder(Customer customer)
     {
-        allOrders.Remove(order);
-        if (order.isCorrect())
+        allOrders.Remove(customer.Data.Order);
+        if (customer.Data.Order.isCorrect())
             Debug.Log("Order is correct");
             // other things can happen here like money? etc. like playerMoney += order.Recipe.Price; or something like that
 

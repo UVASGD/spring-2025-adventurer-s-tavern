@@ -103,9 +103,8 @@ public class CustomerController : MonoBehaviour
         return false;
     }
 
-    public void RemoveCustomer(Order order)
+    public void RemoveCustomer(Customer c)
     {
-        Customer c = order.Customer;
         for (int i = 0; i < customers.Length; i++) 
         {
             if (customers[i].Equals(c))

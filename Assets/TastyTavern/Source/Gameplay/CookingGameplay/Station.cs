@@ -34,7 +34,7 @@ public class Station {
     }
 
     // Change data, move new Stock and ingredients in Active and Stored to Stock
-    public void ChangeStation(StationData data, List<IngredientData> stock){
+    public void SwitchStation(StationData data, List<IngredientData> stock){
         this.Data = data;
 
         StockIngredients.Clear();
