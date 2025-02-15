@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -26,13 +27,24 @@ public class Order : MonoBehaviour
     [field: SerializeField]
     public Station CurrentStation { get; set; }
 
+    [field: SerializeField]
+    public int StationIdx { get; set; }
+    
+    public Action<Station> ;
+
     public Order(Customer Customer, RecipeData recipe, Dictionary<IngredientData, List<Property>> SelectedIngredients)
     {
         Served = false;
         this.Customer = Customer;
         Recipe = recipe;
         this.SelectedIngredients = SelectedIngredients;
-        CurrentStation = null; // This needs to be whatever the default station is... I don't know yet
+        StationIdx = 0;
+        CurrentStation = Recipe.StationSequence[0].Create(//starting stock)
+    }
+
+    //later add event channel? I want to rearrange Order creation, for now directly invoke
+    public void LoadStation(){
+        OnLoadStationView?.Invoke(CurrentStation.Data, Recipe.InitialStockSequence[StationIdx].InitialStock);
     }
 
     public bool isCorrect()

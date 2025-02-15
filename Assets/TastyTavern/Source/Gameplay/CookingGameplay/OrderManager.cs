@@ -49,15 +49,14 @@ public class OrderManager : MonoBehaviour
     {
         Debug.Log("Selected Order " + selectedOrder);
         currentOrder = selectedOrder;
-        LoadStation(currentOrder.CurrentStation.Data);
     }
 
-    private void LoadStation(StationData station)
-    {
-        Debug.Log("Loading Station " + station.StationType);
-        // all station logic is updated on station object
-        // update menu where? how does it know the data
-    }
+    // private void LoadStation(StationData station)
+    // {
+    //     Debug.Log("Loading Station " + station.StationType);
+    //     // all station logic is updated on station object
+    //     // update menu where? how does it know the data
+    // }
 
     public void CreateOrder(Order order)
     {
