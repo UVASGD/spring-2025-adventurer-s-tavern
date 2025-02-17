@@ -42,7 +42,7 @@ public class Station {
 
         StockIngredients.Clear();
         foreach (var ingredient in stock){
-            StockIngredients.Add(ingredient);
+            StockIngredients.Add(ingredient.Create());
         }
         StockIngredients.AddRange(StoredIngredients);
         StockIngredients.AddRange(ActiveIngredients);
