@@ -2,10 +2,10 @@
     <Style src="project://database/Assets/TastyTavern/UIMenus/TestMenu.uss?fileID=7433441132597879392&amp;guid=f1cc1217737253140819cbb2be7e2192&amp;type=3#TestMenu" />
     <engine:VisualElement name="RootPanel" style="flex-grow: 1; flex-direction: row;">
         <engine:VisualElement name="MainPanel" style="flex-grow: 1; height: 1070px; width: 756px;">
-            <engine:VisualElement name="TopPanel" style="flex-grow: 1; height: 10%; background-color: rgba(255, 255, 255, 0.14); max-height: 13%;" />
+            <engine:VisualElement name="TopContainer" style="flex-grow: 1; height: 10%; background-color: rgba(255, 255, 255, 0.14); max-height: 13%;" />
             <engine:VisualElement name="BarAndStation" style="flex-grow: 1; height: 825px; width: 1336px; flex-direction: column;">
                 <engine:VisualElement name="StationWorkspaceContainer" style="flex-grow: 1; height: 20%; max-height: 100%; background-color: rgba(232, 71, 5, 0.13);" />
-                <engine:VisualElement name="BottomPanel" style="flex-grow: 1; height: 15%; background-color: rgba(255, 255, 255, 0.11); min-height: 15%; max-height: 15%; flex-direction: row; justify-content: center;">
+                <engine:VisualElement name="BottomContainer" style="flex-grow: 1; height: 15%; background-color: rgba(255, 255, 255, 0.11); min-height: 15%; max-height: 15%; flex-direction: row; justify-content: center;">
                     <engine:Button text="Next Station" name="NextStationButton" class="next-station-button button" />
                 </engine:VisualElement>
             </engine:VisualElement>

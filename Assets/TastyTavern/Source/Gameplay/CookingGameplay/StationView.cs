@@ -19,6 +19,9 @@ public class StationView : MonoBehaviour {
     public VisualElement ingredientSlotContainer;
     public VisualElement actionSlotContainer;
     public VisualElement stationWorkspaceContainer;
+    public VisualElement nextStationContainer;
+    public VisualElement orderContainer;
+
     public VisualElement stationTop;
 
     public Image stationBG;
@@ -48,6 +51,8 @@ public class StationView : MonoBehaviour {
         ingredientSlotContainer = root.Q<VisualElement>("IngredientSlotContainer"); //already style?
         actionSlotContainer = root.Q<VisualElement>("ActionSlotContainer");
         stationWorkspaceContainer = root.Q<VisualElement>("StationWorkspaceContainer");
+        nextStationContainer = root.Q<VisualElement>("BottomContainer");
+        orderContainer = root.Q<VisualElement>("TopContainer");
     }
 
     private void Start(){
@@ -73,15 +78,19 @@ public class StationView : MonoBehaviour {
         actionSlotContainer.Clear();
         ingredientSlotContainer.Clear();
         stationWorkspaceContainer.Clear();
+        nextStationContainer.Clear(); // may not have to clear anymore when hiding station panels, station button stays constant.
+        GenerateNextStationButton();
         GenerateActionButton(actionData);
         GenerateIngredientButtons(ingredients);
         GenerateStationBackground(station);
         // make visible the parent elements for station menus (everything except order tabs)
     }
 
+    // A simple styled button with 
     private void GenerateNextStationButton(){
-        Button nextButton = new(); //add styles, etc
-        // add to container
+        Button nextButton = new();
+        nextButton.AddToClassList("button");
+        nextStationContainer.Add(nextButton);
         nextButton.clicked += OnNextStation;
     }
 
