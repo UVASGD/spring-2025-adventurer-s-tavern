@@ -62,7 +62,7 @@ public class StationView : MonoBehaviour {
     }
     // ***May be easier to have a simple button instead, not attached to station data, go back up to order
     // combine with initialize?
-    private void LoadStationView(Station station, Station nextStation){
+    private void LoadStationView(Station station){
         Debug.Log("View recieved loading request from event channel");
         InitializeView(station,station.Data.ActionData,station.StockIngredients);
     }
