@@ -30,13 +30,13 @@ public class OrderManager : MonoBehaviour
 
     private void OnEnable()
     {
-        cookingUIEventChannel.OnOpenOrder += CreateOrder;
+        cookingUIEventChannel.OnOpenOrder += AddOrder;
         cookingUIEventChannel.OnSubmitOrder += SubmitOrder;
     }
 
     private void OnDisable()
     {
-        cookingUIEventChannel.OnOpenOrder -= CreateOrder;
+        cookingUIEventChannel.OnOpenOrder -= AddOrder;
         cookingUIEventChannel.OnSubmitOrder -= SubmitOrder;
     }
 
@@ -58,7 +58,7 @@ public class OrderManager : MonoBehaviour
     //     // update menu where? how does it know the data
     // }
 
-    public void CreateOrder(Order order)
+    public void AddOrder(Order order)
     {
         allOrders.Add(order);
     }
