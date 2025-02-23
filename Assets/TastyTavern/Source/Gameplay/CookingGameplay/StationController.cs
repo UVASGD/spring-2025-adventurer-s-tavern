@@ -48,25 +48,19 @@ public class StationController : MonoBehaviour
     }
 
     private IEnumerator ExecuteAddProperty(ActionData actionData){
-        yield return StartCoroutine(WaitBeforeApplying(actionData.ActionTime));
+        yield return StartCoroutine(WaitBeforeApplyingProperty(actionData.ActionTime));
 
-        yield return StartCoroutine(ApplyProperty(actionData));
-    }
+        ApplyProperty(actionData);
+    }  
 
-
-    private IEnumerator WaitBeforeApplying(float waitTime){
+    private IEnumerator WaitBeforeApplyingProperty(float waitTime){
         yield return new WaitForSeconds(waitTime);
     }
     
     /// Applies a property to all active ingredients on the station if they don't already have it
     
-    private IEnumerator ApplyProperty(ActionData actionData)
-
-    
+    private void ApplyProperty(ActionData actionData)
     {
-        yield return new WaitForSeconds(2f);
-
-
         foreach (var ingredient in station.ActiveIngredients)
         {
             if(!ingredient.Properties.Contains(actionData.Property)){
