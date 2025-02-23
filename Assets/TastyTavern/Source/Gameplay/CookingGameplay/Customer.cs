@@ -36,6 +36,6 @@ public class Customer : MonoBehaviour
     {
         Debug.Log($"Customer {Data.Name} is {(isSatisfied ? "satisfied" : "dissatisfied")}.");
         // Customer says satisfied or dissatisfied dialogue -> customer is dismissed -> related UI is updated -> allOrders list is updated -> money is received -> etc. Perhaps this could be an event instead if needed
-        cookingUIEventChannel?.RaiseOnSubmitOrder(Data.Order);
+        cookingUIEventChannel?.RaiseOnSubmitOrder(this);
     }
 }

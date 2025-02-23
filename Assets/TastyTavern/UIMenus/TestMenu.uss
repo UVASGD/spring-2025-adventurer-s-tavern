@@ -1,4 +1,4 @@
-.ingredient-slot {
+.ingredient-button {
     width: 44%;
     height: 30%;
     border-top-left-radius: 35px;
@@ -36,14 +36,14 @@
     align-content: flex-start;
 }
 
-.slot:hover {
+.button:hover {
     scale: 1.1 1.1;
     transition-property: scale;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-sine;
 }
 
-.action-slot {
+.action-button {
     height: 424px;
     width: 176px;
     background-image: none;
@@ -72,4 +72,18 @@
 .action-label {
     font-size: 32px;
     height: 15%;
+}
+
+.next-station-button {
+    height: 119px;
+    width: 344px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 16px;
+    margin-left: 10px;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    font-size: 36px;
 }

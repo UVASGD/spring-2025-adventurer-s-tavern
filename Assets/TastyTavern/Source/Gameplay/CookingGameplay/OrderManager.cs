@@ -22,7 +22,7 @@ public class OrderManager : MonoBehaviour
     void Start()
     {
         // ASSUMING SET ORDER AND STATION FOR NOW
-        foreach( var i in currentOrder.CurrentStation.ActiveIngredients)
+        foreach( var i in currentOrder.Station.ActiveIngredients)
         {
             Debug.Log("station has " + i.Data.Name);
         }
@@ -30,13 +30,13 @@ public class OrderManager : MonoBehaviour
 
     private void OnEnable()
     {
-        cookingUIEventChannel.OnOpenOrder += CreateOrder;
+        cookingUIEventChannel.OnOpenOrder += AddOrder;
         cookingUIEventChannel.OnSubmitOrder += SubmitOrder;
     }
 
     private void OnDisable()
     {
-        cookingUIEventChannel.OnOpenOrder -= CreateOrder;
+        cookingUIEventChannel.OnOpenOrder -= AddOrder;
         cookingUIEventChannel.OnSubmitOrder -= SubmitOrder;
     }
 
@@ -49,25 +49,30 @@ public class OrderManager : MonoBehaviour
     {
         Debug.Log("Selected Order " + selectedOrder);
         currentOrder = selectedOrder;
-        LoadStation(currentOrder.CurrentStation.Data);
     }
 
-    private void LoadStation(StationData station)
-    {
-        Debug.Log("Loading Station " + station.StationType);
-        // all station logic is updated on station object
-        // update menu where? how does it know the data
-    }
+    // private void LoadStation(StationData station)
+    // {
+    //     Debug.Log("Loading Station " + station.StationType);
+    //     // all station logic is updated on station object
+    //     // update menu where? how does it know the data
+    // }
 
-    public void CreateOrder(Order order)
+    public void AddOrder(Order order)
     {
         allOrders.Add(order);
     }
-    public void SubmitOrder(Order order)
+    public void SubmitOrder(Customer customer)
     {
-        allOrders.Remove(order);
-        if (order.isCorrect())
+        allOrders.Remove(customer.Data.Order);
+        if (customer.Data.Order.isCorrect())
             Debug.Log("Order is correct");
             // other things can happen here like money? etc. like playerMoney += order.Recipe.Price; or something like that
+
+    }
+
+    // Pass event channel trigger to order
+    public void OnChangeStation(){
+        currentOrder.ChangeNextStation();
     }
 }

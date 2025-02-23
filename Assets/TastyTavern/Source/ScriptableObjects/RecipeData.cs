@@ -21,9 +21,16 @@ public class RecipeData : ScriptableObject
     [field: SerializeField]
     public Dictionary<IngredientData, List<Property>> SelectedIngredients { get; set; } = new Dictionary<IngredientData, List<Property>>();
 
+    [field: SerializeField]
+    public StationData[] StationSequence { get; set; }
 
     [field: SerializeField]
-    public StationType[] StationSequence { get; set; }
+    public InitialStockPerStation[] InitialStockSequence { get; set; }
     // TODO: Add Biome, Station details, maybe NPC
     // Does the Recipe need to know which NPC is associated with it?
+
+    public struct InitialStockPerStation
+    {
+        public List<IngredientData> InitialStock;
+    }
 }

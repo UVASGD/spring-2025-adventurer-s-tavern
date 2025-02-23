@@ -18,5 +18,4 @@ public class  Equipment : ScriptableObject
 
     [field: SerializeField]
     public int Price { get; set; }
-
 }

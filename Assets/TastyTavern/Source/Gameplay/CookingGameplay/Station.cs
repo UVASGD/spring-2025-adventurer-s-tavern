@@ -21,6 +21,8 @@ public class Station {
 
     public List<List<Ingredient>> AllIngredients { get; set; }
 
+    // private CookingUIEventChannel cookingUIEventChannel;
+
     public Station(StationData data, List<IngredientData> stock){
         this.Data = data;
         foreach (var ingredientData in stock){
@@ -35,16 +37,18 @@ public class Station {
 
     // Change data, move new Stock and ingredients in Active and Stored to Stock
     public void ChangeStation(StationData data, List<IngredientData> stock){
+        Debug.Log("Station changed to "+ data.StationType + "in Station.cs");
         this.Data = data;
 
         StockIngredients.Clear();
-        foreach (var ingredientData in stock){
-            StockIngredients.Add(ingredientData.Create());
+        foreach (var ingredient in stock){
+            StockIngredients.Add(ingredient.Create());
         }
         StockIngredients.AddRange(StoredIngredients);
         StockIngredients.AddRange(ActiveIngredients);
         ActiveIngredients.Clear();
         StoredIngredients.Clear();
+        // cookingUIEventChannel.RaiseOnRefreshStationView(this);
     }
 
     /// Adds ingredient to current active workspace (from stock)

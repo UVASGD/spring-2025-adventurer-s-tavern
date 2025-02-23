@@ -12,7 +12,7 @@ public class CookingUIEventChannel : ScriptableObject {
     public Action<Ingredient> OnAddIngredient;
 
     /// <summary> Callback when a property is added to the ingredients on the working station of the current order </summary>
-    public Action<Property> OnAddProperty;
+    public Action<ActionData> OnAddProperty;
 
     public Action<Station> OnLoadStationView;
 
@@ -22,26 +22,32 @@ public class CookingUIEventChannel : ScriptableObject {
     public Action<Order> OnOpenOrder;
 
     /// Callback when an order is submitted in the UI by the player
-    public Action<Order> OnSubmitOrder;
+    public Action<Customer> OnSubmitOrder;
+
+    /// </summary> Callback when the player's money is changed, either by being paid or paying for items </summary>
+    public Action<float> OnChangePlayerMoney;
+
+    /// Callback when player wants to go to the next station
+    public Action OnChangeNextStation;
 
     public void RaiseOnAddIngredient(Ingredient ingredient){
-        Debug.Log("Raise on " + ingredient.Data.Name + " broadcasted from event channel.");
+        Debug.Log("Raise adding " + ingredient.Data.Name + " ingredient broadcasted from event channel.");
         OnAddIngredient?.Invoke(ingredient);
     }
-
-    public void RaiseOnAddProperty(Property actionProperty){
-        Debug.Log("Raise adding " + actionProperty + " broadcasted from event channel.");
-        OnAddProperty?.Invoke(actionProperty);
+    
+    public void RaiseOnAddProperty(ActionData actionData){
+        Debug.Log("Raise adding " + actionData + " property broadcasted from event channel.");
+        OnAddProperty?.Invoke(actionData); 
     }
-
+    
     public void RaiseOpenOrder(Order Order)
     {
         OnOpenOrder?.Invoke(Order);
     }
 
-    public void RaiseOnSubmitOrder(Order Order)
+    public void RaiseOnSubmitOrder(Customer Customer)
     {
-        OnSubmitOrder?.Invoke(Order);
+        OnSubmitOrder?.Invoke(Customer);
     }
     public void RaiseOnLoadStationView(Station station){
         Debug.Log("Raise loading " + station.Data.StationType + " broadcasted from event channel.");
@@ -52,4 +58,12 @@ public class CookingUIEventChannel : ScriptableObject {
         OnRefreshStationView?.Invoke(station);
     }
 
+    public void RaiseOnChangeNextStation(){
+        OnChangeNextStation?.Invoke();
+    }
+
+    public void RaiseOnChangePlayerMoney(float money)
+    {
+        OnChangePlayerMoney?.Invoke(money);
+    }
 }
