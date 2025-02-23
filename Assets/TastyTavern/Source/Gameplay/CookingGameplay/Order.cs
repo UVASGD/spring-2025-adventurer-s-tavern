@@ -25,10 +25,10 @@ public class Order : MonoBehaviour
     public bool Served { get; set; }
 
     [field: SerializeField]
-    public Station Station { get; set; }
+    public Station CurrentStation { get; set; }
 
     [field: SerializeField]
-    public int StationIdx { get; set; }
+    public int CurrentStationIdx { get; set; }
 
     public Order(Customer Customer, RecipeData recipe, Dictionary<IngredientData, List<Property>> SelectedIngredients)
     {
@@ -36,20 +36,20 @@ public class Order : MonoBehaviour
         this.Customer = Customer;
         Recipe = recipe;
         this.SelectedIngredients = SelectedIngredients;
-        StationIdx = 0;
-        Station = Recipe.StationSequence[0].Create(Recipe.InitialStockSequence[StationIdx].InitialStock);
+        CurrentStationIdx = 0;
+        CurrentStation = Recipe.StationSequence[0].Create(Recipe.InitialStockSequence[CurrentStationIdx].InitialStock);
     }
 
     // Order manager triggers station change
     // for now assuming button is not present at last station
     public void ChangeNextStation(){
-        StationIdx++;
-        Station.ChangeStation(Recipe.StationSequence[StationIdx],Recipe.InitialStockSequence[StationIdx].InitialStock);
+        CurrentStationIdx++;
+        CurrentStation.ChangeStation(Recipe.StationSequence[CurrentStationIdx],Recipe.InitialStockSequence[CurrentStationIdx].InitialStock);
     }
 
     public bool isCorrect()
     {
-        foreach (Ingredient ingredient in Station.ActiveIngredients)
+        foreach (Ingredient ingredient in CurrentStation.ActiveIngredients)
         {
             if (SelectedIngredients.Keys.Contains(ingredient.Data) && AreListsEqual(SelectedIngredients[ingredient.Data], ingredient.Properties)) return false;
         }

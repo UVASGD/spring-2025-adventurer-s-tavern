@@ -22,7 +22,7 @@ public class OrderManager : MonoBehaviour
     void Start()
     {
         // ASSUMING SET ORDER AND STATION FOR NOW
-        foreach( var i in currentOrder.Station.ActiveIngredients)
+        foreach( var i in currentOrder.CurrentStation.ActiveIngredients)
         {
             Debug.Log("station has " + i.Data.Name);
         }

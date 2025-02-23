@@ -36,6 +36,8 @@ public class StationController : MonoBehaviour
         cookingUIEventChannel.OnAddProperty -= StartAddProperty;
     }
 
+    // all the below functions can be moved to station, but can't call coroutine from monobehavior?
+
     /// Adds ingredient to current active workspace (from stock)
     private void AddIngredient(Ingredient ingredient)
     {
