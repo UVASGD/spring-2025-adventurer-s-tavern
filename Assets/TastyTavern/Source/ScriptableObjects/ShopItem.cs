@@ -20,7 +20,7 @@ public class ShopItem : ScriptableObject
     public Sprite Icon { get; set; }
 
     [field: SerializeField]
-    public bool Purchased { get; set; }
+    public bool Purchased { get; set; } = false; //default false?
 
     public enum ItemType
     {
