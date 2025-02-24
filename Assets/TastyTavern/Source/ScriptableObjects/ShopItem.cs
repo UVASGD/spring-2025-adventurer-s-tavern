@@ -32,5 +32,4 @@ public class ShopItem : ScriptableObject
     
     [field: SerializeField]
     public ItemType Type { get; set; }
-    }
 }
