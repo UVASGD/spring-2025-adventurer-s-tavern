@@ -2,7 +2,20 @@
     <Style src="project://database/Assets/TastyTavern/UIMenus/TestMenu.uss?fileID=7433441132597879392&amp;guid=f1cc1217737253140819cbb2be7e2192&amp;type=3#TestMenu" />
     <engine:VisualElement name="RootPanel" style="flex-grow: 1; flex-direction: row;">
         <engine:VisualElement name="MainPanel" style="flex-grow: 1; height: 1070px; width: 756px;">
-            <engine:VisualElement name="TopContainer" style="flex-grow: 1; height: 10%; background-color: rgba(255, 255, 255, 0.14); max-height: 13%;" />
+            <engine:VisualElement name="TopContainer" style="flex-grow: 1; height: 10%; background-color: rgba(255, 255, 255, 0.14); max-height: 13%; flex-direction: row;">
+                <engine:VisualElement name="Order1" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
+                    <engine:Button style="height: 118px; width: 356px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; border-top-left-radius: 28px; border-top-right-radius: 28px; border-bottom-right-radius: 28px; border-bottom-left-radius: 28px; flex-direction: row;">
+                        <engine:Label text="Label" style="font-size: 30px; margin-top: 11px; margin-right: 11px; margin-bottom: 11px; margin-left: 11px;" />
+                        <engine:VisualElement style="flex-grow: 1; height: 63px; width: 187px; background-color: rgba(255, 84, 84, 0.47); margin-top: 11px; margin-right: 11px; margin-bottom: 11px; margin-left: 11px;" />
+                    </engine:Button>
+                </engine:VisualElement>
+                <engine:VisualElement name="Order2" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
+                    <engine:Button text="Button" style="height: 118px; width: 356px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; border-top-left-radius: 32px; border-top-right-radius: 32px; border-bottom-right-radius: 32px; border-bottom-left-radius: 32px;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="Order3" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
+                    <engine:Button text="Button" style="height: 118px; width: 356px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; border-top-left-radius: 32px; border-top-right-radius: 32px; border-bottom-right-radius: 32px; border-bottom-left-radius: 32px;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
             <engine:VisualElement name="BarAndStation" style="flex-grow: 1; height: 825px; width: 1336px; flex-direction: column;">
                 <engine:VisualElement name="StationWorkspaceContainer" style="flex-grow: 1; height: 20%; max-height: 100%; background-color: rgba(232, 71, 5, 0.13);" />
                 <engine:VisualElement name="BottomContainer" style="flex-grow: 1; height: 15%; background-color: rgba(255, 255, 255, 0.11); min-height: 15%; max-height: 15%; flex-direction: row; justify-content: center;">
