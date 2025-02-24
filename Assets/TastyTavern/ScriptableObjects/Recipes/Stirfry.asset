@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66598e149b2d230419ad673b6c9c5c91, type: 3}
   m_Name: Stirfry
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
-  <Description>k__BackingField: 
-  <Price>k__BackingField: 0
+  <Name>k__BackingField: Basilisk Stir Fry
+  <Description>k__BackingField: Stir-fried diced basilisk
+  <Price>k__BackingField: 100
   <Icon>k__BackingField: {fileID: 0}
   <Ingredients>k__BackingField:
-  - {fileID: 11400000, guid: bb0e59e5722ad564fa97f77f06198c75, type: 2}
-  <StationSequence>k__BackingField: 03000000
+  - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
+  <Properties>k__BackingField:
+  - Properties: 0000000001000000
+  <StationSequence>k__BackingField:
+  - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
+  - {fileID: 11400000, guid: 865f815cb1e69f146ba2c092346510d0, type: 2}
+  <InitialStockSequence>k__BackingField:
+  - InitialStock:
+    - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}

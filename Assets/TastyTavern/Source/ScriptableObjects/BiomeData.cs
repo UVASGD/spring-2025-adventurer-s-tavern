@@ -15,7 +15,7 @@ public class BiomeData : ScriptableObject
 
     // How much the spell to get to this biome will cost in the shop
     [field:SerializeField]
-    public int CostOfEntry { get; set; }
+    public int Price { get; set; }
 
     // The number of the biome within the order that it appears. E.g. starting biome = 1, next biome = 2, etc.
     [field: SerializeField]

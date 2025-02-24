@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Order : MonoBehaviour
+public class Order
 {
     // [field: SerializeField]
     // public int OrderSlot { get; set; }
@@ -30,6 +30,9 @@ public class Order : MonoBehaviour
     [field: SerializeField]
     public int StationIdx { get; set; }
 
+    [field: SerializeField]
+    public CookingUIEventChannel cookingUIEventChannel { get; set; }
+
     public Order(Customer Customer, RecipeData recipe, Dictionary<IngredientData, List<Property>> SelectedIngredients)
     {
         Served = false;
@@ -37,7 +40,7 @@ public class Order : MonoBehaviour
         Recipe = recipe;
         this.SelectedIngredients = SelectedIngredients;
         StationIdx = 0;
-        Station = Recipe.StationSequence[0].Create(Recipe.InitialStockSequence[StationIdx].InitialStock);
+        Station = Recipe.StationSequence[0].Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel);
     }
 
     // Order manager triggers station change

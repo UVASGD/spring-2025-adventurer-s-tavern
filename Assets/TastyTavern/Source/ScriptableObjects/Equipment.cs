@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "Equiptment", menuName = "ScriptableObjects/Equiptment", order = 0)]
-public class  Equiptment : ScriptableObject 
+public class  Equipment : ScriptableObject 
 {
 
     [field: SerializeField]
@@ -16,4 +16,6 @@ public class  Equiptment : ScriptableObject
     [field: SerializeField]
     public Sprite[] Sprites { get; set; }  
 
+    [field: SerializeField]
+    public int Price { get; set; }
 }

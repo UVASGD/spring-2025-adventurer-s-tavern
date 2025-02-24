@@ -17,6 +17,9 @@ public class IngredientData : ScriptableObject
     [field: SerializeField]
     public Sprite[] Sprites { get; set; }  
 
+    [field: SerializeField]
+    public int Price { get; set; }
+
     // Factory method to make instance of Ingredient
     public Ingredient Create(){
         return new Ingredient(this);

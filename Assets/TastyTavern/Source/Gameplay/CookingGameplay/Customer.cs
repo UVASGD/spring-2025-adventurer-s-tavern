@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Customer : MonoBehaviour
@@ -9,19 +10,50 @@ public class Customer : MonoBehaviour
     [field: SerializeField]
     private CookingUIEventChannel cookingUIEventChannel;
 
+    [field: SerializeField]
+    public MenuManager MenuManager { get; set; }
+
+
+    // ONLY FOR DEBUGGING PURPOSES
+    [field: SerializeField]
+    public string orderName;
+
+    private void Update()
+    {
+        if (Data.Order != null)
+        {
+            orderName = Data.Order.Recipe.Name;
+        }
+    }
+
     public void Initialize(CustomerData data)
     {
         Data = data;
-
-        // Set the customer reference in the order
-        if (Data.Order != null)
-        {
-            Data.Order.Customer = this;
-        }
-
+        Data.Order = GenerateOrder();
         // Debug info or appearance setup (e.g., sprites, dialogue)
         Debug.Log($"Customer {Data.Name} initialized with patience {Data.Patience}.");
         PlaceCustomerOrder(Data.Order);
+    }
+
+    private Order GenerateOrder()
+    {
+        System.Random rand = new System.Random();
+        RecipeData recipe = MenuManager.GetRandomRecipeFromMenu();
+
+        // Customization logic
+        Dictionary<IngredientData, List<Property>> selectedIngredients = new Dictionary<IngredientData, List<Property>>();
+
+        for (int i = 0; i < recipe.Ingredients.Count; i++)
+        {
+            selectedIngredients.Add(recipe.Ingredients[i], recipe.Properties[i].Properties);
+        }
+
+        /**if (rand.Next(0, 4) == 3) // 1/4 chance
+        {
+            selectedIngredients.Remove(selectedIngredients.ElementAt(rand.Next(0, selectedIngredients.Count - 1)).Key);
+        }**/
+
+        return new Order(this, recipe, selectedIngredients);
     }
 
     private void PlaceCustomerOrder(Order order)

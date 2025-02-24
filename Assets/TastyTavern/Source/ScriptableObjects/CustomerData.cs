@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
 
-public class CustomerData : MonoBehaviour{ // change to class?
+public class CustomerData{ // change to class?
     
     [field: SerializeField]
     public string Name { get; set; }
@@ -43,21 +43,6 @@ public class CustomerData : MonoBehaviour{ // change to class?
         Dialogue = dialogue;
         Patience = patience;
         Biome = biome;
-        Order = GenerateOrder();
-    }
-
-    private Order GenerateOrder()
-    {
-        System.Random rand = new System.Random();
-        RecipeData recipe = new RecipeData(); // Temporary, replace with a centralized menu system
-
-        // Customization logic
-        Dictionary<IngredientData, List<Property>> selectedIngredients = recipe.SelectedIngredients;
-        if (rand.Next(0, 4) == 3) // 1/4 chance
-        {
-            selectedIngredients.Remove(selectedIngredients.ElementAt(rand.Next(0, selectedIngredients.Count - 1)).Key);
-        }
-
-        return new Order(null, recipe, selectedIngredients); // Order's "Customer" field will be set later.
+        Order = null; // setting later
     }
 }
