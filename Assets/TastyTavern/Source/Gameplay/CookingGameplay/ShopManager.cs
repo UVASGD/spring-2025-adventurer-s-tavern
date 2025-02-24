@@ -17,50 +17,49 @@ using System.Collections.Generic;
 
 public class ShopManager
 {
-    private Dictionary<string, int> inventory;
-    // Has: ingredients, recipies, equipment, biomes
-    // private Dictionary<string, int> prices; -> each object has its own price field
-
+    private List<ShopItem> inventory;
     public ShopManager()
     {
-        inventory = new Dictionary<string, int>(); // list of arrays where each array = item [name, price, status, icon, description]
-        //prices = new Dictionary<string, int>();
+        inventory = ShopData.ShopItems;
     }
 
-    public void AddItem(string itemName, int quantity, int price)
+    /* Player can buy an item under the following conditions
+        1. They have enough gold
+        2. The item is not already purchased
+    If the player meets these conditions, the item is marked as purchased and the player's gold is reduced by the item's price
+    public bool BuyItem(ShopItem item, ref int playerGold) 
+    */
+    public bool BuyItem(ShopItem item, ref int playerGold)
     {
-        if (inventory.ContainsKey(itemName))
+        playerGold = PlayerManager.Money;
+        if (playerGold >= item.Price)
         {
-            inventory[itemName] += quantity;
+            if (item.Purchased = true)
+            {
+                Debug.Log("You already bought that item!");
+                return false;
+            } else {
+                playerGold -= item.Price;
+                item.Purchased = true;
+                Debug.Log($"You bought {item.Name} for {item.Price} gold!");
+                //how to update information in player?
+
+                return true;
+            }
         }
         else
         {
-            inventory[itemName] = quantity;
-            //prices[itemName] = price;
+            Debug.Log("You don't have enough gold to buy that item!");
+            return false;
         }
     }
 
-    // public bool BuyItem(string itemName, int quantity, ref int playerGold)
-    // {
-    //     if (inventory.ContainsKey(itemName) && inventory[itemName] >= quantity)
-    //     {
-    //         int totalCost = prices[itemName] * quantity;
-    //         if (playerGold >= totalCost)
-    //         {
-    //             inventory[itemName] -= quantity;
-    //             playerGold -= totalCost;
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-
     // public void DisplayInventory()
     // {
-    //     Console.WriteLine("Shop Inventory:");
+    //     Debug.Log("Shop Inventory:");
     //     foreach (var item in inventory)
     //     {
-    //         Console.WriteLine($"{item.Key}: {item.Value} available at {prices[item.Key]} gold each");
+    //         Debug.Log($"{item.Name}: {item.Description}, {item.Price} gold, Purchased: {item.Purchased}");
     //     }
     // }
 }
