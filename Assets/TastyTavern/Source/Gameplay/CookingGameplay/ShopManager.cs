@@ -15,13 +15,13 @@
 using System;
 using System.Collections.Generic;
 
-public class Shop
+public class ShopManager
 {
     private Dictionary<string, int> inventory;
     // Has: ingredients, recipies, equipment, biomes
     // private Dictionary<string, int> prices; -> each object has its own price field
 
-    public Shop()
+    public ShopManager()
     {
         inventory = new Dictionary<string, int>(); // list of arrays where each array = item [name, price, status, icon, description]
         //prices = new Dictionary<string, int>();
