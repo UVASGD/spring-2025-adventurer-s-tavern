@@ -3,6 +3,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using System.Collections;
 
 public class OrderManager : MonoBehaviour
 {
@@ -16,30 +17,50 @@ public class OrderManager : MonoBehaviour
     private Order currentOrder; 
 
     [SerializeField]
-    private List<Order> allOrders; 
+    private List<Order> allOrders = new(); 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // ASSUMING SET ORDER AND STATION FOR NOW
-        foreach( var i in currentOrder.CurrentStation.ActiveIngredients)
-        {
-            Debug.Log("station has " + i.Data.Name);
+        if (currentOrder != null){
+            foreach( var i in currentOrder.Station.ActiveIngredients)
+            {
+                Debug.Log("station has " + i.Data.Name);
+            }
         }
     }
 
     private void OnEnable()
     {
-        cookingUIEventChannel.OnOpenOrder += CreateOrder;
+        cookingUIEventChannel.OnOpenOrder += AddOrder;
         cookingUIEventChannel.OnSubmitOrder += SubmitOrder;
+        cookingUIEventChannel.OnAddProperty += StartAddProperty;
     }
 
     private void OnDisable()
     {
-        cookingUIEventChannel.OnOpenOrder -= CreateOrder;
+        cookingUIEventChannel.OnOpenOrder -= AddOrder;
         cookingUIEventChannel.OnSubmitOrder -= SubmitOrder;
+        cookingUIEventChannel.OnAddProperty -= StartAddProperty;
     }
 
+    private void StartAddProperty(ActionData actionData)
+    {
+        StartCoroutine(ExecuteAddProperty(actionData));
+    }
+
+    private IEnumerator ExecuteAddProperty(ActionData actionData)
+    {
+        yield return StartCoroutine(WaitBeforeApplying(actionData.ActionTime));
+
+        currentOrder.Station.ApplyProperty(actionData);
+    }
+
+    private IEnumerator WaitBeforeApplying(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+    }
 
     /// <summary>
     /// Changes the current order to the newly selected order.
@@ -49,25 +70,31 @@ public class OrderManager : MonoBehaviour
     {
         Debug.Log("Selected Order " + selectedOrder);
         currentOrder = selectedOrder;
-        LoadStation(currentOrder.CurrentStation.Data);
     }
 
-    private void LoadStation(StationData station)
-    {
-        Debug.Log("Loading Station " + station.StationType);
-        // all station logic is updated on station object
-        // update menu where? how does it know the data
-    }
+    // private void LoadStation(StationData station)
+    // {
+    //     Debug.Log("Loading Station " + station.StationType);
+    //     // all station logic is updated on station object
+    //     // update menu where? how does it know the data
+    // }
 
-    public void CreateOrder(Order order)
+    public void AddOrder(Order order)
     {
+        order.cookingUIEventChannel = cookingUIEventChannel;
         allOrders.Add(order);
     }
-    public void SubmitOrder(Order order)
+    public void SubmitOrder(Customer customer)
     {
-        allOrders.Remove(order);
-        if (order.isCorrect())
+        allOrders.Remove(customer.Data.Order);
+        if (customer.Data.Order.isCorrect())
             Debug.Log("Order is correct");
             // other things can happen here like money? etc. like playerMoney += order.Recipe.Price; or something like that
+
+    }
+
+    // Pass event channel trigger to order
+    public void OnChangeStation(){
+        currentOrder.ChangeNextStation();
     }
 }

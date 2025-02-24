@@ -1,8 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Order : MonoBehaviour
+public class Order
 {
     // [field: SerializeField]
     // public int OrderSlot { get; set; }
@@ -24,7 +25,13 @@ public class Order : MonoBehaviour
     public bool Served { get; set; }
 
     [field: SerializeField]
-    public Station CurrentStation { get; set; }
+    public Station Station { get; set; }
+
+    [field: SerializeField]
+    public int StationIdx { get; set; }
+
+    [field: SerializeField]
+    public CookingUIEventChannel cookingUIEventChannel { get; set; }
 
     public Order(Customer Customer, RecipeData recipe, Dictionary<IngredientData, List<Property>> SelectedIngredients)
     {
@@ -32,12 +39,20 @@ public class Order : MonoBehaviour
         this.Customer = Customer;
         Recipe = recipe;
         this.SelectedIngredients = SelectedIngredients;
-        CurrentStation = null; // This needs to be whatever the default station is... I don't know yet
+        StationIdx = 0;
+        Station = Recipe.StationSequence[0].Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel);
+    }
+
+    // Order manager triggers station change
+    // for now assuming button is not present at last station
+    public void ChangeNextStation(){
+        StationIdx++;
+        Station.ChangeStation(Recipe.StationSequence[StationIdx],Recipe.InitialStockSequence[StationIdx].InitialStock);
     }
 
     public bool isCorrect()
     {
-        foreach (Ingredient ingredient in CurrentStation.ActiveIngredients)
+        foreach (Ingredient ingredient in Station.ActiveIngredients)
         {
             if (SelectedIngredients.Keys.Contains(ingredient.Data) && AreListsEqual(SelectedIngredients[ingredient.Data], ingredient.Properties)) return false;
         }

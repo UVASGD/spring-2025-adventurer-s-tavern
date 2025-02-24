@@ -21,8 +21,12 @@ public class Station {
 
     public List<List<Ingredient>> AllIngredients { get; set; }
 
-    public Station(StationData data, List<IngredientData> stock){
+    [field: SerializeField]
+    public CookingUIEventChannel cookingUIEventChannel { get; set; }
+
+    public Station(StationData data, List<IngredientData> stock, CookingUIEventChannel cookingUIEventChannel){
         this.Data = data;
+        this.cookingUIEventChannel = cookingUIEventChannel;
         foreach (var ingredientData in stock){
             StockIngredients.Add(ingredientData.Create());
         }
@@ -33,22 +37,53 @@ public class Station {
         };
     }
 
+    private void OnEnable()
+    {
+        cookingUIEventChannel.OnAddIngredient += AddIngredient;
+    }
+
+    private void OnDisable() 
+    {
+        cookingUIEventChannel.OnAddIngredient -= AddIngredient;
+    }
+
+    /// Adds ingredient to current active workspace (from stock)
+    private void AddIngredient(Ingredient ingredient)
+    {
+        AddToActive(ingredient);
+        cookingUIEventChannel.RaiseOnRefreshStationView(this);
+    }
+    
+    /// Applies a property to all active ingredients on the station if they don't already have it
+    
+    public void ApplyProperty(ActionData actionData)
+    {
+        foreach (var ingredient in ActiveIngredients)
+        {
+            if(!ingredient.Properties.Contains(actionData.Property)){
+                ingredient.Properties.Add(actionData.Property);
+            }
+        }
+        cookingUIEventChannel.RaiseOnRefreshStationView(this);
+    }
+
     // Change data, move new Stock and ingredients in Active and Stored to Stock
     public void ChangeStation(StationData data, List<IngredientData> stock){
+        Debug.Log("Station changed to "+ data.StationType + "in Station.cs");
         this.Data = data;
 
         StockIngredients.Clear();
-        foreach (var ingredientData in stock){
-            StockIngredients.Add(ingredientData.Create());
+        foreach (var ingredient in stock){
+            StockIngredients.Add(ingredient.Create());
         }
         StockIngredients.AddRange(StoredIngredients);
         StockIngredients.AddRange(ActiveIngredients);
         ActiveIngredients.Clear();
         StoredIngredients.Clear();
+        cookingUIEventChannel.RaiseOnRefreshStationView(this);
     }
 
     /// Adds ingredient to current active workspace (from stock)
-    /// If the station type is cutting board, store active when a new ingredient is added
     /// TODO: Animation into storage?
     public void AddToActive(Ingredient ingredient){
         if (Data.StationType == StationType.CuttingBoard){

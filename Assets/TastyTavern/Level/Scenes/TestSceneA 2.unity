@@ -151,8 +151,55 @@ Transform:
   - {fileID: 694973455}
   - {fileID: 1576878004}
   - {fileID: 835449715}
+  - {fileID: 263837435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &263837434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263837435}
+  - component: {fileID: 263837436}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263837435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263837434}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.81857073, y: -0.2607825, z: 1.218497}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 237096232}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &263837436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263837434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff6caae4df5339488dbf83f80cb6288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Menu:
+  - {fileID: 11400000, guid: b57b1b53da1e4e742b7bf1989a8fac48, type: 2}
 --- !u!1 &652298024
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &694973455
 Transform:
   m_ObjectHideFlags: 0
@@ -297,9 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookingUIEventChannel: {fileID: 11400000, guid: 98faadf6e98d87049badef501f757299, type: 2}
-  customerController: {fileID: 0}
-  currentOrder: {fileID: 0}
-  allOrders: []
+  customerController: {fileID: 835449716}
 --- !u!1 &835449714
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +399,7 @@ MonoBehaviour:
   - {fileID: 670271784}
   - {fileID: 1489347291}
   - {fileID: 2026663270}
+  MenuManager: {fileID: 263837436}
 --- !u!1 &884455394
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +559,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1576878004}
-  - component: {fileID: 1576878005}
   m_Layer: 0
   m_Name: StationController
   m_TagString: Untagged
@@ -536,23 +581,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 237096232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1576878005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576878003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 242299bd4c06c1d458a0fa6195d5c536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stationData: {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
-  testStock:
-  - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
-  - {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
-  cookingUIEventChannel: {fileID: 11400000, guid: 98faadf6e98d87049badef501f757299, type: 2}
 --- !u!1 &2026663269
 GameObject:
   m_ObjectHideFlags: 0

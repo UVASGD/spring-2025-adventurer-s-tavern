@@ -34,6 +34,9 @@ public class CustomerController : MonoBehaviour
     [SerializeField]
     private List<Transform> CustomerSpots;
 
+    [SerializeField]
+    private MenuManager MenuManager;
+
     void Start()
     {
         
@@ -90,7 +93,9 @@ public class CustomerController : MonoBehaviour
 
                 // Instantiate prefab and initialize
                 GameObject customerObj = Instantiate(customerPrefab, CustomerSpots[i].position, Quaternion.identity);
+                
                 Customer customerScript = customerObj.GetComponent<Customer>();
+                customerScript.MenuManager = MenuManager;
                 customerScript.Initialize(data);
 
                 // Track the customer
@@ -103,9 +108,8 @@ public class CustomerController : MonoBehaviour
         return false;
     }
 
-    public void RemoveCustomer(Order order)
+    public void RemoveCustomer(Customer c)
     {
-        Customer c = order.Customer;
         for (int i = 0; i < customers.Length; i++) 
         {
             if (customers[i].Equals(c))
