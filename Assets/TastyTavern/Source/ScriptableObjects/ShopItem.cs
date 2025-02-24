@@ -22,13 +22,14 @@ public class ShopItem : ScriptableObject
     [field: SerializeField]
     public bool Purchased { get; set; }
 
-    [field: SerializeField]
     public enum ItemType
     {
         Ingredient,
         Recipe,
         Equipment,
         Biome
-    } { get; set; } //???
+    } 
+    [field: SerializeField]
+    public ItemType Type { get; set; }
 
 }
