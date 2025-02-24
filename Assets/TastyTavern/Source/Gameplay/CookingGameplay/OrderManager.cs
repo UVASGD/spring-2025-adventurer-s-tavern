@@ -16,15 +16,17 @@ public class OrderManager : MonoBehaviour
     private Order currentOrder; 
 
     [SerializeField]
-    private List<Order> allOrders; 
+    private List<Order> allOrders = new(); 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // ASSUMING SET ORDER AND STATION FOR NOW
-        foreach( var i in currentOrder.Station.ActiveIngredients)
-        {
-            Debug.Log("station has " + i.Data.Name);
+        if (currentOrder != null){
+            foreach( var i in currentOrder.Station.ActiveIngredients)
+            {
+                Debug.Log("station has " + i.Data.Name);
+            }
         }
     }
 
@@ -60,6 +62,7 @@ public class OrderManager : MonoBehaviour
 
     public void AddOrder(Order order)
     {
+        order.cookingUIEventChannel = cookingUIEventChannel;
         allOrders.Add(order);
     }
     public void SubmitOrder(Customer customer)

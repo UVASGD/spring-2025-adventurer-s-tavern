@@ -30,6 +30,9 @@ public class Order
     [field: SerializeField]
     public int StationIdx { get; set; }
 
+    [field: SerializeField]
+    public CookingUIEventChannel cookingUIEventChannel { get; set; }
+
     public Order(Customer Customer, RecipeData recipe, Dictionary<IngredientData, List<Property>> SelectedIngredients)
     {
         Served = false;
@@ -37,7 +40,7 @@ public class Order
         Recipe = recipe;
         this.SelectedIngredients = SelectedIngredients;
         StationIdx = 0;
-        Station = Recipe.StationSequence[0].Create(Recipe.InitialStockSequence[StationIdx].InitialStock);
+        Station = Recipe.StationSequence[0].Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel);
     }
 
     // Order manager triggers station change
