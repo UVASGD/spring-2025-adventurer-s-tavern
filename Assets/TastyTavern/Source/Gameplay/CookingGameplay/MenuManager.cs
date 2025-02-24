@@ -1,22 +1,11 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using System;
 
 public class MenuManager : MonoBehaviour
 {
     public List<RecipeData> Menu = new List<RecipeData>();
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void AddToMenu(RecipeData recipe)
     {
@@ -26,5 +15,10 @@ public class MenuManager : MonoBehaviour
     public void RemoveFromMenu(RecipeData recipe)
     {
         Menu.Remove(recipe);
+    }
+
+    public RecipeData GetRandomRecipeFromMenu()
+    {
+        return Menu[new System.Random().Next(Menu.Count)];
     }
 }
