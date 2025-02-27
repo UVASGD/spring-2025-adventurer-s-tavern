@@ -6,6 +6,10 @@ public class StationData : ScriptableObject
 {
 
     [field: SerializeField]
+    public float Duration { get; set; }
+
+
+    [field: SerializeField]
     public StationType StationType { get; set; }
 
     [field: SerializeField]

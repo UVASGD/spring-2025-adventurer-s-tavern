@@ -64,6 +64,10 @@ public class Station {
                 ingredient.Properties.Add(actionData.Property);
             }
         }
+        cookingUIEventChannel.RaiseProgressEvent(this, 5f, () => 
+    {
+        Debug.Log($"{Data.StationType} process completed!");
+    });
         cookingUIEventChannel.RaiseOnRefreshStationView(this);
     }
 

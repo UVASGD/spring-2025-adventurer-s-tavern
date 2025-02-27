@@ -66,4 +66,13 @@ public class CookingUIEventChannel : ScriptableObject {
     {
         OnChangePlayerMoney?.Invoke(money);
     }
+
+public Action<Station, float, Action> OnProgressEvent;
+
+public void RaiseProgressEvent(Station station, float duration, Action onComplete)
+{
+    Debug.Log($"Raise progress event for {station.Data.StationType} with duration {duration}.");
+    OnProgressEvent?.Invoke(station, duration, onComplete);
+}
+
 }

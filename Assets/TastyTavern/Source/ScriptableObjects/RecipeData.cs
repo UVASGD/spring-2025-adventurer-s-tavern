@@ -19,13 +19,16 @@ public class RecipeData : ScriptableObject
     public Sprite Icon { get; set; }
 
     [field: SerializeField]
+    public StationData[] StationSequence { get; set; } = new StationData[0]; // Ensure it's not null
+
+
+    [field: SerializeField]
     public List<IngredientData> Ingredients { get; set; } = new List<IngredientData>();
 
     [field: SerializeField]
     public List<PropertiesPerIngredient> Properties { get; set; } = new List<PropertiesPerIngredient>();
 
-    [field: SerializeField]
-    public StationData[] StationSequence { get; set; }
+
 
     [field: SerializeField]
     public List<InitialStockPerStation> InitialStockSequence { get; set; } = new List<InitialStockPerStation>();

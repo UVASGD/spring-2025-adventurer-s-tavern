@@ -46,8 +46,21 @@ public class Order
     // Order manager triggers station change
     // for now assuming button is not present at last station
     public void ChangeNextStation(){
+
+        if (StationIdx >= Recipe.StationSequence.Length - 1)
+    {
+        Debug.Log("Last station reached. Order is ready to be served.");
+        return;
+    }
+
+    float stationDuration = Recipe.StationSequence[StationIdx].Duration; 
+
+
+    cookingUIEventChannel.RaiseProgressEvent(Station, stationDuration, () => 
+    {
         StationIdx++;
-        Station.ChangeStation(Recipe.StationSequence[StationIdx],Recipe.InitialStockSequence[StationIdx].InitialStock);
+        Station.ChangeStation(Recipe.StationSequence[StationIdx], Recipe.InitialStockSequence[StationIdx].InitialStock);
+    });
     }
 
     public bool isCorrect()
