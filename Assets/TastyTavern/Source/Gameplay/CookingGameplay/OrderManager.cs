@@ -33,7 +33,7 @@ public class OrderManager : MonoBehaviour
 
     private void OnEnable()
     {
-        cookingUIEventChannel.OnOpenOrder += AddOrder;
+        cookingUIEventChannel.OnCreateOrder += AddOrder;
         cookingUIEventChannel.OnSubmitOrder += SubmitOrder;
         cookingUIEventChannel.OnAddProperty += StartAddProperty;
         cookingUIEventChannel.OnSelectOrder += SelectOrder;
@@ -41,7 +41,7 @@ public class OrderManager : MonoBehaviour
 
     private void OnDisable()
     {
-        cookingUIEventChannel.OnOpenOrder -= AddOrder;
+        cookingUIEventChannel.OnCreateOrder -= AddOrder;
         cookingUIEventChannel.OnSubmitOrder -= SubmitOrder;
         cookingUIEventChannel.OnAddProperty -= StartAddProperty;
         cookingUIEventChannel.OnSelectOrder -= SelectOrder;

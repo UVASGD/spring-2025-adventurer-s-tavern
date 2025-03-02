@@ -89,6 +89,7 @@ public class Station {
         if (Data.StationType == StationType.CuttingBoard){
             StoreActiveIngredients();
         }
+        Debug.Log(ingredient.Data.Name + " added to " + Data.StationType + " in Station.cs");
         ActiveIngredients.Add(ingredient);
         StockIngredients.Remove(ingredient);
     }

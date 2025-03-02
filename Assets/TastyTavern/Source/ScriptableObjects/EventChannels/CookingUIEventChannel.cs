@@ -19,7 +19,7 @@ public class CookingUIEventChannel : ScriptableObject {
     public Action<Station> OnRefreshStationView; // TODO: Split refactor refresh station to be part of load
 
     /// <summary> TODO: Liam rename, customer makes order--> added to manager </summary>
-    public Action<Order> OnOpenOrder;
+    public Action<Order> OnCreateOrder;
 
     public Action<Order> OnSelectOrder;
 
@@ -46,7 +46,7 @@ public class CookingUIEventChannel : ScriptableObject {
     
     public void RaiseOpenOrder(Order Order)
     {
-        OnOpenOrder?.Invoke(Order);
+        OnCreateOrder?.Invoke(Order);
     }
 
     public void RaiseOnSubmitOrder(Customer Customer)
