@@ -36,6 +36,7 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnOpenOrder += AddOrder;
         cookingUIEventChannel.OnSubmitOrder += SubmitOrder;
         cookingUIEventChannel.OnAddProperty += StartAddProperty;
+        cookingUIEventChannel.OnSelectOrder += SelectOrder;
     }
 
     private void OnDisable()
@@ -43,6 +44,7 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnOpenOrder -= AddOrder;
         cookingUIEventChannel.OnSubmitOrder -= SubmitOrder;
         cookingUIEventChannel.OnAddProperty -= StartAddProperty;
+        cookingUIEventChannel.OnSelectOrder -= SelectOrder;
     }
 
     // Add Property starts here because it needs to kick off a coroutine
@@ -68,17 +70,11 @@ public class OrderManager : MonoBehaviour
         currentOrder = selectedOrder;
     }
 
-    // private void LoadStation(StationData station)
-    // {
-    //     Debug.Log("Loading Station " + station.StationType);
-    //     // all station logic is updated on station object
-    //     // update menu where? how does it know the data
-    // }
-
     public void AddOrder(Order order)
     {
         order.cookingUIEventChannel = cookingUIEventChannel;
         allOrders.Add(order);
+        cookingUIEventChannel.RaiseOnGenerateOrderButton(order);
     }
     public void SubmitOrder(Customer customer)
     {
@@ -86,7 +82,6 @@ public class OrderManager : MonoBehaviour
         if (customer.Data.Order.isCorrect())
             Debug.Log("Order is correct");
             // other things can happen here like money? etc. like playerMoney += order.Recipe.Price; or something like that
-
     }
 
     // Pass event channel trigger to order

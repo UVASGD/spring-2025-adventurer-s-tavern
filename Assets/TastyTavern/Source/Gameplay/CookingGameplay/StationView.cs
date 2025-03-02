@@ -21,6 +21,7 @@ public class StationView : MonoBehaviour {
     public VisualElement stationWorkspaceContainer;
     public VisualElement nextStationContainer;
     public VisualElement orderContainer;
+    public VisualElement orderSlot1;
     public VisualElement barAndStationContainer;
     public VisualElement sidePanelContainer;
 
@@ -38,12 +39,14 @@ public class StationView : MonoBehaviour {
     {
         cookingUIEventChannel.OnLoadStationView += LoadStationView;
         cookingUIEventChannel.OnRefreshStationView += RefreshStationView;
+        cookingUIEventChannel.OnGenerateOrderButton += GenerateOrderButton;
     }
 
     private void OnDisable() 
     {
         cookingUIEventChannel.OnLoadStationView -= LoadStationView;
         cookingUIEventChannel.OnRefreshStationView -= RefreshStationView;
+        cookingUIEventChannel.OnGenerateOrderButton -= GenerateOrderButton;
     }
 
     private void Awake(){
@@ -55,12 +58,14 @@ public class StationView : MonoBehaviour {
         stationWorkspaceContainer = root.Q<VisualElement>("StationWorkspaceContainer");
         nextStationContainer = root.Q<VisualElement>("BottomContainer");
         orderContainer = root.Q<VisualElement>("TopContainer");
+        orderSlot1 = root.Q<VisualElement>("OrderSlot1");
         barAndStationContainer = root.Q<VisualElement>("BarAndStation");
         sidePanelContainer = root.Q<VisualElement>("SidePanel");
         actionSlotContainer.Clear();
         ingredientSlotContainer.Clear();
         stationWorkspaceContainer.Clear();
-        nextStationContainer.Clear();
+        // nextStationContainer.Clear(); station button stays constant?
+        orderSlot1.Clear(); // Probably just want slots, not order container
         sidePanelContainer.visible = false;
         barAndStationContainer.visible = false;
     }
@@ -71,29 +76,22 @@ public class StationView : MonoBehaviour {
         //     basilisk.Create(),
         //     punchPepper.Create()
         // };
-        // InitializeView(dummyIngredients);
-        // stationWorkspaceContainer.Clear();
     }
+
     // ***May be easier to have a simple button instead, not attached to station data, go back up to order
     // combine with initialize?
     private void LoadStationView(Station station){
         Debug.Log("View recieved loading request from event channel");
-        InitializeView(station,station.Data.ActionData,station.StockIngredients);
-    }
-
-    // ingredients --> live ingredients in the station storage/stock
-    // TODO: Change params to just use station
-    public void InitializeView(Station station, ActionData actionData,List<Ingredient> ingredients){
-        Debug.Log("Initializing Station view");
+        Debug.Log("Load Station view");
         actionSlotContainer.Clear();
         ingredientSlotContainer.Clear();
         stationWorkspaceContainer.Clear();
-        nextStationContainer.Clear(); // may not have to clear anymore when hiding station panels, station button stays constant.
-        GenerateNextStationButton();
-        GenerateActionButton(actionData);
-        GenerateIngredientButtons(ingredients);
+        // GenerateNextStationButton();
+        GenerateActionButton(station.Data.ActionData);
+        GenerateIngredientButtons(station.StockIngredients);
         GenerateStationBackground(station);
-        // make visible the parent elements for station menus (everything except order tabs)
+        sidePanelContainer.visible = true;
+        barAndStationContainer.visible = true;
     }
 
     // A simple styled button with 
@@ -111,6 +109,13 @@ public class StationView : MonoBehaviour {
         actionButton.OnClickButton += OnAddProperty;
     }
 
+    // ONLY happens when new order is added to order manager
+    private void GenerateOrderButton(Order order){
+        OrderButton orderButton = new(order);
+        orderSlot1.Add(orderButton);
+        orderButton.OnClickButton += OnSelectOrder;
+    }
+
     private void GenerateIngredientButtons(List<Ingredient> ingredients){
         foreach(Ingredient ingredient in ingredients){
             IngredientButton ingredientButton = new(ingredient);
@@ -121,7 +126,7 @@ public class StationView : MonoBehaviour {
     }
 
     private void GenerateStationBackground(Station station){
-        stationBG = new(){ image = station.Data.Background.texture };
+        stationBG = new(){ image = station.Data.Background.texture }; // change this to just equipment, not counter
         stationWorkspaceContainer.Add(stationBG);
         stationTop = stationBG;
     }
@@ -137,8 +142,14 @@ public class StationView : MonoBehaviour {
         cookingUIEventChannel.RaiseOnAddProperty(actionButton.Data); // Property enum actionProperty
     }
     
+    // This button is not DataButton, does not pass button data
     private void OnNextStation(){
         cookingUIEventChannel.RaiseOnChangeNextStation();
+    }
+
+    private void OnSelectOrder(OrderButton orderButton){
+        cookingUIEventChannel.RaiseOnSelectOrder(orderButton.Order);
+        LoadStationView(orderButton.Order.Station);
     }
 
     private void AddToStationWorkspace(Ingredient ingredient){

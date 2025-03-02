@@ -18,8 +18,12 @@ public class CookingUIEventChannel : ScriptableObject {
 
     public Action<Station> OnRefreshStationView; // TODO: Split refactor refresh station to be part of load
 
-    /// <summary> Callback when an order is opened in the UI </summary>
+    /// <summary> TODO: Liam rename, customer makes order--> added to manager </summary>
     public Action<Order> OnOpenOrder;
+
+    public Action<Order> OnSelectOrder;
+
+    public Action<Order> OnGenerateOrderButton;
 
     /// Callback when an order is submitted in the UI by the player
     public Action<Customer> OnSubmitOrder;
@@ -49,9 +53,19 @@ public class CookingUIEventChannel : ScriptableObject {
     {
         OnSubmitOrder?.Invoke(Customer);
     }
+
     public void RaiseOnLoadStationView(Station station){
         Debug.Log("Raise loading " + station.Data.StationType + " broadcasted from event channel.");
         OnLoadStationView?.Invoke(station);
+    }
+
+    public void RaiseOnGenerateOrderButton(Order order){
+        OnGenerateOrderButton?.Invoke(order);
+    }
+
+    public void RaiseOnSelectOrder(Order order)
+    {
+        OnSelectOrder?.Invoke(order);
     }
 
     public void RaiseOnRefreshStationView(Station station){
