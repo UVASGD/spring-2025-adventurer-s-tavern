@@ -81,7 +81,7 @@ public class OrderManager : MonoBehaviour
     {
         if (currentOrder != null) currentOrder.Station.Unsubscribe();
         currentOrder = null;
-        cookingUIEventChannel.Raise
+        cookingUIEventChannel.RaiseOnDeselectOrder();
     }
 
     public void AddOrder(Order order)

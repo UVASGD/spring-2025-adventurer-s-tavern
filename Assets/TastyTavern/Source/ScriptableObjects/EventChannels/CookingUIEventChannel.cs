@@ -38,7 +38,11 @@ public class CookingUIEventChannel : ScriptableObject {
 
     /// Callback when player wants to go to the next station
     public Action OnChangeNextStation;
-
+    
+    public event Action<int> OnDeleteOrderButton;
+    
+    public event Action OnDeselectOrder;
+    
     public void RaiseOnAddIngredient(Ingredient ingredient){
         Debug.Log("Raise adding " + ingredient.Data.Name + " ingredient broadcasted from event channel.");
         OnAddIngredient?.Invoke(ingredient);
@@ -94,5 +98,16 @@ public class CookingUIEventChannel : ScriptableObject {
     public void RaiseOnChangePlayerMoney(float money)
     {
         OnChangePlayerMoney?.Invoke(money);
+    }
+
+
+    public void RaiseOnDeselectOrder()
+    {
+        OnDeselectOrder?.Invoke();
+    }
+
+    public void RaiseOnDeleteOrderButton(int obj)
+    {
+        OnDeleteOrderButton?.Invoke(obj);
     }
 }

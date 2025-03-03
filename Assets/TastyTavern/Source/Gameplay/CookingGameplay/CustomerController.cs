@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class CustomerController : MonoBehaviour
@@ -36,6 +37,8 @@ public class CustomerController : MonoBehaviour
 
     [SerializeField]
     private MenuManager MenuManager;
+    private bool isSpawning = false;
+
 
     void Start()
     {
@@ -45,11 +48,14 @@ public class CustomerController : MonoBehaviour
     private void Update()
     {
         // Check if it's time to create a new customer.
-        if (Time.time >= nextSpawnTime)
+        for (int i = 0; i < 1; i++) //CustomerSpots.Count; i++)
         {
-            CreateCustomer();
-            ScheduleNextCustomer();
+            if (customers[i] == null && !isSpawning)
+            {
+                StartCoroutine(SpawnCustomerWithDelay(i));
+            }
         }
+        
     }
 
     private void OnEnable()
@@ -61,17 +67,27 @@ public class CustomerController : MonoBehaviour
     {
         cookingUIEventChannel.OnRemoveCustomer -= RemoveCustomer;
     }
-
-    private void ScheduleNextCustomer()
+    private IEnumerator SpawnCustomerWithDelay(int spotIndex)
     {
+        isSpawning = true;
         // Calculate the delay based on difficulty and randomness.
         float adjustedDelay = Mathf.Max(0.1f, baseDelay / Difficulty); // Ensure delay is never below 0.1 seconds.
         float randomDelay = adjustedDelay + Random.Range(-randomOffset, randomOffset);
-
-        // Schedule the next spawn time.
-        nextSpawnTime = Time.time;// + randomDelay;
+        
+        yield return new WaitForSeconds(adjustedDelay);
+        
+        // Double-check the spot is still empty before spawning.
+        if (customers[spotIndex] == null)
+        {
+            CreateCustomer();
+        }
+        
+        // Optionally, you might call ScheduleNextCustomer after creating a customer.
+        isSpawning = false;
     }
 
+    
+    
     public bool CreateCustomer()
     {
         // Inefficiency: For loop will always be running. Technically it's O(1) every frame since the length of the customers list is a constant 3, but still. 
@@ -114,5 +130,6 @@ public class CustomerController : MonoBehaviour
         customers[customeridx].SetActive(false);
         Destroy(customers[customeridx]);
         customers[customeridx] = null;
+        cookingUIEventChannel.RaiseOnDeleteOrderButton(customeridx);
     }
 }

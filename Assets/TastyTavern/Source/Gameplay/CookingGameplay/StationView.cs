@@ -22,9 +22,12 @@ public class StationView : MonoBehaviour {
     public VisualElement nextStationContainer;
     public VisualElement orderContainer;
     public VisualElement orderSlot1;
+    public VisualElement orderSlot0;
+    public VisualElement orderSlot2;
     public VisualElement barAndStationContainer;
     public VisualElement sidePanelContainer;
     public VisualElement orderInstructionsContainer;
+
 
     public VisualElement stationTop;
 
@@ -77,7 +80,9 @@ public class StationView : MonoBehaviour {
         nextStationContainer.Clear();
         orderInstructionsContainer.Clear(); 
         GenerateNextStationButton(); // this button is always thre (except for serving station)
-        orderSlot1.Clear(); // Probably just want slots, not order container
+        orderSlot0.Clear(); // Probably just want slots, not order container
+        orderSlot1.Clear();
+        orderSlot2.Clear();
         sidePanelContainer.visible = false;
         barAndStationContainer.visible = false;
     }
@@ -155,10 +160,11 @@ public class StationView : MonoBehaviour {
 
     // ONLY happens when new order is added to order manager
     private void GenerateOrderButton(Order order){
+        Debug.Log("Generating order button");
         OrderButton orderButton = new(order);
         if (order.Customer.Data.CustomerSpotIdx == 0){
             orderSlot0.Add(orderButton);
-        } elif (order.Customer.Data.CustomerSpotIdx == 1){
+        } else if (order.Customer.Data.CustomerSpotIdx == 1){
             orderSlot1.Add(orderButton);
         } else {
             orderSlot2.Add(orderButton);
@@ -184,7 +190,7 @@ public class StationView : MonoBehaviour {
     private void DeleteOrderButton(int orderIdx){
         if (orderIdx == 0){
             orderSlot0.Clear();
-        } elif (orderIdx == 1){
+        } else if (orderIdx == 1){
             orderSlot1.Clear();
         } else {
             orderSlot2.Clear();
