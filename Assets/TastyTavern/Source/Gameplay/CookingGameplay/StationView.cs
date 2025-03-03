@@ -152,6 +152,7 @@ public class StationView : MonoBehaviour {
         LoadStationView(orderButton.Order.Station);
     }
 
+    // TODO: change method of determining sprites
     private void AddToStationWorkspace(Ingredient ingredient){
         Sprite sprite;
         if( ingredient.Properties.Contains(Property.Cut) && ingredient.Properties.Contains(Property.Cooked)){

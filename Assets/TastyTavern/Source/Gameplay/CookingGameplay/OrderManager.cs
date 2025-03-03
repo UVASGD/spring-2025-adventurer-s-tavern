@@ -67,15 +67,17 @@ public class OrderManager : MonoBehaviour
     private void SelectOrder(Order selectedOrder)
     {
         Debug.Log("Selected Order " + selectedOrder);
+        if (currentOrder != null) currentOrder.Station.Unsubscribe();
         currentOrder = selectedOrder;
     }
 
     public void AddOrder(Order order)
     {
-        order.cookingUIEventChannel = cookingUIEventChannel;
+        order.cookingUIEventChannel = cookingUIEventChannel; // pass event channel to order
         allOrders.Add(order);
         cookingUIEventChannel.RaiseOnGenerateOrderButton(order);
     }
+
     public void SubmitOrder(Customer customer)
     {
         allOrders.Remove(customer.Data.Order);

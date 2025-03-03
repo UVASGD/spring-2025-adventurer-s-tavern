@@ -267,7 +267,7 @@ MonoBehaviour:
   document: {fileID: 652298025}
   cookingUIEventChannel: {fileID: 11400000, guid: 98faadf6e98d87049badef501f757299, type: 2}
   basilisk: {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
-  punchPepper: {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
+  mushroom: {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
 --- !u!1 &670271783
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using UnityEngine;
+using System;
 /// Stock ingreityEngine;
 
 /// <summary>
@@ -24,9 +25,10 @@ public class Station {
     [field: SerializeField]
     public CookingUIEventChannel cookingUIEventChannel { get; set; }
 
-    public Station(StationData data, List<IngredientData> stock, CookingUIEventChannel cookingUIEventChannel){
+    public Station(StationData data, List<IngredientData> stock, CookingUIEventChannel ev){
         this.Data = data;
-        this.cookingUIEventChannel = cookingUIEventChannel;
+        cookingUIEventChannel = ev;
+        cookingUIEventChannel.OnAddIngredient += AddIngredient;
         foreach (var ingredientData in stock){
             StockIngredients.Add(ingredientData.Create());
         }
@@ -37,13 +39,7 @@ public class Station {
         };
     }
 
-    private void OnEnable()
-    {
-        cookingUIEventChannel.OnAddIngredient += AddIngredient;
-    }
-
-    private void OnDisable() 
-    {
+    public void Unsubscribe(){
         cookingUIEventChannel.OnAddIngredient -= AddIngredient;
     }
 

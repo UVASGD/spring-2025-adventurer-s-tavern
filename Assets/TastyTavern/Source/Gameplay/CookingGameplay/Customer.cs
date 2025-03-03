@@ -53,7 +53,7 @@ public class Customer : MonoBehaviour
             selectedIngredients.Remove(selectedIngredients.ElementAt(rand.Next(0, selectedIngredients.Count - 1)).Key);
         }**/
 
-        return new Order(this, recipe, selectedIngredients);
+        return new Order(this, recipe, selectedIngredients, cookingUIEventChannel);
     }
 
     private void PlaceCustomerOrder(Order order)
