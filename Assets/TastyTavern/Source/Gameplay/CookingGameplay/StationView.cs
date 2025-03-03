@@ -38,14 +38,16 @@ public class StationView : MonoBehaviour {
     private void OnEnable()
     {
         cookingUIEventChannel.OnLoadStationView += LoadStationView;
-        cookingUIEventChannel.OnRefreshStationView += RefreshStationView;
+        cookingUIEventChannel.OnRefreshStationWorkspace += RefreshStationWorkspace;
+        cookingUIEventChannel.OnRefreshIngredientsPanel += RefreshIngredientsPanel;
         cookingUIEventChannel.OnGenerateOrderButton += GenerateOrderButton;
     }
 
     private void OnDisable() 
     {
         cookingUIEventChannel.OnLoadStationView -= LoadStationView;
-        cookingUIEventChannel.OnRefreshStationView -= RefreshStationView;
+        cookingUIEventChannel.OnRefreshStationWorkspace -= RefreshStationWorkspace;
+        cookingUIEventChannel.OnRefreshIngredientsPanel -= RefreshIngredientsPanel;
         cookingUIEventChannel.OnGenerateOrderButton -= GenerateOrderButton;
     }
 
@@ -100,6 +102,7 @@ public class StationView : MonoBehaviour {
         Button nextButton = new();
         nextButton.AddToClassList("button");
         nextButton.AddToClassList("next-station-button");
+        nextButton.text = "Next Station";
         nextStationContainer.Add(nextButton);
         nextButton.clicked += OnNextStation;
     }
@@ -169,12 +172,17 @@ public class StationView : MonoBehaviour {
         stationTop = icon; // update new top of stack
     }
 
-    private void RefreshStationView(Station station){
+    private void RefreshStationWorkspace(Station station){
         stationBG.Clear();
         stationTop = stationBG;
         foreach (var ingredient in station.ActiveIngredients){
             AddToStationWorkspace(ingredient);
         }
+    }
+
+    private void RefreshIngredientsPanel(Station station){
+        ingredientSlotContainer.Clear();
+        GenerateIngredientButtons(station.StockIngredients);
     }
 
 }

@@ -47,7 +47,7 @@ public class Station {
     private void AddIngredient(Ingredient ingredient)
     {
         AddToActive(ingredient);
-        cookingUIEventChannel.RaiseOnRefreshStationView(this);
+        cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
     }
     
     /// Applies a property to all active ingredients on the station if they don't already have it
@@ -60,7 +60,7 @@ public class Station {
                 ingredient.Properties.Add(actionData.Property);
             }
         }
-        cookingUIEventChannel.RaiseOnRefreshStationView(this);
+        cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
     }
 
     // Change data, move new Stock and ingredients in Active and Stored to Stock
@@ -76,7 +76,9 @@ public class Station {
         StockIngredients.AddRange(ActiveIngredients);
         ActiveIngredients.Clear();
         StoredIngredients.Clear();
-        cookingUIEventChannel.RaiseOnRefreshStationView(this);
+        cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
+        cookingUIEventChannel.RaiseOnRefreshIngredientsPanel(this);
+        // also refresh order instructions
     }
 
     /// Adds ingredient to current active workspace (from stock)

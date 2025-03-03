@@ -16,7 +16,9 @@ public class CookingUIEventChannel : ScriptableObject {
 
     public Action<Station> OnLoadStationView;
 
-    public Action<Station> OnRefreshStationView; // TODO: Split refactor refresh station to be part of load
+    public Action<Station> OnRefreshStationWorkspace; // TODO: Split refactor refresh station to be part of load
+
+    public Action<Station> OnRefreshIngredientsPanel;
 
     /// <summary> TODO: Liam rename, customer makes order--> added to manager </summary>
     public Action<Order> OnCreateOrder;
@@ -68,8 +70,12 @@ public class CookingUIEventChannel : ScriptableObject {
         OnSelectOrder?.Invoke(order);
     }
 
-    public void RaiseOnRefreshStationView(Station station){
-        OnRefreshStationView?.Invoke(station);
+    public void RaiseOnRefreshStationWorkspace(Station station){
+        OnRefreshStationWorkspace?.Invoke(station);
+    }
+
+    public void RaiseOnRefreshIngredientsPanel(Station station){
+        OnRefreshIngredientsPanel?.Invoke(station);
     }
 
     public void RaiseOnChangeNextStation(){
