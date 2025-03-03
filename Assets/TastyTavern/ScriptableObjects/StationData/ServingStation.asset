@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ServingStation
   m_EditorClassIdentifier: 
   <StationType>k__BackingField: 3
-  <Background>k__BackingField: {fileID: 0}
+  <Background>k__BackingField: {fileID: -4795573259988461060, guid: d7dd4e5e725f94b4b810fb4cee4561df, type: 3}
   <ActionData>k__BackingField: {fileID: 0}
