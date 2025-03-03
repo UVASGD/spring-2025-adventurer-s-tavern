@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pandemo_0: 8495557718203903569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

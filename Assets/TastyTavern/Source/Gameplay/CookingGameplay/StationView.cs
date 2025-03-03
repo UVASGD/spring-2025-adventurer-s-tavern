@@ -24,6 +24,7 @@ public class StationView : MonoBehaviour {
     public VisualElement orderSlot1;
     public VisualElement barAndStationContainer;
     public VisualElement sidePanelContainer;
+    public VisualElement orderInstructionsContainer;
 
     public VisualElement stationTop;
 
@@ -63,10 +64,12 @@ public class StationView : MonoBehaviour {
         orderSlot1 = root.Q<VisualElement>("OrderSlot1");
         barAndStationContainer = root.Q<VisualElement>("BarAndStation");
         sidePanelContainer = root.Q<VisualElement>("SidePanel");
+        orderInstructionsContainer = root.Q<VisualElement>("OrderInstructionsPanel");
         actionSlotContainer.Clear();
         ingredientSlotContainer.Clear();
         stationWorkspaceContainer.Clear();
         nextStationContainer.Clear();
+        orderInstructionsContainer.Clear(); 
         GenerateNextStationButton(); // this button is always thre (except for serving station)
         orderSlot1.Clear(); // Probably just want slots, not order container
         sidePanelContainer.visible = false;
@@ -89,12 +92,27 @@ public class StationView : MonoBehaviour {
         actionSlotContainer.Clear();
         ingredientSlotContainer.Clear();
         stationWorkspaceContainer.Clear();
+        orderInstructionsContainer.Clear();
         // GenerateNextStationButton();
         GenerateActionButton(station.Data.ActionData);
         GenerateIngredientButtons(station.StockIngredients);
         GenerateStationBackground(station);
+        GenerateOrderInstructions(station.StockIngredients);
         sidePanelContainer.visible = true;
         barAndStationContainer.visible = true;
+    }
+
+    private void GenerateOrderInstructions(List<Ingredient> stockIngredients)
+    {
+        Label orderInstructions = new();
+        var instructions = "";
+        foreach (var ingredient in stockIngredients)
+        {
+            instructions += ingredient.Data.Name + "\n";
+        }
+        orderInstructions.text = instructions;
+        orderInstructions.AddToClassList("action-label");
+        orderInstructionsContainer.Add(orderInstructions);
     }
 
     // A simple styled button with 
