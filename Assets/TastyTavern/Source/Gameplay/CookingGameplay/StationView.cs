@@ -106,10 +106,16 @@ public class StationView : MonoBehaviour {
     {
         Label orderInstructions = new();
         var instructions = "";
+        Debug.Log("Generating order instructions");
         foreach (var ingredient in stockIngredients)
         {
-            instructions += ingredient.Data.Name + "\n";
+            
+            if (ingredient.Properties.Count > 0)
+                instructions += ingredient.Properties[^1] + " " + ingredient.Data.Name + "\n";
+            else
+                instructions += ingredient.Data.Name + "\n";
         }
+
         orderInstructions.text = instructions;
         orderInstructions.AddToClassList("action-label");
         orderInstructionsContainer.Add(orderInstructions);
