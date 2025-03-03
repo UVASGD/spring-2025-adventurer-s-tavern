@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346930eb7dd92884981a8f163439dbe0, type: 3}
   m_Name: CookingStation
   m_EditorClassIdentifier: 
-  <StationType>k__BackingField: 0
-  <Background>k__BackingField: {fileID: 0}
-  <ActionData>k__BackingField: {fileID: 0}
+  <StationType>k__BackingField: 1
+  <Background>k__BackingField: {fileID: 8495557718203903569, guid: 091a0973b7084854392171f8cbe0062c, type: 3}
+  <ActionData>k__BackingField: {fileID: 11400000, guid: c517039d2da4596428114aab6e271ccd, type: 2}
