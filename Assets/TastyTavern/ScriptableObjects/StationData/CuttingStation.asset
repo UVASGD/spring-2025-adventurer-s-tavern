@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CuttingStation
   m_EditorClassIdentifier: 
   <StationType>k__BackingField: 0
-  <Background>k__BackingField: {fileID: -9189124780443922576, guid: d02c871cb54e80c4fb5bcb790cfb28ae, type: 3}
+  <Background>k__BackingField: {fileID: 21300000, guid: d02c871cb54e80c4fb5bcb790cfb28ae, type: 3}
   <ActionData>k__BackingField: {fileID: 11400000, guid: 019c9c34b9a69f049a173ac0425af55f, type: 2}

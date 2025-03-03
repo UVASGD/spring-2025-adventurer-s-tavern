@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: febaf9aea75fa454195ed1070653d284
+guid: 5ac4a26e4b7781545bec28f29905a9bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2057135070061129914
-    second: basiliskcut_0
-  - first:
-      213: -7995110950922894209
-    second: basiliskcut_1
-  - first:
-      213: 2534214636746501940
-    second: basiliskcut_2
-  - first:
-      213: 3220904373518168851
-    second: basiliskcut_3
-  - first:
-      213: -3598976365137465907
-    second: basiliskcut_4
+      213: -7845710035458949784
+    second: demopan_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: basiliskcut_0
+      name: demopan_0
       rect:
         serializedVersion: 2
-        x: 720
-        y: 373
-        width: 829
-        height: 568
+        x: 59
+        y: 25
+        width: 2842
+        height: 733
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,96 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab0fdf172796c8c10800000000000000
-      internalID: 2057135070061129914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: basiliskcut_1
-      rect:
-        serializedVersion: 2
-        x: 1188
-        y: 420
-        width: 769
-        height: 552
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f74c76633f8ab0190800000000000000
-      internalID: -7995110950922894209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: basiliskcut_2
-      rect:
-        serializedVersion: 2
-        x: 1509
-        y: 562
-        width: 775
-        height: 445
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 43feed709c65b2320800000000000000
-      internalID: 2534214636746501940
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: basiliskcut_3
-      rect:
-        serializedVersion: 2
-        x: 1934
-        y: 613
-        width: 660
-        height: 390
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3137d0f6673f2bc20800000000000000
-      internalID: 3220904373518168851
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: basiliskcut_4
-      rect:
-        serializedVersion: 2
-        x: 2496
-        y: 85
-        width: 54
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dcd64f8601edd0ec0800000000000000
-      internalID: -3598976365137465907
+      spriteID: 86d70c58a407e1390800000000000000
+      internalID: -7845710035458949784
       vertices: []
       indices: 
       edges: []
@@ -235,11 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      basiliskcut_0: 2057135070061129914
-      basiliskcut_1: -7995110950922894209
-      basiliskcut_2: 2534214636746501940
-      basiliskcut_3: 3220904373518168851
-      basiliskcut_4: -3598976365137465907
+      demopan_0: -7845710035458949784
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

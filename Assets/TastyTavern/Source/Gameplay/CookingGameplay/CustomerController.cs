@@ -34,6 +34,7 @@ public class CustomerController : MonoBehaviour
 
     //TEMPORARY until customer sprites corrected
     public List<Sprite> customerSprites;
+    public int spriteIdx = 0;
 
     [SerializeField]
     private List<Transform> CustomerSpots;
@@ -113,7 +114,12 @@ public class CustomerController : MonoBehaviour
 
                 // Instantiate prefab and initialize
                 GameObject customerObj = Instantiate(customerPrefab, CustomerSpots[i].position, Quaternion.identity);
-                customerObj.GetComponent<SpriteRenderer>().sprite = customerSprites[Random.Range(0, 2)];
+                customerObj.GetComponent<SpriteRenderer>().sprite = customerSprites[spriteIdx];
+                spriteIdx++;
+                if (spriteIdx >= customerSprites.Count)
+                {
+                    spriteIdx = 0;
+                }
 
                 Customer customerScript = customerObj.GetComponent<Customer>();
                 customerScript.MenuManager = MenuManager;

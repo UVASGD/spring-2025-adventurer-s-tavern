@@ -5,6 +5,21 @@ TextureImporter:
   - first:
       213: -9189124780443922576
     second: cuttingboard_0
+  - first:
+      213: -7530000034180275751
+    second: cuttingboard_1
+  - first:
+      213: -461853243992698906
+    second: cuttingboard_2
+  - first:
+      213: 33203812883615381
+    second: cuttingboard_3
+  - first:
+      213: 3083402888857810366
+    second: cuttingboard_4
+  - first:
+      213: -3602897834771933168
+    second: cuttingboard_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,10 +118,10 @@ TextureImporter:
       name: cuttingboard_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 561
         y: 0
-        width: 3200
-        height: 972
+        width: 2408
+        height: 653
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,11 +136,121 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: cuttingboard_1
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 141
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d161045dd0108790800000000000000
+      internalID: -7530000034180275751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuttingboard_2
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 122
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ef047debea2799f0800000000000000
+      internalID: -461853243992698906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuttingboard_3
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ecd1021b6f57000800000000000000
+      internalID: 33203812883615381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuttingboard_4
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 91
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb578c147927aca20800000000000000
+      internalID: 3083402888857810366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuttingboard_5
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 65
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 018156c128feffdc0800000000000000
+      internalID: -3602897834771933168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -136,6 +261,11 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       cuttingboard_0: -9189124780443922576
+      cuttingboard_1: -7530000034180275751
+      cuttingboard_2: -461853243992698906
+      cuttingboard_3: 33203812883615381
+      cuttingboard_4: 3083402888857810366
+      cuttingboard_5: -3602897834771933168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

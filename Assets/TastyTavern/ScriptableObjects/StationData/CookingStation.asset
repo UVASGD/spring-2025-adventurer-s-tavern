@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CookingStation
   m_EditorClassIdentifier: 
   <StationType>k__BackingField: 1
-  <Background>k__BackingField: {fileID: 8495557718203903569, guid: 091a0973b7084854392171f8cbe0062c, type: 3}
+  <Background>k__BackingField: {fileID: 21300000, guid: 5ac4a26e4b7781545bec28f29905a9bb, type: 3}
   <ActionData>k__BackingField: {fileID: 11400000, guid: c517039d2da4596428114aab6e271ccd, type: 2}
