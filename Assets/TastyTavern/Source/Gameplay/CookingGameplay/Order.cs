@@ -47,9 +47,9 @@ public class Order
 
     // Order manager triggers station change
     // for now assuming button is not present at last station
-    public void ChangeNextStation(){
+    public void ChangeStation(){
         StationIdx++;
-        Station.ChangeStation(Recipe.StationSequence[StationIdx],Recipe.InitialStockSequence[StationIdx].InitialStock);
+        Station.ProgressStation(Recipe.StationSequence[StationIdx],Recipe.InitialStockSequence[StationIdx].InitialStock);
     }
 
     public bool isCorrect()

@@ -64,7 +64,8 @@ public class StationView : MonoBehaviour {
         actionSlotContainer.Clear();
         ingredientSlotContainer.Clear();
         stationWorkspaceContainer.Clear();
-        // nextStationContainer.Clear(); station button stays constant?
+        nextStationContainer.Clear();
+        GenerateNextStationButton(); // this button is always thre (except for serving station)
         orderSlot1.Clear(); // Probably just want slots, not order container
         sidePanelContainer.visible = false;
         barAndStationContainer.visible = false;
@@ -98,6 +99,7 @@ public class StationView : MonoBehaviour {
     private void GenerateNextStationButton(){
         Button nextButton = new();
         nextButton.AddToClassList("button");
+        nextButton.AddToClassList("next-station-button");
         nextStationContainer.Add(nextButton);
         nextButton.clicked += OnNextStation;
     }
@@ -173,7 +175,6 @@ public class StationView : MonoBehaviour {
         foreach (var ingredient in station.ActiveIngredients){
             AddToStationWorkspace(ingredient);
         }
-        Debug.Log(station.ActiveIngredients[0]);
     }
 
 }

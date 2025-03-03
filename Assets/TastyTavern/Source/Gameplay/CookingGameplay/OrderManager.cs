@@ -37,6 +37,7 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnSubmitOrder += SubmitOrder;
         cookingUIEventChannel.OnAddProperty += StartAddProperty;
         cookingUIEventChannel.OnSelectOrder += SelectOrder;
+        cookingUIEventChannel.OnChangeNextStation += ChangeNextStation;
     }
 
     private void OnDisable()
@@ -45,6 +46,7 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnSubmitOrder -= SubmitOrder;
         cookingUIEventChannel.OnAddProperty -= StartAddProperty;
         cookingUIEventChannel.OnSelectOrder -= SelectOrder;
+        cookingUIEventChannel.OnChangeNextStation -= ChangeNextStation;
     }
 
     // Add Property starts here because it needs to kick off a coroutine
@@ -87,7 +89,7 @@ public class OrderManager : MonoBehaviour
     }
 
     // Pass event channel trigger to order
-    public void OnChangeStation(){
-        currentOrder.ChangeNextStation();
+    public void ChangeNextStation(){
+        currentOrder.ChangeStation();
     }
 }
