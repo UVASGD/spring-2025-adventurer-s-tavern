@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
-    private float money;
+    public float money;
+
+    [SerializeField]
+    public BiomeData currentBiome;
 
     [SerializeField]
     private CookingUIEventChannel cookingUIEventChannel;
@@ -17,10 +20,10 @@ public class PlayerManager : MonoBehaviour
     public List<BiomeData> allBiome = new List<BiomeData>();
 
     //All the scriptable objects get placed into their correct dictionaries, all bools are initially set to false
-    private Dictionary<IngredientData, bool> IngredientUnlocked = new Dictionary<IngredientData, bool>();
-    private Dictionary<ActionData, bool> ActionUnlocked = new Dictionary<ActionData, bool>();
-    private Dictionary<RecipeData, bool> RecipeUnlocked = new Dictionary<RecipeData, bool>();
-    private Dictionary<BiomeData, bool> BiomeUnlocked = new Dictionary<BiomeData, bool>();
+    public Dictionary<IngredientData, bool> IngredientUnlocked = new Dictionary<IngredientData, bool>();
+    public Dictionary<ActionData, bool> ActionUnlocked = new Dictionary<ActionData, bool>();
+    public Dictionary<RecipeData, bool> RecipeUnlocked = new Dictionary<RecipeData, bool>();
+    public Dictionary<BiomeData, bool> BiomeUnlocked = new Dictionary<BiomeData, bool>();
 
     void Start()
     {
@@ -71,5 +74,38 @@ public class PlayerManager : MonoBehaviour
         {
             money += deltaMoney;
         }
+    }
+
+    public void addItemToInventory(ShopItem item) {
+        if (item.Type == ShopItem.ItemType.Ingredient) {
+            for (int i = 0; i < allIngredient.Count; i++) {
+                if (allIngredient[i].Name == item.Name) {
+                    IngredientUnlocked[allIngredient[i]] = true;
+                    break;
+                }
+            }
+        } else if (item.Type == ShopItem.ItemType.Equipment) {
+            for (int i = 0; i < allEquipment.Count; i++) {
+                if (allEquipment[i].Name == item.Name) {
+                    ActionUnlocked[allEquipment[i]] = true;
+                    break;
+                }
+            }
+        } else if (item.Type == ShopItem.ItemType.Recipe) {
+            for (int i = 0; i < allRecipe.Count; i++) {
+                if (allRecipe[i].Name == item.Name) {
+                    RecipeUnlocked[allRecipe[i]] = true;
+                    break;
+                }
+            }
+        } else if (item.Type == ShopItem.ItemType.Biome) {
+            for (int i = 0; i < allBiome.Count; i++) {
+                if (allBiome[i].Name == item.Name) {
+                    BiomeUnlocked[allBiome[i]] = true;
+                    break;
+                }
+            }
+        }
+
     }
 }
