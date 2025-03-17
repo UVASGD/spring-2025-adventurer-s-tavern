@@ -34,8 +34,11 @@ public class CustomerData{ // change to class?
 
     [field: SerializeField]
     public BiomeData Biome { get; set; } // biome... scriptable object or enum
+    
+    [field: SerializeField]
+    public int CustomerSpotIdx { get; set; }
 
-    public CustomerData(string name, List<Sprite> appearance, List<Sprite> faces, List<string> dialogue, int patience, BiomeData biome)
+    public CustomerData(string name, List<Sprite> appearance, List<Sprite> faces, List<string> dialogue, int patience, BiomeData biome, int customerSpotIdx)
     {
         Name = name;
         Appearance = appearance;
@@ -44,5 +47,6 @@ public class CustomerData{ // change to class?
         Patience = patience;
         Biome = biome;
         Order = null; // setting later
+        CustomerSpotIdx = customerSpotIdx;
     }
 }

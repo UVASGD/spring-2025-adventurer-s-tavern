@@ -15,7 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Golden Mushroom
   <Description>k__BackingField: 
   <Sprites>k__BackingField:
-  - {fileID: -4670188270482155086, guid: 62c76adf3224d174a94475997571184a, type: 3}
-  - {fileID: 21300000, guid: 049f6630f80ff704e863420cbc6a1c90, type: 3}
-  - {fileID: 21300000, guid: 7bb1b561d87f9f8498c5a35fa704c9bd, type: 3}
-  - {fileID: 21300000, guid: 047316af9c6fee84e9c195e07132a6db, type: 3}
+  - {fileID: 21300000, guid: 62c76adf3224d174a94475997571184a, type: 3}
+  - {fileID: 21300000, guid: 18e7f0a52cb610644a967c645226f990, type: 3}
+  - {fileID: 21300000, guid: b8fc447e88bcc234cb94d32bbc0a08ec, type: 3}
+  - {fileID: 21300000, guid: bd5d5448386d1894aa46cba9c0c441f2, type: 3}
+  <Price>k__BackingField: 0

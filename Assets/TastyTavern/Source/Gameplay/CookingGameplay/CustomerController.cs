@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class CustomerController : MonoBehaviour
@@ -27,15 +28,21 @@ public class CustomerController : MonoBehaviour
     [SerializeField]
     private int Difficulty;
     private double nextSpawnTime = 0.0;
-    public float baseDelay = 0f; // Base delay in seconds for difficulty = 1.
-    public float randomOffset = 0f; // Maximum random offset added or subtracted from the delay.;
+    public float baseDelay; // Base delay in seconds for difficulty = 1.
+    public float randomOffset; // Maximum random offset added or subtracted from the delay.;
     public GameObject customerPrefab;
+
+    //TEMPORARY until customer sprites corrected
+    public List<Sprite> customerSprites;
+    public int spriteIdx = 0;
 
     [SerializeField]
     private List<Transform> CustomerSpots;
 
     [SerializeField]
     private MenuManager MenuManager;
+    private bool isSpawning = false;
+
 
     void Start()
     {
@@ -45,33 +52,46 @@ public class CustomerController : MonoBehaviour
     private void Update()
     {
         // Check if it's time to create a new customer.
-        if (Time.time >= nextSpawnTime)
+        for (int i = 0; i < CustomerSpots.Count; i++)
         {
-            CreateCustomer();
-            ScheduleNextCustomer();
+            if (customers[i] == null && !isSpawning)
+            {
+                StartCoroutine(SpawnCustomerWithDelay(i));
+            }
         }
+        
     }
 
     private void OnEnable()
     {
-        cookingUIEventChannel.OnSubmitOrder += RemoveCustomer;
+        cookingUIEventChannel.OnRemoveCustomer += RemoveCustomer;
     }
 
     private void OnDisable()
     {
-        cookingUIEventChannel.OnSubmitOrder -= RemoveCustomer;
+        cookingUIEventChannel.OnRemoveCustomer -= RemoveCustomer;
     }
-
-    private void ScheduleNextCustomer()
+    private IEnumerator SpawnCustomerWithDelay(int spotIndex)
     {
+        isSpawning = true;
         // Calculate the delay based on difficulty and randomness.
         float adjustedDelay = Mathf.Max(0.1f, baseDelay / Difficulty); // Ensure delay is never below 0.1 seconds.
         float randomDelay = adjustedDelay + Random.Range(-randomOffset, randomOffset);
-
-        // Schedule the next spawn time.
-        nextSpawnTime = Time.time + randomDelay;
+        
+        yield return new WaitForSeconds(adjustedDelay);
+        
+        // Double-check the spot is still empty before spawning.
+        if (customers[spotIndex] == null)
+        {
+            CreateCustomer();
+        }
+        
+        // Optionally, you might call ScheduleNextCustomer after creating a customer.
+        isSpawning = false;
     }
 
+    
+    
     public bool CreateCustomer()
     {
         // Inefficiency: For loop will always be running. Technically it's O(1) every frame since the length of the customers list is a constant 3, but still. 
@@ -88,12 +108,19 @@ public class CustomerController : MonoBehaviour
                     faces: new List<Sprite>(), // Replace with actual face sprites
                     dialogue: new List<string> { "Hello!", "Thanks!", "Oh no!" },
                     patience: Random.Range(50, 100),
-                    biome: selectedBiome // Replace with the current biome
+                    biome: selectedBiome, // Replace with the current biome
+                    customerSpotIdx: i
                 );
 
                 // Instantiate prefab and initialize
                 GameObject customerObj = Instantiate(customerPrefab, CustomerSpots[i].position, Quaternion.identity);
-                
+                customerObj.GetComponent<SpriteRenderer>().sprite = customerSprites[spriteIdx];
+                spriteIdx++;
+                if (spriteIdx >= customerSprites.Count)
+                {
+                    spriteIdx = 0;
+                }
+
                 Customer customerScript = customerObj.GetComponent<Customer>();
                 customerScript.MenuManager = MenuManager;
                 customerScript.Initialize(data);
@@ -108,15 +135,11 @@ public class CustomerController : MonoBehaviour
         return false;
     }
 
-    public void RemoveCustomer(Customer c)
+    public void RemoveCustomer(int customeridx)
     {
-        for (int i = 0; i < customers.Length; i++) 
-        {
-            if (customers[i].Equals(c))
-            {
-                customers[i] = null;
-                Destroy(customers[i]);
-            }
-        }
+        customers[customeridx].SetActive(false);
+        Destroy(customers[customeridx]);
+        customers[customeridx] = null;
+        cookingUIEventChannel.RaiseOnDeleteOrderButton(customeridx);
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine.UIElements;
 
 public class OrderButton : DataButton {
 
-    
-
     public Order Order { get; private set; }
 
     public event Action<OrderButton> OnClickButton = delegate { };
@@ -13,24 +11,20 @@ public class OrderButton : DataButton {
     public OrderButton(Order order) 
     {
         Order = order ?? throw new ArgumentNullException(nameof(order));
-
+        Label.text = Order.Recipe.Name;
         /*
 
          if (Order.Sprite != null)
-        {
-             Icon = new() { image = Order.Sprite.texture };
-        }
+        {Icon = new() { image = Order.Sprite.texture };}
         else
-        {
-            Debug.LogWarning("OrderButton: Order.Sprite is null!");
-        }
+        {Debug.LogWarning("OrderButton: Order.Sprite is null!");}
 
          Label.text = Order.Name;
 
         */
 
         AddStyles();
-        AttachIcon();
+        // AttachIcon(); for now
         AttachLabel();
     }
 
@@ -39,7 +33,7 @@ public class OrderButton : DataButton {
     }
     
     protected override void AddStyles(){
-        Icon.AddToClassList("order-icon");
+        // Icon.AddToClassList("order-icon");
         Label.AddToClassList("order-label");
         this.AddToClassList("order-button");
         this.AddToClassList("button");

@@ -13,16 +13,38 @@ MonoBehaviour:
   m_Name: Stirfry
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Basilisk Stir Fry
-  <Description>k__BackingField: Stir-fried diced basilisk
+  <Description>k__BackingField: Stir-fried basilisk and mushroom
   <Price>k__BackingField: 100
-  <Icon>k__BackingField: {fileID: 0}
-  <Ingredients>k__BackingField:
-  - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
-  <Properties>k__BackingField:
-  - Properties: 0000000001000000
+  <Icon>k__BackingField: {fileID: 1971571741212690949, guid: e61fbf0a0c3e43142b614778b574aa3c, type: 3}
   <StationSequence>k__BackingField:
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
   - {fileID: 11400000, guid: 865f815cb1e69f146ba2c092346510d0, type: 2}
+  - {fileID: 11400000, guid: 82396885afbc98549b5a8aa25647ab74, type: 2}
   <InitialStockSequence>k__BackingField:
   - InitialStock:
     - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
+    - {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
+  - InitialStock: []
+  - InitialStock:
+    - {fileID: 11400000, guid: 4f504685f198ab34a8eefd094a51abb8, type: 2}
+  <CorrectStockSequence>k__BackingField:
+  - CorrectIngredients:
+    - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
+    - {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
+    CorrectPropertiesPerIngredient:
+    - Properties: 00000000
+    - Properties: 00000000
+  - CorrectIngredients:
+    - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
+    - {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
+    CorrectPropertiesPerIngredient:
+    - Properties: 0000000001000000
+    - Properties: 0000000001000000
+  - CorrectIngredients:
+    - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
+    - {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
+    - {fileID: 11400000, guid: 4f504685f198ab34a8eefd094a51abb8, type: 2}
+    CorrectPropertiesPerIngredient:
+    - Properties: 0000000001000000
+    - Properties: 0000000001000000
+    - Properties: 

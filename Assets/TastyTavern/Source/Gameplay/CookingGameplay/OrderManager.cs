@@ -33,18 +33,23 @@ public class OrderManager : MonoBehaviour
 
     private void OnEnable()
     {
-        cookingUIEventChannel.OnOpenOrder += AddOrder;
+        cookingUIEventChannel.OnCreateOrder += AddOrder;
         cookingUIEventChannel.OnSubmitOrder += SubmitOrder;
         cookingUIEventChannel.OnAddProperty += StartAddProperty;
+        cookingUIEventChannel.OnSelectOrder += SelectOrder;
+        cookingUIEventChannel.OnChangeNextStation += ChangeNextStation;
     }
 
     private void OnDisable()
     {
-        cookingUIEventChannel.OnOpenOrder -= AddOrder;
+        cookingUIEventChannel.OnCreateOrder -= AddOrder;
         cookingUIEventChannel.OnSubmitOrder -= SubmitOrder;
         cookingUIEventChannel.OnAddProperty -= StartAddProperty;
+        cookingUIEventChannel.OnSelectOrder -= SelectOrder;
+        cookingUIEventChannel.OnChangeNextStation -= ChangeNextStation;
     }
 
+    // Add Property starts here because it needs to kick off a coroutine
     private void StartAddProperty(ActionData actionData)
     {
         StartCoroutine(ExecuteAddProperty(actionData));
@@ -52,14 +57,9 @@ public class OrderManager : MonoBehaviour
 
     private IEnumerator ExecuteAddProperty(ActionData actionData)
     {
-        yield return StartCoroutine(WaitBeforeApplying(actionData.ActionTime));
+        yield return new WaitForSeconds(actionData.ActionTime);
 
         currentOrder.Station.ApplyProperty(actionData);
-    }
-
-    private IEnumerator WaitBeforeApplying(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
     }
 
     /// <summary>
@@ -68,33 +68,43 @@ public class OrderManager : MonoBehaviour
     /// <param name="orderData"></param>
     private void SelectOrder(Order selectedOrder)
     {
+        if (selectedOrder == currentOrder){ // for now, click again to deselect TODO: close X button
+            DeselectOrder();
+            return;
+        }
         Debug.Log("Selected Order " + selectedOrder);
+        if (currentOrder != null) currentOrder.Station.Unsubscribe();
         currentOrder = selectedOrder;
     }
 
-    // private void LoadStation(StationData station)
-    // {
-    //     Debug.Log("Loading Station " + station.StationType);
-    //     // all station logic is updated on station object
-    //     // update menu where? how does it know the data
-    // }
+    private void DeselectOrder()
+    {
+        if (currentOrder != null) currentOrder.Station.Unsubscribe();
+        currentOrder = null;
+        cookingUIEventChannel.RaiseOnDeselectOrder();
+    }
 
     public void AddOrder(Order order)
     {
-        order.cookingUIEventChannel = cookingUIEventChannel;
+        order.cookingUIEventChannel = cookingUIEventChannel; // pass event channel to order
         allOrders.Add(order);
+        cookingUIEventChannel.RaiseOnGenerateOrderButton(order);
     }
-    public void SubmitOrder(Customer customer)
-    {
-        allOrders.Remove(customer.Data.Order);
-        if (customer.Data.Order.isCorrect())
-            Debug.Log("Order is correct");
-            // other things can happen here like money? etc. like playerMoney += order.Recipe.Price; or something like that
 
+    public void SubmitOrder()
+    {
+        allOrders.Remove(currentOrder);
+        cookingUIEventChannel.RaiseOnRemoveCustomer(currentOrder.Customer.Data.CustomerSpotIdx);
+        if (currentOrder.isCorrect()){
+            Debug.Log("Order is correct");
+        } else {
+            Debug.Log("Order is incorrect");
+        }
+            // other things can happen here like money? etc. like playerMoney += order.Recipe.Price; or something like that
     }
 
     // Pass event channel trigger to order
-    public void OnChangeStation(){
-        currentOrder.ChangeNextStation();
+    public void ChangeNextStation(){
+        currentOrder.ChangeStation();
     }
 }

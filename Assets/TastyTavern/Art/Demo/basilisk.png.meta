@@ -106,10 +106,10 @@ TextureImporter:
       name: basilisk_0
       rect:
         serializedVersion: 2
-        x: 819
-        y: 369
-        width: 1686
-        height: 634
+        x: 1176
+        y: 242
+        width: 1444
+        height: 545
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,9 +128,9 @@ TextureImporter:
       name: basilisk_1
       rect:
         serializedVersion: 2
-        x: 2496
-        y: 85
-        width: 54
+        x: 2608
+        y: 0
+        width: 49
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}

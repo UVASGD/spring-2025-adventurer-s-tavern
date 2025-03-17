@@ -15,7 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Basilisk
   <Description>k__BackingField: 
   <Sprites>k__BackingField:
-  - {fileID: 1971571741212690949, guid: e61fbf0a0c3e43142b614778b574aa3c, type: 3}
+  - {fileID: 21300000, guid: e61fbf0a0c3e43142b614778b574aa3c, type: 3}
   - {fileID: 21300000, guid: 75e01863b5df3984db5bbd8aff8984f7, type: 3}
-  - {fileID: 21300000, guid: febaf9aea75fa454195ed1070653d284, type: 3}
-  - {fileID: 21300000, guid: 028a2f6f3b9cc7a4faa57430cc4dddac, type: 3}
+  - {fileID: 21300000, guid: 8cdd7395ea9d31645a7f2155289ba590, type: 3}
+  - {fileID: 21300000, guid: 4f8551595b27f6240904b87b96ba01fa, type: 3}
+  <Price>k__BackingField: 0

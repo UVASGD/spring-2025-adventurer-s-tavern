@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Linq;
 
 // Inherits helper classes and returns itself on OnClick() with OnClickButton delegate
 public class IngredientButton : DataButton {
@@ -14,7 +15,14 @@ public class IngredientButton : DataButton {
     {
         Ingredient = ingredient;
         Icon = new(){ image = Ingredient.Data.Sprites[0].texture };
-        Label.text = Ingredient.Data.Name;
+        
+        if (Ingredient.Properties.Count > 0){
+            Label.text = (Ingredient.Properties.Last().ToString() + " " ?? "") + Ingredient.Data.Name;
+        } else {
+            Label.text = Ingredient.Data.Name;
+        }
+        
+        
 
         AddStyles();
         AttachIcon();

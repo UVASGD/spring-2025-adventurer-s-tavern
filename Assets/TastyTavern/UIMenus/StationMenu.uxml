@@ -3,36 +3,57 @@
     <engine:VisualElement name="RootPanel" style="flex-grow: 1; flex-direction: row;">
         <engine:VisualElement name="MainPanel" style="flex-grow: 1; height: 1070px; width: 756px;">
             <engine:VisualElement name="TopContainer" style="flex-grow: 1; height: 10%; background-color: rgba(255, 255, 255, 0.14); max-height: 13%; flex-direction: row;">
-                <engine:VisualElement name="Order1" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
-                    <engine:Button style="height: 118px; width: 356px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; border-top-left-radius: 28px; border-top-right-radius: 28px; border-bottom-right-radius: 28px; border-bottom-left-radius: 28px; flex-direction: row;">
-                        <engine:Label text="Label" style="font-size: 30px; margin-top: 11px; margin-right: 11px; margin-bottom: 11px; margin-left: 11px;" />
-                        <engine:VisualElement style="flex-grow: 1; height: 63px; width: 187px; background-color: rgba(255, 84, 84, 0.47); margin-top: 11px; margin-right: 11px; margin-bottom: 11px; margin-left: 11px;" />
+                <engine:VisualElement name="OrderSlot0" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
+                    <engine:Button name="OrderButton" class="order-button button">
+                        <engine:VisualElement style="flex-grow: 1; flex-direction: row; max-height: 90%; justify-content: center;">
+                            <engine:Label text="Stirfry" class="order-label" />
+                            <engine:VisualElement class="order-icon" />
+                        </engine:VisualElement>
+                        <engine:ProgressBar value="22" title="my-progress" name="ProgressBar" />
                     </engine:Button>
                 </engine:VisualElement>
-                <engine:VisualElement name="Order2" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
-                    <engine:Button text="Button" style="height: 118px; width: 356px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; border-top-left-radius: 32px; border-top-right-radius: 32px; border-bottom-right-radius: 32px; border-bottom-left-radius: 32px;" />
+                <engine:VisualElement name="OrderSlot1" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
+                    <engine:Button name="OrderButton" class="order-button button">
+                        <engine:VisualElement style="flex-grow: 1; flex-direction: row; max-height: 90%; justify-content: center;">
+                            <engine:Label text="Stirfry" class="order-label" />
+                            <engine:VisualElement class="order-icon" />
+                        </engine:VisualElement>
+                        <engine:ProgressBar value="22" title="my-progress" name="ProgressBar" />
+                    </engine:Button>
                 </engine:VisualElement>
-                <engine:VisualElement name="Order3" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
-                    <engine:Button text="Button" style="height: 118px; width: 356px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; border-top-left-radius: 32px; border-top-right-radius: 32px; border-bottom-right-radius: 32px; border-bottom-left-radius: 32px;" />
+                <engine:VisualElement name="OrderSlot2" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
+                    <engine:Button name="OrderButton" class="order-button button">
+                        <engine:VisualElement style="flex-grow: 1; flex-direction: row; max-height: 90%; justify-content: center;">
+                            <engine:Label text="Stirfry" class="order-label" />
+                            <engine:VisualElement class="order-icon" />
+                        </engine:VisualElement>
+                        <engine:ProgressBar value="22" title="my-progress" name="ProgressBar" />
+                    </engine:Button>
                 </engine:VisualElement>
             </engine:VisualElement>
             <engine:VisualElement name="BarAndStation" style="flex-grow: 1; height: 825px; width: 1336px; flex-direction: column;">
                 <engine:VisualElement name="StationWorkspaceContainer" style="flex-grow: 1; height: 20%; max-height: 100%; background-color: rgba(232, 71, 5, 0.13);" />
-                <engine:VisualElement name="BottomContainer" style="flex-grow: 1; height: 15%; background-color: rgba(255, 255, 255, 0.11); min-height: 15%; max-height: 15%; flex-direction: row; justify-content: center;">
-                    <engine:Button text="Next Station" name="NextStationButton" class="next-station-button button" />
-                </engine:VisualElement>
+                <engine:VisualElement name="BottomContainer" style="flex-grow: 1; height: 15%; background-color: rgba(255, 255, 255, 0.11); min-height: 15%; max-height: 15%; flex-direction: row; justify-content: center;" />
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="SidePanel" style="flex-grow: 1; align-items: flex-end; background-color: rgba(128, 128, 128, 0); -unity-text-outline-color: rgba(0, 0, 0, 0); height: 1078px; width: 0; -unity-text-align: upper-left; align-self: flex-end; -unity-background-image-tint-color: rgb(0, 0, 0);">
-            <engine:VisualElement name="SideMenuContainer" style="flex-grow: 1; height: 1082px; width: 579px; flex-direction: column;">
-                <engine:VisualElement name="ActionIngredientPanel" style="flex-grow: 1; height: 291px; width: 581px; flex-direction: row;">
-                    <engine:VisualElement name="ActionSlotContainer" style="flex-grow: 1; flex-direction: row; height: 671px; width: 316px; color: rgb(27, 27, 27); background-color: rgba(0, 0, 0, 0.15); align-self: flex-end;">
+            <engine:VisualElement name="SideMenuContainer" style="flex-grow: 1; height: 1082px; width: 579px; flex-direction: row; align-items: flex-start; align-self: auto; align-content: flex-start;">
+                <engine:VisualElement name="ActionNextStationPanel" style="flex-grow: 1; height: 1080px; width: 100px; flex-direction: column; align-items: stretch; justify-content: space-evenly; flex-wrap: nowrap; align-self: stretch;">
+                    <engine:VisualElement name="ActionSlotContainer" style="flex-grow: 1; flex-direction: row; height: auto; width: auto; color: rgb(27, 27, 27); background-color: rgba(0, 0, 0, 0.15); align-self: flex-end; flex-wrap: nowrap; max-height: 60%; min-height: auto;">
                         <engine:Button class="button action-button">
                             <engine:VisualElement class="action-icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TastyTavern/Art/Demo/knife.png?fileID=2800000&amp;guid=353ea572d83b485418eeed2fad5fc138&amp;type=3#knife&quot;); background-size: 130% 100%;" />
                             <engine:Label text="Label" class="action-label" />
                         </engine:Button>
                     </engine:VisualElement>
-                    <engine:VisualElement name="IngredientsPanel" style="flex-grow: 1; height: 675px; width: 574px;">
+                    <engine:VisualElement name="StoreButton" style="flex-grow: 1; max-height: 20%; min-height: 20%; align-content: flex-start; justify-content: center;">
+                        <engine:Button text="Store" class="action-button" style="max-height: none; min-height: 80%; height: auto; justify-content: center; align-content: flex-start;" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="NextStation" style="flex-grow: 1; max-height: 20%; min-height: 20%; align-items: auto; justify-content: center;">
+                        <engine:Button text="Next Station" class="button action-button" style="width: 179px; height: auto; font-size: 34px; white-space: normal; min-height: 80%; max-height: 80%;" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="IngredientRecipePanel" style="flex-grow: 1; width: 300px; flex-direction: column; align-self: center; align-items: center; justify-content: space-between; align-content: flex-start; max-height: 100%; min-height: 100%;">
+                    <engine:VisualElement name="IngredientsPanel" style="flex-grow: 1; height: auto; width: auto; align-self: center; align-content: flex-start; align-items: stretch;">
                         <engine:Label text="Ingredients" style="height: 60px; width: 368px; font-size: 40px; -unity-text-align: middle-center;" />
                         <engine:VisualElement name="IngredientSlotContainer" style="flex-grow: 1; height: 615px; width: 381px; flex-direction: row; background-color: rgba(0, 0, 0, 0.23); flex-wrap: wrap;">
                             <engine:Button text="Onion" name="onion" class="ingredient-button button" style="background-color: rgb(195, 174, 174);" />
@@ -46,9 +67,9 @@
                             </engine:Button>
                         </engine:VisualElement>
                     </engine:VisualElement>
-                </engine:VisualElement>
-                <engine:VisualElement name="OrderInstructionsPanel" style="flex-grow: 1; flex-direction: row; align-self: flex-end; height: 1px; width: 379px;">
-                    <engine:Label text="insert order requirements here" style="height: 392px; width: 363px; font-size: 30px; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0.19);" />
+                    <engine:VisualElement name="RecipePanel" style="flex-grow: 1; min-height: 40%;">
+                        <engine:Label text="insert order requirements here" style="height: auto; width: auto; font-size: 30px; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0.19); align-self: center; align-items: auto;" />
+                    </engine:VisualElement>
                 </engine:VisualElement>
             </engine:VisualElement>
         </engine:VisualElement>

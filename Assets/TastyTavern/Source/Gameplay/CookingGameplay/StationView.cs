@@ -7,7 +7,6 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-// TODO: Organize references and use Event Channels
 public class StationView : MonoBehaviour {
 
     [SerializeField] string PanelName { get; set; }
@@ -21,6 +20,14 @@ public class StationView : MonoBehaviour {
     public VisualElement stationWorkspaceContainer;
     public VisualElement nextStationContainer;
     public VisualElement orderContainer;
+    public VisualElement orderSlot1;
+    public VisualElement orderSlot0;
+    public VisualElement orderSlot2;
+    public VisualElement barAndStationContainer;
+    public VisualElement sidePanelContainer;
+    public VisualElement RecipeContainer;
+    public VisualElement storeButtonContainer;
+
 
     public VisualElement stationTop;
 
@@ -29,69 +36,116 @@ public class StationView : MonoBehaviour {
     [SerializeField]
     private CookingUIEventChannel cookingUIEventChannel;
 
-    public IngredientData basilisk;
-    public IngredientData punchPepper;
-
     private void OnEnable()
     {
         cookingUIEventChannel.OnLoadStationView += LoadStationView;
-        cookingUIEventChannel.OnRefreshStationView += RefreshStationView;
+        cookingUIEventChannel.OnRefreshStationWorkspace += RefreshStationWorkspace;
+        cookingUIEventChannel.OnRefreshIngredientsPanel += RefreshIngredientsPanel;
+        cookingUIEventChannel.OnGenerateOrderButton += GenerateOrderButton;
+        cookingUIEventChannel.OnDeselectOrder += CloseStationPanels;
+        cookingUIEventChannel.OnDeleteOrderButton += DeleteOrderButton;
     }
 
     private void OnDisable() 
     {
         cookingUIEventChannel.OnLoadStationView -= LoadStationView;
-        cookingUIEventChannel.OnRefreshStationView -= RefreshStationView;
+        cookingUIEventChannel.OnRefreshStationWorkspace -= RefreshStationWorkspace;
+        cookingUIEventChannel.OnRefreshIngredientsPanel -= RefreshIngredientsPanel;
+        cookingUIEventChannel.OnGenerateOrderButton -= GenerateOrderButton;
+        cookingUIEventChannel.OnDeselectOrder -= CloseStationPanels;
+        cookingUIEventChannel.OnDeleteOrderButton -= DeleteOrderButton;
     }
 
     private void Awake(){
         document = GetComponent<UIDocument>();
         root = document.rootVisualElement;
-        Debug.Log("root is" + ingredientSlotContainer);
+        Debug.Log("root is" + root);
         ingredientSlotContainer = root.Q<VisualElement>("IngredientSlotContainer"); //already style?
         actionSlotContainer = root.Q<VisualElement>("ActionSlotContainer");
         stationWorkspaceContainer = root.Q<VisualElement>("StationWorkspaceContainer");
         nextStationContainer = root.Q<VisualElement>("BottomContainer");
         orderContainer = root.Q<VisualElement>("TopContainer");
+        orderSlot0 = root.Q<VisualElement>("OrderSlot0");
+        orderSlot1 = root.Q<VisualElement>("OrderSlot1");
+        orderSlot2 = root.Q<VisualElement>("OrderSlot2");
+        barAndStationContainer = root.Q<VisualElement>("BarAndStation");
+        sidePanelContainer = root.Q<VisualElement>("SidePanel");
+        RecipeContainer = root.Q<VisualElement>("RecipePanel");
+        storeButtonContainer = root.Q<VisualElement>("StoreButton");
+        actionSlotContainer.Clear();
+        ingredientSlotContainer.Clear();
+        stationWorkspaceContainer.Clear();
+        nextStationContainer.Clear();
+        RecipeContainer.Clear(); 
+        orderSlot0.Clear(); // Probably just want slots, not order container
+        orderSlot1.Clear();
+        orderSlot2.Clear();
+        sidePanelContainer.visible = false;
+        barAndStationContainer.visible = false;
     }
 
     private void Start(){
-        // List<Ingredient> dummyIngredients = new()
-        // {
-        //     basilisk.Create(),
-        //     punchPepper.Create()
-        // };
-        // InitializeView(dummyIngredients);
-        // stationWorkspaceContainer.Clear();
     }
+
     // ***May be easier to have a simple button instead, not attached to station data, go back up to order
     // combine with initialize?
     private void LoadStationView(Station station){
         Debug.Log("View recieved loading request from event channel");
-        InitializeView(station,station.Data.ActionData,station.StockIngredients);
-    }
-
-    // ingredients --> live ingredients in the station storage/stock
-    // TODO: Change params to just use station
-    public void InitializeView(Station station, ActionData actionData,List<Ingredient> ingredients){
-        Debug.Log("Initializing Station view");
+        Debug.Log("Load Station view");
         actionSlotContainer.Clear();
         ingredientSlotContainer.Clear();
         stationWorkspaceContainer.Clear();
-        nextStationContainer.Clear(); // may not have to clear anymore when hiding station panels, station button stays constant.
-        GenerateNextStationButton();
-        GenerateActionButton(actionData);
-        GenerateIngredientButtons(ingredients);
+        RecipeContainer.Clear();
+        nextStationContainer.Clear();
+        if (station.Data.StationType == StationType.Serving){
+            GenerateServeButton(); // last station only generates serve button
+        } else {
+            GenerateNextStationButton();
+            GenerateActionButton(station.Data.ActionData); 
+        }
+        GenerateIngredientButtons(station.StockIngredients);
         GenerateStationBackground(station);
-        // make visible the parent elements for station menus (everything except order tabs)
+        GenerateOrderInstructions(station.StockIngredients);
+        sidePanelContainer.visible = true;
+        barAndStationContainer.visible = true;
+    }
+
+    private void GenerateOrderInstructions(List<Ingredient> stockIngredients)
+    {
+        Label orderInstructions = new();
+        var instructions = "";
+        Debug.Log("Generating order instructions");
+        foreach (var ingredient in stockIngredients)
+        {
+            
+            if (ingredient.Properties.Count > 0)
+                instructions += ingredient.Properties[^1] + " " + ingredient.Data.Name + "\n";
+            else
+                instructions += ingredient.Data.Name + "\n";
+        }
+
+        orderInstructions.text = instructions;
+        orderInstructions.AddToClassList("action-label");
+        RecipeContainer.Add(orderInstructions);
     }
 
     // A simple styled button with 
     private void GenerateNextStationButton(){
         Button nextButton = new();
         nextButton.AddToClassList("button");
+        nextButton.AddToClassList("next-station-button");
+        nextButton.text = "Next Station";
         nextStationContainer.Add(nextButton);
         nextButton.clicked += OnNextStation;
+    }
+
+    private void GenerateServeButton(){
+        Button serveButton = new();
+        serveButton.AddToClassList("button");
+        serveButton.AddToClassList("next-station-button"); // TODO: consolidate generic styles
+        serveButton.text = "Serve Order";
+        nextStationContainer.Add(serveButton); // change container name
+        serveButton.clicked += OnServeOrder;
     }
 
     private void GenerateActionButton(ActionData actionData){
@@ -99,6 +153,20 @@ public class StationView : MonoBehaviour {
         Debug.Log($"Slot created for {actionButton.Data.Name}");
         actionSlotContainer.Add(actionButton);
         actionButton.OnClickButton += OnAddProperty;
+    }
+
+    // ONLY happens when new order is added to order manager
+    private void GenerateOrderButton(Order order){
+        Debug.Log("Generating order button");
+        OrderButton orderButton = new(order);
+        if (order.Customer.Data.CustomerSpotIdx == 0){
+            orderSlot0.Add(orderButton);
+        } else if (order.Customer.Data.CustomerSpotIdx == 1){
+            orderSlot1.Add(orderButton);
+        } else {
+            orderSlot2.Add(orderButton);
+        }
+        orderButton.OnClickButton += OnSelectOrder;
     }
 
     private void GenerateIngredientButtons(List<Ingredient> ingredients){
@@ -111,9 +179,28 @@ public class StationView : MonoBehaviour {
     }
 
     private void GenerateStationBackground(Station station){
-        stationBG = new(){ image = station.Data.Background.texture };
+        stationBG = new(){ image = station.Data.Background.texture }; // change this to just equipment, not counter
         stationWorkspaceContainer.Add(stationBG);
         stationTop = stationBG;
+    }
+
+    private void GenerateStoreButton(Station station){
+        Button storeButton = new();
+        storeButton.AddToClassList("button");
+        storeButton.AddToClassList("store-button");
+        storeButton.text = "Store";
+        nextStationContainer.Add(storeButton);
+        storeButton.clicked += OnStoreIngredient;
+    }
+
+    private void DeleteOrderButton(int orderIdx){
+        if (orderIdx == 0){
+            orderSlot0.Clear();
+        } else if (orderIdx == 1){
+            orderSlot1.Clear();
+        } else {
+            orderSlot2.Clear();
+        }
     }
 
     private void OnAddIngredient(IngredientButton ingredientButton ) {
@@ -122,18 +209,40 @@ public class StationView : MonoBehaviour {
         ingredientButton.RemoveFromClassList("button");
     }
     
+    private void OnStoreIngredient() {
+        cookingUIEventChannel.RaiseOnStoreIngredient();
+    }
+
     private void OnAddProperty(ActionButton actionButton){
 
         cookingUIEventChannel.RaiseOnAddProperty(actionButton.Data); // Property enum actionProperty
     }
     
+    // This button is not DataButton, does not pass button data
     private void OnNextStation(){
         cookingUIEventChannel.RaiseOnChangeNextStation();
     }
 
+    private void OnServeOrder(){
+        cookingUIEventChannel.RaiseOnSubmitOrder();
+        CloseStationPanels();
+    }
+
+    private void OnSelectOrder(OrderButton orderButton){
+        cookingUIEventChannel.RaiseOnSelectOrder(orderButton.Order);
+        LoadStationView(orderButton.Order.Station);
+    }
+
+    // could consolidate into helper, hiding and showing station elements
+    private void CloseStationPanels(){
+        sidePanelContainer.visible = false;
+        barAndStationContainer.visible = false;
+    }
+
+    // TODO: change method of determining sprites
     private void AddToStationWorkspace(Ingredient ingredient){
         Sprite sprite;
-        if( ingredient.Properties.Contains(Property.Cut) && ingredient.Properties.Contains(Property.Cooked) ){
+        if( ingredient.Properties.Contains(Property.Cut) && ingredient.Properties.Contains(Property.Cooked)){
             sprite = ingredient.Data.Sprites[3];
         } else if (ingredient.Properties.Contains(Property.Cut)){
             sprite = ingredient.Data.Sprites[2];
@@ -145,13 +254,17 @@ public class StationView : MonoBehaviour {
         stationTop = icon; // update new top of stack
     }
 
-    private void RefreshStationView(Station station){
+    private void RefreshStationWorkspace(Station station){
         stationBG.Clear();
         stationTop = stationBG;
         foreach (var ingredient in station.ActiveIngredients){
             AddToStationWorkspace(ingredient);
         }
-        Debug.Log(station.ActiveIngredients[0]);
+    }
+
+    private void RefreshIngredientsPanel(Station station){
+        ingredientSlotContainer.Clear();
+        GenerateIngredientButtons(station.StockIngredients);
     }
 
 }

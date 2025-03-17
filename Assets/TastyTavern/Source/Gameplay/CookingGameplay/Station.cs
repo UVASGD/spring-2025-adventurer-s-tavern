@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using UnityEngine;
+using System;
 /// Stock ingreityEngine;
 
 /// <summary>
@@ -24,9 +25,11 @@ public class Station {
     [field: SerializeField]
     public CookingUIEventChannel cookingUIEventChannel { get; set; }
 
-    public Station(StationData data, List<IngredientData> stock, CookingUIEventChannel cookingUIEventChannel){
+    public Station(StationData data, List<IngredientData> stock, CookingUIEventChannel ev){
         this.Data = data;
-        this.cookingUIEventChannel = cookingUIEventChannel;
+        cookingUIEventChannel = ev;
+        cookingUIEventChannel.OnAddIngredient += AddIngredient;
+        cookingUIEventChannel.OnStoreIngredient += StoreActiveIngredients;
         foreach (var ingredientData in stock){
             StockIngredients.Add(ingredientData.Create());
         }
@@ -37,21 +40,16 @@ public class Station {
         };
     }
 
-    private void OnEnable()
-    {
-        cookingUIEventChannel.OnAddIngredient += AddIngredient;
-    }
-
-    private void OnDisable() 
-    {
+    public void Unsubscribe(){
         cookingUIEventChannel.OnAddIngredient -= AddIngredient;
+        cookingUIEventChannel.OnStoreIngredient -= StoreActiveIngredients;
     }
 
     /// Adds ingredient to current active workspace (from stock)
     private void AddIngredient(Ingredient ingredient)
     {
         AddToActive(ingredient);
-        cookingUIEventChannel.RaiseOnRefreshStationView(this);
+        cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
     }
     
     /// Applies a property to all active ingredients on the station if they don't already have it
@@ -64,11 +62,11 @@ public class Station {
                 ingredient.Properties.Add(actionData.Property);
             }
         }
-        cookingUIEventChannel.RaiseOnRefreshStationView(this);
+        cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
     }
 
     // Change data, move new Stock and ingredients in Active and Stored to Stock
-    public void ChangeStation(StationData data, List<IngredientData> stock){
+    public void ProgressStation(StationData data, List<IngredientData> stock){
         Debug.Log("Station changed to "+ data.StationType + "in Station.cs");
         this.Data = data;
 
@@ -80,7 +78,8 @@ public class Station {
         StockIngredients.AddRange(ActiveIngredients);
         ActiveIngredients.Clear();
         StoredIngredients.Clear();
-        cookingUIEventChannel.RaiseOnRefreshStationView(this);
+        cookingUIEventChannel.RaiseOnLoadStationView(this); // refreshes all panels
+        // also refresh order instructions
     }
 
     /// Adds ingredient to current active workspace (from stock)
@@ -89,6 +88,7 @@ public class Station {
         if (Data.StationType == StationType.CuttingBoard){
             StoreActiveIngredients();
         }
+        Debug.Log(ingredient.Data.Name + " added to " + Data.StationType + " in Station.cs");
         ActiveIngredients.Add(ingredient);
         StockIngredients.Remove(ingredient);
     }
