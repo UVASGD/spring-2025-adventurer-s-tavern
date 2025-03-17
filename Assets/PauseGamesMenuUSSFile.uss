@@ -1,0 +1,23 @@
+.panel {
+    background-color: rgba(195, 36, 36, 0);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.menu {
+    align-items: center;
+    align-content: auto;
+    width: 437px;
+    max-height: 553px;
+    background-color: rgb(25, 50, 82);
+    align-self: center;
+    justify-content: flex-start;
+    top: 115px;
+}
+
+.unity-button {
+}
+
+.unity-button:hover {
+    background-color: rgb(231, 129, 23);
+    scale: 1.1 1.1;
+}
