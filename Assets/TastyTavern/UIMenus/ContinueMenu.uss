@@ -1,0 +1,23 @@
+.panel {
+    flex-grow: 1;
+    align-items: center;
+    width: 35%;
+    justify-content: center;
+    height: auto;
+    max-height: 35%;
+    min-height: auto;
+    background-color: rgb(51, 39, 36);
+    border-left-color: rgb(77, 32, 17);
+    border-right-color: rgb(77, 32, 17);
+    border-top-color: rgb(77, 32, 17);
+    border-bottom-color: rgb(77, 32, 17);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+}
+
+.unity-button {
+    align-content: auto;
+    justify-content: flex-start;
+}
