@@ -1,6 +1,4 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/TastyTavern/UIMenus/ShopUI.uss?fileID=7433441132597879392&amp;guid=3c83a415749054a4c972f0e786d4c228&amp;type=3#ShopUI" />
-    <engine:VisualElement style="flex-grow: 1;">
-        <engine:VisualElement name="VisualElement" style="flex-grow: 1; width: 349px;" />
-    </engine:VisualElement>
+    <engine:VisualElement style="flex-grow: 1;" />
 </engine:UXML>
