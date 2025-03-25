@@ -27,6 +27,7 @@ public class StationView : MonoBehaviour {
     public VisualElement sidePanelContainer;
     public VisualElement RecipeContainer;
     public VisualElement storeButtonContainer;
+    public VisualElement trashButtonContainer;
 
 
     public VisualElement stationTop;
@@ -72,19 +73,18 @@ public class StationView : MonoBehaviour {
         sidePanelContainer = root.Q<VisualElement>("SidePanel");
         RecipeContainer = root.Q<VisualElement>("RecipePanel");
         storeButtonContainer = root.Q<VisualElement>("StoreButton");
+        trashButtonContainer = root.Q<VisualElement>("TrashButton");
         actionSlotContainer.Clear();
         ingredientSlotContainer.Clear();
         stationWorkspaceContainer.Clear();
         nextStationContainer.Clear();
-        RecipeContainer.Clear(); 
+        RecipeContainer.Clear();
+        trashButtonContainer.Clear();
         orderSlot0.Clear(); // Probably just want slots, not order container
         orderSlot1.Clear();
         orderSlot2.Clear();
         sidePanelContainer.visible = false;
         barAndStationContainer.visible = false;
-    }
-
-    private void Start(){
     }
 
     // ***May be easier to have a simple button instead, not attached to station data, go back up to order
@@ -103,6 +103,7 @@ public class StationView : MonoBehaviour {
             GenerateNextStationButton();
             GenerateActionButton(station.Data.ActionData); 
         }
+        GenerateTrashButton();
         GenerateIngredientButtons(station.StockIngredients);
         GenerateStationBackground(station);
         GenerateOrderInstructions(station.StockIngredients);
@@ -137,6 +138,16 @@ public class StationView : MonoBehaviour {
         nextButton.text = "Next Station";
         nextStationContainer.Add(nextButton);
         nextButton.clicked += OnNextStation;
+    }
+
+    private void GenerateTrashButton()
+    {
+        Button trashButton = new();
+        trashButton.AddToClassList("button");
+        trashButton.AddToClassList("next-station-button");
+        trashButton.text = "Trash";
+        trashButtonContainer.Add(trashButton);
+        trashButton.clicked += OnTrashOrderFood;
     }
 
     private void GenerateServeButton(){
@@ -211,6 +222,11 @@ public class StationView : MonoBehaviour {
     
     private void OnStoreIngredient() {
         cookingUIEventChannel.RaiseOnStoreIngredient();
+    }
+
+    private void OnTrashOrderFood()
+    {
+        cookingUIEventChannel.RaiseOnTrashCurrentOrderFood();
     }
 
     private void OnAddProperty(ActionButton actionButton){
