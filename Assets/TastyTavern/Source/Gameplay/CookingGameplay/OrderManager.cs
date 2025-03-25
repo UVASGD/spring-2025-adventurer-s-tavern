@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using System.Collections;
+using UnityEditor;
 
 public class OrderManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnAddProperty += StartAddProperty;
         cookingUIEventChannel.OnSelectOrder += SelectOrder;
         cookingUIEventChannel.OnChangeNextStation += ChangeNextStation;
+        cookingUIEventChannel.OnTrashCurrentOrderFood += OnTrashCurrentOrderFood;
     }
 
     private void OnDisable()
@@ -47,6 +49,7 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnAddProperty -= StartAddProperty;
         cookingUIEventChannel.OnSelectOrder -= SelectOrder;
         cookingUIEventChannel.OnChangeNextStation -= ChangeNextStation;
+        cookingUIEventChannel.OnTrashCurrentOrderFood -= OnTrashCurrentOrderFood;
     }
 
     // Add Property starts here because it needs to kick off a coroutine
@@ -83,7 +86,12 @@ public class OrderManager : MonoBehaviour
         currentOrder = null;
         cookingUIEventChannel.RaiseOnDeselectOrder();
     }
-
+    
+    private void OnTrashCurrentOrderFood()
+    {
+        // order trash please
+    }
+    
     public void AddOrder(Order order)
     {
         order.cookingUIEventChannel = cookingUIEventChannel; // pass event channel to order

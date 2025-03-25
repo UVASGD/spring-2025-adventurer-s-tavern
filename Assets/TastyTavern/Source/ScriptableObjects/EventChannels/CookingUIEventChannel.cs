@@ -39,11 +39,16 @@ public class CookingUIEventChannel : ScriptableObject {
     /// Callback when player wants to go to the next station
     public Action OnChangeNextStation;
     
-    public event Action<int> OnDeleteOrderButton;
+    public Action<int> OnDeleteOrderButton;
     
-    public event Action OnDeselectOrder;
+    public Action OnDeselectOrder;
 
     public Action OnStoreIngredient;
+
+    /// <summary>
+    /// Callback when the player trashes the current food that the order is using. The trash is meant for any mistakes which lead to restarts in order preparation. 
+    /// </summary>
+    public Action OnTrashCurrentOrderFood;
     
     public void RaiseOnAddIngredient(Ingredient ingredient){
         Debug.Log("Raise adding " + ingredient.Data.Name + " ingredient broadcasted from event channel.");
@@ -53,6 +58,11 @@ public class CookingUIEventChannel : ScriptableObject {
     public void RaiseOnAddProperty(ActionData actionData){
         Debug.Log("Raise adding " + actionData + " property broadcasted from event channel.");
         OnAddProperty?.Invoke(actionData); 
+    }
+
+    public void RaiseOnTrashCurrentOrderFood()
+    {
+        OnTrashCurrentOrderFood?.Invoke();
     }
     
     public void RaiseOpenOrder(Order Order)

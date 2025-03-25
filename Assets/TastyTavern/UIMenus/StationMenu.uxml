@@ -48,6 +48,9 @@
                     <engine:VisualElement name="StoreButton" style="flex-grow: 1; max-height: 20%; min-height: 20%; align-content: flex-start; justify-content: center;">
                         <engine:Button text="Store" class="action-button" style="max-height: none; min-height: 80%; height: auto; justify-content: center; align-content: flex-start;" />
                     </engine:VisualElement>
+                    <engine:VisualElement name="TrashButton" style="flex-grow: 1; justify-content: center; max-height: 20%; min-height: 20%;">
+                        <engine:Button text="Trash" name="Button" class="button action-button" style="width: 179px; height: auto; font-size: 34px; white-space: normal; min-height: 80%; max-height: 80%;" />
+                    </engine:VisualElement>
                     <engine:VisualElement name="NextStation" style="flex-grow: 1; max-height: 20%; min-height: 20%; align-items: auto; justify-content: center;">
                         <engine:Button text="Next Station" class="button action-button" style="width: 179px; height: auto; font-size: 34px; white-space: normal; min-height: 80%; max-height: 80%;" />
                     </engine:VisualElement>
