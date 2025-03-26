@@ -1,0 +1,31 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/TastyTavern/UIMenus/BiomesMenu.uss?fileID=7433441132597879392&amp;guid=49a814c6372f5454f816e30cd01dd616&amp;type=3#BiomesMenu" />
+    <engine:VisualElement name="Main" style="flex-grow: 1; justify-content: center; align-items: center;">
+        <engine:VisualElement name="MainPanel" style="flex-grow: 1; max-height: 100%; width: 100%; flex-direction: column; background-color: rgb(35, 13, 0); border-left-color: rgb(128, 33, 0); border-right-color: rgb(128, 33, 0); border-top-color: rgb(128, 33, 0); border-bottom-color: rgb(128, 33, 0); border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px;">
+            <engine:VisualElement name="Text" style="flex-grow: 1; max-height: 20%; align-items: flex-start; justify-content: space-between; flex-direction: column;">
+                <engine:Button text="Exit&#10;" style="width: 88px; height: 66px; translate: 0 1px;" />
+                <engine:Label text="Select a Biome!" style="font-size: 100%; color: rgb(255, 255, 255); -unity-text-align: upper-center; width: 100%; translate: 0 -30%;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="Biomes" style="flex-grow: 1; flex-direction: row;">
+                <engine:VisualElement name="Biome1Panel" style="flex-grow: 1; justify-content: space-between; align-items: auto; flex-direction: column; align-self: stretch;">
+                    <engine:VisualElement name="ImagePanel" class="ImagePanel" />
+                    <engine:VisualElement name="ButtonPanel" class="ButtonPanel">
+                        <engine:Button text="Select!" class="Select-button" style="translate: 0 0; max-height: 100%;" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="Biome2Panel" style="flex-grow: 1; justify-content: flex-end; align-items: center;">
+                    <engine:VisualElement name="ImagePanel" class="ImagePanel" style="flex-grow: 1;" />
+                    <engine:VisualElement name="ButtonPanel" class="ButtonPanel" style="flex-grow: 1;">
+                        <engine:Button text="Select!" class="Select-button" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="Biome3Panel" style="flex-grow: 1; justify-content: flex-end; align-items: center;">
+                    <engine:VisualElement name="ImagePanel" class="ImagePanel" style="flex-grow: 1;" />
+                    <engine:VisualElement name="ButtonPanel" class="ButtonPanel" style="flex-grow: 1;">
+                        <engine:Button text="Select!" class="Select-button" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
