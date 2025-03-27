@@ -90,6 +90,7 @@ public class OrderManager : MonoBehaviour
     private void OnTrashCurrentOrderFood()
     {
         int index = currentOrder.StationIdx;
+        Debug.Log(index + " trashed");
         currentOrder.ResetStation();
         DeselectOrder();
         allOrders[index] = currentOrder;

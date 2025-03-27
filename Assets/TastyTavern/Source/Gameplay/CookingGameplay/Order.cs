@@ -36,15 +36,15 @@ public class Order
     public Order(Customer Customer, RecipeData recipe, CookingUIEventChannel cookingUIEventChannel)
     {
         this.Customer = Customer;
-        Reinitialize(recipe, cookingUIEventChannel);
+        this.Recipe = recipe;
+        this.cookingUIEventChannel = cookingUIEventChannel;
+        Reinitialize();
     }
 
-    private void Reinitialize(RecipeData recipe, CookingUIEventChannel cookingUIEventChannel)
+    private void Reinitialize()
     {
         Served = false;
-        Recipe = recipe;
         StationIdx = 0;
-        this.cookingUIEventChannel = cookingUIEventChannel;
         Station = Recipe.StationSequence[0].Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel);
     }
 
@@ -57,9 +57,7 @@ public class Order
 
     public void ResetStation()
     {
-        Reinitialize(Recipe, cookingUIEventChannel);
-        for (int i = 0; i < Recipe.InitialStockSequence.Count; i++)
-            Debug.Log(Recipe.InitialStockSequence[i]);
+        Reinitialize();
     }
     
     // recipe.CorrectStockSequence[^1].CorrectIngredients -> list of all ingredients in the recipe
