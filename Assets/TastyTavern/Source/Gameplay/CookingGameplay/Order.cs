@@ -35,13 +35,17 @@ public class Order
 
     public Order(Customer Customer, RecipeData recipe, CookingUIEventChannel cookingUIEventChannel)
     {
-        Served = false;
         this.Customer = Customer;
+        Reinitialize(recipe, cookingUIEventChannel);
+    }
+
+    private void Reinitialize(RecipeData recipe, CookingUIEventChannel cookingUIEventChannel)
+    {
+        Served = false;
         Recipe = recipe;
         StationIdx = 0;
         this.cookingUIEventChannel = cookingUIEventChannel;
         Station = Recipe.StationSequence[0].Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel);
-
     }
 
     // Order manager triggers station change
@@ -53,9 +57,9 @@ public class Order
 
     public void ResetStation()
     {
-        StationIdx = 0;
-        Station = Recipe.StationSequence[0]
-            .Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel);
+        Reinitialize(Recipe, cookingUIEventChannel);
+        for (int i = 0; i < Recipe.InitialStockSequence.Count; i++)
+            Debug.Log(Recipe.InitialStockSequence[i]);
     }
     
     // recipe.CorrectStockSequence[^1].CorrectIngredients -> list of all ingredients in the recipe

@@ -76,8 +76,8 @@ public class OrderManager : MonoBehaviour
             return;
         }
         Debug.Log("Selected Order " + selectedOrder);
-        if (currentOrder != null) currentOrder.Station.Unsubscribe();
         currentOrder = selectedOrder;
+        currentOrder.Station.Subscribe();
     }
 
     private void DeselectOrder()

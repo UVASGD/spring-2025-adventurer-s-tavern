@@ -241,7 +241,6 @@ public class StationView : MonoBehaviour {
     }
 
     private void OnAddProperty(ActionButton actionButton){
-
         cookingUIEventChannel.RaiseOnAddProperty(actionButton.Data); // Property enum actionProperty
     }
     

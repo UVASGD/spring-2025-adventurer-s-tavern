@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 /// <summary>
@@ -57,6 +58,7 @@ public class CookingUIEventChannel : ScriptableObject {
     
     public void RaiseOnAddProperty(ActionData actionData){
         Debug.Log("Raise adding " + actionData + " property broadcasted from event channel.");
+        Debug.Log(actionData.Property);
         OnAddProperty?.Invoke(actionData); 
     }
 
