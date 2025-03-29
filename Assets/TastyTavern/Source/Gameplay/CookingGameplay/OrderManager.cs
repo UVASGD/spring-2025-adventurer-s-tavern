@@ -18,7 +18,9 @@ public class OrderManager : MonoBehaviour
     private Order currentOrder; 
 
     [SerializeField]
-    private List<Order> allOrders = new(); 
+    private List<Order> activeOrders = new();
+
+    [SerializeField] private Dictionary<Order, float> servedOrders = new();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -93,28 +95,42 @@ public class OrderManager : MonoBehaviour
         Debug.Log(index + " trashed");
         currentOrder.ResetStation();
         DeselectOrder();
-        allOrders[index] = currentOrder;
+        activeOrders[index] = currentOrder;
     }
     
     public void AddOrder(Order order)
     {
         order.cookingUIEventChannel = cookingUIEventChannel; // pass event channel to order
-        allOrders.Add(order);
+        activeOrders.Add(order);
         cookingUIEventChannel.RaiseOnGenerateOrderButton(order);
     }
 
-    public void SubmitOrder()
+    public void SubmitOrder(Order order)
     {
-        allOrders.Remove(currentOrder);
-        cookingUIEventChannel.RaiseOnRemoveCustomer(currentOrder.Customer.Data.CustomerSpotIdx);
-        if (currentOrder.IsCorrect()){
-            Debug.Log("Order is correct");
-        } else {
-            Debug.Log("Order is incorrect");
+        if (order != null)
+        {
+            activeOrders.Remove(currentOrder);
+            cookingUIEventChannel.RaiseOnRemoveCustomer(currentOrder.Customer.Data.CustomerSpotIdx);
+            float correctness = currentOrder.IsCorrect();
+            if (currentOrder.IsCorrect() == 1.0)
+            {
+                Debug.Log("Order is correct");
+            }
+            else
+            {
+                Debug.Log("Order is incorrect");
+            }
+
+            Customer c = currentOrder.Customer;
+            servedOrders[currentOrder] = correctness * (c.RemainingPatience / c.Data.Patience);
         }
-            // other things can happen here like money? etc. like playerMoney += order.Recipe.Price; or something like that
     }
 
+    public Dictionary<Order, float> GetServedOrders()
+    {
+        return servedOrders;
+    }
+    
     // Pass event channel trigger to order
     public void ChangeNextStation(){
         currentOrder.ChangeStation();

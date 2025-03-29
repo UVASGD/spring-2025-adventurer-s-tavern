@@ -72,17 +72,17 @@ public class Order
     /// True if the order is correct and meets the recipe's final requirements, including correct ingredients
     /// and their properties; otherwise, false.
     /// </returns>
-    public bool IsCorrect()
+    public float IsCorrect()
     {
         // TODO: Hopefully this works.
         if (SelectedIngredients.Count != Recipe.CorrectStockSequence[StationIdx].CorrectIngredients.Count)
-            return false;
+            return 0.0f;
         
         for (int i = 0; i < SelectedIngredients.Count; i++)
             if (!AreListsEqual(SelectedIngredients[Recipe.CorrectStockSequence[StationIdx].CorrectIngredients[i]], Recipe.CorrectStockSequence[StationIdx].CorrectPropertiesPerIngredient[i].Properties))
-                return false;
+                return 0.0f;
         
-        return true;
+        return 1.0f;
     }
 
     bool AreListsEqual(List<Property> list1, List<Property> list2)

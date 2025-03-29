@@ -250,7 +250,7 @@ public class StationView : MonoBehaviour {
     }
 
     private void OnServeOrder(){
-        cookingUIEventChannel.RaiseOnSubmitOrder();
+        cookingUIEventChannel.RaiseOnSubmitOrder(null); // passes in null because StationView doesn't have access to the current order. There is a null check, don't worry. 
         CloseStationPanels();
     }
 

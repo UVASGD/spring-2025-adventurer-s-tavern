@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Customer : MonoBehaviour
@@ -12,14 +14,28 @@ public class Customer : MonoBehaviour
 
     [field: SerializeField]
     public MenuManager MenuManager { get; set; }
+    
+    [field: SerializeField]
+    public float RemainingPatience { get; set; }
 
 
     // ONLY FOR DEBUGGING PURPOSES
     [field: SerializeField]
     public string orderName;
 
+    private void Start()
+    {
+        RemainingPatience = Data.Patience;
+    }
+
     private void Update()
     {
+        RemainingPatience -= Time.deltaTime;
+        if (RemainingPatience <= 0)
+        {
+            cookingUIEventChannel.RaiseOnSubmitOrder(Data.Order);
+        }
+        
         if (Data.Order != null)
         {
             orderName = Data.Order.Recipe.Name;

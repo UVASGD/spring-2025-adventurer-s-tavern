@@ -29,7 +29,7 @@ public class CookingUIEventChannel : ScriptableObject {
     public Action<Order> OnGenerateOrderButton;
 
     /// Callback when an order is submitted in the UI by the player
-    public Action OnSubmitOrder;
+    public Action<Order> OnSubmitOrder;
 
     /// <summary> Callback when a customer is removed </summary>
     public Action<int> OnRemoveCustomer;
@@ -50,6 +50,17 @@ public class CookingUIEventChannel : ScriptableObject {
     /// Callback when the player trashes the current food that the order is using. The trash is meant for any mistakes which lead to restarts in order preparation. 
     /// </summary>
     public Action OnTrashCurrentOrderFood;
+    
+    /// <summary>
+    /// Callback when a day is finished
+    /// </summary>
+    public Action<int> OnDayFinished;
+
+    
+    /// <summary>
+    /// Callback when a day starts
+    /// </summary>
+    public Action<int> OnDayStarted;
     
     public void RaiseOnAddIngredient(Ingredient ingredient){
         Debug.Log("Raise adding " + ingredient.Data.Name + " ingredient broadcasted from event channel.");
@@ -72,9 +83,9 @@ public class CookingUIEventChannel : ScriptableObject {
         OnCreateOrder?.Invoke(Order);
     }
 
-    public void RaiseOnSubmitOrder()
+    public void RaiseOnSubmitOrder(Order order)
     {
-        OnSubmitOrder?.Invoke();
+        OnSubmitOrder?.Invoke(order);
     }
 
     public void RaiseOnRemoveCustomer(int idx)
@@ -128,5 +139,15 @@ public class CookingUIEventChannel : ScriptableObject {
     public void RaiseOnStoreIngredient() 
     {
         OnStoreIngredient?.Invoke();
+    }
+
+    public void RaiseOnDayFinished(int x)
+    {
+        OnDayFinished?.Invoke(x);
+    }
+
+    public void RaiseOnDayStarted(int x)
+    {
+        OnDayStarted?.Invoke(x);
     }
 }

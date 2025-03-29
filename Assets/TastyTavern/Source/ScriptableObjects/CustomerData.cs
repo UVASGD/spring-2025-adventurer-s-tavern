@@ -13,18 +13,18 @@ public class CustomerData{ // change to class?
     public OrderManager OrderManager { get; set; }
 
     [field: SerializeField]
-    private CookingUIEventChannel cookingUIEventChannel;
+    private CookingUIEventChannel _cookingUIEventChannel;
 
     // This will be the eyes, clothes, hair for a character that's randomized
     [field: SerializeField]
-    public List<Sprite> Appearance { get; set; } = new List<Sprite>();
+    public List<Sprite> Appearance { get; set; } = new();
 
     // expressions for neutral, satisfied, and disappointed
     [field: SerializeField]
-    public List<Sprite> Faces { get; set; } = new List<Sprite>();
+    public List<Sprite> Faces { get; set; } = new();
 
     [field: SerializeField]
-    public List<string> Dialogue { get; set; } = new List<string>();// tentative Dialogue[0] = greet, [1] = satisfied, [2] = unsatisfied, [3] = star npc dialogue?
+    public List<string> Dialogue { get; set; } = new();// tentative Dialogue[0] = greet, [1] = satisfied, [2] = unsatisfied, [3] = star npc dialogue?
 
     [field: SerializeField]
     public int Patience { get; set; }
