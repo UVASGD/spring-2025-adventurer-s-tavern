@@ -114,12 +114,7 @@ public class CustomerController : MonoBehaviour
 
                 // Instantiate prefab and initialize
                 GameObject customerObj = Instantiate(customerPrefab, CustomerSpots[i].position, Quaternion.identity);
-                customerObj.GetComponent<SpriteRenderer>().sprite = customerSprites[spriteIdx];
-                spriteIdx++;
-                if (spriteIdx >= customerSprites.Count)
-                {
-                    spriteIdx = 0;
-                }
+                customerObj.GetComponent<SpriteRenderer>().sprite = customerSprites[Random.Range(0, customerSprites.Count)];
 
                 Customer customerScript = customerObj.GetComponent<Customer>();
                 customerScript.MenuManager = MenuManager;
