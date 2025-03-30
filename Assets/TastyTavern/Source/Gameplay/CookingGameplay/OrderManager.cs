@@ -63,8 +63,21 @@ public class OrderManager : MonoBehaviour
     private IEnumerator ExecuteAddProperty(ActionData actionData)
     {
         yield return new WaitForSeconds(actionData.ActionTime);
-
-        currentOrder.Station.ApplyProperty(actionData);
+        
+        // apply property to ingredients in station
+        List<Ingredient> ingredients = currentOrder.Station.ApplyProperty(actionData);
+        
+        // apply property to ingredients in the SelectedIngredients of the current order
+        foreach (Ingredient processedIngredient in ingredients)
+        {
+            foreach (IngredientData orderIngredientData in currentOrder.SelectedIngredients.Keys)
+            {
+                if (processedIngredient.Data.Name.Equals(orderIngredientData.Name))
+                {
+                    currentOrder.SelectedIngredients[orderIngredientData].Add(actionData.Property);// Might be unfinished. look later. 
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -107,12 +120,17 @@ public class OrderManager : MonoBehaviour
 
     public void SubmitOrder(Order order)
     {
-        if (order != null)
+        if (order == null)
         {
-            activeOrders.Remove(currentOrder);
-            cookingUIEventChannel.RaiseOnRemoveCustomer(currentOrder.Customer.Data.CustomerSpotIdx);
-            float correctness = currentOrder.IsCorrect();
-            if (currentOrder.IsCorrect() == 1.0)
+            SubmitOrder(currentOrder);
+        }
+        else
+        {
+            activeOrders.Remove(order);
+            cookingUIEventChannel.RaiseOnRemoveCustomer(order.Customer.Data.CustomerSpotIdx);
+            float correctness = order.IsCorrect();
+            Debug.Log(correctness);
+            if (correctness == 1.0f)
             {
                 Debug.Log("Order is correct");
             }
@@ -120,9 +138,8 @@ public class OrderManager : MonoBehaviour
             {
                 Debug.Log("Order is incorrect");
             }
-
-            Customer c = currentOrder.Customer;
-            servedOrders[currentOrder] = correctness * (c.RemainingPatience / c.Data.Patience);
+            Customer c = order.Customer;
+            servedOrders[order] = correctness * (c.RemainingPatience / c.Data.Patience);
         }
     }
 

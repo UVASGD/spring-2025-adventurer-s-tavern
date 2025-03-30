@@ -16,9 +16,9 @@ public class Order
     [field: SerializeField]
     public RecipeData Recipe { get; set; }
 
-    // The exact ingredients of the order. The order may be slightly customized by the customer to exclude certain ingredients. 
+    // The exact ingredients of the order
     [field: SerializeField]
-    public Dictionary<IngredientData, List<Property>> SelectedIngredients { get; set; } = new Dictionary<IngredientData, List<Property>>(); 
+    public Dictionary<IngredientData, List<Property>> SelectedIngredients { get; set; } = new(); 
 
     // Whether the order is served or not
     [field: SerializeField]
@@ -33,9 +33,9 @@ public class Order
     [field: SerializeField]
     public CookingUIEventChannel cookingUIEventChannel { get; set; }
 
-    public Order(Customer Customer, RecipeData recipe, CookingUIEventChannel cookingUIEventChannel)
+    public Order(Customer customer, RecipeData recipe, CookingUIEventChannel cookingUIEventChannel)
     {
-        this.Customer = Customer;
+        this.Customer = customer;
         this.Recipe = recipe;
         this.cookingUIEventChannel = cookingUIEventChannel;
         Reinitialize();
@@ -45,7 +45,18 @@ public class Order
     {
         Served = false;
         StationIdx = 0;
-        Station = Recipe.StationSequence[0].Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel);
+        Station = Recipe.StationSequence[0]
+            .Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel);
+        var correctIngredients = Recipe.CorrectStockSequence[^1].CorrectIngredients;
+        for (int i = 0; i < correctIngredients.Count; i++)
+        {
+            SelectedIngredients.Add(correctIngredients[i],
+                Recipe.CorrectStockSequence[^1].CorrectPropertiesPerIngredient[i].Properties);
+            Debug.Log(correctIngredients[i]);
+        }
+        
+        
+        
     }
 
     // Order manager triggers station change
@@ -62,7 +73,8 @@ public class Order
     
     // recipe.CorrectStockSequence[^1].CorrectIngredients -> list of all ingredients in the recipe
     // recipe.CorrectStockSequence[^1].CorrectPropertiesPerIngredient[0->n].Properties -> all the properties that each ingredient(0 to n) needs to have by the end of the order; Sort of a 3D array.
-    // CorrectStockSequence -> The correct stocks of ingredients & properties for each station; CorrectPropertiesPerIngredient -> Each ingredient has a list of properties that it needs to have by the end (cut, etc.)
+    // CorrectStockSequence -> The correct stocks of ingredients & properties for each station;
+    // CorrectPropertiesPerIngredient (A list of property lists) -> Each ingredient has a list of properties that it needs to have by the end (cut, etc.)
     // Properties -> the list of properties of one ingredient
     /// <summary>
     /// Determines whether the current state of the order matches the expected recipe's requirements, including
@@ -76,12 +88,31 @@ public class Order
     {
         // TODO: Hopefully this works.
         if (SelectedIngredients.Count != Recipe.CorrectStockSequence[StationIdx].CorrectIngredients.Count)
+        {
             return 0.0f;
+        }
         
         for (int i = 0; i < SelectedIngredients.Count; i++)
-            if (!AreListsEqual(SelectedIngredients[Recipe.CorrectStockSequence[StationIdx].CorrectIngredients[i]], Recipe.CorrectStockSequence[StationIdx].CorrectPropertiesPerIngredient[i].Properties))
-                return 0.0f;
-        
+        {
+            IngredientData userProcessedIngredients = Recipe.CorrectStockSequence[StationIdx].CorrectIngredients[i];
+            List<Property> idealProperties =
+                Recipe.CorrectStockSequence[StationIdx].CorrectPropertiesPerIngredient[i].Properties;
+            foreach (var p in SelectedIngredients[userProcessedIngredients])
+            {
+                Debug.Log(p);
+            }
+
+            foreach (var p in idealProperties)
+            {
+                Debug.Log(p);
+            }
+
+            if (!AreListsEqual(SelectedIngredients[Recipe.CorrectStockSequence[StationIdx].CorrectIngredients[i]],
+                    Recipe.CorrectStockSequence[StationIdx].CorrectPropertiesPerIngredient[i].Properties))
+                    return 0.0f;
+            
+        }
+
         return 1.0f;
     }
 

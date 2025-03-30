@@ -11,20 +11,18 @@ public class Station {
 
     public StationData Data { get; set; }
     
-    [field: SerializeField]
     public List<Ingredient> StockIngredients { get; set; } = new List<Ingredient>();
 
-    [field: SerializeField]
     public List<Ingredient> ActiveIngredients { get; set; } = new List<Ingredient>();
 
-    [field: SerializeField]
     public List<Ingredient> StoredIngredients { get; set; } = new List<Ingredient>();
 
     public List<List<Ingredient>> AllIngredients { get; set; }
 
-    [field: SerializeField]
     public CookingUIEventChannel cookingUIEventChannel { get; set; }
-
+    
+    public OrderManager OrderManager { get; set; }
+    
     public Station(StationData data, List<IngredientData> stock, CookingUIEventChannel ev){
         this.Data = data;
         cookingUIEventChannel = ev;
@@ -58,7 +56,7 @@ public class Station {
     
     /// Applies a property to all active ingredients on the station if they don't already have it
     
-    public void ApplyProperty(ActionData actionData)
+    public List<Ingredient> ApplyProperty(ActionData actionData)
     {
         foreach (var ingredient in ActiveIngredients)
         {
@@ -67,6 +65,7 @@ public class Station {
             }
         }
         cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
+        return ActiveIngredients;
     }
 
     // Change data, move new Stock and ingredients in Active and Stored to Stock
