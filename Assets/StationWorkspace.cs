@@ -7,25 +7,25 @@ public class StationWorkspace : MonoBehaviour
 
     // Equipment sprites, the top overlays ingredients, while bottom layers behind them. Set in the inspector.
     [field: SerializeField]
-    public GameObject _equipmentTop { get; set; }
+    public SpriteRenderer _equipmentTop { get; set; }
 
     [field: SerializeField]
-    public GameObject _equipmentBottom { get; set; }
+    public SpriteRenderer _equipmentBottom { get; set; }
 
     [field: SerializeField]
-    public GameObject _cuttingBoardSlot { get; set; }
+    public SpriteRenderer _cuttingBoardSlot { get; set; }
 
     [field: SerializeField]
-    public List<GameObject> _panSlots { get; set; }
+    public List<SpriteRenderer> _panSlots { get; set; }
 
     [field: SerializeField]
-    public List<GameObject> _grillSlots { get; set; }
+    public List<SpriteRenderer> _grillSlots { get; set; }
 
     [field: SerializeField]
-    public List<GameObject> _potSlots { get; set; }
+    public List<SpriteRenderer> _potSlots { get; set; }
 
     [field: SerializeField]
-    public List<GameObject> _mixingBowlSlots { get; set; }
+    public List<SpriteRenderer> _mixingBowlSlots { get; set; }
 
     [field: SerializeField]
     public GameObject _fryerSlot { get; set; }
@@ -45,6 +45,7 @@ public class StationWorkspace : MonoBehaviour
     private void AddToStationWorkspace(Ingredient ingredient){
         // only add to active station type
 
+
         // Add ingredient to workspace
         // GameObject ingredientObject = new GameObject(ingredient.ToString());
         // ingredientObject.transform.SetParent(_ingredients.transform);
@@ -52,5 +53,21 @@ public class StationWorkspace : MonoBehaviour
         // ingredientObject.AddComponent<SpriteRenderer>().sprite = ingredient.Data.Sprites[0].texture;
         // ingredientObject.AddComponent<BoxCollider2D>();
         // ingredientObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
+    }
+
+    public void AddToWorkspace(Ingredient ingredient){
+        // adding to slot
+        // Add sprite to first deactivated slot
+        Sprite cur_sprite = ingredient.GetCurrentSprite();
+
+        for (int i = 0; i < _panSlots.Count; i++)
+        {
+            if (!_panSlots[i].enabled)
+            {
+                _panSlots[i].enabled = true;
+                _panSlots[i].sprite = cur_sprite;
+                return;
+            }
+        }
     }
 }
