@@ -11,25 +11,21 @@ public class Station {
 
     public StationData Data { get; set; }
     
-    [field: SerializeField]
     public List<Ingredient> StockIngredients { get; set; } = new List<Ingredient>();
 
-    [field: SerializeField]
     public List<Ingredient> ActiveIngredients { get; set; } = new List<Ingredient>();
 
-    [field: SerializeField]
     public List<Ingredient> StoredIngredients { get; set; } = new List<Ingredient>();
 
     public List<List<Ingredient>> AllIngredients { get; set; }
 
-    [field: SerializeField]
     public CookingUIEventChannel cookingUIEventChannel { get; set; }
-
+    
+    public OrderManager OrderManager { get; set; }
+    
     public Station(StationData data, List<IngredientData> stock, CookingUIEventChannel ev){
         this.Data = data;
         cookingUIEventChannel = ev;
-        cookingUIEventChannel.OnAddIngredient += AddIngredient;
-        cookingUIEventChannel.OnStoreIngredient += StoreActiveIngredients;
         foreach (var ingredientData in stock){
             StockIngredients.Add(ingredientData.Create());
         }
@@ -38,6 +34,12 @@ public class Station {
             ActiveIngredients,
             StoredIngredients
         };
+    }
+
+    public void Subscribe()
+    {
+        cookingUIEventChannel.OnAddIngredient += AddIngredient;
+        cookingUIEventChannel.OnStoreIngredient += StoreActiveIngredients;
     }
 
     public void Unsubscribe(){
@@ -54,7 +56,7 @@ public class Station {
     
     /// Applies a property to all active ingredients on the station if they don't already have it
     
-    public void ApplyProperty(ActionData actionData)
+    public List<Ingredient> ApplyProperty(ActionData actionData)
     {
         foreach (var ingredient in ActiveIngredients)
         {
@@ -63,17 +65,21 @@ public class Station {
             }
         }
         cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
+        return ActiveIngredients;
     }
 
     // Change data, move new Stock and ingredients in Active and Stored to Stock
-    public void ProgressStation(StationData data, List<IngredientData> stock){
-        Debug.Log("Station changed to "+ data.StationType + "in Station.cs");
+    public void ProgressStation(StationData data, List<IngredientData> stock)
+    {
+        Debug.Log("Station changed to " + data.StationType + "in Station.cs");
         this.Data = data;
 
         StockIngredients.Clear();
-        foreach (var ingredient in stock){
+        foreach (var ingredient in stock)
+        {
             StockIngredients.Add(ingredient.Create());
         }
+
         StockIngredients.AddRange(StoredIngredients);
         StockIngredients.AddRange(ActiveIngredients);
         ActiveIngredients.Clear();
@@ -97,6 +103,8 @@ public class Station {
     public void StoreActiveIngredients(){
         StoredIngredients.AddRange(ActiveIngredients);
         ActiveIngredients.Clear();
+        // TODO: Play little store animation. Transform will be a long parabola and shrink into a little box or chest icon. 
+        // Chest icon can do a little shake when the food visually reaches it
     }
     
 }

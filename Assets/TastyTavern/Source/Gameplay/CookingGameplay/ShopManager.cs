@@ -48,7 +48,7 @@ public class ShopManager : MonoBehaviour
                 playerManager.money -= item.Price;
                 item.Purchased = true;
                 Debug.Log($"You bought {item.Name} for {item.Price} gold!");
-                playerManager.addItemToInventory(item);
+                playerManager.AddItemToInventory(item);
                 return true;
             }
         }

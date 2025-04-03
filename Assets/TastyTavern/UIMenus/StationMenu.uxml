@@ -40,19 +40,19 @@
             <engine:VisualElement name="SideMenuContainer" style="flex-grow: 1; height: 1082px; width: 579px; flex-direction: row; align-items: flex-start; align-self: auto; align-content: flex-start;">
                 <engine:VisualElement name="ActionNextStationPanel" style="flex-grow: 1; height: 1080px; width: 100px; flex-direction: column; align-items: stretch; justify-content: space-evenly; flex-wrap: nowrap; align-self: stretch;">
                     <engine:VisualElement name="ActionSlotContainer" style="flex-grow: 1; flex-direction: row; height: auto; width: auto; color: rgb(27, 27, 27); background-color: rgba(0, 0, 0, 0.15); align-self: flex-end; flex-wrap: nowrap; max-height: 60%; min-height: auto;">
-                        <engine:Button class="button action-button">
+                        <engine:Button name="Button" class="button action-button">
                             <engine:VisualElement class="action-icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TastyTavern/Art/Demo/knife.png?fileID=2800000&amp;guid=353ea572d83b485418eeed2fad5fc138&amp;type=3#knife&quot;); background-size: 130% 100%;" />
                             <engine:Label text="Label" class="action-label" />
                         </engine:Button>
                     </engine:VisualElement>
                     <engine:VisualElement name="StoreButton" style="flex-grow: 1; max-height: 20%; min-height: 20%; align-content: flex-start; justify-content: center;">
-                        <engine:Button text="Store" class="action-button" style="max-height: none; min-height: 80%; height: auto; justify-content: center; align-content: flex-start;" />
+                        <engine:Button text="Store" class="button store-button" />
                     </engine:VisualElement>
                     <engine:VisualElement name="TrashButton" style="flex-grow: 1; justify-content: center; max-height: 20%; min-height: 20%;">
-                        <engine:Button text="Trash" name="Button" class="button action-button" style="width: 179px; height: auto; font-size: 34px; white-space: normal; min-height: 80%; max-height: 80%;" />
+                        <engine:Button text="Trash" name="Button" class="button trash-button" />
                     </engine:VisualElement>
                     <engine:VisualElement name="NextStation" style="flex-grow: 1; max-height: 20%; min-height: 20%; align-items: auto; justify-content: center;">
-                        <engine:Button text="Next Station" class="button action-button" style="width: 179px; height: auto; font-size: 34px; white-space: normal; min-height: 80%; max-height: 80%;" />
+                        <engine:Button text="Next Station" class="button next-station-button" />
                     </engine:VisualElement>
                 </engine:VisualElement>
                 <engine:VisualElement name="IngredientRecipePanel" style="flex-grow: 1; width: 300px; flex-direction: column; align-self: center; align-items: center; justify-content: space-between; align-content: flex-start; max-height: 100%; min-height: 100%;">

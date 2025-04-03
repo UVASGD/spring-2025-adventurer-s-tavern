@@ -7,8 +7,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     public float money;
 
-    [SerializeField]
-    public BiomeData currentBiome;
 
     [SerializeField]
     private CookingUIEventChannel cookingUIEventChannel;
@@ -49,22 +47,17 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnEnable()
     {
-        cookingUIEventChannel.OnChangePlayerMoney += changeMoney;
+        cookingUIEventChannel.OnChangePlayerMoney += ChangeMoney;
     }
 
     private void OnDisable()
     {
-        cookingUIEventChannel.OnChangePlayerMoney -= changeMoney;
+        cookingUIEventChannel.OnChangePlayerMoney -= ChangeMoney;
     }
 
-    public void changeMoney(float deltaMoney)
+    public void ChangeMoney(float deltaMoney)
     {
         if (deltaMoney < 0 && deltaMoney > money)
         {
@@ -76,7 +69,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void addItemToInventory(ShopItem item) {
+    public void AddItemToInventory(ShopItem item) {
         if (item.Type == ShopItem.ItemType.Ingredient) {
             for (int i = 0; i < allIngredient.Count; i++) {
                 if (allIngredient[i].Name == item.Name) {

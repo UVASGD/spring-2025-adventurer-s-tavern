@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BiomeManager : MonoBehaviour {
-    public PlayerManager playerManager;
+    public RoundManager roundManager;
     public void selectBiome(BiomeData biome) {
-        playerManager.currentBiome = biome;
+        roundManager.currentBiome = biome;
     }
 }
