@@ -66,6 +66,7 @@ public class RoundManager : MonoBehaviour
     private void FinishDay()
     {
         eventChannel.RaiseOnDayFinished(_day);
+        Debug.Log("Day Finished");
     }
 
     private void ChangeMoney(float deltaMoney)

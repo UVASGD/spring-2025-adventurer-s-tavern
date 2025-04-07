@@ -87,6 +87,8 @@ public class CookingUIEventChannel : ScriptableObject {
     {
         OnSubmitOrder?.Invoke(order);
     }
+    
+    
 
     public void RaiseOnRemoveCustomer(int idx)
     {

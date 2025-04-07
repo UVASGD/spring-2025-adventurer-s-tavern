@@ -50,8 +50,15 @@ public class Order
         var correctIngredients = Recipe.CorrectStockSequence[^1].CorrectIngredients;
         for (int i = 0; i < correctIngredients.Count; i++)
         {
-            SelectedIngredients.Add(correctIngredients[i],
-                Recipe.CorrectStockSequence[^1].CorrectPropertiesPerIngredient[i].Properties);
+            try
+            {
+                SelectedIngredients.Add(correctIngredients[i],
+                    Recipe.CorrectStockSequence[^1].CorrectPropertiesPerIngredient[i].Properties);
+            }
+            catch (ArgumentException e) // in case correctIngredients[i] is already in the SelectedIngredients dictionary
+            {
+                SelectedIngredients[correctIngredients[i]] = Recipe.CorrectStockSequence[^1].CorrectPropertiesPerIngredient[i].Properties;
+            }
             Debug.Log(correctIngredients[i]);
         }
         
