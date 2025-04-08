@@ -71,11 +71,11 @@ public class OrderManager : MonoBehaviour
         // apply property to ingredients in the SelectedIngredients of the current order
         foreach (Ingredient processedIngredient in ingredients)
         {
-            foreach (IngredientData orderIngredientData in currentOrder.SelectedIngredients.Keys)
+            foreach (IngredientData orderIngredientData in currentOrder.CurrentIngredients.Keys)
             {
                 if (processedIngredient.Data.Name.Equals(orderIngredientData.Name))
                 {
-                    currentOrder.SelectedIngredients[orderIngredientData].Add(actionData.Property);// Might be unfinished. look later. 
+                    currentOrder.CurrentIngredients[orderIngredientData].Add(actionData.Property);// Might be unfinished. look later. 
                 }
             }
         }

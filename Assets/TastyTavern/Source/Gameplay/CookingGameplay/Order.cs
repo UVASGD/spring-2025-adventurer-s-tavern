@@ -18,7 +18,7 @@ public class Order
 
     // The exact ingredients of the order
     [field: SerializeField]
-    public Dictionary<IngredientData, List<Property>> SelectedIngredients { get; set; } = new(); 
+    public Dictionary<IngredientData, List<Property>> CurrentIngredients { get; set; } = new(); 
 
     // Whether the order is served or not
     [field: SerializeField]
@@ -48,19 +48,7 @@ public class Order
         Station = Recipe.StationSequence[0]
             .Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel);
         var correctIngredients = Recipe.CorrectStockSequence[^1].CorrectIngredients;
-        for (int i = 0; i < correctIngredients.Count; i++)
-        {
-            try
-            {
-                SelectedIngredients.Add(correctIngredients[i],
-                    Recipe.CorrectStockSequence[^1].CorrectPropertiesPerIngredient[i].Properties);
-            }
-            catch (ArgumentException e) // in case correctIngredients[i] is already in the SelectedIngredients dictionary
-            {
-                SelectedIngredients[correctIngredients[i]] = Recipe.CorrectStockSequence[^1].CorrectPropertiesPerIngredient[i].Properties;
-            }
-            Debug.Log(correctIngredients[i]);
-        }
+        CurrentIngredients.Clear();
         
         
         
@@ -94,17 +82,17 @@ public class Order
     public float IsCorrect()
     {
         // TODO: Hopefully this works.
-        if (SelectedIngredients.Count != Recipe.CorrectStockSequence[StationIdx].CorrectIngredients.Count)
+        if (CurrentIngredients.Count != Recipe.CorrectStockSequence[StationIdx].CorrectIngredients.Count)
         {
             return 0.0f;
         }
         
-        for (int i = 0; i < SelectedIngredients.Count; i++)
+        for (int i = 0; i < CurrentIngredients.Count; i++)
         {
             IngredientData userProcessedIngredients = Recipe.CorrectStockSequence[StationIdx].CorrectIngredients[i];
             List<Property> idealProperties =
                 Recipe.CorrectStockSequence[StationIdx].CorrectPropertiesPerIngredient[i].Properties;
-            foreach (var p in SelectedIngredients[userProcessedIngredients])
+            foreach (var p in CurrentIngredients[userProcessedIngredients])
             {
                 Debug.Log(p);
             }
@@ -114,7 +102,7 @@ public class Order
                 Debug.Log(p);
             }
 
-            if (!AreListsEqual(SelectedIngredients[Recipe.CorrectStockSequence[StationIdx].CorrectIngredients[i]],
+            if (!AreListsEqual(CurrentIngredients[Recipe.CorrectStockSequence[StationIdx].CorrectIngredients[i]],
                     Recipe.CorrectStockSequence[StationIdx].CorrectPropertiesPerIngredient[i].Properties))
                     return 0.0f;
             
