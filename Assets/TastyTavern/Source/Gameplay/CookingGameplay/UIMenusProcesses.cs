@@ -13,55 +13,65 @@ public class UIMenusProcesses : MonoBehaviour
     public VisualElement shopMenuUIroot;
     public VisualElement biomesMenuUIroot;
 
-    public VisualElement Biome1ButtonContainer;
-    public VisualElement Biome2ButtonContainer;
-    public VisualElement Biome3ButtonContainer;
+    public Button NextDayButton;
+    public Button ShopButton;
+    public Button BiomesButton;
+
+    public Button SelectForestButton;
+    public Button SelectCavesButton;
+    public Button SelectOceanButton;
+    public Button ExitBiomeMenuButton;
+
+
     void Awake()
     {
         postGameUIroot = postGameUI.GetComponent<UIDocument>().rootVisualElement;
         shopMenuUIroot = shopMenuUI.GetComponent<UIDocument>().rootVisualElement;
         biomesMenuUIroot = biomesMenuUI.GetComponent<UIDocument>().rootVisualElement;
-        postGameUI.enabled = true;
-        shopMenuUI.enabled = false;
-        biomesMenuUI.enabled = false;
 
-        Biome1ButtonContainer = biomesMenuUIroot.Q<VisualElement>("Biome1ButtonPanel");
-        Biome2ButtonContainer = biomesMenuUIroot.Q<VisualElement>("Biome2ButtonPanel");
-        Biome3ButtonContainer = biomesMenuUIroot.Q<VisualElement>("Biome3ButtonPanel");
+        SwitchToPostGameMenu();
 
-        Biome1ButtonContainer.Clear();
-        Biome2ButtonContainer.Clear();
-        Biome3ButtonContainer.Clear();
+        NextDayButton = postGameUIroot.Q<Button>("Continue");
+        ShopButton = postGameUIroot.Q<Button>("Shop");
+        BiomesButton = postGameUIroot.Q<Button>("Biomes");
+
+        SelectForestButton = biomesMenuUIroot.Q<Button>("ForestSelect");
+        SelectCavesButton = biomesMenuUIroot.Q<Button>("CavesSelect");
+        SelectOceanButton = biomesMenuUIroot.Q<Button>("OceanSelect");
+        ExitBiomeMenuButton = biomesMenuUIroot.Q<Button>("ExitBiomeMenu");
+        // TODO: Add shop menu exit button and subscribe to SwitchToPostGameMenu
+
+        // TODO: Read a JSON File that stores which biomes are unlocked and disable those panels
+
+        ShopButton.clicked += SwitchToShopMenu;
+        BiomesButton.clicked += SwitchToBiomeMenu;
+
+        SelectForestButton.clicked += SelectBiome1;
+        SelectCavesButton.clicked += SelectBiome2;
+        SelectOceanButton.clicked += SelectBiome3;
+
+        ExitBiomeMenuButton.clicked += SwitchToPostGameMenu;
     }
-
-    private void LoadBiomeSelectionUI()
+    private void SwitchToPostGameMenu()
     {
-        Biome1ButtonContainer.Clear();
-        Biome2ButtonContainer.Clear();
-        Biome3ButtonContainer.Clear();
-        GenerateBiomeButtons();
-
+        postGameUIroot.visible = true;
+        shopMenuUIroot.visible = false;
+        biomesMenuUIroot.visible = false;
     }
 
-    private void GenerateBiomeButtons()
+    private void SwitchToShopMenu()
     {
-        Button Biome1Button = new Button();
-        Button Biome2Button = new Button();
-        Button Biome3Button = new Button();
-
-        Biome1Button.AddToClassList("Select-button");
-        Biome2Button.AddToClassList("Select-button");
-        Biome3Button.AddToClassList("Select-button");
-
-        Biome1ButtonContainer.Add(Biome1Button);
-        Biome2ButtonContainer.Add(Biome2Button);
-        Biome3ButtonContainer.Add(Biome3Button);
-
-        Biome1Button.clicked += SelectBiome1;
-        Biome2Button.clicked += SelectBiome2;
-        Biome3Button.clicked += SelectBiome3;
+        postGameUIroot.visible = false;
+        shopMenuUIroot.visible = true;
+        biomesMenuUIroot.visible = false;
     }
 
+    private void SwitchToBiomeMenu()
+    {
+        postGameUIroot.visible = false;
+        shopMenuUIroot.visible = false;
+        biomesMenuUIroot.visible = true;
+    }
     private void SelectBiome1()
     {
         SwitchToBiome(1);
@@ -80,14 +90,15 @@ public class UIMenusProcesses : MonoBehaviour
         switch(b)
         {
             case 1:
-                // Save biome switching info to a JSON file
+                // TODO: Save biome switching info to a JSON file
+
                 break;
             case 2:
-                // Save biome switching info to a JSON file
+                // TODO: Save biome switching info to a JSON file
 
                 break;
             case 3:
-                // Save biome switching info to a JSON file
+                // TODO: Save biome switching info to a JSON file
 
                 break;
             default:
