@@ -70,13 +70,21 @@ public partial class ProgressBar : VisualElement
 
         // Draw background arc
         painter.Arc(new Vector2(width * 0.5f, height), width * 0.5f, 180f, 0f);
-        painter.strokeColor = Color.gray;
+        painter.ClosePath();
+        painter.fillColor = Color.white;
+        painter.Fill(FillRule.NonZero);
         painter.Stroke();
 
-        // Draw progress arc
         painter.BeginPath();
-        painter.Arc(new Vector2(width * 0.5f, height), width * 0.5f, 180f * (progress / 100f), 0f);
-        painter.strokeColor = Color.green;
+        painter.LineTo(new Vector2(width * 0.5f, height));
+        painter.lineWidth = 10f;
+
+        float amount = 180f * ((100f-progress) / 100f);
+
+        painter.Arc(new Vector2(width * 0.5f, height), width * 0.5f, 180f, 0f - amount);
+        painter.ClosePath();
+        painter.fillColor = Color.green;
+        painter.Fill(FillRule.NonZero);
         painter.Stroke();
     }
 }
