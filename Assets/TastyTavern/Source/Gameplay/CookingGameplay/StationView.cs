@@ -50,6 +50,7 @@ public class StationView : MonoBehaviour {
         cookingUIEventChannel.OnGenerateOrderButton += GenerateOrderButton;
         cookingUIEventChannel.OnDeselectOrder += CloseStationPanels;
         cookingUIEventChannel.OnDeleteOrderButton += DeleteOrderButton;
+        cookingUIEventChannel.OnAddProperty += StartProgress;
     }
 
     private void OnDisable() 
@@ -60,6 +61,7 @@ public class StationView : MonoBehaviour {
         cookingUIEventChannel.OnGenerateOrderButton -= GenerateOrderButton;
         cookingUIEventChannel.OnDeselectOrder -= CloseStationPanels;
         cookingUIEventChannel.OnDeleteOrderButton -= DeleteOrderButton;
+        cookingUIEventChannel.OnAddProperty -= StartProgress;
     }
 
     public System.Action OnProgressComplete;
@@ -121,9 +123,6 @@ public class StationView : MonoBehaviour {
         {
             GenerateNextStationButton();
             GenerateActionButton(station.Data.ActionData);
-
-            // Make sure ProcessingTime is cast to a float (if it's not already a float)
-            StartProgress((float)station.Data.ProcessingTime); 
         }
     }
     else
@@ -170,11 +169,9 @@ public class StationView : MonoBehaviour {
         nextButton.clicked += OnNextStation;
     }
 
-    public void StartProgress(float duration)
+    private void StartProgress(ActionData action)
     {
-
-
-        StartCoroutine(UpdateProgressBar(duration));
+        StartCoroutine(UpdateProgressBar(action.ActionTime));
     }
 
     private IEnumerator UpdateProgressBar(float duration){
