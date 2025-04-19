@@ -1,0 +1,37 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/TastyTavern/UIMenus/ShopMenu.uss?fileID=7433441132597879392&amp;guid=e15d36d4b2b5a4cc4902fa29f9bfbeb8&amp;type=3#ShopMenu" />
+    <engine:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row;">
+        <engine:VisualElement name="ShopOwnerIrene" style="flex-grow: 1; flex-direction: column; width: 20%; max-width: 28%;">
+            <engine:VisualElement name="Avatar" style="flex-grow: 1; width: 540px;" />
+            <engine:VisualElement name="Back" style="flex-grow: 1; max-height: 15%;">
+                <engine:Button text="Button" style="height: 65%; width: 46%; margin-bottom: 5px; margin-top: 16px; margin-left: 60px; font-size: 35px; white-space: normal;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="Shop" style="flex-grow: 1; width: 0; max-width: 100%;">
+            <engine:VisualElement name="Banner" style="flex-grow: 1; max-height: 20%; flex-direction: row; height: 20%;">
+                <engine:VisualElement name="Board" style="flex-grow: 1; max-width: 100%; min-width: 0;" />
+                <engine:VisualElement name="Coins" style="flex-grow: 1; max-width: 20%;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="InventoryPanel" style="flex-grow: 1; align-self: auto; height: 80%; max-height: 80%;">
+                <engine:VisualElement name="Buttons" style="flex-grow: 1; max-height: 13%; flex-direction: row; border-top-width: 0; border-left-width: 0; border-right-width: 0; border-bottom-width: 0; margin-top: 35px; margin-left: 86px; height: 13%;">
+                    <engine:Button text="Button" name="Ingredients" class="category-button" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                    <engine:Button text="Button" name="Equipment" class="category-button" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                    <engine:Button text="Button" name="Biome" class="category-button" style="-unity-slice-scale: 1px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="Items" style="flex-grow: 1; padding-top: 10px; padding-left: 20px; padding-right: 20px; margin-right: 7px; margin-left: 0; justify-content: space-between; height: 87%; max-height: 87%; background-color: rgba(168, 103, 39, 0.43); border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">
+                    <engine:ScrollView vertical-scroller-visibility="AlwaysVisible" vertical-page-size="2" mouse-wheel-scroll-size="36" name="ScrollView" style="height: 712px; width: 1347px; flex-direction: row; flex-wrap: wrap; max-height: 100%; min-height: 20%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; background-position-y: center 0; margin-bottom: 20px;">
+                        <engine:VisualElement name="ShopItem" class="shop-item" style="margin-top: 20px; margin-right: 20px; margin-left: 20px; margin-bottom: 20px;" />
+                        <engine:VisualElement name="ShopItem" class="shop-item" style="margin-top: 20px; margin-right: 20px; margin-left: 20px; margin-bottom: 20px;" />
+                        <engine:VisualElement name="ShopItem" class="shop-item" style="margin-top: 20px; margin-right: 20px; margin-left: 20px; margin-bottom: 20px;" />
+                        <engine:VisualElement name="ShopItem" class="shop-item" style="margin-top: 20px; margin-right: 20px; margin-left: 20px; margin-bottom: 20px;" />
+                        <engine:VisualElement name="ShopItem" class="shop-item" style="margin-top: 20px; margin-right: 20px; margin-left: 20px; margin-bottom: 20px;" />
+                        <engine:VisualElement name="ShopItem" class="shop-item" style="margin-top: 20px; margin-right: 20px; margin-left: 20px; margin-bottom: 20px;" />
+                        <engine:VisualElement name="ShopItem" class="shop-item" style="margin-top: 20px; margin-right: 20px; margin-left: 20px; margin-bottom: 20px;" />
+                        <engine:VisualElement name="ShopItem" class="shop-item" style="margin-top: 20px; margin-right: 20px; margin-left: 20px; margin-bottom: 20px;" />
+                        <engine:VisualElement name="ShopItem" class="shop-item" style="margin-top: 20px; margin-right: 20px; margin-left: 20px; margin-bottom: 20px;" />
+                    </engine:ScrollView>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
