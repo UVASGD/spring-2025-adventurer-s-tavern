@@ -51,12 +51,8 @@ public class PlayerManager : MonoBehaviour
     [System.Serializable]
     private class PlayerData
     {
-        // TODO: Everything
-        PlayerData()
-        {
-            
-        }
-
+        private int curr_biome;
+        private int money;
     }
 
     private void OnEnable()

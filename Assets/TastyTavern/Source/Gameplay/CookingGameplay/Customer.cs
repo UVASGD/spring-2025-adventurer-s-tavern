@@ -34,6 +34,7 @@ public class Customer : MonoBehaviour
         if (RemainingPatience <= 0)
         {
             cookingUIEventChannel.RaiseOnSubmitOrder(Data.Order);
+            cookingUIEventChannel.OnDeselectOrder();
         }
         
         if (Data.Order != null)

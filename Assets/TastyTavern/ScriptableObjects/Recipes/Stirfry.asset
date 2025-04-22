@@ -25,8 +25,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
     - {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
   - InitialStock: []
-  - InitialStock:
-    - {fileID: 11400000, guid: 4f504685f198ab34a8eefd094a51abb8, type: 2}
+  - InitialStock: []
   <CorrectStockSequence>k__BackingField:
   - CorrectIngredients:
     - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}

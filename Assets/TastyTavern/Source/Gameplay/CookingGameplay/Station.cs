@@ -76,7 +76,7 @@ public class Station {
         Debug.Log("Station changed to " + data.StationType + "in Station.cs");
         this.Data = data;
 
-        StockIngredients.Clear();
+        //StockIngredients.Clear();
         foreach (var ingredient in stock)
         {
             StockIngredients.Add(ingredient.Create());

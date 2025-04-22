@@ -168,7 +168,7 @@ public class StationView : MonoBehaviour {
         nextStationContainer.Add(nextButton);
         nextButton.clicked += OnNextStation;
     }
-
+    
     private void StartProgress(ActionData action)
     {
         StartCoroutine(UpdateProgressBar(action.ActionTime));

@@ -29,4 +29,9 @@ public enum Property{
     Stewed,
     Salted,
     Peppered,
+    Boiled,
+    DeepFried,
+    Mixed,
+    Grilled,
+    Baked,
 }

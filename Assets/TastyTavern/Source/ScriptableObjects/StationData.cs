@@ -32,4 +32,8 @@ public enum StationType
     Pan,
     Pot,
     Serving,
+    MixingBowl,
+    Grill,
+    Oven,
+    DeepFrier,
 }

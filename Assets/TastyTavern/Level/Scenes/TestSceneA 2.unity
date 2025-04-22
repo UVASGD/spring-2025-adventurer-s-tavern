@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu:
   - {fileID: 11400000, guid: b57b1b53da1e4e742b7bf1989a8fac48, type: 2}
+  - {fileID: 11400000, guid: 04b89bd6c3d3fed4595e31d42b275635, type: 2}
 --- !u!1 &652298024
 GameObject:
   m_ObjectHideFlags: 0

@@ -89,17 +89,18 @@ public class Order
         var expectedIngredients = Recipe.CorrectStockSequence[StationIdx].CorrectIngredients;
         var expectedPropertiesPerIngredient = Recipe.CorrectStockSequence[StationIdx].CorrectPropertiesPerIngredient;
 
-        // Check ingredient count differences
         var missingIngredientsCount = expectedIngredients.Count - CurrentIngredients.Count;
         if (missingIngredientsCount > 0)
         {
             // High penalty for missing ingredients
             totalPenalty += missingIngredientsCount * 10;
+            Debug.Log("Missing Ingredient!");
         }
         else if (missingIngredientsCount < 0)
         {
             // Lower penalty for extra ingredients
             totalPenalty += Math.Abs(missingIngredientsCount) * 5;
+            Debug.Log("Extra Ingredient!");
         }
 
         // Iterate over each expected ingredient
@@ -114,26 +115,22 @@ public class Order
             {
                 // Penalize for missing the entire ingredient's properties.
                 totalPenalty += idealProperties.Count * 2; // or another weight as appropriate
+                Debug.Log("Missing Property!");
                 continue;
             }
 
             // Compare the ideal vs. current properties using a set based approach
             var idealSet = new HashSet<Property>(idealProperties);
             var currentSet = new HashSet<Property>(currentProperties);
-
+            
             // Count missing properties (expected but not present)
             int missingProperties = idealSet.Except(currentSet).Count();
             // Count extra properties (present but not expected)
             int extraProperties = currentSet.Except(idealSet).Count();
-
-            // Assign penalties (these weights can be tuned based on domain requirements)
+            
             totalPenalty += (missingProperties * 2) + (extraProperties * 1);
-
-            // Optional: For properties that exist in both sets, you may want additional logic,
-            // for example, if there are modifications or levels of processing required.
         }
 
-        // Here, a zero score means everything is correct.
         return totalPenalty;
     }
 
