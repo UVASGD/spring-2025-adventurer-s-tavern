@@ -4,9 +4,8 @@
     <engine:VisualElement name="Panel" class="panel" style="flex-grow: 1; background-color: rgb(100, 58, 0); flex-direction: column; align-self: stretch;">
         <engine:VisualElement name="Container" class="menu" style="flex-grow: 1; background-color: rgb(79, 45, 0); align-content: flex-start; align-items: stretch; align-self: auto; justify-content: space-evenly; width: 20%; height: auto; max-width: none; max-height: 50%; min-width: auto; top: auto; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;">
             <engine:Label text="Adventurer&apos;s Tavern" name="Label" style="color: rgb(255, 250, 0); -unity-font-style: bold; white-space: normal; font-size: 20px; -unity-text-align: upper-center;" />
-            <engine:Button text="Play" name="Button" class="unity-button" />
-            <engine:Button text="Settings" name="Button" />
-            <engine:Button text="Exit" selectable="false" name="Button" />
+            <engine:Button text="Play" name="Play" class="unity-button" />
+            <engine:Button text="Exit" selectable="false" name="Exit" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
