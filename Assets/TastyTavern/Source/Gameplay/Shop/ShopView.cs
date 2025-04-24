@@ -21,12 +21,15 @@ public class ShopView : MonoBehaviour
     private VisualElement playerMoneyText;
     private VisualElement backButton;
 
+    // Tracking current visuals
+    private Button currentButton;
+    private VisualElement currentPage;
+
     // Action for when a page is clicked, in <newly selected page, old page> format
     // public Action<VisualElement,VisualElement> OnPageClicked;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         root = document.rootVisualElement;
 
@@ -43,6 +46,10 @@ public class ShopView : MonoBehaviour
         // Retrieving other UI (player money and back button)
         playerMoneyText = root.Q<VisualElement>("PlayerMoney");
         backButton = root.Q<VisualElement>("BackButton");
+
+        // Set default page
+        currentPage = ingredientsPage;
+        currentButton = ingredientsBtn;
     }
 
     void OnEnable()
@@ -64,34 +71,37 @@ public class ShopView : MonoBehaviour
     // Handles page switching
     void OnPageClicked(ClickEvent evt, string pageName)
     {
-        // Hide all pages
-        ingredientsPage.style.display = DisplayStyle.None;
-        recipesPage.style.display = DisplayStyle.None;
-        equipmentPage.style.display = DisplayStyle.None;
-        biomesPage.style.display = DisplayStyle.None;
+        // Hide current page and remove selected button style
+        currentPage.style.display = DisplayStyle.None;  
+        currentButton?.RemoveFromClassList("page-btn-selected");
+        currentButton?.AddToClassList("page-btn");
 
-        // Show the selected page, make the button selected
+        // Update current page and button
         switch (pageName)
         {
             case "Ingredients":
-                ingredientsBtn.AddToClassList("page-btn-selected");
-                ingredientsPage.style.display = DisplayStyle.Flex;
+                currentButton = ingredientsBtn;
+                currentPage = ingredientsPage;
                 break;
             case "Recipes":
-                recipesBtn.AddToClassList("page-btn-selected");
-                recipesPage.style.display = DisplayStyle.Flex;
+                currentButton = recipesBtn;
+                currentPage = recipesPage;
                 break;
             case "Equipment":
-                equipmentBtn.AddToClassList("page-btn-selected");
-                equipmentPage.style.display = DisplayStyle.Flex;
+                currentButton = equipmentBtn;
+                currentPage = equipmentPage;
                 break;
             case "Biomes":
-                biomesBtn.AddToClassList("page-btn-selected");
-                biomesPage.style.display = DisplayStyle.Flex;
+                currentButton = biomesBtn;
+                currentPage = biomesPage;
                 break;
             default:
                 Debug.LogError("Unknown page name: " + pageName);
                 break;
         }
+        // Update styles
+        currentButton.AddToClassList("page-btn-selected");
+        currentPage.style.display = DisplayStyle.Flex;
+
     }
 }
