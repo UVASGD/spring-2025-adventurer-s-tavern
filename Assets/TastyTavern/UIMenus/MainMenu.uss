@@ -19,8 +19,12 @@
 }
 
 .menu {
-    background-color: rgb(55, 55, 55);
+    background-color: rgb(79, 45, 0);
     display: flex;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
 }
 
 .unity-button:hover {
