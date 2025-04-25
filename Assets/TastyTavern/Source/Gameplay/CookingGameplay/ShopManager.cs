@@ -29,12 +29,12 @@ public class ShopManager : MonoBehaviour
 
     void Awake()
     {
-        if (currentBiome.Name == "Plains"){
-            CurrentShopData = Resources.Load<ShopData>("ScriptableObjects/Shop/PlainsShop");
-            Debug.Log("No biome found!");
-        } else {
-            Debug.Log("Biome not found!");
-        }
+        // if (currentBiome.Name == "Forest"){
+        //     CurrentShopData = Resources.Load<ShopData>("ScriptableObjects/Shop/PlainsShop");
+        //     Debug.Log("No biome found!");
+        // } else {
+        //     Debug.Log("Biome not found!");
+        // }
     
     }
 

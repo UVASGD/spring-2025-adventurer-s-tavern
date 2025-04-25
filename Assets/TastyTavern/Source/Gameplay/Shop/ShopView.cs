@@ -55,10 +55,10 @@ public class ShopView : MonoBehaviour
         shopPageContainer = root.Q<VisualElement>("ShopPageContainer");
 
         // Instantiate all shop items based on the current biome
-        GenerateShopItems(ingredientsPage, shopManager.CurrentShopData.IngredientItems);
-        GenerateShopItems(recipesPage, shopManager.CurrentShopData.RecipeItems);
-        GenerateShopItems(equipmentPage, shopManager.CurrentShopData.EquipmentItems);
-        GenerateShopItems(biomesPage, shopManager.CurrentShopData.BiomeItems);
+        // GenerateShopItems(ingredientsPage, shopManager.CurrentShopData.IngredientItems);
+        // GenerateShopItems(recipesPage, shopManager.CurrentShopData.RecipeItems);
+        // GenerateShopItems(equipmentPage, shopManager.CurrentShopData.EquipmentItems);
+        // GenerateShopItems(biomesPage, shopManager.CurrentShopData.BiomeItems);
 
         // Setting default page
         currentPage = ingredientsPage;

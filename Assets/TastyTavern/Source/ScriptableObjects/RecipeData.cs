@@ -9,26 +9,24 @@ public class RecipeData : BuyableData
     /// <summary>
     /// Represents the name of a recipe.
     /// </summary>
-    [field: SerializeField]
-    public string Name { get; set; }
+    // [field: SerializeField]
+    // public string Name { get; set; }
 
     /// <summary>
     /// Represents the description of a recipe, providing details or additional context about it.
     /// </summary>
-    [field: SerializeField]
-    public string Description { get; set; }
+    // [field: SerializeField]
+    // public string Description { get; set; }
 
     /// <summary>
     /// Represents the price of the recipe.
     /// </summary>
-    [field: SerializeField]
-    public int Price { get; set; }
 
     /// <summary>
     /// Represents the visual icon associated with a recipe.
     /// </summary>
-    [field: SerializeField]
-    public Sprite Icon { get; set; }
+    // [field: SerializeField]
+    // public Sprite Icon { get; set; }
     
     /// <summary>
     /// Represents the visual icon associated with a recipe, but the recipe has been assembled wrong. 

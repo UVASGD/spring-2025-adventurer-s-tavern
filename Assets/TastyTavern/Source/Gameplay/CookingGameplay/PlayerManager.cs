@@ -37,7 +37,7 @@ public class PlayerManager : MonoBehaviour
             IngredientUnlocked.Add(allIngredient[i], false);
         }
 
-        //Enter the Equipment/Actions
+        //Enter the Equipment/Stations
         for (int i = 0; i < allEquipment.Count; i++)
         {
             StationUnlocked.Add(allEquipment[i], false);
@@ -88,7 +88,7 @@ public class PlayerManager : MonoBehaviour
 
             case ItemType.Equipment:
                 foreach (var e in allEquipment)
-                    if (e.Name == item.Name) { ActionUnlocked[e] = true; break; }
+                    if (e.Name == item.Name) { StationUnlocked[e] = true; break; }
                 break;
 
             case ItemType.Recipe:
@@ -111,15 +111,15 @@ public class PlayerManager : MonoBehaviour
         public BiomeData currBiomeName;
 
         [NonSerialized] public Dictionary<IngredientData, bool> IngredientUnlocked = new();
-        [NonSerialized] public Dictionary<ActionData, bool> ActionUnlocked = new();
+        [NonSerialized] public Dictionary<StationData, bool> StationUnlocked = new();
         [NonSerialized] public Dictionary<RecipeData, bool> RecipeUnlocked = new();
         [NonSerialized] public Dictionary<BiomeData, bool> BiomeUnlocked = new();
 
         [SerializeField] private List<IngredientData> ingredientKeys = new();
         [SerializeField] private List<bool> ingredientValues = new();
 
-        [SerializeField] private List<ActionData> actionKeys = new();
-        [SerializeField] private List<bool> actionValues = new();
+        [SerializeField] private List<StationData> stationKeys = new();
+        [SerializeField] private List<bool> stationValues = new();
 
         [SerializeField] private List<RecipeData> recipeKeys = new();
         [SerializeField] private List<bool> recipeValues = new();
@@ -136,11 +136,11 @@ public class PlayerManager : MonoBehaviour
                 ingredientValues.Add(kv.Value);
             }
 
-            actionKeys.Clear(); actionValues.Clear();
-            foreach (var kv in ActionUnlocked)
+            stationKeys.Clear(); stationValues.Clear();
+            foreach (var kv in StationUnlocked)
             {
-                actionKeys.Add(kv.Key);
-                actionValues.Add(kv.Value);
+                stationKeys.Add(kv.Key);
+                stationValues.Add(kv.Value);
             }
 
             recipeKeys.Clear(); recipeValues.Clear();
@@ -164,9 +164,9 @@ public class PlayerManager : MonoBehaviour
             for (int i = 0; i < Math.Min(ingredientKeys.Count, ingredientValues.Count); i++)
                 IngredientUnlocked[ingredientKeys[i]] = ingredientValues[i];
 
-            ActionUnlocked = new();
-            for (int i = 0; i < Math.Min(actionKeys.Count, actionValues.Count); i++)
-                ActionUnlocked[actionKeys[i]] = actionValues[i];
+            StationUnlocked = new();
+            for (int i = 0; i < Math.Min(stationKeys.Count, stationValues.Count); i++)
+                StationUnlocked[stationKeys[i]] = stationValues[i];
 
             RecipeUnlocked = new();
             for (int i = 0; i < Math.Min(recipeKeys.Count, recipeValues.Count); i++)
@@ -189,8 +189,8 @@ public class PlayerManager : MonoBehaviour
         foreach (var kv in IngredientUnlocked)
             data.IngredientUnlocked[kv.Key] = kv.Value;
 
-        foreach (var kv in ActionUnlocked)
-            data.ActionUnlocked[kv.Key] = kv.Value;
+        foreach (var kv in StationUnlocked)
+            data.StationUnlocked[kv.Key] = kv.Value;
 
         foreach (var kv in RecipeUnlocked)
             data.RecipeUnlocked[kv.Key] = kv.Value;
@@ -208,7 +208,7 @@ public class PlayerManager : MonoBehaviour
         foreach (var ingredient in allIngredient)
             IngredientUnlocked[ingredient] = false;
         foreach (var equipment in allEquipment)
-            ActionUnlocked[equipment] = false;
+            StationUnlocked[equipment] = false;
         foreach (var recipe in allRecipe)
             RecipeUnlocked[recipe] = false;
         foreach (var biome in allBiome)
@@ -221,11 +221,11 @@ public class PlayerManager : MonoBehaviour
                 IngredientUnlocked[obj] = data.IngredientUnlocked[ingredientData];
         }
 
-        foreach (var actionData in data.ActionUnlocked.Keys)
+        foreach (var stationData in data.StationUnlocked.Keys)
         {
-            var obj = allEquipment.Find(e => e == actionData);
+            var obj = allEquipment.Find(e => e == stationData);
             if (obj != null)
-                ActionUnlocked[obj] = data.ActionUnlocked[actionData];
+                StationUnlocked[obj] = data.StationUnlocked[stationData];
         }
 
         foreach (var recipeData in data.RecipeUnlocked.Keys)
