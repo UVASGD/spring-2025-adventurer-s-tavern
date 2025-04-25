@@ -41,6 +41,10 @@ public class CustomerController : MonoBehaviour
 
     [SerializeField]
     private MenuManager MenuManager;
+
+    [SerializeField] 
+    private OrderManager OrderManager;
+    
     private bool isSpawning = false;
 
 
@@ -118,6 +122,7 @@ public class CustomerController : MonoBehaviour
 
                 Customer customerScript = customerObj.GetComponent<Customer>();
                 customerScript.MenuManager = MenuManager;
+                customerScript.OrderManager = OrderManager;
                 customerScript.Initialize(data);
 
                 // Track the customer

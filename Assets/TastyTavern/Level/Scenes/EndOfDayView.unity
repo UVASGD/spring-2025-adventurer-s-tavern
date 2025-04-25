@@ -166,7 +166,7 @@ MonoBehaviour:
   postGameUI: {fileID: 1613163758}
   shopMenuUI: {fileID: 458064617}
   biomesMenuUI: {fileID: 145442971}
-  playerManager: {fileID: 0}
+  playerManager: {fileID: 1980101161}
 --- !u!1 &145442970
 GameObject:
   m_ObjectHideFlags: 0

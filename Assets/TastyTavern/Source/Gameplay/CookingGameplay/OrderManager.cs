@@ -111,9 +111,9 @@ public class OrderManager : MonoBehaviour
     {
         int index = currentOrder.StationIdx;
         Debug.Log(activeOrders.IndexOf(currentOrder) + " order's " + index + " station trashed");
+        // currentOrder.Station.Unsubscribe();
         currentOrder.ResetStation();
-        DeselectOrder();
-        activeOrders[index] = currentOrder;
+        Debug.Log("Trashed order method, after reset station: " + currentOrder.Station.Data.StationType);
     }
     
     public void AddOrder(Order order)

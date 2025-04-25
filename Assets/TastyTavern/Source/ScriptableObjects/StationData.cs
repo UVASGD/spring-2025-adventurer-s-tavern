@@ -19,9 +19,9 @@ public class StationData : ScriptableObject
     public ActionData ActionData { get; set; } // Make Action into Scriptable object too?
 
     // Factory method to make instance of Station
-    public Station Create(List<IngredientData> stock, CookingUIEventChannel cookingUIEventChannel)
+    public Station Create(List<IngredientData> stock, CookingUIEventChannel cookingUIEventChannel, OrderManager manager)
     {
-        return new Station(this, stock, cookingUIEventChannel);
+        return new Station(this, stock, cookingUIEventChannel, manager);
     }
 
 }

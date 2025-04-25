@@ -16,9 +16,11 @@ MonoBehaviour:
   <Description>k__BackingField: 
   <Price>k__BackingField: 100
   <Icon>k__BackingField: {fileID: 1971571741212690949, guid: e61fbf0a0c3e43142b614778b574aa3c, type: 3}
+  <WrongIcon>k__BackingField: {fileID: 0}
   <StationSequence>k__BackingField:
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
   - {fileID: 11400000, guid: 7b894118b6110564faf2b1d0bc24761d, type: 2}
+  - {fileID: 11400000, guid: 82396885afbc98549b5a8aa25647ab74, type: 2}
   <InitialStockSequence>k__BackingField:
   - InitialStock:
     - {fileID: 11400000, guid: 704826934e76e4049898330448c3ad99, type: 2}
@@ -40,5 +42,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 4fbf018b26512d548b1928704b4f8ddf, type: 2}
     - {fileID: 11400000, guid: 704826934e76e4049898330448c3ad99, type: 2}
     CorrectPropertiesPerIngredient:
-    - Properties: 0000000001000000
+    - Properties: 0000000008000000
     - Properties: 00000000

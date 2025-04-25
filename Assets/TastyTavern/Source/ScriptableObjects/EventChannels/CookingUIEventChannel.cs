@@ -55,12 +55,13 @@ public class CookingUIEventChannel : ScriptableObject {
     /// Callback when a day is finished
     /// </summary>
     public Action<int> OnDayFinished;
-
     
     /// <summary>
     /// Callback when a day starts
     /// </summary>
     public Action<int> OnDayStarted;
+
+    public Action OnAssembleOrder;
     
     public void RaiseOnAddIngredient(Ingredient ingredient){
         Debug.Log("Raise adding " + ingredient.Data.Name + " ingredient broadcasted from event channel.");
@@ -87,8 +88,6 @@ public class CookingUIEventChannel : ScriptableObject {
     {
         OnSubmitOrder?.Invoke(order);
     }
-    
-    
 
     public void RaiseOnRemoveCustomer(int idx)
     {
@@ -151,5 +150,11 @@ public class CookingUIEventChannel : ScriptableObject {
     public void RaiseOnDayStarted(int x)
     {
         OnDayStarted?.Invoke(x);
+    }
+
+    public void RaiseOnAssembleOrder()
+    {
+        Debug.Log("Order Assembled!");
+        OnAssembleOrder?.Invoke();
     }
 }

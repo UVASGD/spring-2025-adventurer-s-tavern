@@ -10,9 +10,6 @@ public class CustomerData{ // change to class?
     public string Name { get; set; }
 
     [field: SerializeField]
-    public OrderManager OrderManager { get; set; }
-
-    [field: SerializeField]
     private CookingUIEventChannel _cookingUIEventChannel;
 
     // This will be the eyes, clothes, hair for a character that's randomized

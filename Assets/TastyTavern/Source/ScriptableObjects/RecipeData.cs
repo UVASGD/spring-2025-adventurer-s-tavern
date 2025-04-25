@@ -29,6 +29,12 @@ public class RecipeData : ScriptableObject
     /// </summary>
     [field: SerializeField]
     public Sprite Icon { get; set; }
+    
+    /// <summary>
+    /// Represents the visual icon associated with a recipe, but the recipe has been assembled wrong. 
+    /// </summary>
+    [field: SerializeField]
+    public Sprite WrongIcon { get; set; }
 
     /// <summary>
     /// Defines the sequence of stations that are required to complete a recipe.

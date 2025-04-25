@@ -25,7 +25,6 @@ public class Order
     [field: SerializeField]
     public bool Served { get; set; }
 
-    [field: SerializeField]
     public Station Station { get; set; }
 
     [field: SerializeField]
@@ -36,26 +35,17 @@ public class Order
 
     public Order(Customer customer, RecipeData recipe, CookingUIEventChannel cookingUIEventChannel)
     {
-        this.Customer = customer;
-        this.Recipe = recipe;
+        Customer = customer;
+        Recipe = recipe;
         this.cookingUIEventChannel = cookingUIEventChannel;
-        Reinitialize();
-    }
-
-    private void Reinitialize()
-    {
-        Served = false;
-        StationIdx = 0;
         Station = Recipe.StationSequence[0]
-            .Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel);
+            .Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel, Customer.OrderManager);
         var correctIngredients = Recipe.CorrectStockSequence[^1].CorrectIngredients;
-        CurrentIngredients.Clear();
         // resetting currentingredients to have blank, unprocessed ingredients
         foreach (var ingredientdata in correctIngredients)
         {
             CurrentIngredients.Add(ingredientdata, new List<Property>());
         }
-        
     }
 
     // Order manager triggers station change
@@ -67,7 +57,16 @@ public class Order
 
     public void ResetStation()
     {
-        Reinitialize();
+        StationIdx = 0;
+        Station.Reset(Recipe.StationSequence[0],Recipe.InitialStockSequence[StationIdx].InitialStock);
+            
+        var correctIngredients = Recipe.CorrectStockSequence[^1].CorrectIngredients;
+        CurrentIngredients.Clear();
+        // resetting currentingredients to have blank, unprocessed ingredients
+        foreach (var ingredientdata in correctIngredients)
+        {
+            CurrentIngredients.Add(ingredientdata, new List<Property>());
+        }
     }
     
     // recipe.CorrectStockSequence[^1].CorrectIngredients -> list of all ingredients in the recipe

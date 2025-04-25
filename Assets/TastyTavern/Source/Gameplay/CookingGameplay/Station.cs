@@ -25,9 +25,10 @@ public class Station {
     
     public OrderManager OrderManager { get; set; }
     
-    public Station(StationData data, List<IngredientData> stock, CookingUIEventChannel ev){
+    public Station(StationData data, List<IngredientData> stock, CookingUIEventChannel ev, OrderManager manager){
         this.Data = data;
         cookingUIEventChannel = ev;
+        OrderManager = manager;
         foreach (var ingredientData in stock){
             StockIngredients.Add(ingredientData.Create());
         }
@@ -42,17 +43,20 @@ public class Station {
     {
         cookingUIEventChannel.OnAddIngredient += AddIngredient;
         cookingUIEventChannel.OnStoreIngredient += StoreActiveIngredients;
+        cookingUIEventChannel.OnAssembleOrder += AssembleOrder;
     }
 
     public void Unsubscribe(){
         cookingUIEventChannel.OnAddIngredient -= AddIngredient;
         cookingUIEventChannel.OnStoreIngredient -= StoreActiveIngredients;
+        cookingUIEventChannel.OnAssembleOrder -= AssembleOrder;
     }
 
     /// Adds ingredient to current active workspace (from stock)
     private void AddIngredient(Ingredient ingredient)
     {
         AddToActive(ingredient);
+        Debug.Log("Inside Station.cs: " + Data.StationType);
         cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
     }
     
@@ -107,6 +111,22 @@ public class Station {
         ActiveIngredients.Clear();
         // TODO: Play little store animation. Transform will be a long parabola and shrink into a little box or chest icon. 
         // Chest icon can do a little shake when the food visually reaches it
+    }
+
+    public void AssembleOrder()
+    {
+        ActiveIngredients.AddRange(StoredIngredients);
+        StoredIngredients.Clear();
+        // TODO: Render finished food image
+    }
+
+    public void Reset(StationData firstStation, List<IngredientData> firstStock)
+    {
+        StockIngredients.Clear();
+        ActiveIngredients.Clear();
+        StoredIngredients.Clear();
+        ProgressStation(firstStation, firstStock);
+        
     }
     
 }

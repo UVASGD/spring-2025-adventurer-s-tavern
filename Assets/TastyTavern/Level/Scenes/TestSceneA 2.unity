@@ -457,6 +457,7 @@ MonoBehaviour:
   - {fileID: 1489347291}
   - {fileID: 2026663270}
   MenuManager: {fileID: 263837436}
+  OrderManager: {fileID: 694973456}
 --- !u!1 &884455394
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +609,7 @@ MonoBehaviour:
   customersToPass: 1
   eventChannel: {fileID: 11400000, guid: 98faadf6e98d87049badef501f757299, type: 2}
   currentBiome: {fileID: 0}
-  playerManager: {fileID: 0}
+  playerManager: {fileID: 39318588}
 --- !u!4 &1009893093
 Transform:
   m_ObjectHideFlags: 0

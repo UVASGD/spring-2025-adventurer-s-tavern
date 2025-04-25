@@ -16,6 +16,9 @@ public class Customer : MonoBehaviour
     public MenuManager MenuManager { get; set; }
     
     [field: SerializeField]
+    public OrderManager OrderManager { get; set; }
+    
+    [field: SerializeField]
     public float RemainingPatience { get; set; }
 
 

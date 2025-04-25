@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
 using Mono.Cecil.Cil;
+using NUnit.Framework.Internal.Commands;
 using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -41,6 +43,7 @@ public class StationView : MonoBehaviour {
 
     [SerializeField]
     private CookingUIEventChannel cookingUIEventChannel;
+
 
     private void OnEnable()
     {
@@ -117,7 +120,8 @@ public class StationView : MonoBehaviour {
     {
         if (station.Data.StationType == StationType.Serving)
         {
-            GenerateServeButton(); // last station only generates serve button
+            GenerateServeButton(); // last station only generates serve and assemble button
+            GenerateAssembleButton();
         }
         else
         {
@@ -129,28 +133,68 @@ public class StationView : MonoBehaviour {
     {
         Debug.LogError("Station data is null!");
     }
-        GenerateIngredientButtons(station.StockIngredients);
+        GenerateIngredientButtons(station);
         GenerateStationBackground(station);
-        GenerateOrderInstructions(station.StockIngredients);
+        GenerateOrderInstructions(station);
         GenerateStoreButton();
         GenerateTrashButton();
         sidePanelContainer.visible = true;
         barAndStationContainer.visible = true;
     }
 
-    private void GenerateOrderInstructions(List<Ingredient> stockIngredients)
+    private void GenerateAssembleButton()
     {
+        Button assembleButton = new();
+        assembleButton.AddToClassList("action-button");
+        assembleButton.AddToClassList("button");
+        assembleButton.text = "Assemble";
+        actionSlotContainer.Add(assembleButton);
+        assembleButton.clicked += () =>
+        {
+            assembleButton.SetEnabled(false);
+            OnAssembleOrder();
+        };
+    }
+
+    private void GenerateOrderInstructions(Station station)
+    {
+        Debug.Log(station.OrderManager);
+        Debug.Log(station.Data.StationType);
+        Debug.Log(station.OrderManager.currentOrder);
+        List<IngredientData> ingredients = station.OrderManager.currentOrder.Recipe.CorrectStockSequence[station.OrderManager.currentOrder.StationIdx].CorrectIngredients;
         Label orderInstructions = new();
         var instructions = "";
-        Debug.Log("Generating order instructions");
-        foreach (var ingredient in stockIngredients)
+        switch (station.Data.StationType)
         {
-            
-            if (ingredient.Properties.Count > 0)
-                instructions += ingredient.Properties[^1] + " " + ingredient.Data.Name + "\n";
-            else
-                instructions += ingredient.Data.Name + "\n";
+            case StationType.Serving:
+                instructions += "Assemble: ";
+                break;
+            case StationType.Grill:
+                instructions += "Grill: ";
+                break;
+            case StationType.Oven:
+                instructions += "Bake: ";
+                break;
+            case StationType.Pan:
+                instructions += "Fry: ";
+                break;
+            case StationType.CuttingBoard:
+                instructions += "Cut: ";
+                break;
+            case StationType.DeepFrier:
+                instructions += "Deep Fry: ";
+                break;
+            case StationType.MixingBowl:
+                instructions += "Mix: ";
+                break;
+            default:
+                instructions += "Uknnown: ";
+                break;
         }
+        
+        foreach (IngredientData ingredient in ingredients)
+            instructions += "\n" +
+                            "\t- " + ingredient.Name + "\n";
 
         orderInstructions.text = instructions;
         orderInstructions.AddToClassList("action-label");
@@ -171,7 +215,7 @@ public class StationView : MonoBehaviour {
     
     private void StartProgress(ActionData action)
     {
-        StartCoroutine(UpdateProgressBar(action.ActionTime));
+        //StartCoroutine(UpdateProgressBar(action.ActionTime));
     }
 
     private IEnumerator UpdateProgressBar(float duration){
@@ -225,13 +269,16 @@ public class StationView : MonoBehaviour {
         
     }
 
-    private void GenerateIngredientButtons(List<Ingredient> ingredients){
-        foreach(Ingredient ingredient in ingredients){
-            IngredientButton ingredientButton = new(ingredient);
-            Debug.Log("Slot created for " + ingredientButton.Ingredient.Data.Name);
-            ingredientSlotContainer.Add(ingredientButton);
-            ingredientButton.OnClickButton += OnAddIngredient;
-        }
+    private void GenerateIngredientButtons(Station station)
+    {
+        List<Ingredient> ingredients = station.StockIngredients;
+        if (station.Data.StationType != StationType.Serving)
+            foreach(Ingredient ingredient in ingredients){
+                IngredientButton ingredientButton = new(ingredient);
+                Debug.Log("Slot created for " + ingredientButton.Ingredient.Data.Name + " inside " + station.Data.StationType);
+                ingredientSlotContainer.Add(ingredientButton);
+                ingredientButton.OnClickButton += OnAddIngredient;
+            }
     }
 
     private void GenerateStationBackground(Station station){
@@ -277,6 +324,11 @@ public class StationView : MonoBehaviour {
         cookingUIEventChannel.RaiseOnAddIngredient(ingredientButton.Ingredient); // adds ingredient, calls refresh
         ingredientButton.SetEnabled(false);
         ingredientButton.RemoveFromClassList("button");
+    }
+    
+    private void OnAssembleOrder()
+    {
+        cookingUIEventChannel.RaiseOnAssembleOrder();
     }
     
     private void OnStoreIngredient() {
@@ -331,14 +383,24 @@ public class StationView : MonoBehaviour {
     private void RefreshStationWorkspace(Station station){
         stationBG.Clear();
         stationTop = stationBG;
-        foreach (var ingredient in station.ActiveIngredients){
-            AddToStationWorkspace(ingredient);
+        Debug.Log("WTF IS HAPPENING!!!! " + station.Data.StationType);
+        if (station.Data.StationType == StationType.Serving)
+        {
+            stationTop.Clear();
+            Image icon = new() { image = station.OrderManager.currentOrder.Recipe.WrongIcon.texture };
+            stationTop.Add(icon);
+            stationTop = icon; // Idk the above code in AddToStationWorkspace has this so...
+        }
+        else
+        {
+            foreach (var ingredient in station.ActiveIngredients)
+                AddToStationWorkspace(ingredient);
         }
     }
 
     private void RefreshIngredientsPanel(Station station){
         ingredientSlotContainer.Clear();
-        GenerateIngredientButtons(station.StockIngredients);
+        GenerateIngredientButtons(station);
     }
 
 }
