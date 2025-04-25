@@ -365,7 +365,7 @@ public class StationView : MonoBehaviour {
         barAndStationContainer.visible = false;
     }
 
-    // TODO: change method of determining sprites
+    //TODO: change method of determining sprites
     private void AddToStationWorkspace(Ingredient ingredient){
         Sprite sprite;
         if( ingredient.Properties.Contains(Property.Cut) && ingredient.Properties.Contains(Property.Cooked)){
