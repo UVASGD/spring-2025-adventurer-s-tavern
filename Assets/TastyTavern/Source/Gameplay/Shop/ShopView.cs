@@ -99,10 +99,7 @@ public class ShopView : MonoBehaviour
         equipmentBtn.UnregisterCallback<ClickEvent, string>(OnPageClicked);
         biomesBtn.UnregisterCallback<ClickEvent, string>(OnPageClicked);
 
-        // foreach (Button itemBtn in activeItemButtons)
-        // {
-        //     itemBtn.UnregisterCallback<ClickEvent, Button>(OnBuyButtonClicked);   
-        // }
+        // not sure if i have to unregister all item buttons here because they will be destroyed. (?)
     }
 
     // Generates shop items based on the current biome in the page (a ScrollView element)
@@ -121,7 +118,7 @@ public class ShopView : MonoBehaviour
 
             shopItemCell.dataSource = item;
 
-            // not bothering with data binding for now, just setting the data source directly
+            // not bothering with data binding for now, just setting the information directly
             shopItemCell.Q<Label>("ItemName").text = item.Name;
             shopItemCell.Q<Label>("ItemPrice").text = item.Price.ToString();
             shopItemCell.Q<Label>("ItemDescription").text = item.Description;
@@ -185,5 +182,9 @@ public class ShopView : MonoBehaviour
         Debug.Log(shopItem);
         Debug.Log("Item clicked of price: " + shopItem.Price);
         Debug.Log("Item clicked of type: " + shopItem.Type);
+        Debug.Log("Item clicked of data: " + shopItem.Data.Name);
+
+        itemBtn.text = "Purchased";
+        itemBtn.SetEnabled(false);
     }
 }

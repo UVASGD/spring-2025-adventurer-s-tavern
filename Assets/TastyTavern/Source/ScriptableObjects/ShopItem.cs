@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ShopItem", menuName = "ScriptableObjects/ShopItem")]
 public class ShopItem : ScriptableObject 
 {
-    public string Name { get; set; } 
+    [field: SerializeField]
+    public string Name { get; set; }
 
     [field: SerializeField]
     public ItemType Type { get; set; }

@@ -19,7 +19,6 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
 
-    [SerializeField]
     public ShopData currentShopData; // DETERMINED IN GAMEPLAY
 
     // Shops, set in the editor: (Forest, Ocean, Caves)
@@ -74,21 +73,21 @@ public class ShopManager : MonoBehaviour
     {
         if (item.Type == ItemType.Recipe && playerManager.RecipeUnlocked[(RecipeData)item.Data] == true)
         {
-            return false;
+            return true;
         }
         else if (item.Type == ItemType.Ingredient && playerManager.IngredientUnlocked[(IngredientData)item.Data] == true)
         {
-            return false;
+            return true;
         }
         else if (item.Type == ItemType.Equipment && playerManager.StationUnlocked[(StationData)item.Data] == true)
         {
-            return false;
+            return true;
         }
         else if (item.Type == ItemType.Biome && playerManager.BiomeUnlocked[(BiomeData)item.Data] == true)
         {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 }

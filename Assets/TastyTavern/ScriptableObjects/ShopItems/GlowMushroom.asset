@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3ee30f39182485c98eaed851fb4963, type: 3}
   m_Name: GlowMushroom
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Glowing Mushroom
   <Type>k__BackingField: 0
   <Price>k__BackingField: 150
   <Description>k__BackingField: A glowing mushroom
