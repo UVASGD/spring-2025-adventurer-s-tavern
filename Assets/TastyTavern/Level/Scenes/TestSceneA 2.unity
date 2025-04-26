@@ -166,10 +166,36 @@ MonoBehaviour:
   money: 0
   currentBiome: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   cookingUIEventChannel: {fileID: 11400000, guid: 98faadf6e98d87049badef501f757299, type: 2}
-  allIngredient: []
-  allEquipment: []
-  allRecipe: []
-  allBiome: []
+  allIngredient:
+  - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
+  - {fileID: 11400000, guid: 4fbf018b26512d548b1928704b4f8ddf, type: 2}
+  - {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
+  - {fileID: 11400000, guid: 704826934e76e4049898330448c3ad99, type: 2}
+  - {fileID: 11400000, guid: bb0e59e5722ad564fa97f77f06198c75, type: 2}
+  - {fileID: 11400000, guid: 4f504685f198ab34a8eefd094a51abb8, type: 2}
+  allEquipment:
+  - {fileID: 11400000, guid: 865f815cb1e69f146ba2c092346510d0, type: 2}
+  - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
+  - {fileID: 11400000, guid: 23016281f8a3d6349b20852a1b2f0749, type: 2}
+  - {fileID: 11400000, guid: 7b894118b6110564faf2b1d0bc24761d, type: 2}
+  - {fileID: 11400000, guid: bd85b126a3b9c8e4d84cf13bf595cf55, type: 2}
+  - {fileID: 11400000, guid: ca4d34c185d847641be2569a2a92a3df, type: 2}
+  - {fileID: 11400000, guid: 34f246fba31e5fb45a3932c6c75814c7, type: 2}
+  - {fileID: 11400000, guid: 82396885afbc98549b5a8aa25647ab74, type: 2}
+  allRecipe:
+  - {fileID: 11400000, guid: b57b1b53da1e4e742b7bf1989a8fac48, type: 2}
+  - {fileID: 11400000, guid: 04b89bd6c3d3fed4595e31d42b275635, type: 2}
+  allBiome:
+  - {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
+  - {fileID: 11400000, guid: 985422e741fa8ba4d9966ed77aeb35da, type: 2}
+  - {fileID: 11400000, guid: 7843cd2a631416e4cbbf57593304e8b2, type: 2}
+  initiallyUnlockedItems:
+  - {fileID: 11400000, guid: 865f815cb1e69f146ba2c092346510d0, type: 2}
+  - {fileID: 11400000, guid: 82396885afbc98549b5a8aa25647ab74, type: 2}
+  - {fileID: 11400000, guid: b57b1b53da1e4e742b7bf1989a8fac48, type: 2}
+  - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
+  - {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
+  - {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
 --- !u!1 &237096231
 GameObject:
   m_ObjectHideFlags: 0

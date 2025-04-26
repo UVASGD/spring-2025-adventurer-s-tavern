@@ -9,9 +9,9 @@
                 <engine:Label text="STATS" double-click-selects-word="false" style="color: rgb(255, 255, 255); -unity-text-align: upper-center; font-size: 30px;" />
             </engine:VisualElement>
             <engine:VisualElement name="ButtonPanel" style="flex-grow: 1; flex-direction: row; justify-content: space-around; align-items: center; max-height: 20%;">
-                <engine:Button text="Shop" name="Shop" style="left: auto; width: 35%; top: auto; position: relative; justify-content: flex-start; align-items: stretch; transform-origin: center; align-self: auto; align-content: flex-start; max-height: 80%; min-height: 80%; font-size: 70px;" />
-                <engine:Button text="Biomes" name="Biomes" style="bottom: auto; width: 20%; top: auto; flex-direction: column; translate: 0 0; max-height: 80%; min-height: 80%; font-size: 70px;" />
-                <engine:Button text="Next Day" name="Continue" style="width: 35%; translate: 0 1%; max-height: 80%; min-height: 80%; font-size: 70px;" />
+                <engine:Button text="Shop" name="Shop" style="left: auto; width: 25%; top: auto; position: relative; justify-content: flex-start; align-items: stretch; transform-origin: center; align-self: auto; align-content: flex-start; max-height: 80%; min-height: 80%; font-size: 70px;" />
+                <engine:Button text="Select Biome" name="Biomes" style="left: auto; width: 25%; top: auto; position: relative; justify-content: flex-start; align-items: stretch; transform-origin: center; align-self: auto; align-content: flex-start; max-height: 80%; min-height: 80%; font-size: 70px;" />
+                <engine:Button text="Continue" name="Continue" style="left: auto; width: 25%; top: auto; position: relative; justify-content: flex-start; align-items: stretch; transform-origin: center; align-self: auto; align-content: flex-start; max-height: 80%; min-height: 80%; font-size: 70px;" />
             </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>
