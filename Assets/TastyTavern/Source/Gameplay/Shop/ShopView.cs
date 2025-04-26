@@ -12,6 +12,9 @@ public class ShopView : MonoBehaviour
     [SerializeField]
     private ShopManager shopManager;
 
+    [SerializeField]
+    private VisualTreeAsset shopItemTemplate;
+
     private VisualElement root;
     private Button ingredientsBtn;
     private Button recipesBtn;
@@ -30,7 +33,7 @@ public class ShopView : MonoBehaviour
     private Button currentButton;
     private VisualElement currentPage;
 
-    private List<Button> allItemButtons;
+    private List<Button> activeItemButtons;
 
     // Action for when a page is clicked, in <newly selected page, old page> format
 
@@ -59,14 +62,16 @@ public class ShopView : MonoBehaviour
         currentButton = ingredientsBtn;
 
         // FOR TESTING I WILL ONLY SET UP INGREDIENTS BUTTONS FOR SUBSCRIPTION
-        allItemButtons = ingredientsPage.Query<Button>().ToList();
+        // activeItemButtons = ingredientsPage.Query<Button>().ToList();
 
     }
 
     void Start()
     {
         // Instantiate all shop items based on the current biome
-        GenerateShopItems(ingredientsPage, shopManager.CurrentShopData.IngredientItems);
+        Debug.Log("Current biome: " + shopManager.currentShopData);
+        Debug.Log("Current biome: " + shopManager.currentShopData.IngredientItems[0].Name);
+        GenerateShopItems(ingredientsPage, shopManager.currentShopData.IngredientItems);
         // GenerateShopItems(recipesPage, shopManager.CurrentShopData.RecipeItems);
         // GenerateShopItems(equipmentPage, shopManager.CurrentShopData.EquipmentItems);
         // GenerateShopItems(biomesPage, shopManager.CurrentShopData.BiomeItems);
@@ -81,10 +86,10 @@ public class ShopView : MonoBehaviour
         biomesBtn.RegisterCallback<ClickEvent, string>(OnPageClicked, "Biomes");
 
         // Subscribe all shop items
-        foreach (Button itemBtn in allItemButtons)
-        {
-            itemBtn.RegisterCallback<ClickEvent, Button>(OnBuyButtonClicked, itemBtn);   
-        }
+        // foreach (Button itemBtn in activeItemButtons)
+        // {
+        //     itemBtn.RegisterCallback<ClickEvent, Button>(OnBuyButtonClicked, itemBtn);   
+        // }
     }
 
     void OnDisable()
@@ -94,26 +99,45 @@ public class ShopView : MonoBehaviour
         equipmentBtn.UnregisterCallback<ClickEvent, string>(OnPageClicked);
         biomesBtn.UnregisterCallback<ClickEvent, string>(OnPageClicked);
 
-        foreach (Button itemBtn in allItemButtons)
-        {
-            itemBtn.UnregisterCallback<ClickEvent, Button>(OnBuyButtonClicked);   
-        }
+        // foreach (Button itemBtn in activeItemButtons)
+        // {
+        //     itemBtn.UnregisterCallback<ClickEvent, Button>(OnBuyButtonClicked);   
+        // }
     }
 
     // Generates shop items based on the current biome in the page (a ScrollView element)
     void GenerateShopItems(VisualElement page, List<ShopItem> shopItems)
     {
+        Debug.Log(shopItems.Count + " items in the shop");
+        Debug.Log(shopItems[0].Name + " is the first item in the shop");
         // Clear existing items in the page
         page.Clear();
 
-        // Create a cell for each item and add it to the page
+        // Create a cell for each item, set data source and add it to the page
         foreach (ShopItem item in shopItems)
         {
-            VisualElement shopItemCell = new VisualElement();
-            // Set data source for the button
-            //itemButton.SetHierarchicalDataSourceContext(new HierarchicalDataSourceContext(item));
+            TemplateContainer shopItemContainer = shopItemTemplate.Instantiate();
+            VisualElement shopItemCell = shopItemContainer.Q<VisualElement>("ShopItem");
 
-            page.Add(shopItemCell);
+            shopItemCell.dataSource = item;
+
+            // not bothering with data binding for now, just setting the data source directly
+            shopItemCell.Q<Label>("ItemName").text = item.Name;
+            shopItemCell.Q<Label>("ItemPrice").text = item.Price.ToString();
+            shopItemCell.Q<Label>("ItemDescription").text = item.Description;
+            shopItemCell.Q<VisualElement>("ItemIcon").style.backgroundImage = item.Icon.texture;
+            Button buyButton = shopItemCell.Q<Button>("BuyButton");
+
+            // checking if item is bought or not, if not, register the buying callback
+            if (shopManager.IsItemPurchased(item)){
+                buyButton.text = "Purchased";
+                buyButton.SetEnabled(false);
+            } else {
+                buyButton.text = "Buy";
+                buyButton.RegisterCallback<ClickEvent, Button>(OnBuyButtonClicked, buyButton);
+            }
+            
+            page.Add(shopItemCell); 
         }
     }
     
@@ -159,7 +183,7 @@ public class ShopView : MonoBehaviour
         ShopItem shopItem = itemBtn.GetHierarchicalDataSourceContext().dataSource as ShopItem;
 
         Debug.Log(shopItem);
-        // Debug.Log("Item clicked of price: " + shopItem.Price);
-        // Debug.Log("Item clicked of type: " + shopItem.Type);
+        Debug.Log("Item clicked of price: " + shopItem.Price);
+        Debug.Log("Item clicked of type: " + shopItem.Type);
     }
 }

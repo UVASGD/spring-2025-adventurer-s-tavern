@@ -23,7 +23,7 @@
 .shop-item {
     flex-grow: 1;
     height: 400px;
-    width: 45%;
+    width: 645px;
     margin-top: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -31,7 +31,7 @@
     margin-left: 8px;
     margin-right: 8px;
     background-color: rgb(247, 225, 189);
-    max-width: 48.5%;
+    max-width: 645px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -46,6 +46,7 @@
     border-bottom-color: rgb(90, 46, 8);
     padding-right: 20px;
     padding-left: 20px;
+    min-width: auto;
 }
 
 .unity-scroll-view__content-container {

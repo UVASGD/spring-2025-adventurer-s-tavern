@@ -21,8 +21,8 @@ public class ShopItem : ScriptableObject
     [field: SerializeField]
     public Sprite Icon { get; set; }
 
-    [field: SerializeField]
-    public bool Purchased { get; set; } = false; //default false?
+    // [field: SerializeField]
+    // public bool Purchased { get; set; } = false; //default false?
     
     [field: SerializeField]
     public BuyableData Data { get; set; } 

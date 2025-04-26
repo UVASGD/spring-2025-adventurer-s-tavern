@@ -20,7 +20,7 @@ public class ShopManager : MonoBehaviour
 {
 
     [SerializeField]
-    public ShopData CurrentShopData { get; set; } // DETERMINED IN GAMEPLAY
+    public ShopData currentShopData; // DETERMINED IN GAMEPLAY
 
     // Shops, set in the editor: (Forest, Ocean, Caves)
     [SerializeField]
@@ -29,16 +29,17 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     private PlayerManager playerManager; // NEED TO CONNECT
 
-    public BiomeData currentBiome; // TESTING ONLY, actually take playerManager.currentBiome
+    public BiomeData currentBiome; 
 
     void Awake()
     {
+        currentBiome = playerManager.currentBiome; // Get the current biome from the PlayerManager
         if (currentBiome.Name == "Forest"){
-            CurrentShopData = allShops[0];
+            currentShopData = allShops[0];
         } else if (currentBiome.Name == "Ocean"){
-            CurrentShopData = allShops[1];
+            currentShopData = allShops[1];
         } else if (currentBiome.Name == "Caves"){
-            CurrentShopData = allShops[2];
+            currentShopData = allShops[2];
         } else {
             Debug.Log("Biome not found!");
         }
@@ -57,36 +58,37 @@ public class ShopManager : MonoBehaviour
     {
         if (playerManager.money >= item.Price)
         {
-            if (item.Type == ItemType.Recipe && playerManager.RecipeUnlocked[(RecipeData)item.Data] == true)
-            {
-                Debug.Log("You already bought that item!");
-                return false;
-            }
-            else if (item.Type == ItemType.Ingredient && playerManager.IngredientUnlocked[(IngredientData)item.Data] == true)
-            {
-                Debug.Log("You already bought that item!");
-                return false;
-            }
-            else if (item.Type == ItemType.Equipment && playerManager.StationUnlocked[(StationData)item.Data] == true)
-            {
-                Debug.Log("You already bought that item!");
-                return false;
-            }
-            else if (item.Type == ItemType.Biome && playerManager.BiomeUnlocked[(BiomeData)item.Data] == true)
-            {
-                Debug.Log("You already bought that item!");
-                return false;
-            } else {
-                playerManager.money -= item.Price;
-                Debug.Log($"You bought {item.Data.Name} for {item.Price} gold!");
-                playerManager.AddItemToInventory(item);
-                return true;
-            }
+            playerManager.money -= item.Price;
+            Debug.Log($"You bought {item.Data.Name} for {item.Price} gold!");
+            playerManager.AddItemToInventory(item);
+            return true;
         }
         else
         {
             Debug.Log("You don't have enough gold to buy that item!");
             return false;
+        }
+    }
+
+    public bool IsItemPurchased(ShopItem item)
+    {
+        if (item.Type == ItemType.Recipe && playerManager.RecipeUnlocked[(RecipeData)item.Data] == true)
+        {
+            return false;
+        }
+        else if (item.Type == ItemType.Ingredient && playerManager.IngredientUnlocked[(IngredientData)item.Data] == true)
+        {
+            return false;
+        }
+        else if (item.Type == ItemType.Equipment && playerManager.StationUnlocked[(StationData)item.Data] == true)
+        {
+            return false;
+        }
+        else if (item.Type == ItemType.Biome && playerManager.BiomeUnlocked[(BiomeData)item.Data] == true)
+        {
+            return false;
+        } else {
+            return true;
         }
     }
 }
