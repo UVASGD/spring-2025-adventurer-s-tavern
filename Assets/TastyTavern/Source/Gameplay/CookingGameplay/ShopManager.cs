@@ -33,11 +33,11 @@ public class ShopManager : MonoBehaviour
     void Awake()
     {
         currentBiome = playerManager.currentBiome; // Get the current biome from the PlayerManager
-        if (currentBiome.Name == "Forest"){
+        if (currentBiome.Name == "Riko Wilds"){
             currentShopData = allShops[0];
-        } else if (currentBiome.Name == "Ocean"){
+        } else if (currentBiome.Name == "Nipawpwa Waves"){
             currentShopData = allShops[1];
-        } else if (currentBiome.Name == "Caves"){
+        } else if (currentBiome.Name == "Mungtown Caverns"){
             currentShopData = allShops[2];
         } else {
             Debug.Log("Biome not found!");

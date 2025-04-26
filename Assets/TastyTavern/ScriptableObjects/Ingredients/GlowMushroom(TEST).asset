@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38b5076c2de39c649b5915b54d56c2f6, type: 3}
-  m_Name: GlowMushroom
+  m_Name: GlowMushroom(TEST)
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Glowing Mushrooms
   <Sprites>k__BackingField: []
