@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d25cec19312fc4f89290d1b88444a6, type: 3}
   m_Name: Forest
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
-  <Description>k__BackingField: 
-  <Price>k__BackingField: 0
+  <Name>k__BackingField: Forest
   <StageNumber>k__BackingField: 0
   <RecipesAvailable>k__BackingField: []
   <IngredientsAvailable>k__BackingField: []

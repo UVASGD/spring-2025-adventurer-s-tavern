@@ -189,6 +189,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   - {fileID: 11400000, guid: 985422e741fa8ba4d9966ed77aeb35da, type: 2}
   - {fileID: 11400000, guid: 7843cd2a631416e4cbbf57593304e8b2, type: 2}
+  initiallyUnlockedItems:
+  - {fileID: 11400000, guid: 865f815cb1e69f146ba2c092346510d0, type: 2}
+  - {fileID: 11400000, guid: 82396885afbc98549b5a8aa25647ab74, type: 2}
+  - {fileID: 11400000, guid: b57b1b53da1e4e742b7bf1989a8fac48, type: 2}
+  - {fileID: 11400000, guid: 75c2015274d2dde4f99de4e82a3c641d, type: 2}
+  - {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
+  - {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
 --- !u!1 &237096231
 GameObject:
   m_ObjectHideFlags: 0

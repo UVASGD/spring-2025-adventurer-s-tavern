@@ -22,6 +22,8 @@ public class PlayerManager : MonoBehaviour
     public List<StationData> allEquipment = new();
     public List<RecipeData> allRecipe = new();
     public List<BiomeData> allBiome = new();
+    
+    public List<BuyableData> initiallyUnlockedItems = new();
 
     //All the scriptable objects get placed into their correct dictionaries, all bools are initially set to false
     public Dictionary<IngredientData, bool> IngredientUnlocked = new();
@@ -36,28 +38,65 @@ public class PlayerManager : MonoBehaviour
             //Enter the Ingredients
             for (int i = 0; i < allIngredient.Count; i++)
             {
-                IngredientUnlocked.Add(allIngredient[i], false);
+                bool x = false;
+                for (int j = 0; j < initiallyUnlockedItems.Count; j++)
+                {
+                    if (initiallyUnlockedItems[j].Name == allIngredient[i].Name)
+                    {
+                        x = true;
+                        break;
+                    }
+                }
+                IngredientUnlocked.Add(allIngredient[i], x);
             }
 
             //Enter the Equipment/Stations
             for (int i = 0; i < allEquipment.Count; i++)
             {
-                StationUnlocked.Add(allEquipment[i], false);
+                bool x = false;
+                for (int j = 0; j < initiallyUnlockedItems.Count; j++)
+                {
+                    if (initiallyUnlockedItems[j].Name == allEquipment[i].Name)
+                    {
+                        x = true;
+                        break;
+                    }
+                }
+                StationUnlocked.Add(allEquipment[i], x);
             }
 
             //Enter the Recipes
             for (int i = 0; i < allRecipe.Count; i++)
             {
-                RecipeUnlocked.Add(allRecipe[i], false);
+                bool x = false;
+                for (int j = 0; j < initiallyUnlockedItems.Count; j++)
+                {
+                    if (initiallyUnlockedItems[j].Name == allRecipe[i].Name)
+                    {
+                        x = true;
+                        break;
+                    }
+                }
+                RecipeUnlocked.Add(allRecipe[i], x);
             }
 
             //Enter the Biomes
             for (int i = 0; i < allBiome.Count; i++)
             {
-                BiomeUnlocked.Add(allBiome[i], false);
+                bool x = false;
+                for (int j = 0; j < initiallyUnlockedItems.Count; j++)
+                {
+                    if (initiallyUnlockedItems[j].Name == allBiome[i].Name)
+                    {
+                        x = true;
+                        break;
+                    }
+                }
+                BiomeUnlocked.Add(allBiome[i], x);
             }
             money = 0;
-            currentBiome = allBiome[0];
+            currentBiome = allBiome[0]; //temporary...
+            
         }
         
     }
@@ -210,6 +249,8 @@ public class PlayerManager : MonoBehaviour
     private void ApplyPlayerDataToManager(PlayerData data)
     {
         money = data.money;
+        
+        currentBiome = data.currBiomeName;
 
         foreach (var ingredient in allIngredient)
             IngredientUnlocked[ingredient] = false;
