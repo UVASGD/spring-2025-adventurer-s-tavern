@@ -57,7 +57,6 @@ public class UIMenusProcesses : MonoBehaviour
     void Start()
     {
         playerManager.LoadPlayer();
-
         if (!playerManager.BiomeUnlocked[playerManager.allBiome[0]])
         {
             SelectForestButton.SetEnabled(false);

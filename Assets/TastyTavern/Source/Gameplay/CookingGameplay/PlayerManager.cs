@@ -18,42 +18,48 @@ public class PlayerManager : MonoBehaviour
     private CookingUIEventChannel cookingUIEventChannel;
 
     //All Ingredients, Equipment, Recipes, and Biome scriptable objects get placed in their respective lists
-    public List<IngredientData> allIngredient = new List<IngredientData>();
-    public List<StationData> allEquipment = new List<StationData>();
-    public List<RecipeData> allRecipe = new List<RecipeData>();
-    public List<BiomeData> allBiome = new List<BiomeData>();
+    public List<IngredientData> allIngredient = new();
+    public List<StationData> allEquipment = new();
+    public List<RecipeData> allRecipe = new();
+    public List<BiomeData> allBiome = new();
 
     //All the scriptable objects get placed into their correct dictionaries, all bools are initially set to false
-    public Dictionary<IngredientData, bool> IngredientUnlocked = new Dictionary<IngredientData, bool>();
-    public Dictionary<StationData, bool> StationUnlocked = new Dictionary<StationData, bool>();
-    public Dictionary<RecipeData, bool> RecipeUnlocked = new Dictionary<RecipeData, bool>();
-    public Dictionary<BiomeData, bool> BiomeUnlocked = new Dictionary<BiomeData, bool>();
+    public Dictionary<IngredientData, bool> IngredientUnlocked = new();
+    public Dictionary<StationData, bool> StationUnlocked = new();
+    public Dictionary<RecipeData, bool> RecipeUnlocked = new();
+    public Dictionary<BiomeData, bool> BiomeUnlocked = new();
 
     void Start()
     {
-        //Enter the Ingredients
-        for (int i = 0; i < allIngredient.Count; i++)
+        if (!LoadPlayer())
         {
-            IngredientUnlocked.Add(allIngredient[i], false);
-        }
+            //Enter the Ingredients
+            for (int i = 0; i < allIngredient.Count; i++)
+            {
+                IngredientUnlocked.Add(allIngredient[i], false);
+            }
 
-        //Enter the Equipment/Stations
-        for (int i = 0; i < allEquipment.Count; i++)
-        {
-            StationUnlocked.Add(allEquipment[i], false);
-        }
+            //Enter the Equipment/Stations
+            for (int i = 0; i < allEquipment.Count; i++)
+            {
+                StationUnlocked.Add(allEquipment[i], false);
+            }
 
-        //Enter the Recipes
-        for (int i = 0; i < allRecipe.Count; i++)
-        {
-            RecipeUnlocked.Add(allRecipe[i], false);
-        }
+            //Enter the Recipes
+            for (int i = 0; i < allRecipe.Count; i++)
+            {
+                RecipeUnlocked.Add(allRecipe[i], false);
+            }
 
-        //Enter the Biomes
-        for (int i = 0; i < allBiome.Count; i++)
-        {
-            BiomeUnlocked.Add(allBiome[i], false);
+            //Enter the Biomes
+            for (int i = 0; i < allBiome.Count; i++)
+            {
+                BiomeUnlocked.Add(allBiome[i], false);
+            }
+            money = 0;
+            currentBiome = allBiome[0];
         }
+        
     }
 
     private void OnEnable()
@@ -251,18 +257,18 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Player saved to " + Path.Combine(Application.persistentDataPath, filename));
     }
 
-    public void LoadPlayer(string filename = "player_save.json")
+    public bool LoadPlayer(string filename = "player_save.json")
     {
         string path = Path.Combine(Application.persistentDataPath, filename);
         if (!File.Exists(path))
         {
-            Debug.LogWarning("Save file not found at " + path);
-            return;
+            return false;
         }
 
         string json = File.ReadAllText(path);
         var data = JsonUtility.FromJson<PlayerData>(json);
         ApplyPlayerDataToManager(data);
         Debug.Log("Player loaded from " + path);
+        return true;
     }
 }
