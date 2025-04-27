@@ -26,34 +26,34 @@ public class StationWorkspaceController : MonoBehaviour
     private void RotateStation(Station station){
         // TODO: swap station background + equipment sprites
         _CurrentWorkspace.ClearWorkspace();
-        _EquipmentTop.sprite = station.Data.StationSprites[0];
-        _EquipmentBottom.sprite = station.Data.StationSprites[1];
-        _StationBackground.sprite = station.Data.StationSprites[2];
+        _StationBackground.sprite = station.Data.Sprites[0];
+        _EquipmentTop.sprite = station.Data.Sprites[1];
+        _EquipmentBottom.sprite = station.Data.Sprites[2];
 
         switch (station.Data.StationType){
             case StationType.CuttingBoard:
-                _CurrentWorkspace = station.Data.StationWorkspaces[0];
+                _CurrentWorkspace = _Workspaces[0];
                 break;
             case StationType.Pan:
-                _CurrentWorkspace = station.Data.StationWorkspaces[1];
+                _CurrentWorkspace = _Workspaces[1];
                 break;
             case StationType.Grill:
-                _CurrentWorkspace = station.Data.StationWorkspaces[2];
+                _CurrentWorkspace = _Workspaces[2];
                 break;
             case StationType.MixingBowl:
-                _CurrentWorkspace = station.Data.StationWorkspaces[3];
+                _CurrentWorkspace = _Workspaces[3];
                 break;
             case StationType.DeepFryer:
-                _CurrentWorkspace = station.Data.StationWorkspaces[4];
+                _CurrentWorkspace = _Workspaces[4];
                 break;
             case StationType.Oven:
-                _CurrentWorkspace = station.Data.StationWorkspaces[5];
-                break;:
+                _CurrentWorkspace = _Workspaces[5];
+                break;
             case StationType.Pot:
-                _CurrentWorkspace = station.Data.StationWorkspaces[6];
+                _CurrentWorkspace = _Workspaces[6];
                 break;
             case StationType.Serving:
-                _CurrentWorkspace = station.Data.StationWorkspaces[7];
+                _CurrentWorkspace = _Workspaces[7];
                 break;
         }
     }

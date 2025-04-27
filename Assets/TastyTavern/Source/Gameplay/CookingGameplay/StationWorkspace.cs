@@ -13,13 +13,13 @@ public class StationWorkspace : MonoBehaviour
 
     public void AddToWorkspace(Ingredient ingredient, bool isSingleSlot = false)
     {
-        Texture ingredientTexture = ingredient.GetCurrentSprite().texture;
+        Sprite ingredientSprite = ingredient.GetCurrentSprite();
 
         // Check for conditions for single slot + replacing (cutting + battering(bowl))
         // Also used with CUT and BATTERED
         if (isSingleSlot && _slots[0].gameObject.activeSelf)
         {
-            _slots[0].sprite = ingredientTexture;
+            _slots[0].sprite = ingredientSprite;
         } else {
 
             // TODO: Check for serving station condition
@@ -30,7 +30,7 @@ public class StationWorkspace : MonoBehaviour
                 if (!slot.gameObject.activeSelf)
                 {
                     slot.gameObject.SetActive(true);
-                    slot.sprite = ingredientTexture;
+                    slot.sprite = ingredientSprite;
                     break; 
                 }
             }
