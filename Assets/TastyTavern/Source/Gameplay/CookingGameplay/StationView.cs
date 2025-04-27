@@ -181,7 +181,7 @@ public class StationView : MonoBehaviour {
             case StationType.CuttingBoard:
                 instructions += "Cut: ";
                 break;
-            case StationType.DeepFrier:
+            case StationType.DeepFryer:
                 instructions += "Deep Fry: ";
                 break;
             case StationType.MixingBowl:
@@ -282,7 +282,7 @@ public class StationView : MonoBehaviour {
     }
 
     private void GenerateStationBackground(Station station){
-        stationBG = new(){ image = station.Data.Background.texture }; // change this to just equipment, not counter
+        stationBG = new(){ image = station.Data.Sprites[0].texture }; // change this to just equipment, not counter
         stationWorkspaceContainer.Add(stationBG);
         stationTop = stationBG;
     }

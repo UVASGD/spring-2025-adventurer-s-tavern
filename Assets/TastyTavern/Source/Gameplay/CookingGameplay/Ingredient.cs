@@ -24,19 +24,23 @@ public class Ingredient {
 
     // Return the current sprite to be used in the workspace depending on the property
     public Sprite GetCurrentSprite(){
-        if (Properties.Contains(Property.Cut)){
-            return Data.Sprites[2]; //TODO: add icons
-        } else {
-            return Data.Sprites[1];
+        Sprite sprite = Data.Sprites[0]; // initial is raw, uncut
+        if (Properties.Contains(Property.Cut) && Properties.Contains(Property.Battered)){
+            sprite = Data.Sprites[3];
+        } else if (Properties.Contains(Property.Battered)){
+            sprite = Data.Sprites[2];
+        } else if (Properties.Contains(Property.Cut)){
+            sprite = Data.Sprites[1]; 
         }
+        return sprite;
     }
+    
 }
 
 public enum Property{
     Cut,
     Cooked,
-    Salted,
-    Peppered,
+    Battered,
     Boiled,
     DeepFried,
     Mixed,

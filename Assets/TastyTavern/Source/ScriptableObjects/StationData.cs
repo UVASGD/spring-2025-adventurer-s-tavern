@@ -10,13 +10,13 @@ public class StationData : BuyableData
     public StationType StationType { get; set; }
 
     [field: SerializeField]
-    public Sprite Background { get; set; }
+    public Sprite[] Sprites { get; set; } // 0: Equipment Top, 1: Equipment Bottom, 2: Background
 
     [field: SerializeField]
     public float ProcessingTime { get; set; }
 
     [field: SerializeField]
-    public ActionData ActionData { get; set; } // Make Action into Scriptable object too?
+    public ActionData ActionData { get; set; } 
 
     // Factory method to make instance of Station
     public Station Create(List<IngredientData> stock, CookingUIEventChannel cookingUIEventChannel, OrderManager manager)
@@ -35,5 +35,5 @@ public enum StationType
     MixingBowl,
     Grill,
     Oven,
-    DeepFrier,
+    DeepFryer,
 }
