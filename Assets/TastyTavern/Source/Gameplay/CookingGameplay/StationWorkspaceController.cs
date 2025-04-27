@@ -19,7 +19,7 @@ public class StationWorkspaceController : MonoBehaviour
     public StationWorkspace _CurrentWorkspace { get; set; }
 
     [field: SerializeField]
-    public List<StationWorkspace> _Workspaces { get; set; }
+    public StationWorkspace[] _Workspaces { get; set; }
 
     // This script is attached to the Station Workspace prefab
 
