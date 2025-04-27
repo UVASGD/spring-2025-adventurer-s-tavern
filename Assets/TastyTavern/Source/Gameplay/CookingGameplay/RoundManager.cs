@@ -9,7 +9,7 @@ public class RoundManager : MonoBehaviour
 {
 
     private int _day;
-    private float _moneyAccumulatedThisRound;
+    private int _moneyAccumulatedThisRound;
     private Enum _grade;
     private int _customersServed;
     
@@ -76,7 +76,7 @@ public class RoundManager : MonoBehaviour
         SceneManager.LoadScene("EndOfDayView");
     }
 
-    private void ChangeMoney(float deltaMoney)
+    private void ChangeMoney(int deltaMoney)
     {
         _moneyAccumulatedThisRound += deltaMoney;
     }

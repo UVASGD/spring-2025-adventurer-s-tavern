@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 public class PlayerManager : MonoBehaviour
 {
-    public float money { get; set; }
+    public int money { get; set; }
     
     public BiomeData currentBiome { get; set; }
 
@@ -109,7 +109,7 @@ public class PlayerManager : MonoBehaviour
         cookingUIEventChannel.OnChangePlayerMoney -= ChangeMoney;
     }
 
-    public void ChangeMoney(float deltaMoney)
+    public void ChangeMoney(int deltaMoney)
     {
         if (deltaMoney < 0 && deltaMoney > money)
         {
@@ -150,7 +150,7 @@ public class PlayerManager : MonoBehaviour
     [Serializable]
     private class PlayerData : ISerializationCallbackReceiver
     {
-        public float money;
+        public int money;
         public BiomeData currBiomeName;
 
         [NonSerialized] public Dictionary<IngredientData, bool> IngredientUnlocked = new();

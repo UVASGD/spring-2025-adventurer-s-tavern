@@ -25,7 +25,7 @@ public class ShopView : MonoBehaviour
     private VisualElement equipmentPage;
     private VisualElement biomesPage;
 
-    private VisualElement playerMoneyText;
+    private Label playerMoneyText;
     private VisualElement backButton;
     private VisualElement shopPageContainer;
 
@@ -53,7 +53,7 @@ public class ShopView : MonoBehaviour
         biomesPage = root.Q<VisualElement>("BiomesPage");
 
         // Retrieving other UI (player money and back button)
-        playerMoneyText = root.Q<VisualElement>("PlayerMoney");
+        playerMoneyText = root.Q<Label>("PlayerMoney");
         backButton = root.Q<VisualElement>("BackButton");
         shopPageContainer = root.Q<VisualElement>("ShopPageContainer");
 
@@ -132,6 +132,11 @@ public class ShopView : MonoBehaviour
             page.Add(shopItemCell); 
         }
     }
+
+    public void SetPlayerMoneyText(int money)
+    {
+        playerMoneyText.text = money.ToString();
+    }
     
     // Handles page switching
     void OnPageClicked(ClickEvent evt, string pageName)
@@ -179,7 +184,10 @@ public class ShopView : MonoBehaviour
         Debug.Log("Item clicked of type: " + shopItem.Type);
         Debug.Log("Item clicked of data: " + shopItem.Data.Name);
 
-        itemBtn.text = "Purchased";
-        itemBtn.SetEnabled(false);
+        bool bought = shopManager.BuyItem(shopItem);
+        if (bought) {
+            itemBtn.text = "Purchased";
+            itemBtn.SetEnabled(false);
+        }
     }
 }

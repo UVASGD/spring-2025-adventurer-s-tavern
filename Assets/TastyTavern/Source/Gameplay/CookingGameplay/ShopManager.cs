@@ -47,6 +47,7 @@ public class ShopManager : MonoBehaviour
         }
 
         shopView.GenerateAllShopItems();
+        shopView.SetPlayerMoneyText(playerManager.money);
     }
 
 
@@ -54,7 +55,7 @@ public class ShopManager : MonoBehaviour
         1. They have enough gold
         2. The item is not already purchased
         3. Display only stuff for biome chosen
-        4. Recipies cannot be bought unless all ingredients are unlocked
+        (not the case? ) 4. Recipies cannot be bought unless all ingredients are unlocked
     If the player meets these conditions, the item is marked as purchased and the player's gold is reduced by the item's price
     public bool BuyItem(ShopItem item, ref int playerGold) 
     */
@@ -65,6 +66,7 @@ public class ShopManager : MonoBehaviour
             playerManager.money -= item.Price;
             Debug.Log($"You bought {item.Data.Name} for {item.Price} gold!");
             playerManager.AddItemToInventory(item);
+            shopView.SetPlayerMoneyText(playerManager.money);
             return true;
         }
         else
