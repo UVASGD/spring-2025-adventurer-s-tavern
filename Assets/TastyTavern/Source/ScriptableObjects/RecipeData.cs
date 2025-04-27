@@ -29,6 +29,11 @@ public class RecipeData : BuyableData
     // public Sprite Icon { get; set; }
     
     /// <summary>
+    /// Represents how much the customer will pay the player for an order containing this recipe.
+    /// </summary>
+    [field: SerializeField]
+    public int RecipeValue {get; set; }
+    /// <summary>
     /// Represents the visual icon associated with a recipe, but the recipe has been assembled wrong. 
     /// </summary>
     [field: SerializeField]

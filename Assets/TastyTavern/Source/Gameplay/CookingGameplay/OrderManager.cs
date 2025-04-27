@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 //using Unity.VisualScripting;
@@ -23,8 +24,8 @@ public class OrderManager : MonoBehaviour
 
     [SerializeField]
     private List<Order> activeOrders = new();
-
-    [SerializeField] private Dictionary<Order, float> servedOrders = new();
+    
+    [SerializeField] private PlayerManager playerManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,6 +47,7 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnSelectOrder += SelectOrder;
         cookingUIEventChannel.OnChangeNextStation += ChangeNextStation;
         cookingUIEventChannel.OnTrashCurrentOrderFood += OnTrashCurrentOrderFood;
+        cookingUIEventChannel.OnAssembleOrder += SetOrderAsAssembled;
     }
 
     private void OnDisable()
@@ -56,6 +58,12 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnSelectOrder -= SelectOrder;
         cookingUIEventChannel.OnChangeNextStation -= ChangeNextStation;
         cookingUIEventChannel.OnTrashCurrentOrderFood -= OnTrashCurrentOrderFood;
+        cookingUIEventChannel.OnAssembleOrder -= SetOrderAsAssembled;
+    }
+
+    private void SetOrderAsAssembled()
+    {
+        currentOrder.isAssembled = true;
     }
 
     // Add Property starts here because it needs to kick off a coroutine
@@ -144,13 +152,23 @@ public class OrderManager : MonoBehaviour
                 Debug.Log("Order is incorrect");
             }
             Customer c = order.Customer;
-            servedOrders[order] = incorrectness * (c.RemainingPatience / c.Data.Patience);
-        }
-    }
+            
+            // pay the player
+            float incorrectnessPenalty = incorrectness / (incorrectness + 1);
+            float timeUsed = (c.Data.Patience - c.RemainingPatience) / c.Data.Patience;
+            
+            // food must be assembled AND not raw
+            bool isAssembled = currentOrder.isAssembled;
+            bool noRawFood = currentOrder.CurrentIngredients.Count == 0 || currentOrder.CurrentIngredients.All(kvp => kvp.Value.Count == 0);
+            
+            float score = (1 - incorrectnessPenalty) * (1 - timeUsed);
+            score = noRawFood || !isAssembled ? 0 : score;
 
-    public Dictionary<Order, float> GetServedOrders()
-    {
-        return servedOrders;
+            int deltaMoney = (int)Math.Round(currentOrder.Recipe.RecipeValue * score);
+            playerManager.ChangeMoney(deltaMoney);
+            cookingUIEventChannel.RaiseOnChangePlayerMoney(deltaMoney);
+            Debug.Log(deltaMoney);
+        }
     }
     
     // Pass event channel trigger to order

@@ -29,6 +29,8 @@ public class Order
 
     [field: SerializeField]
     public int StationIdx { get; set; }
+    
+    public bool isAssembled { get; set; }
 
     [field: SerializeField]
     public CookingUIEventChannel cookingUIEventChannel { get; set; }
@@ -37,6 +39,7 @@ public class Order
     {
         Customer = customer;
         Recipe = recipe;
+        isAssembled = false;
         this.cookingUIEventChannel = cookingUIEventChannel;
         Station = Recipe.StationSequence[0]
             .Create(Recipe.InitialStockSequence[StationIdx].InitialStock, cookingUIEventChannel, Customer.OrderManager);

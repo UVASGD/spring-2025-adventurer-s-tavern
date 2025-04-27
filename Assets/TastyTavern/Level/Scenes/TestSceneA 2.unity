@@ -362,6 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cookingUIEventChannel: {fileID: 11400000, guid: 98faadf6e98d87049badef501f757299, type: 2}
   customerController: {fileID: 835449716}
+  playerManager: {fileID: 39318588}
 --- !u!1 &835449714
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +576,7 @@ MonoBehaviour:
   eventChannel: {fileID: 11400000, guid: 98faadf6e98d87049badef501f757299, type: 2}
   currentBiome: {fileID: 0}
   playerManager: {fileID: 39318588}
+  orderManager: {fileID: 694973456}
 --- !u!4 &1009893093
 Transform:
   m_ObjectHideFlags: 0

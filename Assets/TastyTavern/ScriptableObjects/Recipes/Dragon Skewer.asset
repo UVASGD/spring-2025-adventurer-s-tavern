@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Dragon Skewer
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Dragon Skewers
-  <Description>k__BackingField: 
-  <Price>k__BackingField: 100
-  <Icon>k__BackingField: {fileID: 1971571741212690949, guid: e61fbf0a0c3e43142b614778b574aa3c, type: 3}
+  <RecipeValue>k__BackingField: 100
   <WrongIcon>k__BackingField: {fileID: 0}
   <StationSequence>k__BackingField:
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}

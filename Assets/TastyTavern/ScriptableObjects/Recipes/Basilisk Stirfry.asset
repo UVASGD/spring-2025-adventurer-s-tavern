@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Basilisk Stirfry
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Basilisk Stir Fry
+  <RecipeValue>k__BackingField: 100
   <WrongIcon>k__BackingField: {fileID: 0}
   <StationSequence>k__BackingField:
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}

@@ -32,6 +32,8 @@ public class ShopManager : MonoBehaviour
     private PlayerManager playerManager; // NEED TO CONNECT
 
     public BiomeData currentBiome; 
+    
+    [SerializeField] private OrderManager orderManager;
 
     void Start()
     {

@@ -36,6 +36,7 @@ public class CookingUIEventChannel : ScriptableObject {
 
     /// </summary> Callback when the player's money is changed, either by being paid or paying for items </summary>
     public Action<int> OnChangePlayerMoney;
+    
 
     /// Callback when player wants to go to the next station
     public Action OnChangeNextStation;

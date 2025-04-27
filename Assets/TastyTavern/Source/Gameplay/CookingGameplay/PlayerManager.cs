@@ -11,6 +11,10 @@ public class PlayerManager : MonoBehaviour
     public int money { get; set; }
     
     public BiomeData currentBiome { get; set; }
+    
+    // End of day statistics info to send to UIMenusProcesses in the End of day view
+    public int moneyAccumulatedThisRound { get; set; }
+    public int customersServed { get; set; }
 
     [SerializeField]
     private CookingUIEventChannel cookingUIEventChannel;
@@ -152,6 +156,9 @@ public class PlayerManager : MonoBehaviour
     {
         public int money;
         public BiomeData currBiomeName;
+        
+        public int moneyAccumulatedThisRound;
+        public int customersServed;
 
         [NonSerialized] public Dictionary<IngredientData, bool> IngredientUnlocked = new();
         [NonSerialized] public Dictionary<StationData, bool> StationUnlocked = new();
@@ -227,6 +234,8 @@ public class PlayerManager : MonoBehaviour
         {
             money = this.money,
             currBiomeName = this.currentBiome,
+            moneyAccumulatedThisRound = this.moneyAccumulatedThisRound,
+            customersServed = this.customersServed,
         };
 
         foreach (var kv in IngredientUnlocked)
@@ -247,8 +256,9 @@ public class PlayerManager : MonoBehaviour
     private void ApplyPlayerDataToManager(PlayerData data)
     {
         money = data.money;
-        
         currentBiome = data.currBiomeName;
+        moneyAccumulatedThisRound = data.moneyAccumulatedThisRound;
+        customersServed = data.customersServed;
 
         foreach (var ingredient in allIngredient)
             IngredientUnlocked[ingredient] = false;

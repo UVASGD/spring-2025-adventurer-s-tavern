@@ -26,12 +26,13 @@ public class RoundManager : MonoBehaviour
     
     [SerializeField] private PlayerManager playerManager;
     
+    [SerializeField] private OrderManager orderManager;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _day = 0;
         _customersServed = 0;
-        
         
         currentBiome = playerManager.currentBiome;
         Debug.Log("You are in biome: " + currentBiome.name);
@@ -66,11 +67,17 @@ public class RoundManager : MonoBehaviour
     private void StartNewDay(int x)
     {
         _day++;
+        _moneyAccumulatedThisRound = 0;
+        _customersServed = 0;
     }
     
     private void FinishDay()
     {
         eventChannel.RaiseOnDayFinished(_day);
+        
+        playerManager.moneyAccumulatedThisRound = _moneyAccumulatedThisRound;
+        playerManager.customersServed = _customersServed;
+        
         Debug.Log("Day Finished");
         playerManager.SavePlayer();
         SceneManager.LoadScene("EndOfDayView");
@@ -81,23 +88,8 @@ public class RoundManager : MonoBehaviour
         _moneyAccumulatedThisRound += deltaMoney;
     }
 
-    private void CalculateGrade()
-    {
-        
-    }
-
     private void IncrementCustomersServed(Order order)
     {
         _customersServed++;
     }
-}
-
-public enum Grade
-{
-    S,
-    A,
-    B,
-    C,
-    D,
-    F,
 }
