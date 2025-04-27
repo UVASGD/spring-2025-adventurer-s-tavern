@@ -68,18 +68,7 @@ public class ShopView : MonoBehaviour
 
     void Start()
     {
-        // Instantiate all shop items based on the current biome
-        // Debug.Log("Current shop data: " + shopManager.currentShopData);
-        // Debug.Log("Current biome: " + shopManager.currentShopData.IngredientItems[0].Name);
-        //GenerateShopItems(ingredientsPage, shopManager.currentShopData.IngredientItems);
         
-        // GenerateShopItems(recipesPage, shopManager.CurrentShopData.RecipeItems);
-        // GenerateShopItems(equipmentPage, shopManager.CurrentShopData.EquipmentItems);
-        // GenerateShopItems(biomesPage, shopManager.CurrentShopData.BiomeItems);
-    }
-
-    public void GenerateAllShopItems(){
-        GenerateShopItems(ingredientsPage, shopManager.currentShopData.IngredientItems);
     }
 
     void OnEnable()
@@ -90,11 +79,6 @@ public class ShopView : MonoBehaviour
         equipmentBtn.RegisterCallback<ClickEvent, string>(OnPageClicked, "Equipment");
         biomesBtn.RegisterCallback<ClickEvent, string>(OnPageClicked, "Biomes");
 
-        // Subscribe all shop items
-        // foreach (Button itemBtn in activeItemButtons)
-        // {
-        //     itemBtn.RegisterCallback<ClickEvent, Button>(OnBuyButtonClicked, itemBtn);   
-        // }
     }
 
     void OnDisable()
@@ -106,7 +90,13 @@ public class ShopView : MonoBehaviour
 
         // not sure if i have to unregister all item buttons here because they will be destroyed. (?)
     }
-
+    
+    public void GenerateAllShopItems(){
+        GenerateShopItems(ingredientsPage, shopManager.currentShopData.IngredientItems);
+        // GenerateShopItems(recipesPage, shopManager.currentShopData.RecipeItems);
+        // GenerateShopItems(equipmentPage, shopManager.currentShopData.EquipmentItems);
+        // GenerateShopItems(biomesPage, shopManager.currentShopData.BiomeItems);
+    }
     // Generates shop items based on the current biome in the page (a ScrollView element)
     void GenerateShopItems(VisualElement page, List<ShopItem> shopItems)
     {

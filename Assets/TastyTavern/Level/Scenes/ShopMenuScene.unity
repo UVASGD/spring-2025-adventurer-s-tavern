@@ -349,6 +349,7 @@ MonoBehaviour:
   currentShopData: {fileID: 0}
   allShops:
   - {fileID: 11400000, guid: f8494080d0777ab4588f826a5f94d5da, type: 2}
+  shopView: {fileID: 1654035144}
   playerManager: {fileID: 881826304}
   currentBiome: {fileID: 0}
 --- !u!1001 &1773756219
