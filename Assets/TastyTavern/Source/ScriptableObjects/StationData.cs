@@ -35,5 +35,5 @@ public enum StationType
     MixingBowl,
     Grill,
     Oven,
-    DeepFrier,
+    DeepFryer,
 }

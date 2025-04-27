@@ -7,67 +7,62 @@ public class StationWorkspaceController : MonoBehaviour
 
     // Equipment sprites, the top overlays ingredients, while bottom layers behind them. Set in the inspector.
     [field: SerializeField]
-    public SpriteRenderer _equipmentTop { get; set; }
+    public SpriteRenderer _EquipmentTop { get; set; }
 
     [field: SerializeField]
-    public SpriteRenderer _equipmentBottom { get; set; }
+    public SpriteRenderer _EquipmentBottom { get; set; }
 
     [field: SerializeField]
-    public SpriteRenderer _cuttingBoardSlot { get; set; }
+    public SpriteRenderer _StationBackground { get; set; }
 
     [field: SerializeField]
-    public List<SpriteRenderer> _panSlots { get; set; }
+    public StationWorkspace _CurrentWorkspace { get; set; }
 
     [field: SerializeField]
-    public List<SpriteRenderer> _grillSlots { get; set; }
-
-    [field: SerializeField]
-    public List<SpriteRenderer> _potSlots { get; set; }
-
-    [field: SerializeField]
-    public List<SpriteRenderer> _mixingBowlSlots { get; set; }
-
-    [field: SerializeField]
-    public GameObject _fryerSlot { get; set; }
+    public List<StationWorkspace> _Workspaces { get; set; }
 
     // This script is attached to the Station Workspace prefab
 
-    void Start()
-    {
+    private void RotateStation(Station station){
+        // TODO: swap station background + equipment sprites
+        _CurrentWorkspace.ClearWorkspace();
+        _EquipmentTop.sprite = station.Data.StationSprites[0];
+        _EquipmentBottom.sprite = station.Data.StationSprites[1];
+        _StationBackground.sprite = station.Data.StationSprites[2];
 
+        switch (station.Data.StationType){
+            case StationType.CuttingBoard:
+                _CurrentWorkspace = station.Data.StationWorkspaces[0];
+                break;
+            case StationType.Pan:
+                _CurrentWorkspace = station.Data.StationWorkspaces[1];
+                break;
+            case StationType.Grill:
+                _CurrentWorkspace = station.Data.StationWorkspaces[2];
+                break;
+            case StationType.MixingBowl:
+                _CurrentWorkspace = station.Data.StationWorkspaces[3];
+                break;
+            case StationType.DeepFryer:
+                _CurrentWorkspace = station.Data.StationWorkspaces[4];
+                break;
+            case StationType.Oven:
+                _CurrentWorkspace = station.Data.StationWorkspaces[5];
+                break;:
+            case StationType.Pot:
+                _CurrentWorkspace = station.Data.StationWorkspaces[6];
+                break;
+            case StationType.Serving:
+                _CurrentWorkspace = station.Data.StationWorkspaces[7];
+                break;
+        }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    private void AddToStationWorkspace(Ingredient ingredient){
-        // only add to active station type
-
-
-        // Add ingredient to workspace
-        // GameObject ingredientObject = new GameObject(ingredient.ToString());
-        // ingredientObject.transform.SetParent(_ingredients.transform);
-        // ingredientObject.transform.localPosition = Vector3.zero;
-        // ingredientObject.AddComponent<SpriteRenderer>().sprite = ingredient.Data.Sprites[0].texture;
-        // ingredientObject.AddComponent<BoxCollider2D>();
-        // ingredientObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
-    }
-
-    public void AddToWorkspace(Ingredient ingredient){
-        // adding to slot
-        // Add sprite to first deactivated slot
-        Sprite cur_sprite = ingredient.GetCurrentSprite();
-
-        for (int i = 0; i < _panSlots.Count; i++)
-        {
-            if (!_panSlots[i].enabled)
-            {
-                _panSlots[i].enabled = true;
-                _panSlots[i].sprite = cur_sprite;
-                return;
-            }
+    private void AddToStationWorkspace(Ingredient ingredient, Station station){
+        if (station.Data.StationType == StationType.CuttingBoard || station.Data.StationType == StationType.MixingBowl){
+            _CurrentWorkspace.AddToWorkspace(ingredient,true); // single slot
+        } else {
+            _CurrentWorkspace.AddToWorkspace(ingredient); // multiple slots
         }
     }
 }
