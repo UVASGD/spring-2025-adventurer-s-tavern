@@ -22,7 +22,7 @@ public class RoundManager : MonoBehaviour
     
     [SerializeField] private CookingUIEventChannel eventChannel;
     
-    [SerializeField] public BiomeData currentBiome;
+    public BiomeData currentBiome;
     
     [SerializeField] private PlayerManager playerManager;
     

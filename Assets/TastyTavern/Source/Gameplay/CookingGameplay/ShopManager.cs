@@ -30,7 +30,7 @@ public class ShopManager : MonoBehaviour
 
     public BiomeData currentBiome; 
 
-    void Awake()
+    void Start()
     {
         currentBiome = playerManager.currentBiome; // Get the current biome from the PlayerManager
         if (currentBiome.Name == "Riko Wilds"){

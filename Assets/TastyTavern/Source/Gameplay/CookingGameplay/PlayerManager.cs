@@ -8,11 +8,9 @@ using UnityEngine.Serialization;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField]
-    public float money;
+    public float money { get; set; }
     
-    [SerializeField]
-    public BiomeData currentBiome;
+    public BiomeData currentBiome { get; set; }
 
     [SerializeField]
     private CookingUIEventChannel cookingUIEventChannel;
@@ -94,7 +92,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 BiomeUnlocked.Add(allBiome[i], x);
             }
-            money = 0;
+            money = 300;
             currentBiome = allBiome[0]; //temporary...
             
         }

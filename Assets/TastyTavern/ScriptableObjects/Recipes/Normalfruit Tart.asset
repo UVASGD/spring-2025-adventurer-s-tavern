@@ -17,6 +17,7 @@ MonoBehaviour:
   <StationSequence>k__BackingField:
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
   - {fileID: 11400000, guid: bd85b126a3b9c8e4d84cf13bf595cf55, type: 2}
+  - {fileID: 11400000, guid: 82396885afbc98549b5a8aa25647ab74, type: 2}
   <InitialStockSequence>k__BackingField:
   - InitialStock:
     - {fileID: 11400000, guid: b436cc2456de0f54ca6774697d7ae1ae, type: 2}

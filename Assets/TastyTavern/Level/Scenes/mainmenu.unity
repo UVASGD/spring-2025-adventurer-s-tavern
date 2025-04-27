@@ -170,57 +170,63 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
---- !u!1 &912593362
-GameObject:
+--- !u!1001 &880847372
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 912593364}
-  - component: {fileID: 912593363}
-  m_Layer: 0
-  m_Name: PlayerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &912593363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912593362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a286558399d7ca4fa7a1d1e0f27f24b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  money: 0
-  currentBiome: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
-  cookingUIEventChannel: {fileID: 11400000, guid: 98faadf6e98d87049badef501f757299, type: 2}
-  allIngredient: []
-  allEquipment: []
-  allRecipe: []
-  allBiome: []
---- !u!4 &912593364
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912593362}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8985708, y: 0.28078252, z: -1.218497}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 933119161376125012, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_Name
+      value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.8985708
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.28078252
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.218497
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
 --- !u!1 &914542504
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,4 +469,4 @@ SceneRoots:
   - {fileID: 2048441860}
   - {fileID: 374030108}
   - {fileID: 914542505}
-  - {fileID: 912593364}
+  - {fileID: 880847372}
