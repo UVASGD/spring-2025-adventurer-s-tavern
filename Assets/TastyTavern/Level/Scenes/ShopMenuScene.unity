@@ -365,6 +365,10 @@ PrefabInstance:
       value: PlayerManager
       objectReference: {fileID: 0}
     - target: {fileID: 6658849458178890244, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: allIngredient.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658849458178890244, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
       propertyPath: initiallyUnlockedItems.Array.size
       value: 5
       objectReference: {fileID: 0}

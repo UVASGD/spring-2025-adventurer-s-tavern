@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3ee30f39182485c98eaed851fb4963, type: 3}
-  m_Name: RecipeItem 10
+  m_Script: {fileID: 11500000, guid: 171cdf13bf9ee6e4b90d724a4f3fbdd9, type: 3}
+  m_Name: OceanShop
   m_EditorClassIdentifier: 
-  <Price>k__BackingField: 0
-  <Type>k__BackingField: 1
-  <Data>k__BackingField: {fileID: 0}
+  <IngredientItems>k__BackingField: []
+  <RecipeItems>k__BackingField: []
+  <EquipmentItems>k__BackingField: []
+  <BiomeItems>k__BackingField: []

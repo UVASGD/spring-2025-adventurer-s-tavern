@@ -93,16 +93,16 @@ public class ShopView : MonoBehaviour
     
     public void GenerateAllShopItems(){
         GenerateShopItems(ingredientsPage, shopManager.currentShopData.IngredientItems);
-        // GenerateShopItems(recipesPage, shopManager.currentShopData.RecipeItems);
-        // GenerateShopItems(equipmentPage, shopManager.currentShopData.EquipmentItems);
-        // GenerateShopItems(biomesPage, shopManager.currentShopData.BiomeItems);
+        GenerateShopItems(recipesPage, shopManager.currentShopData.RecipeItems);
+        GenerateShopItems(equipmentPage, shopManager.currentShopData.EquipmentItems);
+        GenerateShopItems(biomesPage, shopManager.currentShopData.BiomeItems);
     }
     // Generates shop items based on the current biome in the page (a ScrollView element)
     void GenerateShopItems(VisualElement page, List<ShopItem> shopItems)
     {
         Debug.Log(shopItems.Count + " items in the shop");
         Debug.Log(shopItems[0].Name + " is the first item in the shop");
-        // Clear existing items in the page
+        
         page.Clear();
 
         // Create a cell for each item, set data source and add it to the page
@@ -122,7 +122,7 @@ public class ShopView : MonoBehaviour
 
             // checking if item is bought or not, if not, register the buying callback
             if (shopManager.IsItemPurchased(item)){
-                buyButton.text = "Purchased";
+                buyButton.text = "Owned";
                 buyButton.SetEnabled(false);
             } else {
                 buyButton.text = "Buy";

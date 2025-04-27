@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3ee30f39182485c98eaed851fb4963, type: 3}
   m_Name: OceanBiomeItem
   m_EditorClassIdentifier: 
-  <Price>k__BackingField: 0
+  <Name>k__BackingField: Ocean Biome
   <Type>k__BackingField: 3
-  <Data>k__BackingField: {fileID: 0}
+  <Price>k__BackingField: 0
+  <Description>k__BackingField: 
+  <Icon>k__BackingField: {fileID: -3719163014518916081, guid: 4e37ab3f145f8e44a9dffd2326a1eebe, type: 3}
+  <Data>k__BackingField: {fileID: 11400000, guid: 985422e741fa8ba4d9966ed77aeb35da, type: 2}
