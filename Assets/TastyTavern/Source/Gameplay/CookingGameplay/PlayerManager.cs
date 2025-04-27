@@ -126,6 +126,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void AddItemToInventory(ShopItem item)
     {
+        Debug.Log("Item " + item.Name + " added of type " + item.Type);
         switch (item.Type)
         {
             case ItemType.Ingredient:
@@ -145,7 +146,7 @@ public class PlayerManager : MonoBehaviour
 
             case ItemType.Biome:
                 foreach (var b in allBiome)
-                    if (b.Name == item.Name) { BiomeUnlocked[b] = true; break; }
+                    if (b.Name == item.Name) {  BiomeUnlocked[b] = true; break; }
                 break;
         }
     }

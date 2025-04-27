@@ -46,13 +46,14 @@ public class ShopManager : MonoBehaviour
             Debug.Log("Biome not found!");
         }
 
-        shopView.GenerateAllShopItems();
+        //shopView.GenerateAllShopItems();
     }
     
     // This is only for ShopView Start
-    public void refreshPlayerMoneyText()
+    public void refreshShopView()
     {
         shopView.SetPlayerMoneyText(playerManager.money);
+        shopView.GenerateAllShopItems();
     }
 
 

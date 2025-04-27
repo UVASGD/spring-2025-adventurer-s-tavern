@@ -47,6 +47,8 @@ public class UIMenusProcesses : MonoBehaviour
         SelectOceanButton = biomesMenuUIroot.Q<Button>("OceanSelect");
         ExitBiomeMenuButton = biomesMenuUIroot.Q<Button>("ExitBiomeMenu");
         
+        playerManager.LoadPlayer();
+        
         // TODO: Add shop menu exit button and subscribe to SwitchToPostGameMenu
 
         // TODO: Read a JSON File that stores which biomes are unlocked and disable those panels
@@ -66,26 +68,30 @@ public class UIMenusProcesses : MonoBehaviour
 
         ShopBackButton.clicked += SwitchToPostGameMenu;
         
+        
         SwitchToPostGameMenu();
-        
-        playerManager.LoadPlayer();
-        
         GenerateStats();
-        
-        if (!playerManager.BiomeUnlocked[playerManager.allBiome[0]])
-        {
-            SelectForestButton.SetEnabled(false);
-        }
-        if (!playerManager.BiomeUnlocked[playerManager.allBiome[1]])
-        {
-            SelectCavesButton.SetEnabled(false);
-        }
-        if (!playerManager.BiomeUnlocked[playerManager.allBiome[2]])
-        {
-            SelectOceanButton.SetEnabled(false);
-        }
+        RefreshBiomeButtons();
     }
 
+    private void RefreshBiomeButtons()
+    {
+        if (!playerManager.BiomeUnlocked[playerManager.allBiome[0]])
+            SelectForestButton.SetEnabled(false);
+        else
+            SelectForestButton.SetEnabled(true);
+        
+        if (!playerManager.BiomeUnlocked[playerManager.allBiome[1]])
+            SelectOceanButton.SetEnabled(false);
+        else
+            SelectOceanButton.SetEnabled(true);
+        
+        if (!playerManager.BiomeUnlocked[playerManager.allBiome[2]])
+            SelectCavesButton.SetEnabled(false);
+        else
+            SelectCavesButton.SetEnabled(true);
+    }
+    
     private void GenerateStats()
     {
         Label statsLabel = statsPanel.ElementAt(0) as Label;
@@ -111,12 +117,13 @@ public class UIMenusProcesses : MonoBehaviour
         shopMenuUI.sortingOrder = 1;
         biomesMenuUIroot.visible = false;
         biomesMenuUI.sortingOrder = 0;
-        shopManager.refreshPlayerMoneyText();
+        shopManager.refreshShopView();
         
     }
 
     private void SwitchToBiomeMenu()
     {
+        RefreshBiomeButtons();
         postGameUIroot.visible = false;
         postGameUI.sortingOrder = 0;
         shopMenuUIroot.visible = false;

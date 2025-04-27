@@ -16,13 +16,13 @@
                 <engine:VisualElement name="Biome2Panel" style="flex-grow: 1; justify-content: flex-end; align-items: center;">
                     <engine:VisualElement name="Biome2ImagePanel" class="ImagePanel" style="flex-grow: 1;" />
                     <engine:VisualElement name="Biome2ButtonPanel" class="ButtonPanel" style="flex-grow: 1;">
-                        <engine:Button text="Select!" name="CavesSelect" class="Select-button" />
+                        <engine:Button text="Select!" name="OceanSelect" class="Select-button" />
                     </engine:VisualElement>
                 </engine:VisualElement>
                 <engine:VisualElement name="Biome3Panel" style="flex-grow: 1; justify-content: flex-end; align-items: center;">
                     <engine:VisualElement name="Biome3ImagePanel" class="ImagePanel" style="flex-grow: 1;" />
                     <engine:VisualElement name="Biome3ButtonPanel" class="ButtonPanel" style="flex-grow: 1;">
-                        <engine:Button text="Select!" name="OceanSelect" class="Select-button" />
+                        <engine:Button text="Select!" name="CavesSelect" class="Select-button" />
                     </engine:VisualElement>
                 </engine:VisualElement>
             </engine:VisualElement>
