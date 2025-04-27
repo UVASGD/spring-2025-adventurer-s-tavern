@@ -12,7 +12,7 @@
             <engine:VisualElement name="ShopBanner" style="flex-grow: 1; max-height: 20%; flex-direction: row; height: 20%;">
                 <engine:VisualElement name="Board" style="flex-grow: 1; max-width: 100%; min-width: 0;" />
                 <engine:VisualElement name="CurrentMoney" style="flex-grow: 1; max-width: 25%; flex-direction: row;">
-                    <engine:Label text="500" name="PlayerMoney" style="height: 201px; width: 226px; -unity-text-align: middle-right; font-size: 60px; -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/CATChilds.ttf?fileID=12800000&amp;guid=30bc8126e68cc8c4198e0a1e64769dfa&amp;type=3#CATChilds&quot;);" />
+                    <engine:Label name="PlayerMoney" enable-rich-text="true" style="height: 201px; width: 226px; -unity-text-align: middle-right; font-size: 60px; -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/CATChilds.ttf?fileID=12800000&amp;guid=30bc8126e68cc8c4198e0a1e64769dfa&amp;type=3#CATChilds&quot;);" />
                     <engine:VisualElement name="CoinIcon" style="flex-grow: 1; max-height: 100%; max-width: 20%; background-image: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2346436936791262179&amp;guid=e8667cffc67dc6248a9d24c1eb5f1f5f&amp;type=3#console.infoicon&quot;); background-size: 100% 32%;" />
                 </engine:VisualElement>
             </engine:VisualElement>

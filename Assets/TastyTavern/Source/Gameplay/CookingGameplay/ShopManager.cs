@@ -33,8 +33,6 @@ public class ShopManager : MonoBehaviour
 
     public BiomeData currentBiome; 
     
-    [SerializeField] private OrderManager orderManager;
-
     void Start()
     {
         currentBiome = playerManager.currentBiome; // Get the current biome from the PlayerManager
@@ -49,6 +47,11 @@ public class ShopManager : MonoBehaviour
         }
 
         shopView.GenerateAllShopItems();
+    }
+    
+    // This is only for ShopView Start
+    public void refreshPlayerMoneyText()
+    {
         shopView.SetPlayerMoneyText(playerManager.money);
     }
 

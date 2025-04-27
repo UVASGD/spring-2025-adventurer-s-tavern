@@ -54,6 +54,7 @@ public class ShopView : MonoBehaviour
 
         // Retrieving other UI (player money and back button)
         playerMoneyText = root.Q<Label>("PlayerMoney");
+        
         backButton = root.Q<VisualElement>("BackButton");
         shopPageContainer = root.Q<VisualElement>("ShopPageContainer");
 
@@ -68,7 +69,7 @@ public class ShopView : MonoBehaviour
 
     void Start()
     {
-        
+        shopManager.setInitialPlayerMoneyText();
     }
 
     void OnEnable()

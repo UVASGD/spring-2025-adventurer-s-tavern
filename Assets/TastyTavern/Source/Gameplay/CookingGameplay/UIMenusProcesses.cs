@@ -24,6 +24,7 @@ public class UIMenusProcesses : MonoBehaviour
     public Button ExitBiomeMenuButton;
 
     [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private ShopManager shopManager;
 
     void Awake()
     {
@@ -95,6 +96,8 @@ public class UIMenusProcesses : MonoBehaviour
         shopMenuUI.sortingOrder = 1;
         biomesMenuUIroot.visible = false;
         biomesMenuUI.sortingOrder = 0;
+        shopManager.refreshPlayerMoneyText();
+        
     }
 
     private void SwitchToBiomeMenu()
