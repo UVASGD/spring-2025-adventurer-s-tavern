@@ -13,6 +13,8 @@ public class UIMenusProcesses : MonoBehaviour
     public VisualElement shopMenuUIroot;
     public VisualElement biomesMenuUIroot;
 
+    public VisualElement statsPanel;
+
     public Button NextDayButton;
     public Button ShopButton;
     public Button BiomesButton;
@@ -31,7 +33,10 @@ public class UIMenusProcesses : MonoBehaviour
         postGameUIroot = postGameUI.GetComponent<UIDocument>().rootVisualElement;
         shopMenuUIroot = shopMenuUI.GetComponent<UIDocument>().rootVisualElement;
         biomesMenuUIroot = biomesMenuUI.GetComponent<UIDocument>().rootVisualElement;
-
+        
+        statsPanel = postGameUIroot.Q<VisualElement>("StatsPanel");
+        
+        
         NextDayButton = postGameUIroot.Q<Button>("Continue");
         ShopButton = postGameUIroot.Q<Button>("Shop");
         BiomesButton = postGameUIroot.Q<Button>("Biomes");
@@ -64,6 +69,9 @@ public class UIMenusProcesses : MonoBehaviour
         SwitchToPostGameMenu();
         
         playerManager.LoadPlayer();
+        
+        GenerateStats();
+        
         if (!playerManager.BiomeUnlocked[playerManager.allBiome[0]])
         {
             SelectForestButton.SetEnabled(false);
@@ -76,6 +84,13 @@ public class UIMenusProcesses : MonoBehaviour
         {
             SelectOceanButton.SetEnabled(false);
         }
+    }
+
+    private void GenerateStats()
+    {
+        Label statsLabel = statsPanel.ElementAt(0) as Label;
+        statsLabel.text = "Money Earned Today: " + playerManager.moneyAccumulatedThisRound
+            + "\nCustomers Served Today: " + playerManager.customersServed;
     }
     
     private void SwitchToPostGameMenu()

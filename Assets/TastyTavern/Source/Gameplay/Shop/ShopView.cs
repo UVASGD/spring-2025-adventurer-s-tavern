@@ -69,7 +69,7 @@ public class ShopView : MonoBehaviour
 
     void Start()
     {
-        shopManager.setInitialPlayerMoneyText();
+        
     }
 
     void OnEnable()
