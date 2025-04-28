@@ -182,6 +182,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6658849458178890244, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: initiallyUnlockedItems.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658849458178890244, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: 'initiallyUnlockedItems.Array.data[14]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 326df91f0e528bc4b9c0705d7292650e, type: 2}
+    - target: {fileID: 6658849458178890244, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: 'initiallyUnlockedItems.Array.data[15]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 326df91f0e528bc4b9c0705d7292650e, type: 2}
+    - target: {fileID: 6658849458178890244, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: 'initiallyUnlockedItems.Array.data[16]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 326df91f0e528bc4b9c0705d7292650e, type: 2}
     - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8985708

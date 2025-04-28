@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Nipawpwa Waves
   <Type>k__BackingField: 3
-  <Price>k__BackingField: 0
+  <Price>k__BackingField: 1000
   <Description>k__BackingField: An underwater haven known for it's plentiful resources
     and beautiful scenery.
   <Icon>k__BackingField: {fileID: 21300000, guid: 6216f41676428374a9272ebdbe121805, type: 3}

@@ -25,7 +25,8 @@ MonoBehaviour:
   - InitialStock:
     - {fileID: 11400000, guid: b436cc2456de0f54ca6774697d7ae1ae, type: 2}
   - InitialStock:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 1c662e8d993489241918390883f965bb, type: 2}
+    - {fileID: 11400000, guid: 44eff4dd5f3bf0b47abe26a4f1727cec, type: 2}
   - InitialStock:
     - {fileID: 0}
   <CorrectStockSequence>k__BackingField:
@@ -35,9 +36,17 @@ MonoBehaviour:
     - Properties: 00000000
   - CorrectIngredients:
     - {fileID: 11400000, guid: b436cc2456de0f54ca6774697d7ae1ae, type: 2}
+    - {fileID: 11400000, guid: 1c662e8d993489241918390883f965bb, type: 2}
+    - {fileID: 11400000, guid: 44eff4dd5f3bf0b47abe26a4f1727cec, type: 2}
     CorrectPropertiesPerIngredient:
     - Properties: 0000000007000000
+    - Properties: 07000000
+    - Properties: 07000000
   - CorrectIngredients:
     - {fileID: 11400000, guid: b436cc2456de0f54ca6774697d7ae1ae, type: 2}
+    - {fileID: 11400000, guid: 1c662e8d993489241918390883f965bb, type: 2}
+    - {fileID: 11400000, guid: 44eff4dd5f3bf0b47abe26a4f1727cec, type: 2}
     CorrectPropertiesPerIngredient:
     - Properties: 0000000007000000
+    - Properties: 07000000
+    - Properties: 07000000

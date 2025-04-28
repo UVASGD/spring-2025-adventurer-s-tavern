@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef3ee30f39182485c98eaed851fb4963, type: 3}
-  m_Name: WyvernTailItem
+  m_Name: PunchPepperItem
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Wyvern Tail
+  <Name>k__BackingField: Punch Pepper
   <Type>k__BackingField: 0
   <Price>k__BackingField: 100
-  <Description>k__BackingField: 5-500 meter length depending on the age of wyvern.
-    Spikes on the tail can re-used as sticks for dragon chops.
-  <Icon>k__BackingField: {fileID: 21300000, guid: 333d72ac08289364a88cfdce52c691eb, type: 3}
-  <Data>k__BackingField: {fileID: 11400000, guid: d80a292e412e58948ab96d633abf722a, type: 2}
+  <Description>k__BackingField: This pepper packs an intense punch. Try not to offend
+    it too much.
+  <Icon>k__BackingField: {fileID: 21300000, guid: c3e8b13e5fd1df74493b22f4d75772a6, type: 3}
+  <Data>k__BackingField: {fileID: 11400000, guid: 3ca5b46254dc47443b1a929766053881, type: 2}

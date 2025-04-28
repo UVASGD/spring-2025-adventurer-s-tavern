@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef3ee30f39182485c98eaed851fb4963, type: 3}
-  m_Name: SpidersItem
+  m_Name: BasiliskEggItem
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Cave Spiders
+  <Name>k__BackingField: Basilisk Egg
   <Type>k__BackingField: 0
-  <Price>k__BackingField: 100
-  <Description>k__BackingField: Often found in groups, huddled together to survive
-    the barren cave. Adds a good crunch.
-  <Icon>k__BackingField: {fileID: 21300000, guid: 333d72ac08289364a88cfdce52c691eb, type: 3}
-  <Data>k__BackingField: {fileID: 11400000, guid: 326df91f0e528bc4b9c0705d7292650e, type: 2}
+  <Price>k__BackingField: 300
+  <Description>k__BackingField: A large griffon egg stealthily stolen from a griffon
+    mating pair
+  <Icon>k__BackingField: {fileID: 21300000, guid: c9048094a24ea664c81eac5bdee1322e, type: 3}
+  <Data>k__BackingField: {fileID: 11400000, guid: bf415ebe6bb772c40b39a177c30fe167, type: 2}
