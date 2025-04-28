@@ -66,6 +66,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 731d9a9c7bf08194fb72d976d55f1e15, type: 2}
   - {fileID: 11400000, guid: 405a50833d38f124ea42dac055ce3b53, type: 2}
   - {fileID: 11400000, guid: d80a292e412e58948ab96d633abf722a, type: 2}
+  - {fileID: 11400000, guid: 2d67244d7f8f3a1428981e19b726e49a, type: 2}
   allEquipment:
   - {fileID: 11400000, guid: 865f815cb1e69f146ba2c092346510d0, type: 2}
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
