@@ -27,6 +27,7 @@ public class UIMenusProcesses : MonoBehaviour
 
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private ShopManager shopManager;
+    [SerializeField] private GameObject shopKeepsObj;
     
     private AudioManager _audioManager;
     private bool isIntroPlaying = true;
@@ -106,7 +107,8 @@ public class UIMenusProcesses : MonoBehaviour
     private void GenerateStats()
     {
         Label statsLabel = statsPanel.ElementAt(0) as Label;
-        statsLabel.text = "Money Earned Today: " + playerManager.moneyAccumulatedThisRound
+        statsLabel.text = "Biome Played: " + playerManager.currentBiome.Name + 
+            "\nMoney Earned Today: " + playerManager.moneyAccumulatedThisRound
             + "\nCustomers Served Today: " + playerManager.customersServed;
     }
     
@@ -119,6 +121,9 @@ public class UIMenusProcesses : MonoBehaviour
         shopMenuUI.sortingOrder = 0;
         biomesMenuUIroot.visible = false;
         biomesMenuUI.sortingOrder = 0;
+        shopKeepsObj.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        shopKeepsObj.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        shopKeepsObj.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void SwitchToShopMenu()
@@ -131,6 +136,19 @@ public class UIMenusProcesses : MonoBehaviour
         biomesMenuUIroot.visible = false;
         biomesMenuUI.sortingOrder = 0;
         shopManager.refreshShopView();
+        
+        switch (playerManager.currentBiome.Name)
+        {
+            case "Riko Wilds":
+                shopKeepsObj.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                break;
+            case "Pipawpwa Waves":
+                shopKeepsObj.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                break;
+            case "Mungtown Caves":
+                shopKeepsObj.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                break;
+        }
         
     }
 
