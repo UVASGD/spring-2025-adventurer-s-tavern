@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: ForestShop
   m_EditorClassIdentifier: 
   <IngredientItems>k__BackingField:
-  - {fileID: 11400000, guid: 37407c51d2d9eed459361fb97d445ff7, type: 2}
   - {fileID: 11400000, guid: a22a4940549344948b628a1835b97c24, type: 2}
   - {fileID: 11400000, guid: c48086bf0e00db24589bb654c78fd6c5, type: 2}
   - {fileID: 11400000, guid: 7b5aaf7e126faf34d81c46ce35628adb, type: 2}
@@ -22,7 +21,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b4774f87a55563b41bf13be28cb34215, type: 2}
   - {fileID: 11400000, guid: 358543be4e32b7b438cbfe15dcf53e9e, type: 2}
   <EquipmentItems>k__BackingField:
-  - {fileID: 11400000, guid: b44ba78bae9a3954c971fa6c8ecbe6e9, type: 2}
-  <BiomeItems>k__BackingField:
-  - {fileID: 11400000, guid: 50a9b183bf66e5642a9cc231b6736d9d, type: 2}
   - {fileID: 11400000, guid: 104cfc7b0caff7348a116864d80c15e2, type: 2}
+  - {fileID: 11400000, guid: 50a9b183bf66e5642a9cc231b6736d9d, type: 2}
+  <BiomeItems>k__BackingField:
+  - {fileID: 11400000, guid: 5e76c453d42fc6c4b8a21c22a11584d0, type: 2}
+  - {fileID: 11400000, guid: 6540d8b3d27f0e341bd0e200861e018b, type: 2}

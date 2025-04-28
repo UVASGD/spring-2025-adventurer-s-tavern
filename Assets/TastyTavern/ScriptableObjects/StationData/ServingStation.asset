@@ -18,6 +18,6 @@ MonoBehaviour:
   <Sprites>k__BackingField:
   - {fileID: 21300000, guid: b4003ebb34c2b544fb6dbebc48d90ec5, type: 3}
   - {fileID: 0}
-  - {fileID: -4795573259988461060, guid: d7dd4e5e725f94b4b810fb4cee4561df, type: 3}
+  - {fileID: 0}
   <ProcessingTime>k__BackingField: 0
   <ActionData>k__BackingField: {fileID: 0}
