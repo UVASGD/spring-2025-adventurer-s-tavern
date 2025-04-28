@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Ghost Beetle
   <Type>k__BackingField: 0
   <Price>k__BackingField: 100
-  <Description>k__BackingField: 
+  <Description>k__BackingField: 'Only live in the shadows, and while not as well-known,
+    ghost beetles mate for life. '
   <Icon>k__BackingField: {fileID: 21300000, guid: 333d72ac08289364a88cfdce52c691eb, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: 59c93b128a0eb0d4180396b928586752, type: 2}

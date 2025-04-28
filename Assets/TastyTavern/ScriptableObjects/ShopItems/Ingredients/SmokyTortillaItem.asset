@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Smoky Tortilla
   <Type>k__BackingField: 0
   <Price>k__BackingField: 100
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Intense spicy flavor. When eating, smoke comes out
+    of your nose with every bite.
   <Icon>k__BackingField: {fileID: 21300000, guid: 1fa290d7bb836c94a8ddf4f136039f70, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: 24b2ebae0971d0b4ba5f6ce59bf80474, type: 2}

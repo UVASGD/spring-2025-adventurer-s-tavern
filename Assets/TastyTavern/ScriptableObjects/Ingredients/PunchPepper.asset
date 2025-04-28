@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38b5076c2de39c649b5915b54d56c2f6, type: 3}
-  m_Name: Normalfruit
+  m_Name: PunchPepper
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Pie Crust
+  <Name>k__BackingField: Punch Pepper
   <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <Sprites>k__BackingField:
-  - {fileID: 21300000, guid: d3a0461a80b5a3a40861f9f3769239da, type: 3}
-  - {fileID: 21300000, guid: 7a6383a2b3421754fb421f0bbecf2b81, type: 3}
+  - {fileID: 21300000, guid: c3e8b13e5fd1df74493b22f4d75772a6, type: 3}
+  - {fileID: 21300000, guid: d101d5796d9d12d47b84ce96c633f93c, type: 3}

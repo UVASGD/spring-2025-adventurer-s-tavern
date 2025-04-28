@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Glowing Mushroom
   <Type>k__BackingField: 0
   <Price>k__BackingField: 100
-  <Description>k__BackingField: A glowing mushroom
+  <Description>k__BackingField: After eating a bunch and going into a dark space
+    you can see a faint glow emit from the stomach.
   <Icon>k__BackingField: {fileID: 21300000, guid: 333d72ac08289364a88cfdce52c691eb, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: 727342b249d17bb45b5c77c29e5ff151, type: 2}
