@@ -208,22 +208,22 @@ public class StationView : MonoBehaviour {
     
     private void StartProgress(ActionData action)
     {
-        //StartCoroutine(UpdateProgressBar(action.ActionTime));
+        // StartCoroutine(UpdateProgressBar(action.ActionTime));
     }
 
-    private IEnumerator UpdateProgressBar(float duration){
-        float elapsed = 0f;
+    // private IEnumerator UpdateProgressBar(float duration){
+    //     float elapsed = 0f;
 
-        while (elapsed < duration){
-            elapsed += Time.deltaTime;
-            float percentage = Mathf.Clamp01(elapsed / duration) * 100f;
-            progressBar.progress = percentage;
-            yield return null;
-        }
-        progressBar.progress = 100f;
+    //     while (elapsed < duration){
+    //         elapsed += Time.deltaTime;
+    //         float percentage = Mathf.Clamp01(elapsed / duration) * 100f;
+    //         progressBar.progress = percentage;
+    //         yield return null;
+    //     }
+    //     progressBar.progress = 100f;
 
-        progressBar.OnProgressComplete?.Invoke();
-    }
+    //     progressBar.OnProgressComplete?.Invoke();
+    // }
 
     private void GenerateServeButton(){
         Button serveButton = new();
@@ -268,7 +268,7 @@ public class StationView : MonoBehaviour {
                 ingredientButton.OnClickButton += OnAddIngredient;
             }
     }
-    
+
     private void GenerateStoreButton(){
         Button storeButton = new();
         storeButton.AddToClassList("unity-text-label");

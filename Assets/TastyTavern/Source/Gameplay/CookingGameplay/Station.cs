@@ -4,8 +4,6 @@ using UnityEngine;
 using System;
 using System.Linq;
 
-/// Stock ingreityEngine;
-
 /// <summary>
 /// This station is a live tracker of the current station and ingredient process of the current order. 
 /// It will rodients for each proper station are added on instantiation/station change.
@@ -119,8 +117,6 @@ public class Station {
     public void StoreActiveIngredients(){
         StoredIngredients.AddRange(ActiveIngredients);
         ActiveIngredients.Clear();
-        // TODO: Play little store animation. Transform will be a long parabola and shrink into a little box or chest icon. 
-        // Chest icon can do a little shake when the food visually reaches it
     }
 
     public void AssembleOrder()

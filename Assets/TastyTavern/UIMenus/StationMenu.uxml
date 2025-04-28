@@ -17,7 +17,7 @@
                 <engine:VisualElement name="OrderSlot1" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
                     <engine:Button name="OrderButton" class="order-button button">
                         <engine:VisualElement name="OrderLabel" style="flex-grow: 1; flex-direction: row; max-height: 90%; justify-content: center;">
-                            <engine:Label text="Stirfry" class="order-label" />
+                            <engine:Label text="Msuhroom beetle pasta" class="order-label" />
                             <engine:VisualElement class="order-icon" />
                         </engine:VisualElement>
                         <engine:VisualElement name="ProgressBarContainer2" style="flex-grow: 1;">
@@ -28,8 +28,8 @@
                 <engine:VisualElement name="OrderSlot2" style="flex-grow: 1; max-width: 33.33%; justify-content: center; align-self: flex-start; align-items: center;">
                     <engine:Button name="OrderButton" class="order-button button">
                         <engine:VisualElement name="OrderLabel" style="flex-grow: 1; flex-direction: row; max-height: 90%; justify-content: center;">
-                            <engine:Label text="Stirfry" class="order-label" />
-                            <engine:VisualElement class="order-icon" />
+                            <engine:Label text="Mushroom Bettle Pasta" class="order-label" style="white-space: normal;" />
+                            <engine:VisualElement class="order-icon" style="background-image: url(&quot;project://database/Assets/TastyTavern/Art/Food/Final%20Dishes/basilisk_stirfry.PNG?fileID=2800000&amp;guid=c98465e1f60e2bb4d845657bf6f34eab&amp;type=3#basilisk_stirfry&quot;);" />
                         </engine:VisualElement>
                         <engine:VisualElement name="ProgressBarContainer3" tabindex="0" style="flex-grow: 1;">
                             <ProgressBar name="ProgressBar3" progress="0" style="width: 80px; height: 20px;" />
@@ -63,7 +63,7 @@
                 </engine:VisualElement>
                 <engine:VisualElement name="IngredientRecipePanel" style="flex-grow: 1; width: 300px; flex-direction: column; align-self: center; align-items: center; justify-content: space-between; align-content: flex-start; max-height: 100%; min-height: 100%;">
                     <engine:VisualElement name="IngredientsPanel" style="flex-grow: 1; height: auto; width: auto; align-self: center; align-content: flex-start; align-items: stretch;">
-                        <engine:Label text="Ingredients" style="height: 40px; width: 368px; font-size: 43px; -unity-text-align: middle-center; -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/GorckHelozatTrialRegular-dr876.ttf?fileID=12800000&amp;guid=c974ae8a27d6bdd429cfc670e17d0cce&amp;type=3#GorckHelozatTrialRegular-dr876&quot;); margin-top: 11px;" />
+                        <engine:Label text="Ingredients" style="height: 40px; width: 368px; font-size: 43px; -unity-text-align: middle-center; -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/GorckHelozatTrialRegular-dr876.ttf?fileID=12800000&amp;guid=c974ae8a27d6bdd429cfc670e17d0cce&amp;type=3#GorckHelozatTrialRegular-dr876&quot;); margin-top: 11px; color: rgb(228, 155, 74);" />
                         <engine:VisualElement name="IngredientSlotContainer" style="flex-grow: 1; height: 615px; width: 381px; flex-direction: row; background-color: rgba(0, 0, 0, 0); flex-wrap: wrap;">
                             <engine:Button text="Onion" name="onion" class="ingredient-button button" style="background-color: rgb(195, 174, 174);" />
                             <engine:Button name="Button" class="button ingredient-button" style="-unity-text-align: lower-center; text-overflow: clip; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 15px; margin-right: 0; margin-bottom: 0; margin-left: 15px;">
@@ -76,11 +76,11 @@
                             </engine:Button>
                         </engine:VisualElement>
                     </engine:VisualElement>
-                    <engine:VisualElement style="flex-grow: 1; min-width: 100%; min-height: 5%;">
+                    <engine:VisualElement style="flex-grow: 1; min-width: 100%; min-height: 5%; color: rgb(228, 155, 74);">
                         <engine:Label text="Recipe Directions" style="height: 45px; width: 379px; font-size: 43px; -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/GorckHelozatTrialRegular-dr876.ttf?fileID=12800000&amp;guid=c974ae8a27d6bdd429cfc670e17d0cce&amp;type=3#GorckHelozatTrialRegular-dr876&quot;); -unity-text-align: upper-center; margin-bottom: 17px; -unity-font-style: normal;" />
                     </engine:VisualElement>
                     <engine:VisualElement name="RecipePanel" style="flex-grow: 1; min-height: 32%;">
-                        <engine:Label text="insert order requirements here" style="height: auto; width: auto; font-size: 36px; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); align-self: center; align-items: auto; color: rgb(27, 27, 27); -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&amp;guid=43cb84234405f2042bb3a98a53562dc8&amp;type=3#Chalkboard-Regular&quot;);" />
+                        <engine:Label text="insert order requirements here" style="height: auto; width: auto; font-size: 36px; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); align-self: center; align-items: auto; color: rgb(228, 155, 74); -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&amp;guid=43cb84234405f2042bb3a98a53562dc8&amp;type=3#Chalkboard-Regular&quot;);" />
                     </engine:VisualElement>
                 </engine:VisualElement>
             </engine:VisualElement>

@@ -1,36 +1,44 @@
 using System;
+using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class OrderButton : DataButton {
 
     public Order Order { get; private set; }
-    public ProgressBar ProgressBar { get; private set; }
-    private VisualElement progressBarContainer {get; set;}
+    // public ProgressBar PatienceBar { get; private set; }
+    private VisualElement progressBarContainer {get; set;} 
     public event Action<OrderButton> OnClickButton = delegate { };
 
     public OrderButton(Order order, VisualElement progressBarContainer) 
     {
         Order = order ?? throw new ArgumentNullException(nameof(order));
+
+        // PatienceBar = new ProgressBar
+        // {
+        //     title = "Patience",
+        //     lowValue = 0f,
+        //     highValue = 100f,
+        //     value = 0f,
+        // };
+
+        // Icon = new() { image = Order.Recipe.DoneIcon.texture };
         Label.text = Order.Recipe.Name;
-        ProgressBar = progressBarContainer.Q<ProgressBar>("ProgressBar");
-        
-        /*
-
-         if (Order.Sprite != null)
-        {Icon = new() { image = Order.Sprite.texture };}
-        else
-        {Debug.LogWarning("OrderButton: Order.Sprite is null!");}
-
-         Label.text = Order.Name;
-
-        */
-
         AddStyles();
-        // AttachIcon(); for now
         AttachLabel();
-        progressBarContainer.Add(ProgressBar);
-        this.Add(progressBarContainer);
+        // AttachIcon(); 
+        
+        
+        // SerializedObject so = new SerializedObject(order.Customer);
+        // SerializedProperty sp = so.FindProperty("Health.CurrentHealth");
+
+        // PatienceBar.Bind(so);
+        // // PatienceBar.BindProperty(sp);
+        // //PatienceBar.TrackPropertyValue(sp, //callback );
+        // progressBarContainer.Add(PatienceBar);
+        // this.Add(progressBarContainer);
+        this.AddToClassList("order-button");
     }
 
     protected override void OnClick(){
@@ -38,7 +46,7 @@ public class OrderButton : DataButton {
     }
     
     protected override void AddStyles(){
-        // Icon.AddToClassList("order-icon");
+        Icon.AddToClassList("order-icon");
         Label.AddToClassList("order-label");
         this.AddToClassList("order-button");
         this.AddToClassList("button");
