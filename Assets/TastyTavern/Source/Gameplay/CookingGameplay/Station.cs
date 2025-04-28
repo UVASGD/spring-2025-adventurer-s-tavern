@@ -91,7 +91,7 @@ public class Station {
         //StockIngredients.Clear();
         foreach (var ingredient in stock)
         {
-            StockIngredients.Add(ingredient.Create());
+            if (ingredient != null) StockIngredients.Add(ingredient.Create());
         }
 
         StockIngredients.AddRange(StoredIngredients);

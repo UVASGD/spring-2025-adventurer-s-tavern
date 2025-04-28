@@ -37,10 +37,10 @@ MonoBehaviour:
   - CorrectIngredients:
     - {fileID: 11400000, guid: 4fbf018b26512d548b1928704b4f8ddf, type: 2}
     CorrectPropertiesPerIngredient:
-    - Properties: 0000000008000000
+    - Properties: 0000000006000000
   - CorrectIngredients:
     - {fileID: 11400000, guid: 4fbf018b26512d548b1928704b4f8ddf, type: 2}
     - {fileID: 11400000, guid: 704826934e76e4049898330448c3ad99, type: 2}
     CorrectPropertiesPerIngredient:
-    - Properties: 0000000008000000
+    - Properties: 0000000006000000
     - Properties: 00000000

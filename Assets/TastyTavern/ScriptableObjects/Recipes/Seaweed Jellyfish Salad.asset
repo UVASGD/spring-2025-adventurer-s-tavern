@@ -30,9 +30,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 2ac2ec2c158735347b7427d354746171, type: 2}
     - {fileID: 11400000, guid: 13592996cddca194caeb0eb94d999fb3, type: 2}
     CorrectPropertiesPerIngredient:
-    - Properties: 0000000000000000
+    - Properties: 00000000
+    - Properties: 00000000
   - CorrectIngredients:
     - {fileID: 11400000, guid: 2ac2ec2c158735347b7427d354746171, type: 2}
     - {fileID: 11400000, guid: 13592996cddca194caeb0eb94d999fb3, type: 2}
     CorrectPropertiesPerIngredient:
-    - Properties: 0000000000000000
+    - Properties: 00000000
+    - Properties: 00000000

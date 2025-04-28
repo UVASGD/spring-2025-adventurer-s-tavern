@@ -133,13 +133,13 @@ public class RoundManager : MonoBehaviour
         audioManager.bgmSource.Stop();
         audioManager.sfxSource.Stop();
         
+        Debug.Log("Day Finished");
+        playerManager.SavePlayer();
+        SceneManager.LoadScene("EndOfDayView");
         backGroundObj.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         backGroundObj.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         backGroundObj.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         
-        Debug.Log("Day Finished");
-        playerManager.SavePlayer();
-        SceneManager.LoadScene("EndOfDayView");
     }
 
     private void ChangeMoney(int deltaMoney)

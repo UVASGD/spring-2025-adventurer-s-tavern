@@ -36,12 +36,12 @@ MonoBehaviour:
   - CorrectIngredients:
     - {fileID: 11400000, guid: 8aa30f602e682544991fdf8b76d75970, type: 2}
     CorrectPropertiesPerIngredient:
-    - Properties: 0000000007000000
+    - Properties: 0000000005000000
   - CorrectIngredients:
     - {fileID: 11400000, guid: 8aa30f602e682544991fdf8b76d75970, type: 2}
     CorrectPropertiesPerIngredient:
-    - Properties: 000000000700000006000000
+    - Properties: 000000000500000004000000
   - CorrectIngredients:
     - {fileID: 11400000, guid: 8aa30f602e682544991fdf8b76d75970, type: 2}
     CorrectPropertiesPerIngredient:
-    - Properties: 000000000700000006000000
+    - Properties: 000000000500000004000000

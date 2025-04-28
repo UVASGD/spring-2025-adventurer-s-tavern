@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
@@ -22,6 +23,13 @@ public class MainMenuManager : MonoBehaviour
 
     private void Awake()
     {
+        foreach (var file in Directory.GetFiles(Application.persistentDataPath))
+        {
+            FileInfo file_info = new FileInfo(file);
+            if (file_info.Extension == ".json")
+                file_info.Delete();
+        }
+        
         mainMenuRoot = mainMenuUI.GetComponent<UIDocument>().rootVisualElement;
         tutorialRoot = tutorialUI.GetComponent<UIDocument>().rootVisualElement;
 

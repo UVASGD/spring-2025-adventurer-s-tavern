@@ -28,6 +28,7 @@ public class UIMenusProcesses : MonoBehaviour
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private GameObject shopKeepsObj;
+    private BiomeData biomePlayed;
     
     private AudioManager _audioManager;
     private bool isIntroPlaying = true;
@@ -38,6 +39,7 @@ public class UIMenusProcesses : MonoBehaviour
 
     void Awake()
     {
+        biomePlayed = playerManager.currentBiome;
         postGameUIroot = postGameUI.GetComponent<UIDocument>().rootVisualElement;
         shopMenuUIroot = shopMenuUI.GetComponent<UIDocument>().rootVisualElement;
         biomesMenuUIroot = biomesMenuUI.GetComponent<UIDocument>().rootVisualElement;
@@ -72,8 +74,8 @@ public class UIMenusProcesses : MonoBehaviour
         NextDayButton.clicked += GoToNextDay;
 
         SelectForestButton.clicked += SelectBiome1;
-        SelectCavesButton.clicked += SelectBiome2;
-        SelectOceanButton.clicked += SelectBiome3;
+        SelectOceanButton.clicked += SelectBiome2;
+        SelectCavesButton.clicked += SelectBiome3;
 
         ExitBiomeMenuButton.clicked += SwitchToPostGameMenu;
 
@@ -107,14 +109,17 @@ public class UIMenusProcesses : MonoBehaviour
     private void GenerateStats()
     {
         Label statsLabel = statsPanel.ElementAt(0) as Label;
-        statsLabel.text = "Biome Played: " + playerManager.currentBiome.Name + 
-            "\nMoney Earned Today: " + playerManager.moneyAccumulatedThisRound
-            + "\nCustomers Served Today: " + playerManager.customersServed;
+        if (statsLabel != null)
+            statsLabel.text = "Biome Played: " + biomePlayed.Name
+                    + "\nTomorrow, you will travel to: " + playerManager.currentBiome                           
+                    + "\nMoney Earned Today: " + playerManager.moneyAccumulatedThisRound
+                    + "\nCustomers Served Today: " + playerManager.customersServed;
     }
     
     private void SwitchToPostGameMenu()
     {
         _audioManager.PlaySFX("ButtonClick");
+        GenerateStats();
         postGameUIroot.visible = true;
         postGameUI.sortingOrder = 1;
         shopMenuUIroot.visible = false;
@@ -142,10 +147,10 @@ public class UIMenusProcesses : MonoBehaviour
             case "Riko Wilds":
                 shopKeepsObj.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 break;
-            case "Pipawpwa Waves":
+            case "Nipawpwa Waves":
                 shopKeepsObj.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 break;
-            case "Mungtown Caves":
+            case "Mungtown Caverns":
                 shopKeepsObj.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 break;
         }

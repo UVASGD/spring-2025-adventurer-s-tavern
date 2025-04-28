@@ -47,7 +47,7 @@ MonoBehaviour:
     - Properties: 00000000
     - Properties: 00000000
     - Properties: 00000000
-    - Properties: 08000000
+    - Properties: 06000000
   - CorrectIngredients:
     - {fileID: 11400000, guid: 405a50833d38f124ea42dac055ce3b53, type: 2}
     - {fileID: 11400000, guid: bb0e59e5722ad564fa97f77f06198c75, type: 2}
@@ -57,4 +57,4 @@ MonoBehaviour:
     - Properties: 00000000
     - Properties: 00000000
     - Properties: 00000000
-    - Properties: 08000000
+    - Properties: 06000000
