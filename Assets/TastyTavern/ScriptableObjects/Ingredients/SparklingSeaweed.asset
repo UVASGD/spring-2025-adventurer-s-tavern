@@ -15,7 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: Sparkling Seaweed
   <Biome>k__BackingField: {fileID: 11400000, guid: 985422e741fa8ba4d9966ed77aeb35da, type: 2}
   <Sprites>k__BackingField:
-  - {fileID: 2009385448493860465, guid: f5361df3c6e4e3c4fb7e2740ff06ad81, type: 3}
-  - {fileID: 2009385448493860465, guid: f5361df3c6e4e3c4fb7e2740ff06ad81, type: 3}
-  - {fileID: 2009385448493860465, guid: f5361df3c6e4e3c4fb7e2740ff06ad81, type: 3}
+  - {fileID: 21300000, guid: 5ee1697433ba34c4c9c931d871e95d2b, type: 3}
   - {fileID: 2009385448493860465, guid: f5361df3c6e4e3c4fb7e2740ff06ad81, type: 3}

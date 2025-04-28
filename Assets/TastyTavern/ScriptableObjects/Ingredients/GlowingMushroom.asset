@@ -15,7 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: Glowing Mushroom
   <Biome>k__BackingField: {fileID: 11400000, guid: 7843cd2a631416e4cbbf57593304e8b2, type: 2}
   <Sprites>k__BackingField:
-  - {fileID: 21300000, guid: 62c76adf3224d174a94475997571184a, type: 3}
-  - {fileID: 21300000, guid: 18e7f0a52cb610644a967c645226f990, type: 3}
-  - {fileID: 21300000, guid: b8fc447e88bcc234cb94d32bbc0a08ec, type: 3}
-  - {fileID: 21300000, guid: bd5d5448386d1894aa46cba9c0c441f2, type: 3}
+  - {fileID: 21300000, guid: 333d72ac08289364a88cfdce52c691eb, type: 3}
+  - {fileID: 21300000, guid: 1a806daf6dca55a46bf01b3a1f0969f7, type: 3}

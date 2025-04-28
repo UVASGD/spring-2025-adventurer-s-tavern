@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Ghost Beetle
   <Biome>k__BackingField: {fileID: 11400000, guid: 7843cd2a631416e4cbbf57593304e8b2, type: 2}
-  <Sprites>k__BackingField: []
+  <Sprites>k__BackingField:
+  - {fileID: 21300000, guid: be35ee1a2c17ba748bb8bb18807fc1c1, type: 3}

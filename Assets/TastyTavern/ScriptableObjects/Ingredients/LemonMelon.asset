@@ -15,7 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: LemonMelon
   <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <Sprites>k__BackingField:
-  - {fileID: 9135130128162984572, guid: 28caa97f51b9ce84286aabdf03cf4251, type: 3}
-  - {fileID: 9135130128162984572, guid: 28caa97f51b9ce84286aabdf03cf4251, type: 3}
-  - {fileID: 9135130128162984572, guid: 28caa97f51b9ce84286aabdf03cf4251, type: 3}
-  - {fileID: 9135130128162984572, guid: 28caa97f51b9ce84286aabdf03cf4251, type: 3}
+  - {fileID: 21300000, guid: e1966d0f698de994280c10121ade1543, type: 3}
+  - {fileID: 21300000, guid: 05c4ee069c457f44eb114550ce51d83a, type: 3}

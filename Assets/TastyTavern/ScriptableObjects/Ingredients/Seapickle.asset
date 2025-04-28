@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Sea Pickle
   <Biome>k__BackingField: {fileID: 11400000, guid: 985422e741fa8ba4d9966ed77aeb35da, type: 2}
-  <Sprites>k__BackingField: []
+  <Sprites>k__BackingField:
+  - {fileID: 21300000, guid: 862c8d8fc9fffe4499bc9807b0fbc3cc, type: 3}
+  - {fileID: 21300000, guid: 1319dab4fada14f47a2d15ab77a92df2, type: 3}

@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Normalfruit
   <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
-  <Sprites>k__BackingField: []
+  <Sprites>k__BackingField:
+  - {fileID: 21300000, guid: d3a0461a80b5a3a40861f9f3769239da, type: 3}
+  - {fileID: 21300000, guid: 7a6383a2b3421754fb421f0bbecf2b81, type: 3}
