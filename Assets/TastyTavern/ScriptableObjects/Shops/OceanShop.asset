@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171cdf13bf9ee6e4b90d724a4f3fbdd9, type: 3}
   m_Name: OceanShop
   m_EditorClassIdentifier: 
-  <IngredientItems>k__BackingField: []
-  <RecipeItems>k__BackingField: []
-  <EquipmentItems>k__BackingField: []
-  <BiomeItems>k__BackingField: []
+  <IngredientItems>k__BackingField:
+  - {fileID: 11400000, guid: 3c417da8f16f64847b3e4541a94bc16c, type: 2}
+  - {fileID: 11400000, guid: a91a56c0aba31614b8d435e346242598, type: 2}
+  - {fileID: 11400000, guid: 7782204230169414f80ddd64f3a39ca0, type: 2}
+  - {fileID: 11400000, guid: 085845f2d7bd61d4ead70f3f58ba9593, type: 2}
+  <RecipeItems>k__BackingField:
+  - {fileID: 11400000, guid: e3ccffcb95e9fc349b37f0ff31ef2640, type: 2}
+  - {fileID: 11400000, guid: 52a53356d69b6b84baf1dc316c453028, type: 2}
+  - {fileID: 11400000, guid: e69d2ed14f2c57e4eaa52558abb800b2, type: 2}
+  <EquipmentItems>k__BackingField:
+  - {fileID: 11400000, guid: 8b9cad11e49004d4ba16ac1f136ffea3, type: 2}
+  - {fileID: 11400000, guid: b44ba78bae9a3954c971fa6c8ecbe6e9, type: 2}
+  <BiomeItems>k__BackingField:
+  - {fileID: 11400000, guid: 6540d8b3d27f0e341bd0e200861e018b, type: 2}

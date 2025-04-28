@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GlowingMushroom
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Glowing Mushroom
+  <Biome>k__BackingField: {fileID: 11400000, guid: 7843cd2a631416e4cbbf57593304e8b2, type: 2}
   <Sprites>k__BackingField:
   - {fileID: 21300000, guid: 62c76adf3224d174a94475997571184a, type: 3}
   - {fileID: 21300000, guid: 18e7f0a52cb610644a967c645226f990, type: 3}

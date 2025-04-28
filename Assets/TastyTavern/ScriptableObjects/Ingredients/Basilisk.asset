@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Basilisk
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Basilisk
-  <Description>k__BackingField: 
+  <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <Sprites>k__BackingField:
   - {fileID: 21300000, guid: e61fbf0a0c3e43142b614778b574aa3c, type: 3}
   - {fileID: 21300000, guid: 75e01863b5df3984db5bbd8aff8984f7, type: 3}
   - {fileID: 21300000, guid: 8cdd7395ea9d31645a7f2155289ba590, type: 3}
   - {fileID: 21300000, guid: 4f8551595b27f6240904b87b96ba01fa, type: 3}
-  <Price>k__BackingField: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Forest
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Riko Wilds
+  <Biome>k__BackingField: {fileID: 0}
   <StageNumber>k__BackingField: 1
   <RecipesAvailable>k__BackingField: []
   <IngredientsAvailable>k__BackingField: []

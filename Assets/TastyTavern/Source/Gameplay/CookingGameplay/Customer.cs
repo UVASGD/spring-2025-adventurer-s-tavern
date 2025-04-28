@@ -61,7 +61,10 @@ public class Customer : MonoBehaviour
         // recipe.CorrectStockSequence[^1].CorrectPropertiesPerIngredient[0->n].Properties -> all the properties that each ingredient(0 to n) needs to have by the end of the order; Sort of a 3D array.
         // CorrectStockSequence -> The correct stocks of ingredients & properties for each station; CorrectPropertiesPerIngredient -> Each ingredient has a list of properties that it needs to have by the end (cut, etc.)
         // Properties -> the list of properties of one ingredient
-        return new Order(this, MenuManager.GetRandomRecipeFromMenu(), cookingUIEventChannel);
+        
+        BiomeData biomeData = Data.Biome;
+        
+        return new Order(this, MenuManager.GetRandomRecipeFromMenu(biomeData), cookingUIEventChannel);
     }
 
     private void PlaceCustomerOrder(Order order)

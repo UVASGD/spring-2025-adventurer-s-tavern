@@ -25,7 +25,7 @@ public class OrderManager : MonoBehaviour
     [SerializeField]
     private List<Order> activeOrders = new();
     
-    [SerializeField] private PlayerManager playerManager;
+    [SerializeField] public PlayerManager playerManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

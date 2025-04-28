@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PotStation
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Stewing
+  <Biome>k__BackingField: {fileID: 11400000, guid: 7843cd2a631416e4cbbf57593304e8b2, type: 2}
   <StationType>k__BackingField: 2
   <Background>k__BackingField: {fileID: -4795573259988461060, guid: d7dd4e5e725f94b4b810fb4cee4561df, type: 3}
   <ProcessingTime>k__BackingField: 0

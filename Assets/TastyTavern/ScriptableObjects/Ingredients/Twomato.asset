@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Twomato
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Twomato
+  <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <Sprites>k__BackingField:
   - {fileID: 21300000, guid: dba2bbd990834f8418fce820587d5ccd, type: 3}
   - {fileID: 21300000, guid: dba2bbd990834f8418fce820587d5ccd, type: 3}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ServingStation
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Serving
+  <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <StationType>k__BackingField: 3
   <Background>k__BackingField: {fileID: -4795573259988461060, guid: d7dd4e5e725f94b4b810fb4cee4561df, type: 3}
   <ProcessingTime>k__BackingField: 0
