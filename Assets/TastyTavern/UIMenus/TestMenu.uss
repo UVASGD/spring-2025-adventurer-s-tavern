@@ -34,6 +34,8 @@
     justify-content: flex-start;
     align-self: flex-start;
     align-content: flex-start;
+    -unity-font-definition: url("project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&guid=43cb84234405f2042bb3a98a53562dc8&type=3#Chalkboard-Regular");
+    font-size: 27px;
 }
 
 .button:hover {
@@ -70,8 +72,9 @@
 }
 
 .action-label {
-    font-size: 32px;
+    font-size: 33px;
     height: 15%;
+    -unity-font-definition: url("project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&guid=43cb84234405f2042bb3a98a53562dc8&type=3#Chalkboard-Regular");
 }
 
 .order-button {
@@ -99,6 +102,7 @@
     height: 69px;
     width: 197px;
     max-width: 80%;
+    -unity-font-definition: url("project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&guid=43cb84234405f2042bb3a98a53562dc8&type=3#Chalkboard-Regular");
 }
 
 .order-icon {
@@ -163,12 +167,14 @@
     height: auto;
     justify-content: center;
     align-content: flex-start;
+    -unity-font-definition: url("project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&guid=43cb84234405f2042bb3a98a53562dc8&type=3#Chalkboard-Regular");
+    font-size: 47px;
 }
 
 .trash-button {
     width: 164px;
     height: 173px;
-    font-size: 34px;
+    font-size: 47px;
     white-space: normal;
     min-height: 80%;
     max-height: 80%;
@@ -176,15 +182,17 @@
     margin-right: 11px;
     margin-bottom: 11px;
     margin-left: 11px;
+    -unity-font-definition: url("project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&guid=43cb84234405f2042bb3a98a53562dc8&type=3#Chalkboard-Regular");
 }
 
 .next-station-button {
     width: 162px;
     height: 174px;
-    font-size: 34px;
+    font-size: 40px;
     white-space: normal;
     min-height: 80%;
     max-height: 80%;
+    -unity-font-definition: url("project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&guid=43cb84234405f2042bb3a98a53562dc8&type=3#Chalkboard-Regular");
 }
 
 .action-button {
