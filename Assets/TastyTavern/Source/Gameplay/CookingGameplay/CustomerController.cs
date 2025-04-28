@@ -128,6 +128,7 @@ public class CustomerController : MonoBehaviour
 
                 // Track the customer
                 customers[i] = customerObj;
+                
 
                 return true;
             }

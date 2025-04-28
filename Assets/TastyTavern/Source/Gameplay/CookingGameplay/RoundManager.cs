@@ -28,6 +28,12 @@ public class RoundManager : MonoBehaviour
     
     [SerializeField] private OrderManager orderManager;
     
+    private bool isIntroPlaying = true;
+    private AudioManager audioManager;
+    private AudioSource audioSource;
+    private string introClipName;
+    private string loopClipName;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,6 +41,27 @@ public class RoundManager : MonoBehaviour
         _customersServed = 0;
         
         currentBiome = playerManager.currentBiome;
+        
+        audioManager = AudioManager.Instance;
+        audioSource = audioManager.bgmSource;
+
+        switch (currentBiome.Name)
+        {
+            case "Riko Wilds":
+                introClipName = "ForestThemeLoop";
+                loopClipName = "ForestThemeLoop";
+                break;
+            case "Pipawpwa Waves":
+                introClipName = "OceanThemeBeginning";
+                loopClipName = "OceanThemeLoop";
+                break;
+            case "Mungtown Caves":
+                introClipName = "CavesThemeBeginning";
+                loopClipName = "CavesThemeLoop";
+                break;
+        }
+
+        PlayIntro();
     }
 
     // Update is called once per frame
@@ -46,6 +73,11 @@ public class RoundManager : MonoBehaviour
             FinishDay();
             _customersServed = 0; 
         }
+        if (isIntroPlaying && !audioSource.isPlaying)
+        {
+            PlayLoop();
+        }
+        
     }
 
     private void OnEnable()
@@ -60,6 +92,20 @@ public class RoundManager : MonoBehaviour
         eventChannel.OnDayStarted -= StartNewDay;
         eventChannel.OnChangePlayerMoney -= ChangeMoney;
         eventChannel.OnSubmitOrder -= IncrementCustomersServed;
+    }
+    
+    private void PlayIntro()
+    {
+        isIntroPlaying = true;
+        audioSource.loop = false; // don't loop the intro
+        audioManager.PlaySFX(introClipName);
+    }
+
+    private void PlayLoop()
+    {
+        isIntroPlaying = false;
+        audioSource.loop = true; // now loop
+        audioManager.PlayBGM(loopClipName);
     }
 
     // Don't need this int input for now, but it's here just in case
@@ -76,6 +122,9 @@ public class RoundManager : MonoBehaviour
         
         playerManager.moneyAccumulatedThisRound = _moneyAccumulatedThisRound;
         playerManager.customersServed = _customersServed;
+        
+        audioManager.bgmSource.Stop();
+        audioManager.sfxSource.Stop();
         
         Debug.Log("Day Finished");
         playerManager.SavePlayer();

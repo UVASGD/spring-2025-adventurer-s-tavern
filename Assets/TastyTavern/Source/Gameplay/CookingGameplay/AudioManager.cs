@@ -26,6 +26,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip oceanThemeBeginning;
     [SerializeField] private AudioClip cavesThemeLoop;
     [SerializeField] private AudioClip cavesThemeBeginning;
+    [SerializeField] private AudioClip backgroundAudioLoop;
+    [SerializeField] private AudioClip order;
 
 
     private Dictionary<string, AudioClip> sfxMap;
@@ -60,16 +62,30 @@ public class AudioManager : MonoBehaviour
             {"OceanThemeBeginning", oceanThemeBeginning},
             {"CavesTheme", cavesThemeLoop},
             {"CavesThemeBeginning", cavesThemeBeginning},
-            {"MainTheme", mainTheme}
+            {"MainTheme", mainTheme},
+            {"Background", backgroundAudioLoop},
         };
     }
 
-    public void PlayBGM()
+    public void PlayBGM(AudioClip clip)
     {
-        if (bgmSource != null && !bgmSource.isPlaying)
+        if (bgmSource != null && !bgmSource.isPlaying && clip != null)
         {
             bgmSource.loop = true;
+            bgmSource.clip = clip;
             bgmSource.Play();
+        }
+    }
+    
+    public void PlayBGM(string bgmName)
+    {
+        if (sfxMap.TryGetValue(bgmName, out AudioClip clip))
+        {
+            PlayBGM(clip);
+        }
+        else
+        {
+            Debug.LogWarning($"SFX '{bgmName}' not found in AudioPlayer.");
         }
     }
 
@@ -81,7 +97,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(string sfxName)
     {
-        if (sfxMap.TryGetValue(sfxName.ToLower(), out AudioClip clip))
+        if (sfxMap.TryGetValue(sfxName, out AudioClip clip))
         {
             PlaySFX(clip);
         }
@@ -90,4 +106,6 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning($"SFX '{sfxName}' not found in AudioPlayer.");
         }
     }
+    
+    
 }

@@ -43,7 +43,8 @@ public class StationView : MonoBehaviour {
 
     [SerializeField]
     private CookingUIEventChannel cookingUIEventChannel;
-
+    
+    private AudioManager audioManager;
 
     private void OnEnable()
     {
@@ -100,6 +101,8 @@ public class StationView : MonoBehaviour {
 
         sidePanelContainer.visible = false;
         barAndStationContainer.visible = false;
+        
+        audioManager = AudioManager.Instance;
     }
 
     // ***May be easier to have a simple button instead, not attached to station data, go back up to order
@@ -145,11 +148,7 @@ public class StationView : MonoBehaviour {
         assembleButton.AddToClassList("button");
         assembleButton.text = "Assemble";
         actionSlotContainer.Add(assembleButton);
-        assembleButton.clicked += () =>
-        {
-            assembleButton.SetEnabled(false);
-            OnAssembleOrder();
-        };
+        assembleButton.clicked += OnAssembleOrder;
     }
 
     private void GenerateOrderInstructions(Station station)
@@ -241,21 +240,22 @@ public class StationView : MonoBehaviour {
     }
 
     // ONLY happens when new order is added to order manager
-    private void GenerateOrderButton(Order order){
+    private void GenerateOrderButton(Order order)
+    {
+        OrderButton orderButton;
         if (order.Customer.Data.CustomerSpotIdx == 0){
-            OrderButton orderButton = new(order, progressBarContainer1);
+            orderButton = new(order, progressBarContainer1);
             orderSlot0.Add(orderButton);
             orderButton.OnClickButton += OnSelectOrder;
         } else if (order.Customer.Data.CustomerSpotIdx == 1){
-            OrderButton orderButton = new(order, progressBarContainer2);
+            orderButton = new(order, progressBarContainer2);
             orderSlot1.Add(orderButton);
             orderButton.OnClickButton += OnSelectOrder;
         } else {
-            OrderButton orderButton = new(order, progressBarContainer3);
+            orderButton = new(order, progressBarContainer3);
             orderSlot2.Add(orderButton);
             orderButton.OnClickButton += OnSelectOrder;
         }
-        
     }
 
     private void GenerateIngredientButtons(Station station)
@@ -303,6 +303,7 @@ public class StationView : MonoBehaviour {
     }
 
     private void OnAddIngredient(IngredientButton ingredientButton ) {
+        audioManager.PlaySFX("ButtonClick");
         cookingUIEventChannel.RaiseOnAddIngredient(ingredientButton.Ingredient); // adds ingredient, calls refresh
         ingredientButton.SetEnabled(false);
         ingredientButton.RemoveFromClassList("button");
@@ -310,33 +311,40 @@ public class StationView : MonoBehaviour {
     
     private void OnAssembleOrder()
     {
+        audioManager.PlaySFX("ButtonClick");
         cookingUIEventChannel.RaiseOnAssembleOrder();
     }
     
     private void OnStoreIngredient() {
+        audioManager.PlaySFX("ButtonClick");
         cookingUIEventChannel.RaiseOnStoreIngredient();
     }
 
     private void OnTrashOrderFood()
     {
+        audioManager.PlaySFX("ButtonClick");
         cookingUIEventChannel.RaiseOnTrashCurrentOrderFood();
     }
 
     private void OnAddProperty(ActionButton actionButton){
+        audioManager.PlaySFX("ButtonClick");
         cookingUIEventChannel.RaiseOnAddProperty(actionButton.Data); // Property enum actionProperty
     }
     
     // This button is not DataButton, does not pass button data
     private void OnNextStation(){
+        audioManager.PlaySFX("ButtonClick");
         cookingUIEventChannel.RaiseOnChangeNextStation();
     }
 
     private void OnServeOrder(){
+        audioManager.PlaySFX("ButtonClick");
         cookingUIEventChannel.RaiseOnSubmitOrder(null); // passes in null because StationView doesn't have access to the current order. There is a null check, don't worry. 
         CloseStationPanels();
     }
 
     private void OnSelectOrder(OrderButton orderButton){
+        audioManager.PlaySFX("ButtonClick");
         cookingUIEventChannel.RaiseOnSelectOrder(orderButton.Order);
         cookingUIEventChannel.RaiseOnLoadStationView(orderButton.Order.Station);
     }

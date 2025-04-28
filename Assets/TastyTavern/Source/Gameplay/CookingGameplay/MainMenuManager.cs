@@ -17,6 +17,8 @@ public class MainMenuManager : MonoBehaviour
     public Button TutorialButton;
 
     public Button CloseTutorialButton;
+    
+    private AudioManager audioManager;
 
     private void Awake()
     {
@@ -36,26 +38,39 @@ public class MainMenuManager : MonoBehaviour
         CloseTutorialButton.clicked += CloseTutorial;
 
         tutorialRoot.visible = false;
+
+        audioManager = AudioManager.Instance;
+    }
+
+    void Start()
+    {
+        audioManager.PlayBGM("MainTheme");
     }
 
     private void StartGame()
     {
-        SceneManager.LoadScene(sceneName: "TestSceneA 2");
+        audioManager.PlaySFX("ButtonClick");
+        audioManager.bgmSource.Stop();
+        audioManager.sfxSource.Stop();
+        SceneManager.LoadScene(sceneName: "SpriteStackingTest");
     }
 
     private void QuitGame()
     {
+        audioManager.PlaySFX("ButtonClick");
         Application.Quit();
         Debug.Log("Quitting...");
     }
 
     private void OpenTutorial()
     {
+        audioManager.PlaySFX("ButtonClick");
         tutorialRoot.visible = true;
     }
 
     private void CloseTutorial()
     {
+        audioManager.PlaySFX("ButtonClick");
         tutorialRoot.visible = false;
     }
 }
