@@ -73,7 +73,7 @@ public class ShopManager : MonoBehaviour
             Debug.Log($"You bought {item.Data.Name} for {item.Price} gold!");
             playerManager.AddItemToInventory(item);
             shopView.SetPlayerMoneyText(playerManager.money);
-            
+            AudioManager.Instance.PlaySFX("Coins");
             
             return true;
         }

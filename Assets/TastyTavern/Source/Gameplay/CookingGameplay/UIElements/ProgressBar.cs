@@ -34,7 +34,7 @@ public partial class ProgressBar : VisualElement
     private void RegisterUpdate()
     {
         // Hook into Unity’s update loop for custom elements
-        UnityEditor.EditorApplication.update += Tick;
+        //UnityEditor.EditorApplication.update += Tick;
     }
 
     private void Tick()

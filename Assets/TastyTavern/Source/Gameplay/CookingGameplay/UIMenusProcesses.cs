@@ -181,8 +181,10 @@ public class UIMenusProcesses : MonoBehaviour
     
     private void GoToNextDay()
     {
+        _audioManager.bgmSource.Stop();
+        _audioManager.sfxSource.Stop();
         playerManager.SavePlayer();
-        SceneManager.LoadScene("TestSceneA 2");
+        SceneManager.LoadScene("SpriteStackingTest");
 
     }
 }

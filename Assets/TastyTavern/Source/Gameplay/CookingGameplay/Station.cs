@@ -69,7 +69,7 @@ public class Station {
                 ingredient.Properties.Add(actionData.Property);
             }
         }
-
+        
         // Only instant properties are visually applied to the workspace
         if (Data.StationType == StationType.CuttingBoard || Data.StationType == StationType.MixingBowl)
         {

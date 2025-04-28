@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
     public Dictionary<RecipeData, bool> RecipeUnlocked = new();
     public Dictionary<BiomeData, bool> BiomeUnlocked = new();
 
-    void Start()
+    void Awake()
     {
         if (!LoadPlayer())
         {
