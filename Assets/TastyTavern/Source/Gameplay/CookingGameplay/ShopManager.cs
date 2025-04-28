@@ -67,13 +67,17 @@ public class ShopManager : MonoBehaviour
     */
     public bool BuyItem(ShopItem item)
     {
-        if (playerManager.money >= item.Price)
+        if (item.Type == ItemType.Recipe && !FulfillsRequirements((RecipeData)item.Data))
         {
+            Debug.Log("You don't have all the ingredients to buy that recipe!");
+            Debug.Log(GetMissingRequirements((RecipeData)item.Data));
+            return false;
+            
+        } else if (playerManager.money >= item.Price) {
             playerManager.money -= item.Price;
             Debug.Log($"You bought {item.Data.Name} for {item.Price} gold!");
             playerManager.AddItemToInventory(item);
             shopView.SetPlayerMoneyText(playerManager.money);
-            
             
             return true;
         }
@@ -82,6 +86,7 @@ public class ShopManager : MonoBehaviour
             Debug.Log("You don't have enough gold to buy that item!");
             return false;
         }
+        
     }
 
     public bool IsItemPurchased(ShopItem item)
@@ -104,5 +109,48 @@ public class ShopManager : MonoBehaviour
         } else {
             return false;
         }
+    }
+
+    public bool FulfillsRequirements(RecipeData recipe)
+    {
+        foreach (var ingredient in recipe.RequiredIngredients())
+        {
+            if (!playerManager.IngredientUnlocked[ingredient])
+            {
+                return false;
+            }
+        }
+
+        foreach (var station in recipe.RequiredStations())
+        {
+            if (!playerManager.StationUnlocked[station])
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public string GetMissingRequirements(RecipeData recipe){
+        String missingItems = "Missing items: ";
+        foreach (var ingredient in recipe.RequiredIngredients())
+        {
+            if (!playerManager.IngredientUnlocked[ingredient])
+            {
+                missingItems += ingredient.Name + ", ";
+            }
+        }
+
+        foreach (var station in recipe.RequiredStations())
+        {
+            if (!playerManager.StationUnlocked[station])
+            {
+                missingItems += station.Name + ", ";
+            }
+        }
+
+        return true;
+        
     }
 }

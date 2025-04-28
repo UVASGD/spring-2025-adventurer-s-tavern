@@ -54,6 +54,14 @@ public class RecipeData : BuyableData
     [field: SerializeField]
     public List<CorrectStockPerStation> CorrectStockSequence { get; set; } = new List<CorrectStockPerStation>();
 
+    public List<IngredientData> RequiredIngredients(){
+        return CorrectStockSequence[^1].CorrectIngredients;
+    }
+
+    public List<StationData> RequiredStations(){
+        return new List<StationData>(StationSequence);
+    }
+
     /// <summary>
     /// Represents the initial stock of ingredients available at a specific station
     /// during the recipe preparation process.
@@ -107,4 +115,5 @@ public class RecipeData : BuyableData
     // recipe.CorrectStockSequence[^1].CorrectPropertiesPerIngredient[0->n].Properties -> all the properties that each ingredient(0 to n) needs to have by the end of the order; Sort of a 3D array.
     // CorrectStockSequence -> The correct stocks of ingredients & properties for each station; CorrectPropertiesPerIngredient -> Each ingredient has a list of properties that it needs to have by the end (cut, etc.)
     // Properties -> the list of properties of one ingredient
+
 }
