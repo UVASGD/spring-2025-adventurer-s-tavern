@@ -20,10 +20,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip satisfiedSFX;
     [SerializeField] private AudioClip dissatisfiedSFX;
     [SerializeField] private AudioClip buttonClickSFX;
-    [SerializeField] private AudioClip mainThemeSFX;
-    [SerializeField] private AudioClip forestThemeSFX;
-    [SerializeField] private AudioClip oceanThemeSFX;
-    [SerializeField] private AudioClip cavesThemeSFX;
+    [SerializeField] private AudioClip mainTheme;
+    [SerializeField] private AudioClip forestThemeLoop;
+    [SerializeField] private AudioClip oceanThemeLoop;
+    [SerializeField] private AudioClip oceanThemeBeginning;
+    [SerializeField] private AudioClip cavesThemeLoop;
+    [SerializeField] private AudioClip cavesThemeBeginning;
 
 
     private Dictionary<string, AudioClip> sfxMap;
@@ -39,13 +41,27 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(this);
 
         sfxMap = new Dictionary<string, AudioClip>
         {
-            
+            {"Frying", frySFX},
+            {"Boiling", boilSFX},
+            {"Oven", ovenSFX},
+            {"Grilling", grillSFX},
+            {"Cutting", cutSFX},
+            {"Mixing", mixSFX},
+            {"Deep Frying", deepFrySFX},
+            {"Satisfied", satisfiedSFX},
+            {"Dissatisfied", dissatisfiedSFX},
+            {"ButtonClick", buttonClickSFX},
+            {"ForestThemeLoop", forestThemeLoop},
+            {"OceanThemeLoop", oceanThemeLoop},
+            {"OceanThemeBeginning", oceanThemeBeginning},
+            {"CavesTheme", cavesThemeLoop},
+            {"CavesThemeBeginning", cavesThemeBeginning},
+            {"MainTheme", mainTheme}
         };
-
-        PlayBGM();
     }
 
     public void PlayBGM()
