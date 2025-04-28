@@ -17,5 +17,5 @@ MonoBehaviour:
   <Price>k__BackingField: 100
   <Description>k__BackingField: A mystical plant which changes taste depending on
     the culinary context being sweet, sour, or savory.
-  <Icon>k__BackingField: {fileID: 21300000, guid: 333d72ac08289364a88cfdce52c691eb, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 862c8d8fc9fffe4499bc9807b0fbc3cc, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: fcb2c09cdc2941a448b851b78c6ecb51, type: 2}

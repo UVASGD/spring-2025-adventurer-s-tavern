@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Kraken
   <Type>k__BackingField: 0
   <Price>k__BackingField: 100
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Rare and expensive delicacy since most people perish
+    in attempts to catch it.
   <Icon>k__BackingField: {fileID: 21300000, guid: 333d72ac08289364a88cfdce52c691eb, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: 8aa30f602e682544991fdf8b76d75970, type: 2}

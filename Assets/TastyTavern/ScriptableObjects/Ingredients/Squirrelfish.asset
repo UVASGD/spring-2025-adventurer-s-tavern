@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Squirrelfish
   <Biome>k__BackingField: {fileID: 11400000, guid: 985422e741fa8ba4d9966ed77aeb35da, type: 2}
-  <Sprites>k__BackingField: []
+  <Sprites>k__BackingField:
+  - {fileID: 21300000, guid: 8ed0b91a3179fc148acca57735113ef5, type: 3}
+  - {fileID: 21300000, guid: f65046e8f3f9e9e429144b8ca85be9ec, type: 3}
+  - {fileID: 21300000, guid: 46d1ae35e028b2b42b6aff045477c52c, type: 3}
+  - {fileID: 21300000, guid: 6a34e0f98fe4d8d4f8fad696a7fbfccc, type: 3}

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Pan
   <Type>k__BackingField: 2
-  <Price>k__BackingField: 0
-  <Description>k__BackingField: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
+  <Price>k__BackingField: 150
+  <Description>k__BackingField: A simple pan carved with magical essence. Heats up
+    easily.
+  <Icon>k__BackingField: {fileID: 21300000, guid: 76faae61d11c997458499da33e0d353c, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: 865f815cb1e69f146ba2c092346510d0, type: 2}

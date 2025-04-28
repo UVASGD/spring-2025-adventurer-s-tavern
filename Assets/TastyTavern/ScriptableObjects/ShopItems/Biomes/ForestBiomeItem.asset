@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Riko Wilds
   <Type>k__BackingField: 3
-  <Price>k__BackingField: 0
-  <Description>k__BackingField: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
+  <Price>k__BackingField: 1000
+  <Description>k__BackingField: A temperate land home to the most diverse set of
+    creatures across the land.y, and potentially some sea creatures from the Nipawpwa
+    Waves come to the surface. While elves, dwarfes and giants are the most common
+    creature found in the hills, the Wilds is home to anyone who find it.
+  <Icon>k__BackingField: {fileID: 21300000, guid: c773a2383892ff64d98e907c2f840789, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}

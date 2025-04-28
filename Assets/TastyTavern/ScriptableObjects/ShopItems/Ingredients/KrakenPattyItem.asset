@@ -15,6 +15,6 @@ MonoBehaviour:
   <Name>k__BackingField: Kraken Patty
   <Type>k__BackingField: 0
   <Price>k__BackingField: 100
-  <Description>k__BackingField: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: 333d72ac08289364a88cfdce52c691eb, type: 3}
+  <Description>k__BackingField: The flavorful kraken fit into a special patty.
+  <Icon>k__BackingField: {fileID: 21300000, guid: 296d845422f007c4aa9348388f204d03, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: c4c163ef018cc564abb576c7c9b11c53, type: 2}

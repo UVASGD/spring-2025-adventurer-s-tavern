@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Deep Sea Radish
   <Type>k__BackingField: 0
   <Price>k__BackingField: 100
-  <Description>k__BackingField: A glowing mushroom
+  <Description>k__BackingField: These radishes are found in the deep sea buried in
+    the sand. Only can be found from their noticable leaves.
   <Icon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: 9fe6956d050ae8347962463e437bce94, type: 2}

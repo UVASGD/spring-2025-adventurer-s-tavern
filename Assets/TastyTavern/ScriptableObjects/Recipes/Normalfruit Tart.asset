@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Normalfruit Tart
   <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
-  <RecipeValue>k__BackingField: 0
-  <WrongIcon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
-  <DoneIcon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
+  <RecipeValue>k__BackingField: 500
+  <WrongIcon>k__BackingField: {fileID: 21300000, guid: 97bd9aee5f15b07449fcbb2af9697d1d, type: 3}
+  <DoneIcon>k__BackingField: {fileID: 21300000, guid: 97bd9aee5f15b07449fcbb2af9697d1d, type: 3}
   <StationSequence>k__BackingField:
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
   - {fileID: 11400000, guid: bd85b126a3b9c8e4d84cf13bf595cf55, type: 2}

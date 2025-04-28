@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Squirrelfish
   <Type>k__BackingField: 0
-  <Price>k__BackingField: 100
+  <Price>k__BackingField: 300
   <Description>k__BackingField: 'Their tails are surprisingly hairless. '
-  <Icon>k__BackingField: {fileID: 21300000, guid: 333d72ac08289364a88cfdce52c691eb, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 8ed0b91a3179fc148acca57735113ef5, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: 731d9a9c7bf08194fb72d976d55f1e15, type: 2}

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3ee30f39182485c98eaed851fb4963, type: 3}
   m_Name: OvenItem
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Oven
+  <Name>k__BackingField: Oven and Tray
   <Type>k__BackingField: 2
   <Price>k__BackingField: 0
-  <Description>k__BackingField: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
+  <Description>k__BackingField: Hand-carved stones sourced from nearby dwarves and
+    inside is timber that never unlights.
+  <Icon>k__BackingField: {fileID: 21300000, guid: fddb637560f2fe543a760856ca1dafb1, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: bd85b126a3b9c8e4d84cf13bf595cf55, type: 2}

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Pot
   <Type>k__BackingField: 2
-  <Price>k__BackingField: 0
-  <Description>k__BackingField: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
+  <Price>k__BackingField: 700
+  <Description>k__BackingField: Sleek, slender, and the perfect depth of bowl made
+    with elven fire. Pure perfection.
+  <Icon>k__BackingField: {fileID: 21300000, guid: 5ac5982cfd2f5c94f88ed8a0b3d9faf9, type: 3}
   <Data>k__BackingField: {fileID: 11400000, guid: 34f246fba31e5fb45a3932c6c75814c7, type: 2}
