@@ -72,12 +72,13 @@ public class ShopManager : MonoBehaviour
             Debug.Log("You don't have all the ingredients to buy that recipe!");
             Debug.Log(GetMissingRequirements((RecipeData)item.Data));
             return false;
-            
+
         } else if (playerManager.money >= item.Price) {
             playerManager.money -= item.Price;
             Debug.Log($"You bought {item.Data.Name} for {item.Price} gold!");
             playerManager.AddItemToInventory(item);
             shopView.SetPlayerMoneyText(playerManager.money);
+            AudioManager.Instance.PlaySFX("Coins");
             
             return true;
         }
@@ -150,7 +151,7 @@ public class ShopManager : MonoBehaviour
             }
         }
 
-        return true;
+        return missingItems.TrimEnd(',', ' ');
         
     }
 }

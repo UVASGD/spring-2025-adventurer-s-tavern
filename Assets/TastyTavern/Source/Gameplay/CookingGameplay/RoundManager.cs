@@ -30,7 +30,8 @@ public class RoundManager : MonoBehaviour
     
     private bool isIntroPlaying = true;
     private AudioManager audioManager;
-    private AudioSource audioSource;
+    private AudioSource bgSource;
+    private AudioSource sfxSource;
     private string introClipName;
     private string loopClipName;
     
@@ -43,7 +44,9 @@ public class RoundManager : MonoBehaviour
         currentBiome = playerManager.currentBiome;
         
         audioManager = AudioManager.Instance;
-        audioSource = audioManager.bgmSource;
+        bgSource = audioManager.bgmSource;
+        bgSource.volume = 0.5f;
+        sfxSource = audioManager.sfxSource;
 
         switch (currentBiome.Name)
         {
@@ -60,7 +63,6 @@ public class RoundManager : MonoBehaviour
                 loopClipName = "CavesThemeLoop";
                 break;
         }
-
         PlayIntro();
     }
 
@@ -73,7 +75,7 @@ public class RoundManager : MonoBehaviour
             FinishDay();
             _customersServed = 0; 
         }
-        if (isIntroPlaying && !audioSource.isPlaying)
+        if (isIntroPlaying && !bgSource.isPlaying)
         {
             PlayLoop();
         }
@@ -97,14 +99,14 @@ public class RoundManager : MonoBehaviour
     private void PlayIntro()
     {
         isIntroPlaying = true;
-        audioSource.loop = false; // don't loop the intro
-        audioManager.PlaySFX(introClipName);
+        bgSource.loop = false; // don't loop the intro
+        bgSource.PlayOneShot(audioManager.sfxMap[introClipName]);// bad, lol
     }
 
     private void PlayLoop()
     {
         isIntroPlaying = false;
-        audioSource.loop = true; // now loop
+        bgSource.loop = true; // now loop
         audioManager.PlayBGM(loopClipName);
     }
 

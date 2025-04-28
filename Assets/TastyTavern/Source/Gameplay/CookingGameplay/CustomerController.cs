@@ -128,7 +128,7 @@ public class CustomerController : MonoBehaviour
 
                 // Track the customer
                 customers[i] = customerObj;
-                
+                AudioManager.Instance.PlaySFX("Ding");
 
                 return true;
             }

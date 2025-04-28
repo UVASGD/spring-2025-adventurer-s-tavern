@@ -27,10 +27,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip cavesThemeLoop;
     [SerializeField] private AudioClip cavesThemeBeginning;
     [SerializeField] private AudioClip backgroundAudioLoop;
-    [SerializeField] private AudioClip order;
+    [SerializeField] private AudioClip orderDing;
+    [SerializeField] private AudioClip finishedDing;
+    [SerializeField] private AudioClip coinsSFX;
 
 
-    private Dictionary<string, AudioClip> sfxMap;
+    public Dictionary<string, AudioClip> sfxMap;
 
     void Awake()
     {
@@ -64,6 +66,9 @@ public class AudioManager : MonoBehaviour
             {"CavesThemeBeginning", cavesThemeBeginning},
             {"MainTheme", mainTheme},
             {"Background", backgroundAudioLoop},
+            {"Ding", orderDing},
+            {"FinishedDing", finishedDing},
+            {"Coins", coinsSFX},
         };
     }
 

@@ -71,9 +71,10 @@ public class OrderManager : MonoBehaviour
 
     private IEnumerator ExecuteAddProperty(ActionData actionData)
     {
+        
+        PlayAppropriateCookingSound(actionData);
         //progressBar.StartProgress(actionData.ActionTime);
         yield return new WaitForSeconds(actionData.ActionTime);
-        
         // apply property to ingredients in station
         List<Ingredient> ingredients = currentOrder.Station.ApplyProperty(actionData);
         
@@ -87,6 +88,36 @@ public class OrderManager : MonoBehaviour
                     currentOrder.CurrentIngredients[orderIngredientData].Add(actionData.Property);// Might be unfinished. look later. 
                 }
             }
+        }
+        if (actionData.ActionTime >= 2) AudioManager.Instance.PlaySFX("FinishedDing"); // don't want it to play after something that immediately finishes
+    }
+    
+    private void PlayAppropriateCookingSound(ActionData actionData)
+    {
+        AudioManager audioManager = AudioManager.Instance;
+        switch (actionData.Property)
+        {
+            case Property.Baked:
+                audioManager.PlaySFX("Oven");
+                break;
+            case Property.Boiled:
+                audioManager.PlaySFX("Boiling");
+                break;
+            case Property.Cooked:
+                audioManager.PlaySFX("Frying");
+                break;
+            case Property.Cut:
+                audioManager.PlaySFX("Cutting");
+                break;
+            case Property.Grilled:
+                audioManager.PlaySFX("Grilling");
+                break;
+            case Property.DeepFried:
+                audioManager.PlaySFX("Deep Frying");
+                break;
+            case Property.Mixed:
+                audioManager.PlaySFX("Mixing");
+                break;
         }
     }
 

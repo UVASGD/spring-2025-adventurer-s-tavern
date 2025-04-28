@@ -5,7 +5,6 @@ using System.ComponentModel.Design.Serialization;
 //using Mono.Cecil.Cil;
 //using NUnit.Framework.Internal.Commands;
 // using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -115,23 +114,22 @@ public class StationView : MonoBehaviour {
         nextStationContainer.Clear();
         storeButtonContainer.Clear();
         trashButtonContainer.Clear();
-        if (station.Data != null)
-    {
-        if (station.Data.StationType == StationType.Serving)
-        {
-            GenerateServeButton(); // last station only generates serve and assemble button
-            GenerateAssembleButton();
+        if (station.Data != null) {
+            if (station.Data.StationType == StationType.Serving)
+            {
+                GenerateServeButton(); // last station only generates serve and assemble button
+                GenerateAssembleButton();
+            }
+            else
+            {
+                GenerateNextStationButton();
+                GenerateActionButton(station.Data.ActionData);
+            }
         }
         else
         {
-            GenerateNextStationButton();
-            GenerateActionButton(station.Data.ActionData);
+            Debug.LogError("Station data is null!");
         }
-    }
-    else
-    {
-        Debug.LogError("Station data is null!");
-    }
         GenerateIngredientButtons(station);
         // GenerateStationBackground(station);
         GenerateOrderInstructions(station);
@@ -327,7 +325,7 @@ public class StationView : MonoBehaviour {
     }
 
     private void OnAddProperty(ActionButton actionButton){
-        audioManager.PlaySFX("ButtonClick");
+        //audioManager.PlaySFX("ButtonClick");
         cookingUIEventChannel.RaiseOnAddProperty(actionButton.Data); // Property enum actionProperty
     }
     

@@ -448,7 +448,9 @@ MonoBehaviour:
   cavesThemeLoop: {fileID: 8300000, guid: 00e58cb52b17a864e878e7dcf830bb02, type: 3}
   cavesThemeBeginning: {fileID: 8300000, guid: c5e2e2ea20c618546a47eda9dc6ba3a7, type: 3}
   backgroundAudioLoop: {fileID: 8300000, guid: 6ddf30a73da4f9641b1feebc8f7f5e55, type: 3}
-  order: {fileID: 8300000, guid: 205ad6fb754aff643b934bdd1b091de7, type: 3}
+  orderDing: {fileID: 8300000, guid: 61f6942264d030a49833452a15166b50, type: 3}
+  finishedDing: {fileID: 8300000, guid: 774e18ec705831542afcc8857c388a5c, type: 3}
+  coinsSFX: {fileID: 8300000, guid: 24786251dc16642428558aa3f09741aa, type: 3}
 --- !u!82 &1488248243
 AudioSource:
   m_ObjectHideFlags: 0
@@ -462,7 +464,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
