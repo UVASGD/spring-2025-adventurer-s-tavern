@@ -57,12 +57,12 @@ public class RoundManager : MonoBehaviour
                 introClipName = "ForestThemeLoop";
                 loopClipName = "ForestThemeLoop";
                 break;
-            case "Pipawpwa Waves":
+            case "Nipawpwa Waves":
                 backGroundObj.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 introClipName = "OceanThemeBeginning";
                 loopClipName = "OceanThemeLoop";
                 break;
-            case "Mungtown Caves":
+            case "Mungtown Caverns":
                 backGroundObj.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 introClipName = "CavesThemeBeginning";
                 loopClipName = "CavesThemeLoop";

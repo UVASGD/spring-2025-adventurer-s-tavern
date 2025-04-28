@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour
                 return ForestMenu[new System.Random().Next(ForestMenu.Count)];
             case "Nipawpwa Waves":
                 return OceanMenu[new System.Random().Next(OceanMenu.Count)];
-            case "Mungtown Caves":
+            case "Mungtown Caverns":
                 return CavesMenu[new System.Random().Next(CavesMenu.Count)];
         }
 
