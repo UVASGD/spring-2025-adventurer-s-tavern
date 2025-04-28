@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Crying Onion
   <Sprites>k__BackingField:
-  - {fileID: 9135130128162984572, guid: 28caa97f51b9ce84286aabdf03cf4251, type: 3}
-  - {fileID: 9135130128162984572, guid: 28caa97f51b9ce84286aabdf03cf4251, type: 3}
+  - {fileID: 21300000, guid: c4bd636bfdbcc0243b1754967ce461f3, type: 3}
+  - {fileID: 21300000, guid: 21fa0df422395ab4aa580e1ae4fd5d3b, type: 3}

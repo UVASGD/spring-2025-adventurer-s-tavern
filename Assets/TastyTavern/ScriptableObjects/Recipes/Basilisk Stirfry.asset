@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Basilisk Stir Fry
   <RecipeValue>k__BackingField: 100
-  <WrongIcon>k__BackingField: {fileID: 0}
+  <WrongIcon>k__BackingField: {fileID: 21300000, guid: 62c76adf3224d174a94475997571184a, type: 3}
+  <DoneIcon>k__BackingField: {fileID: 21300000, guid: c98465e1f60e2bb4d845657bf6f34eab, type: 3}
   <StationSequence>k__BackingField:
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
   - {fileID: 11400000, guid: 865f815cb1e69f146ba2c092346510d0, type: 2}
