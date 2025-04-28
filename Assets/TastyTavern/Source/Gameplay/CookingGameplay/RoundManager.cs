@@ -27,6 +27,8 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private PlayerManager playerManager;
     
     [SerializeField] private OrderManager orderManager;
+
+    [SerializeField] private GameObject backGroundObj;
     
     private bool isIntroPlaying = true;
     private AudioManager audioManager;
@@ -51,14 +53,17 @@ public class RoundManager : MonoBehaviour
         switch (currentBiome.Name)
         {
             case "Riko Wilds":
+                backGroundObj.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 introClipName = "ForestThemeLoop";
                 loopClipName = "ForestThemeLoop";
                 break;
             case "Pipawpwa Waves":
+                backGroundObj.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 introClipName = "OceanThemeBeginning";
                 loopClipName = "OceanThemeLoop";
                 break;
             case "Mungtown Caves":
+                backGroundObj.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 introClipName = "CavesThemeBeginning";
                 loopClipName = "CavesThemeLoop";
                 break;
@@ -127,6 +132,10 @@ public class RoundManager : MonoBehaviour
         
         audioManager.bgmSource.Stop();
         audioManager.sfxSource.Stop();
+        
+        backGroundObj.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        backGroundObj.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        backGroundObj.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         
         Debug.Log("Day Finished");
         playerManager.SavePlayer();
