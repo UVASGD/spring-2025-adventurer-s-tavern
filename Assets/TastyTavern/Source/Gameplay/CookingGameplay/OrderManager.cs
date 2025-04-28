@@ -172,6 +172,9 @@ public class OrderManager : MonoBehaviour
     public void DetermineWorkspaceAssemble()
     {
         // check if the order is correct here, then send the right sprite
-        cookingUIEventChannel.RaiseOnWorkspaceAssemble(currentOrder.Recipe.DoneIcon);
+        if (currentOrder.IsCorrect() == 0)
+            cookingUIEventChannel.RaiseOnWorkspaceAssemble(currentOrder.Recipe.DoneIcon);
+        else
+            cookingUIEventChannel.RaiseOnWorkspaceAssemble(currentOrder.Recipe.WrongIcon);
     }
 }
