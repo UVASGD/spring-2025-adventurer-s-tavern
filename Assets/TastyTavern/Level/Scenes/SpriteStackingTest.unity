@@ -517,6 +517,7 @@ MonoBehaviour:
   - {fileID: 1519545808}
   - {fileID: 1263514747}
   - {fileID: 822245463}
+  <stationData>k__BackingField: {fileID: 0}
 --- !u!1 &429679969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,7 +1173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: dba2bbd990834f8418fce820587d5ccd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1180,7 +1181,7 @@ SpriteRenderer:
   m_Size: {x: 15, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &835449714
@@ -1494,7 +1495,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 1a806daf6dca55a46bf01b3a1f0969f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 659e353cdf759cb418d6e70e81f8f8c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1982,7 +1983,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 05c4ee069c457f44eb114550ce51d83a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dba2bbd990834f8418fce820587d5ccd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2043,6 +2044,7 @@ MonoBehaviour:
   <_CurrentWorkspace>k__BackingField: {fileID: 0}
   <_Workspaces>k__BackingField:
   - {fileID: 0}
+  <cookingUIEventChannel>k__BackingField: {fileID: 0}
 --- !u!1 &1436277610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,7 +2272,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: db91f8290c063e74d9d78affd9f6276a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65e2ca350284af4498fd85c0faa9dac7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2359,6 +2361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <_slots>k__BackingField:
   - {fileID: 857902837}
+  <stationData>k__BackingField: {fileID: 0}
 --- !u!1 &1694780021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,6 +2531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <_slots>k__BackingField:
   - {fileID: 784378757}
+  <stationData>k__BackingField: {fileID: 0}
 --- !u!1 &2026663269
 GameObject:
   m_ObjectHideFlags: 0

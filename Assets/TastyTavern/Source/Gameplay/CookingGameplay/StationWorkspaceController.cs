@@ -21,11 +21,34 @@ public class StationWorkspaceController : MonoBehaviour
     [field: SerializeField]
     public StationWorkspace[] _Workspaces { get; set; }
 
+    [field: SerializeField]
+    public CookingUIEventChannel cookingUIEventChannel { get; set; }
+
     // This script is attached to the Station Workspace prefab
+    private void Start()
+    {
+        _CurrentWorkspace = null; //no workspace yet.
+    }
+
+    void OnEnable()
+    {
+        // Subscribe to events
+        cookingUIEventChannel.OnLoadStationView += RotateStation;
+        cookingUIEventChannel.OnUpdateWorkspace += UpdateStationWorkspace;
+    }
+
+    void OnDisable()
+    {
+        // Unsubscribe from events
+        cookingUIEventChannel.OnLoadStationView -= RotateStation;
+        cookingUIEventChannel.OnUpdateWorkspace -= UpdateStationWorkspace;
+    }
 
     private void RotateStation(Station station){
         // TODO: swap station background + equipment sprites
-        _CurrentWorkspace.ClearWorkspace();
+        if (_CurrentWorkspace != null){
+            _CurrentWorkspace.ClearWorkspace();
+        }
         _StationBackground.sprite = station.Data.Sprites[0];
         _EquipmentTop.sprite = station.Data.Sprites[1];
         _EquipmentBottom.sprite = station.Data.Sprites[2];
@@ -58,11 +81,8 @@ public class StationWorkspaceController : MonoBehaviour
         }
     }
 
-    private void AddToStationWorkspace(Ingredient ingredient, Station station){
-        if (station.Data.StationType == StationType.CuttingBoard || station.Data.StationType == StationType.MixingBowl){
-            _CurrentWorkspace.AddToWorkspace(ingredient,true); // single slot
-        } else {
-            _CurrentWorkspace.AddToWorkspace(ingredient); // multiple slots
-        }
+    private void UpdateStationWorkspace(Ingredient ingredient){
+        _CurrentWorkspace.AddToWorkspace(ingredient);
     }
+
 }

@@ -17,7 +17,11 @@ public class CookingUIEventChannel : ScriptableObject {
 
     public Action<Station> OnLoadStationView;
 
+
+    // DELETE
     public Action<Station> OnRefreshStationWorkspace; // TODO: Split refactor refresh station to be part of load
+
+    public Action<Ingredient> OnUpdateWorkspace; 
 
     public Action<Station> OnRefreshIngredientsPanel;
 
@@ -110,8 +114,13 @@ public class CookingUIEventChannel : ScriptableObject {
         OnSelectOrder?.Invoke(order);
     }
 
+    // DELETE
     public void RaiseOnRefreshStationWorkspace(Station station){
         OnRefreshStationWorkspace?.Invoke(station);
+    }
+
+    public void RaiseOnUpdateWorkspace(Ingredient ingredient){
+        OnUpdateWorkspace?.Invoke(ingredient);
     }
 
     public void RaiseOnRefreshIngredientsPanel(Station station){

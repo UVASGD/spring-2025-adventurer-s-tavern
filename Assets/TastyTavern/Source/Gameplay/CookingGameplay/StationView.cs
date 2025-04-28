@@ -48,7 +48,7 @@ public class StationView : MonoBehaviour {
     private void OnEnable()
     {
         cookingUIEventChannel.OnLoadStationView += LoadStationView;
-        cookingUIEventChannel.OnRefreshStationWorkspace += RefreshStationWorkspace;
+        // cookingUIEventChannel.OnRefreshStationWorkspace += RefreshStationWorkspace;
         cookingUIEventChannel.OnRefreshIngredientsPanel += RefreshIngredientsPanel;
         cookingUIEventChannel.OnGenerateOrderButton += GenerateOrderButton;
         cookingUIEventChannel.OnDeselectOrder += CloseStationPanels;
@@ -59,7 +59,7 @@ public class StationView : MonoBehaviour {
     private void OnDisable() 
     {
         cookingUIEventChannel.OnLoadStationView -= LoadStationView;
-        cookingUIEventChannel.OnRefreshStationWorkspace -= RefreshStationWorkspace;
+        // cookingUIEventChannel.OnRefreshStationWorkspace -= RefreshStationWorkspace;
         cookingUIEventChannel.OnRefreshIngredientsPanel -= RefreshIngredientsPanel;
         cookingUIEventChannel.OnGenerateOrderButton -= GenerateOrderButton;
         cookingUIEventChannel.OnDeselectOrder -= CloseStationPanels;
@@ -111,7 +111,7 @@ public class StationView : MonoBehaviour {
         Debug.Log("Load Station view");
         actionSlotContainer.Clear();
         ingredientSlotContainer.Clear();
-        stationWorkspaceContainer.Clear();
+        // stationWorkspaceContainer.Clear();
         RecipeContainer.Clear();
         nextStationContainer.Clear();
         storeButtonContainer.Clear();
@@ -366,37 +366,37 @@ public class StationView : MonoBehaviour {
     }
 
     //TODO: change method of determining sprites
-    private void AddToStationWorkspace(Ingredient ingredient){
-        Sprite sprite;
-        if( ingredient.Properties.Contains(Property.Cut) && ingredient.Properties.Contains(Property.Cooked)){
-            sprite = ingredient.Data.Sprites[3];
-        } else if (ingredient.Properties.Contains(Property.Cut)){
-            sprite = ingredient.Data.Sprites[2];
-        } else {
-            sprite = ingredient.Data.Sprites[1];
-        }
-        Image icon = new(){ image = sprite.texture };
-        stationTop.Add(icon);
-        stationTop = icon; // update new top of stack
-    }
+    // private void AddToStationWorkspace(Ingredient ingredient){
+    //     Sprite sprite;
+    //     if( ingredient.Properties.Contains(Property.Cut) && ingredient.Properties.Contains(Property.Cooked)){
+    //         sprite = ingredient.Data.Sprites[3];
+    //     } else if (ingredient.Properties.Contains(Property.Cut)){
+    //         sprite = ingredient.Data.Sprites[2];
+    //     } else {
+    //         sprite = ingredient.Data.Sprites[1];
+    //     }
+    //     Image icon = new(){ image = sprite.texture };
+    //     stationTop.Add(icon);
+    //     stationTop = icon; // update new top of stack
+    // }
 
-    private void RefreshStationWorkspace(Station station){
-        stationBG.Clear();
-        stationTop = stationBG;
-        Debug.Log("WTF IS HAPPENING!!!! " + station.Data.StationType);
-        if (station.Data.StationType == StationType.Serving)
-        {
-            stationTop.Clear();
-            Image icon = new() { image = station.OrderManager.currentOrder.Recipe.WrongIcon.texture };
-            stationTop.Add(icon);
-            stationTop = icon; // Idk the above code in AddToStationWorkspace has this so...
-        }
-        else
-        {
-            foreach (var ingredient in station.ActiveIngredients)
-                AddToStationWorkspace(ingredient);
-        }
-    }
+    // private void RefreshStationWorkspace(Station station){
+    //     stationBG.Clear();
+    //     stationTop = stationBG;
+    //     Debug.Log("WTF IS HAPPENING!!!! " + station.Data.StationType);
+    //     if (station.Data.StationType == StationType.Serving)
+    //     {
+    //         stationTop.Clear();
+    //         Image icon = new() { image = station.OrderManager.currentOrder.Recipe.WrongIcon.texture };
+    //         stationTop.Add(icon);
+    //         stationTop = icon; // Idk the above code in AddToStationWorkspace has this so...
+    //     }
+    //     else
+    //     {
+    //         foreach (var ingredient in station.ActiveIngredients)
+    //             AddToStationWorkspace(ingredient);
+    //     }
+    // }
 
     private void RefreshIngredientsPanel(Station station){
         ingredientSlotContainer.Clear();

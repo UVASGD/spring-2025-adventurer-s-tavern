@@ -57,7 +57,8 @@ public class Station {
     {
         AddToActive(ingredient);
         Debug.Log("Inside Station.cs: " + Data.StationType);
-        cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
+        cookingUIEventChannel.RaiseOnUpdateWorkspace(ingredient);
+        // cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
     }
     
     /// Applies a property to all active ingredients on the station if they don't already have it
@@ -70,7 +71,17 @@ public class Station {
                 ingredient.Properties.Add(actionData.Property);
             }
         }
-        cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
+
+        // Only instant properties are visually applied to the workspace
+        if (Data.StationType == StationType.CuttingBoard || Data.StationType == StationType.MixingBowl)
+        {
+            // if a property was actually applied, update the workspace
+            if (ActiveIngredients.Count > 0)
+            {
+                cookingUIEventChannel.RaiseOnUpdateWorkspace(ActiveIngredients[0]);
+            }
+        }
+        // cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
         return ActiveIngredients;
     }
 
