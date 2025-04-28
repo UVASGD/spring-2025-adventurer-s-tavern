@@ -11,14 +11,15 @@ public class RoundManager : MonoBehaviour
     private int _day;
     private int _moneyAccumulatedThisRound;
     private Enum _grade;
-    private int _customersServed;
+    
     
     /// <summary>
     /// A dict of served orders, whose values represent if the order was cooked correctly or incorrectly
     /// </summary>
     private Dictionary<Order, bool> _servedOrders = new Dictionary<Order, bool>();
 
-    [SerializeField] private int customersToPass;
+    [SerializeField] public int customersToPass;
+     public int customersServed { get; set; }
     
     [SerializeField] private CookingUIEventChannel eventChannel;
     
@@ -41,7 +42,7 @@ public class RoundManager : MonoBehaviour
     void Start()
     {
         _day = 0;
-        _customersServed = 0;
+        customersServed = 0;
         
         currentBiome = playerManager.currentBiome;
         
@@ -75,10 +76,10 @@ public class RoundManager : MonoBehaviour
     void Update()
     {
         // TODO: customerstopass will probably increase for each level
-        if (_customersServed >= customersToPass)
+        if (customersServed >= customersToPass)
         {
             FinishDay();
-            _customersServed = 0; 
+            customersServed = 0; 
         }
         if (isIntroPlaying && !bgSource.isPlaying)
         {
@@ -120,7 +121,7 @@ public class RoundManager : MonoBehaviour
     {
         _day++;
         _moneyAccumulatedThisRound = 0;
-        _customersServed = 0;
+        customersServed = 0;
     }
     
     private void FinishDay()
@@ -128,8 +129,7 @@ public class RoundManager : MonoBehaviour
         eventChannel.RaiseOnDayFinished(_day);
         
         playerManager.moneyAccumulatedThisRound = _moneyAccumulatedThisRound;
-        playerManager.customersServed = _customersServed;
-        
+        playerManager.customersServed = customersServed;
         audioManager.bgmSource.Stop();
         audioManager.sfxSource.Stop();
         
@@ -149,6 +149,6 @@ public class RoundManager : MonoBehaviour
 
     private void IncrementCustomersServed(Order order)
     {
-        _customersServed++;
+        customersServed++;
     }
 }

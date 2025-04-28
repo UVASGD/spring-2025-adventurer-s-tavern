@@ -6,6 +6,7 @@
             <engine:Label text="Adventurer&apos;s Tavern" name="Label" style="color: rgb(255, 250, 0); -unity-font-style: bold; white-space: normal; font-size: 20px; -unity-text-align: upper-center;" />
             <engine:Button text="Play" name="Play" class="unity-button" />
             <engine:Button text="Tutorial" name="Tutorial" />
+            <engine:Button text="Credits" name="Credits" />
             <engine:Button text="Exit" selectable="false" name="Exit" />
         </engine:VisualElement>
     </engine:VisualElement>

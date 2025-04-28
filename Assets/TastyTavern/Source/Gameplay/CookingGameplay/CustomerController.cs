@@ -46,8 +46,11 @@ public class CustomerController : MonoBehaviour
     [SerializeField] 
     private OrderManager OrderManager;
     
+    [SerializeField]
+    private RoundManager RoundManager;
+    
     private bool isSpawning = false;
-
+    
 
     void Start()
     {
@@ -95,45 +98,58 @@ public class CustomerController : MonoBehaviour
         isSpawning = false;
     }
 
-    
+    private int getAmtOfCustomers()
+    {
+        int ret = 0;
+        foreach (var customer in customers)
+        {
+            if (customers != null) ret++;
+        }
+
+        return ret;
+    }
     
     public bool CreateCustomer()
     {
-        // Inefficiency: For loop will always be running. Technically it's O(1) every frame since the length of the customers list is a constant 3, but still. 
-        // Could be optimized to only run when a spot in customers is null, but I can't use customers.Length b/c it is always 3 since I set it that way. 
-        for (int i = 0; i < CustomerSpots.Count; i++)
+        if (RoundManager.customersToPass <= RoundManager.customersServed + getAmtOfCustomers())
         {
-            if (customers[i] == null)
+            // Inefficiency: For loop will always be running. Technically it's O(1) every frame since the length of the customers list is a constant 3, but still. 
+            // Could be optimized to only run when a spot in customers is null, but I can't use customers.Length b/c it is always 3 since I set it that way. 
+            for (int i = 0; i < CustomerSpots.Count; i++)
             {
-                Debug.Log($"Found empty customer spot in {i}");
-                // Create the CustomerData
-                CustomerData data = new CustomerData(
-                    name: "Customer " + Random.Range(1, 100),
-                    appearance: new List<Sprite>(), // Replace with actual sprites
-                    faces: new List<Sprite>(), // Replace with actual face sprites
-                    dialogue: new List<string> { "Hello!", "Thanks!", "Oh no!" },
-                    patience: Random.Range(min_patience, max_patience),
-                    biome: selectedBiome, // Replace with the current biome
-                    customerSpotIdx: i
-                );
+                if (customers[i] == null)
+                {
+                    Debug.Log($"Found empty customer spot in {i}");
+                    // Create the CustomerData
+                    CustomerData data = new CustomerData(
+                        name: "Customer " + Random.Range(1, 100),
+                        appearance: new List<Sprite>(), // Replace with actual sprites
+                        faces: new List<Sprite>(), // Replace with actual face sprites
+                        dialogue: new List<string> { "Hello!", "Thanks!", "Oh no!" },
+                        patience: Random.Range(min_patience, max_patience),
+                        biome: selectedBiome, // Replace with the current biome
+                        customerSpotIdx: i
+                    );
 
-                // Instantiate prefab and initialize
-                GameObject customerObj = Instantiate(customerPrefab, CustomerSpots[i].position, Quaternion.identity);
-                customerObj.GetComponent<SpriteRenderer>().sprite = customerSprites[Random.Range(0, customerSprites.Count)];
+                    // Instantiate prefab and initialize
+                    GameObject customerObj =
+                        Instantiate(customerPrefab, CustomerSpots[i].position, Quaternion.identity);
+                    customerObj.GetComponent<SpriteRenderer>().sprite =
+                        customerSprites[Random.Range(0, customerSprites.Count)];
 
-                Customer customerScript = customerObj.GetComponent<Customer>();
-                customerScript.MenuManager = MenuManager;
-                customerScript.OrderManager = OrderManager;
-                customerScript.Initialize(data);
+                    Customer customerScript = customerObj.GetComponent<Customer>();
+                    customerScript.MenuManager = MenuManager;
+                    customerScript.OrderManager = OrderManager;
+                    customerScript.Initialize(data);
 
-                // Track the customer
-                customers[i] = customerObj;
-                AudioManager.Instance.PlaySFX("Ding");
+                    // Track the customer
+                    customers[i] = customerObj;
+                    AudioManager.Instance.PlaySFX("Ding");
 
-                return true;
+                    return true;
+                }
             }
         }
-        
         return false;
     }
 
