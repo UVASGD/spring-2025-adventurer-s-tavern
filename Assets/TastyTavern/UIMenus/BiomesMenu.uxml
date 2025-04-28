@@ -7,22 +7,22 @@
                 <engine:Label text="Select a Biome!" style="font-size: 100%; color: rgb(255, 255, 255); -unity-text-align: upper-center; width: 100%; translate: 0 -30%;" />
             </engine:VisualElement>
             <engine:VisualElement name="Biomes" style="flex-grow: 1; flex-direction: row;">
-                <engine:VisualElement name="Biome1Panel" style="flex-grow: 1; justify-content: space-between; align-items: auto; flex-direction: column; align-self: stretch;">
-                    <engine:VisualElement name="Biome1ImagePanel" class="ImagePanel" />
+                <engine:VisualElement name="Biome1Panel" style="flex-grow: 1; justify-content: flex-end; align-items: auto; flex-direction: column; align-self: stretch; min-width: 33%;">
+                    <engine:VisualElement name="Biome1ImagePanel" class="ImagePanel" style="background-image: url(&quot;project://database/Assets/TastyTavern/Art/Backgrounds/at_hills2.png?fileID=2800000&amp;guid=c773a2383892ff64d98e907c2f840789&amp;type=3#at_hills2&quot;); background-size: 100% 70%;" />
                     <engine:VisualElement name="Biome1ButtonPanel" class="ButtonPanel">
-                        <engine:Button text="Select!" name="ForestSelect" class="Select-button" style="translate: 0 0; max-height: 100%;" />
+                        <engine:Button text="Kiko Wilds" name="ForestSelect" class="Select-button" style="translate: 0 0; max-height: 100%; font-size: 75px;" />
                     </engine:VisualElement>
                 </engine:VisualElement>
-                <engine:VisualElement name="Biome2Panel" style="flex-grow: 1; justify-content: flex-end; align-items: center;">
-                    <engine:VisualElement name="Biome2ImagePanel" class="ImagePanel" style="flex-grow: 1;" />
+                <engine:VisualElement name="Biome2Panel" style="flex-grow: 1; justify-content: flex-end; align-items: center; min-width: 33%;">
+                    <engine:VisualElement name="Biome2ImagePanel" class="ImagePanel" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TastyTavern/Art/Backgrounds/at_underwater2.png?fileID=2800000&amp;guid=6216f41676428374a9272ebdbe121805&amp;type=3#at_underwater2&quot;); background-size: 100% 70%;" />
                     <engine:VisualElement name="Biome2ButtonPanel" class="ButtonPanel" style="flex-grow: 1;">
-                        <engine:Button text="Select!" name="OceanSelect" class="Select-button" />
+                        <engine:Button text="Nipawpwa&#10;Waves" name="OceanSelect" class="Select-button" style="font-size: 65px;" />
                     </engine:VisualElement>
                 </engine:VisualElement>
-                <engine:VisualElement name="Biome3Panel" style="flex-grow: 1; justify-content: flex-end; align-items: center;">
-                    <engine:VisualElement name="Biome3ImagePanel" class="ImagePanel" style="flex-grow: 1;" />
+                <engine:VisualElement name="Biome3Panel" style="flex-grow: 1; justify-content: flex-end; align-items: center; min-width: 33%;">
+                    <engine:VisualElement name="Biome3ImagePanel" class="ImagePanel" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TastyTavern/Art/Backgrounds/at_cave.png?fileID=2800000&amp;guid=562714436c1c0944a890d0837411478e&amp;type=3#at_cave&quot;); background-size: 100% 70%;" />
                     <engine:VisualElement name="Biome3ButtonPanel" class="ButtonPanel" style="flex-grow: 1;">
-                        <engine:Button text="Select!" name="CavesSelect" class="Select-button" />
+                        <engine:Button text="Mungtown&#10;Caverns" name="CavesSelect" class="Select-button" style="font-size: 65px;" />
                     </engine:VisualElement>
                 </engine:VisualElement>
             </engine:VisualElement>

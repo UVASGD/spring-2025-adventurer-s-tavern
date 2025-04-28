@@ -39,7 +39,9 @@ public class UIMenusProcesses : MonoBehaviour
 
     void Awake()
     {
+        playerManager.LoadPlayer();
         biomePlayed = playerManager.currentBiome;
+        
         postGameUIroot = postGameUI.GetComponent<UIDocument>().rootVisualElement;
         shopMenuUIroot = shopMenuUI.GetComponent<UIDocument>().rootVisualElement;
         biomesMenuUIroot = biomesMenuUI.GetComponent<UIDocument>().rootVisualElement;
@@ -57,10 +59,9 @@ public class UIMenusProcesses : MonoBehaviour
         SelectOceanButton = biomesMenuUIroot.Q<Button>("OceanSelect");
         ExitBiomeMenuButton = biomesMenuUIroot.Q<Button>("ExitBiomeMenu");
         
-        playerManager.LoadPlayer();
-        
         _audioManager = AudioManager.Instance;
-
+        _audioManager.bgmSource.Stop();
+        _audioManager.sfxSource.Stop();
 
         // TODO: Add shop menu exit button and subscribe to SwitchToPostGameMenu
 
@@ -111,7 +112,7 @@ public class UIMenusProcesses : MonoBehaviour
         Label statsLabel = statsPanel.ElementAt(0) as Label;
         if (statsLabel != null)
             statsLabel.text = "Biome Played: " + biomePlayed.Name
-                    + "\nTomorrow, you will travel to: " + playerManager.currentBiome                           
+                    + "\nTomorrow, you will travel to: " + playerManager.currentBiome.Name                           
                     + "\nMoney Earned Today: " + playerManager.moneyAccumulatedThisRound
                     + "\nCustomers Served Today: " + playerManager.customersServed;
     }
