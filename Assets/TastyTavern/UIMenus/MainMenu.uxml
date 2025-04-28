@@ -2,12 +2,14 @@
     <Style src="project://database/Assets/TastyTavern/UIMenus/MainMenu.uss?fileID=7433441132597879392&amp;guid=5934f4de4984fe5488c6f73f09fa28d0&amp;type=3#MainMenu" />
     <Style src="project://database/Assets/PauseGameMenu.uss?fileID=7433441132597879392&amp;guid=9fa47c535d3574e5c8324086a3d26e1c&amp;type=3#PauseGameMenu" />
     <engine:VisualElement name="MainMenuRoot" class="panel" style="flex-grow: 1; background-color: rgb(100, 58, 0); flex-direction: column; align-self: stretch;">
-        <engine:VisualElement name="Container" class="menu" style="flex-grow: 1; background-color: rgb(79, 45, 0); align-content: flex-start; align-items: stretch; align-self: auto; justify-content: space-evenly; width: 20%; height: auto; max-width: none; max-height: 50%; min-width: auto; top: auto; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;">
-            <engine:Label text="Adventurer&apos;s Tavern" name="Label" style="color: rgb(255, 250, 0); -unity-font-style: bold; white-space: normal; font-size: 20px; -unity-text-align: upper-center;" />
-            <engine:Button text="Play" name="Play" class="unity-button" />
-            <engine:Button text="Tutorial" name="Tutorial" />
-            <engine:Button text="Credits" name="Credits" />
-            <engine:Button text="Exit" selectable="false" name="Exit" />
+        <engine:VisualElement name="Container" class="menu" style="flex-grow: 1; background-color: rgba(79, 45, 0, 0); align-content: flex-start; align-items: stretch; align-self: auto; justify-content: space-evenly; width: 40%; height: 90%; max-width: none; max-height: 90%; min-width: auto; top: auto; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;">
+            <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TastyTavern/Art/Textures/at_sign.png?fileID=2800000&amp;guid=37574ded401e6a4489f11534050e9ea5&amp;type=3#at_sign&quot;); max-height: 40%; min-height: 40%; height: 40%; background-size: 130% 140%;" />
+            <engine:VisualElement style="flex-grow: 1; background-size: 100% 100%; max-height: 50%; height: 40%;">
+                <engine:Button text="Play" name="Play" class="unity-button" style="-unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&amp;guid=43cb84234405f2042bb3a98a53562dc8&amp;type=3#Chalkboard-Regular&quot;);" />
+                <engine:Button text="Tutorial" name="Tutorial" />
+                <engine:Button text="Credits" name="Credits" />
+                <engine:Button text="Exit" selectable="false" name="Exit" />
+            </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

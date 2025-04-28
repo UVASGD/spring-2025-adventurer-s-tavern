@@ -1,21 +1,24 @@
 .unity-button {
     align-self: auto;
-    align-items: stretch;
+    align-items: center;
     flex-direction: column;
     flex-wrap: nowrap;
-    -unity-text-align: upper-center;
-    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e8667cffc67dc6248a9d24c1eb5f1f5f&type=3#NotInter-Regular");
-    background-image: none;
-    background-color: rgb(241, 232, 73);
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&guid=43cb84234405f2042bb3a98a53562dc8&type=3#Chalkboard-Regular");
+    background-image: url("project://database/Assets/TastyTavern/Art/Textures/at_button.png?fileID=2800000&guid=ea8270ff76ef2b243978dc0f4cb90060&type=3#at_button");
+    background-color: rgba(241, 232, 73, 0);
     -unity-font-style: bold;
-    font-size: 20px;
-    padding-top: 5px;
+    font-size: 50px;
+    padding-top: 2px;
     padding-right: 0;
-    padding-bottom: 5px;
+    padding-bottom: 2px;
     padding-left: 0;
     margin-right: 5px;
     margin-left: 5px;
     transform-origin: left top;
+    max-height: 100%;
+    height: 26%;
+    min-height: 26%;
 }
 
 .menu {
@@ -25,31 +28,7 @@
     border-right-width: 2px;
     border-bottom-width: 2px;
     border-left-width: 2px;
-}
-
-.unity-button:hover {
-    align-self: auto;
-    align-items: stretch;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    -unity-text-align: upper-center;
-    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e8667cffc67dc6248a9d24c1eb5f1f5f&type=3#NotInter-Regular");
-    background-image: none;
-    background-color: rgb(254, 246, 111);
-    -unity-font-style: bold;
-    font-size: 20px;
-    padding-top: 5px;
-    padding-right: 0;
-    padding-bottom: 5px;
-    padding-left: 0;
-    margin-right: 5px;
-    margin-left: 5px;
-    scale: 1.1 1.1;
-    transition-property: scale;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in-sine;
     justify-content: flex-start;
-    transform-origin: center;
 }
 
 .panel {
@@ -57,4 +36,11 @@
     align-items: center;
     align-content: flex-start;
     justify-content: center;
+    background-image: url("project://database/Assets/TastyTavern/Art/Backgrounds/at_hills2.png?fileID=2800000&guid=c773a2383892ff64d98e907c2f840789&type=3#at_hills2");
+}
+
+.unity-button:hover {
+    transition-duration: 0.2s;
+    transition-property: scale;
+    scale: 1.1 1;
 }
