@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Dragon Skewer
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Dragon Skewers
+  <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <RecipeValue>k__BackingField: 100
   <WrongIcon>k__BackingField: {fileID: 0}
   <StationSequence>k__BackingField:

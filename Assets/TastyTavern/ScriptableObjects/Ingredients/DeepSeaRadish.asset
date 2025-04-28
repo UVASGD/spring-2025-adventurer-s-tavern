@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DeepSeaRadish
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Deep-sea Radish
+  <Biome>k__BackingField: {fileID: 11400000, guid: 7843cd2a631416e4cbbf57593304e8b2, type: 2}
   <Sprites>k__BackingField: []

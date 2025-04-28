@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Caves
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Mungtown Caverns
+  <Biome>k__BackingField: {fileID: 0}
   <StageNumber>k__BackingField: 3
   <RecipesAvailable>k__BackingField: []
   <IngredientsAvailable>k__BackingField: []

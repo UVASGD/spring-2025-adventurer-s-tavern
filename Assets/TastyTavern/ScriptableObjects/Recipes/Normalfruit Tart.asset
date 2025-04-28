@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Normalfruit Tart
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Normalfruit Tart
+  <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
+  <RecipeValue>k__BackingField: 0
   <WrongIcon>k__BackingField: {fileID: 0}
   <StationSequence>k__BackingField:
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}

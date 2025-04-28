@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GrillStation
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Grilling
+  <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <StationType>k__BackingField: 5
   <Sprites>k__BackingField:
   - {fileID: 0}

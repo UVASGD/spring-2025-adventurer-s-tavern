@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SparklingSeaweed
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Sparkling Seaweed
+  <Biome>k__BackingField: {fileID: 11400000, guid: 985422e741fa8ba4d9966ed77aeb35da, type: 2}
   <Sprites>k__BackingField: []

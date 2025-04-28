@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171cdf13bf9ee6e4b90d724a4f3fbdd9, type: 3}
   m_Name: CaveShop
   m_EditorClassIdentifier: 
-  <IngredientItems>k__BackingField: []
-  <RecipeItems>k__BackingField: []
-  <EquipmentItems>k__BackingField: []
+  <IngredientItems>k__BackingField:
+  - {fileID: 11400000, guid: 567a20743f0852542b22ed0118fe7b29, type: 2}
+  - {fileID: 11400000, guid: d220e35add93b884d9ac08ed6a875309, type: 2}
+  - {fileID: 11400000, guid: 569948b504d72b54b977b18228030456, type: 2}
+  - {fileID: 11400000, guid: 37407c51d2d9eed459361fb97d445ff7, type: 2}
+  - {fileID: 11400000, guid: 60050235751920e4c8be8c7b3fccb226, type: 2}
+  <RecipeItems>k__BackingField:
+  - {fileID: 11400000, guid: 95a39beb36fd523419880780df2ee1ac, type: 2}
+  - {fileID: 11400000, guid: 9b87c0b25d576d14cbb10f3ac9d1bb15, type: 2}
+  - {fileID: 11400000, guid: f7ecd5c723c77f04885554133daefde2, type: 2}
+  <EquipmentItems>k__BackingField:
+  - {fileID: 11400000, guid: dc1e4607700c30f4786e912a9cc68d1f, type: 2}
   <BiomeItems>k__BackingField: []

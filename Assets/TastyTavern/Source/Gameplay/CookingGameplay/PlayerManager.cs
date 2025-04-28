@@ -9,6 +9,8 @@ using UnityEngine.Serialization;
 public class PlayerManager : MonoBehaviour
 {
     public int money { get; set; }
+
+    [SerializeField] public MenuManager MenuManager;
     
     public BiomeData currentBiome { get; set; }
     
@@ -99,6 +101,24 @@ public class PlayerManager : MonoBehaviour
             money = 300;
             currentBiome = allBiome[0]; //temporary...
             
+        }
+        // Putting stuff in menu!!!!!!! 
+        if (MenuManager != null)
+        {
+            MenuManager.ForestMenu.Clear();
+            MenuManager.OceanMenu.Clear();
+            MenuManager.CavesMenu.Clear();
+
+            foreach (var key in RecipeUnlocked.Keys)
+            {
+                if (RecipeUnlocked[key])
+                    if (key.Biome.Name == "Riko Wilds")
+                        MenuManager.ForestMenu.Add(key);
+                    else if (key.Biome.Name == "Nipawpwa Waves")
+                        MenuManager.OceanMenu.Add(key);
+                    else
+                        MenuManager.CavesMenu.Add(key);
+            }
         }
         
     }

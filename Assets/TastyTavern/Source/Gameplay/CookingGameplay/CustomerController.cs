@@ -22,7 +22,6 @@ public class CustomerController : MonoBehaviour
     [SerializeField]
     private CookingUIEventChannel cookingUIEventChannel;
 
-    [SerializeField]
     private BiomeData selectedBiome;
 
     [SerializeField]
@@ -52,7 +51,7 @@ public class CustomerController : MonoBehaviour
 
     void Start()
     {
-        
+        selectedBiome = OrderManager.playerManager.currentBiome;
     }
 
     private void Update()

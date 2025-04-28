@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Crystal Tofu Stew
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Crystal Tofu Stew
+  <Biome>k__BackingField: {fileID: 11400000, guid: 7843cd2a631416e4cbbf57593304e8b2, type: 2}
   <RecipeValue>k__BackingField: 100
   <WrongIcon>k__BackingField: {fileID: 0}
   <StationSequence>k__BackingField:

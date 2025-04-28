@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CuttingBoardStation
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Cutting
+  <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <StationType>k__BackingField: 0
   <Sprites>k__BackingField:
   - {fileID: 21300000, guid: 14a9316cb4765e1499b814aa74013984, type: 3}

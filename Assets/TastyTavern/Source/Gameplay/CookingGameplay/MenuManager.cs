@@ -5,20 +5,22 @@ using System;
 
 public class MenuManager : MonoBehaviour
 {
-    public List<RecipeData> Menu = new List<RecipeData>();
+    public List<RecipeData> ForestMenu = new();
+    public List<RecipeData> OceanMenu = new();
+    public List<RecipeData> CavesMenu = new();
 
-    public void AddToMenu(RecipeData recipe)
+    public RecipeData GetRandomRecipeFromMenu(BiomeData biome)
     {
-        Menu.Add(recipe);
-    }
+        switch (biome.Name)
+        {
+            case "Riko Wilds":
+                return ForestMenu[new System.Random().Next(ForestMenu.Count)];
+            case "Nipawpwa Waves":
+                return OceanMenu[new System.Random().Next(OceanMenu.Count)];
+            case "Mungtown Caves":
+                return CavesMenu[new System.Random().Next(CavesMenu.Count)];
+        }
 
-    public void RemoveFromMenu(RecipeData recipe)
-    {
-        Menu.Remove(recipe);
-    }
-
-    public RecipeData GetRandomRecipeFromMenu()
-    {
-        return Menu[new System.Random().Next(Menu.Count)];
+        throw new IndexOutOfRangeException();
     }
 }
