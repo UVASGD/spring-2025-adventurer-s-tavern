@@ -3,16 +3,32 @@ using UnityEngine;
 
 public class StationWorkspace : MonoBehaviour
 {
+    // The slots where ingredients are placed in the workspace
     [field: SerializeField]
-    public List<SpriteRenderer> _slots { get; set; }
+    private List<SpriteRenderer> _slots { get; set; }
+
+    // The station data associated with this workspace
+    [field: SerializeField]
+    public StationData stationData { get; set; } 
 
     void Start()
     {
         ClearWorkspace();
     }
 
-    public void AddToWorkspace(Ingredient ingredient, bool isSingleSlot = false)
+    // single slot: uncut -> cut, cut -> cut_battered, uncut -> uncut_battered
+    public void AddToWorkspace(Ingredient ingredient)
     {
+        if (stationData.StationType == StationType.CuttingBoard || stationData.StationType == StationType.MixingBowl)
+        {
+            AddIngredientToWorkspace(ingredient, true);
+        } else {
+            AddIngredientToWorkspace(ingredient, false);
+        }
+    }
+
+    public void AddIngredientToWorkspace(Ingredient ingredient, bool isSingleSlot = false)
+    { 
         Sprite ingredientSprite = ingredient.GetCurrentSprite();
 
         // Check for conditions for single slot + replacing (cutting + battering(bowl))
@@ -21,9 +37,6 @@ public class StationWorkspace : MonoBehaviour
         {
             _slots[0].sprite = ingredientSprite;
         } else {
-
-            // TODO: Check for serving station condition
-
             // Find the first deactivated slot and activate it with the sprite
             foreach (SpriteRenderer slot in _slots)
             {
@@ -37,11 +50,6 @@ public class StationWorkspace : MonoBehaviour
         }
     }
 
-    // Modify first slot: 
-    // uncut -> cut, cut -> cut_battered, uncut -> uncut_battered
-    public void ApplyPropertyUpdate(Ingredient ingredient){
-        AddToWorkspace(ingredient, true); 
-    }
 
     public void ClearWorkspace()
     {
@@ -50,5 +58,10 @@ public class StationWorkspace : MonoBehaviour
             slot.gameObject.SetActive(false);
             slot.sprite = null; 
         }
+    }
+
+    public void AssembleOrder(Sprite sprite){
+        _slots[0].gameObject.SetActive(true);
+        _slots[0].sprite = sprite;
     }
 }

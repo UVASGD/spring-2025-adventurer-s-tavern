@@ -30,6 +30,8 @@ public class CustomerController : MonoBehaviour
     public float baseDelay; // Base delay in seconds for difficulty = 1.
     public float randomOffset; // Maximum random offset added or subtracted from the delay.;
     public GameObject customerPrefab;
+    public int min_patience = 80; // Minimum patience level for customers.
+    public int max_patience = 160; // Maximum patience level for customers.
 
     //TEMPORARY until customer sprites corrected
     public List<Sprite> customerSprites;
@@ -110,7 +112,7 @@ public class CustomerController : MonoBehaviour
                     appearance: new List<Sprite>(), // Replace with actual sprites
                     faces: new List<Sprite>(), // Replace with actual face sprites
                     dialogue: new List<string> { "Hello!", "Thanks!", "Oh no!" },
-                    patience: Random.Range(50, 100),
+                    patience: Random.Range(min_patience, max_patience),
                     biome: selectedBiome, // Replace with the current biome
                     customerSpotIdx: i
                 );

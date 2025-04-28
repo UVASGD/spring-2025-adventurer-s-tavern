@@ -57,7 +57,8 @@ public class Station {
     {
         AddToActive(ingredient);
         Debug.Log("Inside Station.cs: " + Data.StationType);
-        cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
+        cookingUIEventChannel.RaiseOnUpdateWorkspace(ingredient);
+        // cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
     }
     
     /// Applies a property to all active ingredients on the station if they don't already have it
@@ -70,14 +71,23 @@ public class Station {
                 ingredient.Properties.Add(actionData.Property);
             }
         }
-        cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
+
+        // Only instant properties are visually applied to the workspace
+        if (Data.StationType == StationType.CuttingBoard || Data.StationType == StationType.MixingBowl)
+        {
+            // if a property was actually applied, update the workspace
+            if (ActiveIngredients.Count > 0)
+            {
+                cookingUIEventChannel.RaiseOnUpdateWorkspace(ActiveIngredients[0]);
+            }
+        }
+        // cookingUIEventChannel.RaiseOnRefreshStationWorkspace(this);
         return ActiveIngredients;
     }
 
     // Change data, move new Stock and ingredients in Active and Stored to Stock
     public void ProgressStation(StationData data, List<IngredientData> stock)
     {
-        Debug.Log("Station changed to " + data.StationType + "in Station.cs");
         this.Data = data;
 
         //StockIngredients.Clear();
@@ -115,9 +125,9 @@ public class Station {
 
     public void AssembleOrder()
     {
+        // TODO: Change ingredients from stored to stock --> display disabled
         ActiveIngredients.AddRange(StoredIngredients);
         StoredIngredients.Clear();
-        // TODO: Render finished food image
     }
 
     public void Reset(StationData firstStation, List<IngredientData> firstStock)

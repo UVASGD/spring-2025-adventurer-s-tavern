@@ -15,5 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: Crying Onion
   <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <Sprites>k__BackingField:
-  - {fileID: 9135130128162984572, guid: 28caa97f51b9ce84286aabdf03cf4251, type: 3}
-  - {fileID: 9135130128162984572, guid: 28caa97f51b9ce84286aabdf03cf4251, type: 3}
+  - {fileID: 21300000, guid: 9d6d779052cb7614983766f44135ba7e, type: 3}
+  - {fileID: 21300000, guid: 65e2ca350284af4498fd85c0faa9dac7, type: 3}

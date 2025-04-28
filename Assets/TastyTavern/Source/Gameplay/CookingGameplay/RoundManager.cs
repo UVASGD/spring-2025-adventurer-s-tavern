@@ -35,7 +35,6 @@ public class RoundManager : MonoBehaviour
         _customersServed = 0;
         
         currentBiome = playerManager.currentBiome;
-        Debug.Log("You are in biome: " + currentBiome.name);
     }
 
     // Update is called once per frame

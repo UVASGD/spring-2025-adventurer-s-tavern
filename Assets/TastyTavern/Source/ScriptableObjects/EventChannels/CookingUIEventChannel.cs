@@ -17,7 +17,13 @@ public class CookingUIEventChannel : ScriptableObject {
 
     public Action<Station> OnLoadStationView;
 
-    public Action<Station> OnRefreshStationWorkspace; // TODO: Split refactor refresh station to be part of load
+
+    // DELETE
+    // public Action<Station> OnRefreshStationWorkspace; // TODO: Split refactor refresh station to be part of load
+
+    public Action<Ingredient> OnUpdateWorkspace; 
+
+    public Action<Sprite> OnWorkspaceAssemble;
 
     public Action<Station> OnRefreshIngredientsPanel;
 
@@ -110,8 +116,13 @@ public class CookingUIEventChannel : ScriptableObject {
         OnSelectOrder?.Invoke(order);
     }
 
-    public void RaiseOnRefreshStationWorkspace(Station station){
-        OnRefreshStationWorkspace?.Invoke(station);
+    // // DELETE
+    // public void RaiseOnRefreshStationWorkspace(Station station){
+    //     OnRefreshStationWorkspace?.Invoke(station);
+    // }
+
+    public void RaiseOnUpdateWorkspace(Ingredient ingredient){
+        OnUpdateWorkspace?.Invoke(ingredient);
     }
 
     public void RaiseOnRefreshIngredientsPanel(Station station){
@@ -157,5 +168,12 @@ public class CookingUIEventChannel : ScriptableObject {
     {
         Debug.Log("Order Assembled!");
         OnAssembleOrder?.Invoke();
+        // TEMPORARILY have order always show correct sprite: 
+        // I'm making order manager listen to this
+    }
+
+    public void RaiseOnWorkspaceAssemble(Sprite sprite)
+    {
+        OnWorkspaceAssemble?.Invoke(sprite);
     }
 }

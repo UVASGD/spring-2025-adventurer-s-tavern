@@ -30,13 +30,6 @@ public class OrderManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // ASSUMING SET ORDER AND STATION FOR NOW
-        if (currentOrder != null){
-            foreach( var i in currentOrder.Station.ActiveIngredients)
-            {
-                Debug.Log("station has " + i.Data.Name);
-            }
-        }
     }
 
     private void OnEnable()
@@ -48,6 +41,8 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnChangeNextStation += ChangeNextStation;
         cookingUIEventChannel.OnTrashCurrentOrderFood += OnTrashCurrentOrderFood;
         cookingUIEventChannel.OnAssembleOrder += SetOrderAsAssembled;
+        //TEMP - I think you need to be in order to determine this, so prolly keep this?
+        cookingUIEventChannel.OnAssembleOrder += DetermineWorkspaceAssemble;
     }
 
     private void OnDisable()
@@ -59,6 +54,8 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnChangeNextStation -= ChangeNextStation;
         cookingUIEventChannel.OnTrashCurrentOrderFood -= OnTrashCurrentOrderFood;
         cookingUIEventChannel.OnAssembleOrder -= SetOrderAsAssembled;
+        //TEMP
+        cookingUIEventChannel.OnAssembleOrder -= DetermineWorkspaceAssemble;
     }
 
     private void SetOrderAsAssembled()
@@ -103,7 +100,6 @@ public class OrderManager : MonoBehaviour
             DeselectOrder();
             return;
         }
-        Debug.Log("Selected Order " + selectedOrder);
         currentOrder = selectedOrder;
         currentOrder.Station.Subscribe();
     }
@@ -118,10 +114,7 @@ public class OrderManager : MonoBehaviour
     private void OnTrashCurrentOrderFood()
     {
         int index = currentOrder.StationIdx;
-        Debug.Log(activeOrders.IndexOf(currentOrder) + " order's " + index + " station trashed");
-        // currentOrder.Station.Unsubscribe();
         currentOrder.ResetStation();
-        Debug.Log("Trashed order method, after reset station: " + currentOrder.Station.Data.StationType);
     }
     
     public void AddOrder(Order order)
@@ -174,5 +167,11 @@ public class OrderManager : MonoBehaviour
     // Pass event channel trigger to order
     public void ChangeNextStation(){
         currentOrder.ChangeStation();
+    }
+
+    public void DetermineWorkspaceAssemble()
+    {
+        // check if the order is correct here, then send the right sprite
+        cookingUIEventChannel.RaiseOnWorkspaceAssemble(currentOrder.Recipe.DoneIcon);
     }
 }

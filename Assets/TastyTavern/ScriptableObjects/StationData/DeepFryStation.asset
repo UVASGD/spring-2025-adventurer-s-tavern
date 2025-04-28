@@ -15,6 +15,9 @@ MonoBehaviour:
   <Name>k__BackingField: DeepFrying
   <Biome>k__BackingField: {fileID: 11400000, guid: 985422e741fa8ba4d9966ed77aeb35da, type: 2}
   <StationType>k__BackingField: 7
-  <Background>k__BackingField: {fileID: -4795573259988461060, guid: d7dd4e5e725f94b4b810fb4cee4561df, type: 3}
+  <Sprites>k__BackingField:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   <ProcessingTime>k__BackingField: 0
   <ActionData>k__BackingField: {fileID: 11400000, guid: 9a92a4e538ae84f43a2f882fb00ea6a3, type: 2}

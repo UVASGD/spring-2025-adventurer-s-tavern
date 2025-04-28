@@ -15,6 +15,9 @@ MonoBehaviour:
   <Name>k__BackingField: Cutting
   <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <StationType>k__BackingField: 0
-  <Background>k__BackingField: {fileID: 21300000, guid: d02c871cb54e80c4fb5bcb790cfb28ae, type: 3}
+  <Sprites>k__BackingField:
+  - {fileID: 21300000, guid: 14a9316cb4765e1499b814aa74013984, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   <ProcessingTime>k__BackingField: 0
   <ActionData>k__BackingField: {fileID: 11400000, guid: 019c9c34b9a69f049a173ac0425af55f, type: 2}
