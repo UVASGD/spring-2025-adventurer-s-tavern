@@ -39,6 +39,8 @@ public class StationWorkspaceController : MonoBehaviour
         cookingUIEventChannel.OnLoadStationView += RotateStation;
         cookingUIEventChannel.OnUpdateWorkspace += UpdateStationWorkspace;
         cookingUIEventChannel.OnWorkspaceAssemble += AssembleOrder;
+        cookingUIEventChannel.OnStoreIngredient += ClearActiveWorkspace;
+        cookingUIEventChannel.OnSubmitOrder += CloseWorkspace;
     }
 
     void OnDisable()
@@ -47,6 +49,8 @@ public class StationWorkspaceController : MonoBehaviour
         cookingUIEventChannel.OnLoadStationView -= RotateStation;
         cookingUIEventChannel.OnUpdateWorkspace -= UpdateStationWorkspace;
         cookingUIEventChannel.OnWorkspaceAssemble -= AssembleOrder;
+        cookingUIEventChannel.OnStoreIngredient -= ClearActiveWorkspace;
+        cookingUIEventChannel.OnSubmitOrder -= CloseWorkspace;
     }
 
     private void RotateStation(Station station){
@@ -96,5 +100,16 @@ public class StationWorkspaceController : MonoBehaviour
 
     private void AssembleOrder(Sprite sprite){
         _CurrentWorkspace.AssembleOrder(sprite);
+    }
+
+    private void ClearActiveWorkspace(){
+        _CurrentWorkspace.ClearWorkspace();
+    }
+
+    private void CloseWorkspace(Order order){
+        _CurrentWorkspace.ClearWorkspace();
+        _EquipmentTop.sprite = null;
+        _EquipmentBottom.sprite = null;
+        _StationBackground.sprite = null;
     }
 }

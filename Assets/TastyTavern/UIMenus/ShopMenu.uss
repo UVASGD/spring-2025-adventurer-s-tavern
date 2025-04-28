@@ -80,7 +80,7 @@
     background-size: 100% 800%;
     -unity-background-image-tint-color: rgb(255, 255, 255);
     -unity-font-definition: url("project://database/Assets/TastyTavern/Art/Fonts/GorckHelozatTrialRegular-dr876.ttf?fileID=12800000&guid=c974ae8a27d6bdd429cfc670e17d0cce&type=3#GorckHelozatTrialRegular-dr876");
-    color: rgb(51, 7, 7);
+    color: rgb(34, 4, 4);
     word-spacing: 0;
 }
 
@@ -117,9 +117,9 @@
 }
 
 .back-btn:hover {
-    -unity-background-image-tint-color: rgb(228, 193, 127);
+    -unity-background-image-tint-color: rgb(232, 200, 140);
     transition-timing-function: ease-in-out-circ;
-    transition-duration: 0.1s;
+    transition-duration: 0.2s;
     transition-delay: 0s;
     border-top-width: 7px;
     border-right-width: 7px;
@@ -129,6 +129,7 @@
     border-right-color: rgba(255, 255, 255, 0);
     border-top-color: rgba(255, 255, 255, 0);
     border-bottom-color: rgba(255, 255, 255, 0);
+    scale: 1.1 1.1;
 }
 
 .buy-btn {
@@ -158,6 +159,7 @@
     transition-duration: 0.2s;
     -unity-background-image-tint-color: rgba(255, 255, 255, 0);
     background-color: rgb(222, 153, 58);
+    scale: 1.1 1.1;
 }
 
 .ingredient-icon {

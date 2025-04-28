@@ -16,7 +16,7 @@ MonoBehaviour:
   <Biome>k__BackingField: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   <StationType>k__BackingField: 5
   <Sprites>k__BackingField:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 5c20726293297b041b3b41eff76afb87, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   <ProcessingTime>k__BackingField: 0

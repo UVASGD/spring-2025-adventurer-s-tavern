@@ -17,7 +17,7 @@ MonoBehaviour:
   <StationType>k__BackingField: 1
   <Sprites>k__BackingField:
   - {fileID: 21300000, guid: b4003ebb34c2b544fb6dbebc48d90ec5, type: 3}
-  - {fileID: 21300000, guid: 30b451d0440f2cb469ce75a081046f91, type: 3}
-  - {fileID: 21300000, guid: 55dbda387043c6f4f970a8092bb15ebd, type: 3}
-  <ProcessingTime>k__BackingField: 0
+  - {fileID: 21300000, guid: 7bdb3d1afdddcba49b3151c2624ac021, type: 3}
+  - {fileID: 21300000, guid: 76faae61d11c997458499da33e0d353c, type: 3}
+  <ProcessingTime>k__BackingField: 5
   <ActionData>k__BackingField: {fileID: 11400000, guid: c517039d2da4596428114aab6e271ccd, type: 2}

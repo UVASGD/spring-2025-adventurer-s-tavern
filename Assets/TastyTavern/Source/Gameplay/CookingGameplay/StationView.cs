@@ -268,13 +268,7 @@ public class StationView : MonoBehaviour {
                 ingredientButton.OnClickButton += OnAddIngredient;
             }
     }
-
-    // private void GenerateStationBackground(Station station){
-    //     stationBG = new(){ image = station.Data.Sprites[0].texture }; // change this to just equipment, not counter
-    //     stationWorkspaceContainer.Add(stationBG);
-    //     stationTop = stationBG;
-    // }
-
+    
     private void GenerateStoreButton(){
         Button storeButton = new();
         storeButton.AddToClassList("unity-text-label");
@@ -360,39 +354,6 @@ public class StationView : MonoBehaviour {
         sidePanelContainer.visible = false;
         barAndStationContainer.visible = false;
     }
-
-    //TODO: change method of determining sprites
-    // private void AddToStationWorkspace(Ingredient ingredient){
-    //     Sprite sprite;
-    //     if( ingredient.Properties.Contains(Property.Cut) && ingredient.Properties.Contains(Property.Cooked)){
-    //         sprite = ingredient.Data.Sprites[3];
-    //     } else if (ingredient.Properties.Contains(Property.Cut)){
-    //         sprite = ingredient.Data.Sprites[2];
-    //     } else {
-    //         sprite = ingredient.Data.Sprites[1];
-    //     }
-    //     Image icon = new(){ image = sprite.texture };
-    //     stationTop.Add(icon);
-    //     stationTop = icon; // update new top of stack
-    // }
-
-    // private void RefreshStationWorkspace(Station station){
-    //     stationBG.Clear();
-    //     stationTop = stationBG;
-    //     Debug.Log("WTF IS HAPPENING!!!! " + station.Data.StationType);
-    //     if (station.Data.StationType == StationType.Serving)
-    //     {
-    //         stationTop.Clear();
-    //         Image icon = new() { image = station.OrderManager.currentOrder.Recipe.WrongIcon.texture };
-    //         stationTop.Add(icon);
-    //         stationTop = icon; // Idk the above code in AddToStationWorkspace has this so...
-    //     }
-    //     else
-    //     {
-    //         foreach (var ingredient in station.ActiveIngredients)
-    //             AddToStationWorkspace(ingredient);
-    //     }
-    // }
 
     private void RefreshIngredientsPanel(Station station){
         ingredientSlotContainer.Clear();
