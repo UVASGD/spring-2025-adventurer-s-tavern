@@ -28,6 +28,10 @@ public class StationWorkspaceController : MonoBehaviour
     private void Start()
     {
         _CurrentWorkspace = null; //no workspace yet.
+        _EquipmentTop.sprite = null; //no equipment yet.
+        _EquipmentBottom.sprite = null; //no equipment yet.
+        _StationBackground.sprite = null; //no background yet.
+
     }
 
     void OnEnable()
@@ -49,9 +53,10 @@ public class StationWorkspaceController : MonoBehaviour
         if (_CurrentWorkspace != null){
             _CurrentWorkspace.ClearWorkspace();
         }
+
         _StationBackground.sprite = station.Data.Sprites[0];
         _EquipmentTop.sprite = station.Data.Sprites[1];
-        _EquipmentBottom.sprite = station.Data.Sprites[2];
+        _EquipmentBottom.sprite = station?.Data.Sprites[2];
 
         switch (station.Data.StationType){
             case StationType.CuttingBoard:
@@ -79,6 +84,8 @@ public class StationWorkspaceController : MonoBehaviour
                 _CurrentWorkspace = _Workspaces[7];
                 break;
         }
+
+        _CurrentWorkspace.stationData = station.Data;
     }
 
     private void UpdateStationWorkspace(Ingredient ingredient){

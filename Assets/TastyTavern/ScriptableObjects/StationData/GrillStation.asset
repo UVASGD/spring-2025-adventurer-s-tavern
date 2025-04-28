@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Grilling
   <StationType>k__BackingField: 5
-  <Background>k__BackingField: {fileID: -4795573259988461060, guid: d7dd4e5e725f94b4b810fb4cee4561df, type: 3}
+  <Sprites>k__BackingField:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   <ProcessingTime>k__BackingField: 0
   <ActionData>k__BackingField: {fileID: 11400000, guid: 6064e69c46775074e9836e00df656ad7, type: 2}

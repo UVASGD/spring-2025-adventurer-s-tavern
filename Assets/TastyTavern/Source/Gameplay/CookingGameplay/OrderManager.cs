@@ -30,13 +30,6 @@ public class OrderManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // ASSUMING SET ORDER AND STATION FOR NOW
-        if (currentOrder != null){
-            foreach( var i in currentOrder.Station.ActiveIngredients)
-            {
-                Debug.Log("station has " + i.Data.Name);
-            }
-        }
     }
 
     private void OnEnable()
@@ -103,7 +96,6 @@ public class OrderManager : MonoBehaviour
             DeselectOrder();
             return;
         }
-        Debug.Log("Selected Order " + selectedOrder);
         currentOrder = selectedOrder;
         currentOrder.Station.Subscribe();
     }
@@ -118,10 +110,7 @@ public class OrderManager : MonoBehaviour
     private void OnTrashCurrentOrderFood()
     {
         int index = currentOrder.StationIdx;
-        Debug.Log(activeOrders.IndexOf(currentOrder) + " order's " + index + " station trashed");
-        // currentOrder.Station.Unsubscribe();
         currentOrder.ResetStation();
-        Debug.Log("Trashed order method, after reset station: " + currentOrder.Station.Data.StationType);
     }
     
     public void AddOrder(Order order)

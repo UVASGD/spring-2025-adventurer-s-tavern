@@ -71,8 +71,6 @@ public class StationView : MonoBehaviour {
     private void Awake(){
         document = GetComponent<UIDocument>();
         root = document.rootVisualElement;
-
-        Debug.Log("root is" + root);
         
         ingredientSlotContainer = root.Q<VisualElement>("IngredientSlotContainer"); //already style?
         actionSlotContainer = root.Q<VisualElement>("ActionSlotContainer");
@@ -107,8 +105,6 @@ public class StationView : MonoBehaviour {
     // ***May be easier to have a simple button instead, not attached to station data, go back up to order
     // combine with initialize?
     private void LoadStationView(Station station){
-        Debug.Log("View recieved loading request from event channel");
-        Debug.Log("Load Station view");
         actionSlotContainer.Clear();
         ingredientSlotContainer.Clear();
         // stationWorkspaceContainer.Clear();
@@ -134,7 +130,7 @@ public class StationView : MonoBehaviour {
         Debug.LogError("Station data is null!");
     }
         GenerateIngredientButtons(station);
-        GenerateStationBackground(station);
+        // GenerateStationBackground(station);
         GenerateOrderInstructions(station);
         GenerateStoreButton();
         GenerateTrashButton();
@@ -158,9 +154,6 @@ public class StationView : MonoBehaviour {
 
     private void GenerateOrderInstructions(Station station)
     {
-        Debug.Log(station.OrderManager);
-        Debug.Log(station.Data.StationType);
-        Debug.Log(station.OrderManager.currentOrder);
         List<IngredientData> ingredients = station.OrderManager.currentOrder.Recipe.CorrectStockSequence[station.OrderManager.currentOrder.StationIdx].CorrectIngredients;
         Label orderInstructions = new();
         var instructions = "";
@@ -232,8 +225,6 @@ public class StationView : MonoBehaviour {
         progressBar.OnProgressComplete?.Invoke();
     }
 
-    
-
     private void GenerateServeButton(){
         Button serveButton = new();
         serveButton.AddToClassList("button");
@@ -245,14 +236,12 @@ public class StationView : MonoBehaviour {
 
     private void GenerateActionButton(ActionData actionData){
         ActionButton actionButton = new(actionData);
-        Debug.Log($"Slot created for {actionButton.Data.Name}");
         actionSlotContainer.Add(actionButton);
         actionButton.OnClickButton += OnAddProperty;
     }
 
     // ONLY happens when new order is added to order manager
     private void GenerateOrderButton(Order order){
-        Debug.Log("Generating order button");
         if (order.Customer.Data.CustomerSpotIdx == 0){
             OrderButton orderButton = new(order, progressBarContainer1);
             orderSlot0.Add(orderButton);
@@ -275,17 +264,16 @@ public class StationView : MonoBehaviour {
         if (station.Data.StationType != StationType.Serving)
             foreach(Ingredient ingredient in ingredients){
                 IngredientButton ingredientButton = new(ingredient);
-                Debug.Log("Slot created for " + ingredientButton.Ingredient.Data.Name + " inside " + station.Data.StationType);
                 ingredientSlotContainer.Add(ingredientButton);
                 ingredientButton.OnClickButton += OnAddIngredient;
             }
     }
 
-    private void GenerateStationBackground(Station station){
-        stationBG = new(){ image = station.Data.Sprites[0].texture }; // change this to just equipment, not counter
-        stationWorkspaceContainer.Add(stationBG);
-        stationTop = stationBG;
-    }
+    // private void GenerateStationBackground(Station station){
+    //     stationBG = new(){ image = station.Data.Sprites[0].texture }; // change this to just equipment, not counter
+    //     stationWorkspaceContainer.Add(stationBG);
+    //     stationTop = stationBG;
+    // }
 
     private void GenerateStoreButton(){
         Button storeButton = new();
@@ -356,7 +344,7 @@ public class StationView : MonoBehaviour {
 
     private void OnSelectOrder(OrderButton orderButton){
         cookingUIEventChannel.RaiseOnSelectOrder(orderButton.Order);
-        LoadStationView(orderButton.Order.Station);
+        cookingUIEventChannel.RaiseOnLoadStationView(orderButton.Order.Station);
     }
 
     // could consolidate into helper, hiding and showing station elements

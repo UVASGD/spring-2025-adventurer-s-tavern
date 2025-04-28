@@ -16,6 +16,7 @@ public class StationWorkspace : MonoBehaviour
         ClearWorkspace();
     }
 
+    // single slot: uncut -> cut, cut -> cut_battered, uncut -> uncut_battered
     public void AddToWorkspace(Ingredient ingredient)
     {
         if (stationData.StationType == StationType.CuttingBoard || stationData.StationType == StationType.MixingBowl)
@@ -27,7 +28,7 @@ public class StationWorkspace : MonoBehaviour
     }
 
     public void AddIngredientToWorkspace(Ingredient ingredient, bool isSingleSlot = false)
-    {
+    { 
         Sprite ingredientSprite = ingredient.GetCurrentSprite();
 
         // Check for conditions for single slot + replacing (cutting + battering(bowl))
@@ -49,11 +50,6 @@ public class StationWorkspace : MonoBehaviour
         }
     }
 
-    // Modify first slot: 
-    // uncut -> cut, cut -> cut_battered, uncut -> uncut_battered
-    public void ApplyPropertyUpdate(Ingredient ingredient){
-        AddToWorkspace(ingredient); 
-    } // don't need?
 
     public void ClearWorkspace()
     {

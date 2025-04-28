@@ -10,7 +10,7 @@ public class StationData : BuyableData
     public StationType StationType { get; set; }
 
     [field: SerializeField]
-    public Sprite[] Sprites { get; set; } // 0: Equipment Top, 1: Equipment Bottom, 2: Background
+    public Sprite[] Sprites { get; set; } = new Sprite[3]; // 0: Equipment Top, 1: Equipment Bottom, 2: Background
 
     [field: SerializeField]
     public float ProcessingTime { get; set; }
