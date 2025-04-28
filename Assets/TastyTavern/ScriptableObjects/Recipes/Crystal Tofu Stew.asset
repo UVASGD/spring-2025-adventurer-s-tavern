@@ -15,7 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Crystal Tofu Stew
   <Biome>k__BackingField: {fileID: 11400000, guid: 7843cd2a631416e4cbbf57593304e8b2, type: 2}
   <RecipeValue>k__BackingField: 100
-  <WrongIcon>k__BackingField: {fileID: 0}
+  <WrongIcon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
+  <DoneIcon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
   <StationSequence>k__BackingField:
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
   - {fileID: 11400000, guid: 34f246fba31e5fb45a3932c6c75814c7, type: 2}

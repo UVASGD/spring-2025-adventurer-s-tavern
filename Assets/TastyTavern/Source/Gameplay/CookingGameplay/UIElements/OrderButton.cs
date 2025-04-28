@@ -46,7 +46,7 @@ public class OrderButton : DataButton {
     }
     
     protected override void AddStyles(){
-        Icon.AddToClassList("order-icon");
+        // Icon.AddToClassList("order-icon");
         Label.AddToClassList("order-label");
         this.AddToClassList("order-button");
         this.AddToClassList("button");

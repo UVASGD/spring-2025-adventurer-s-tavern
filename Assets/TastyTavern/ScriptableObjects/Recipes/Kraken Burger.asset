@@ -15,7 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Kraken  Burger
   <Biome>k__BackingField: {fileID: 11400000, guid: 985422e741fa8ba4d9966ed77aeb35da, type: 2}
   <RecipeValue>k__BackingField: 0
-  <WrongIcon>k__BackingField: {fileID: 0}
+  <WrongIcon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
+  <DoneIcon>k__BackingField: {fileID: 21300000, guid: acb61b8b38e1b4c4cb729a508f13d2d2, type: 3}
   <StationSequence>k__BackingField:
   - {fileID: 11400000, guid: d95849da17b756b42af4f3247cc63cf5, type: 2}
   - {fileID: 11400000, guid: 7b894118b6110564faf2b1d0bc24761d, type: 2}

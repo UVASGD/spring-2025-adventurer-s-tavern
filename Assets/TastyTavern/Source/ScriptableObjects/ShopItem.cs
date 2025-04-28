@@ -20,7 +20,7 @@ public class ShopItem : ScriptableObject
     public string Description { get; set; }
 
     [field: SerializeField]
-    public Sprite Icon { get; set; }
+    public Sprite Icon { get; set; } 
 
     // [field: SerializeField]
     // public bool Purchased { get; set; } = false; //default false?
