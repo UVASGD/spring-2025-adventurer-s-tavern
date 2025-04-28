@@ -101,36 +101,42 @@ public class ShopView : MonoBehaviour
     // Generates shop items based on the current biome in the page (a ScrollView element)
     void GenerateShopItems(VisualElement page, List<ShopItem> shopItems)
     {
-        Debug.Log(shopItems.Count + " items in the shop");
-        Debug.Log(shopItems[0].Name + " is the first item in the shop");
-        
         page.Clear();
-
-        // Create a cell for each item, set data source and add it to the page
-        foreach (ShopItem item in shopItems)
+        
+        if (shopItems.Count != 0)
         {
-            TemplateContainer shopItemContainer = shopItemTemplate.Instantiate();
-            VisualElement shopItemCell = shopItemContainer.Q<VisualElement>("ShopItem");
-
-            shopItemCell.dataSource = item;
-
-            // not bothering with data binding for now, just setting the information directly
-            shopItemCell.Q<Label>("ItemName").text = item.Name;
-            shopItemCell.Q<Label>("ItemPrice").text = item.Price.ToString();
-            shopItemCell.Q<Label>("ItemDescription").text = item.Description;
-            shopItemCell.Q<VisualElement>("ItemIcon").style.backgroundImage = item.Icon.texture;
-            Button buyButton = shopItemCell.Q<Button>("BuyButton");
-
-            // checking if item is bought or not, if not, register the buying callback
-            if (shopManager.IsItemPurchased(item)){
-                buyButton.text = "Owned";
-                buyButton.SetEnabled(false);
-            } else {
-                buyButton.text = "Buy";
-                buyButton.RegisterCallback<ClickEvent, Button>(OnBuyButtonClicked, buyButton);
-            }
+            Debug.Log(shopItems.Count + " items in the shop");
+            Debug.Log(shopItems[0].Name + " is the first item in the shop");
             
-            page.Add(shopItemCell); 
+            // Create a cell for each item, set data source and add it to the page
+            foreach (ShopItem item in shopItems)
+            {
+                TemplateContainer shopItemContainer = shopItemTemplate.Instantiate();
+                VisualElement shopItemCell = shopItemContainer.Q<VisualElement>("ShopItem");
+
+                shopItemCell.dataSource = item;
+
+                // not bothering with data binding for now, just setting the information directly
+                shopItemCell.Q<Label>("ItemName").text = item.Name;
+                shopItemCell.Q<Label>("ItemPrice").text = item.Price.ToString();
+                shopItemCell.Q<Label>("ItemDescription").text = item.Description;
+                shopItemCell.Q<VisualElement>("ItemIcon").style.backgroundImage = item.Icon.texture;
+                Button buyButton = shopItemCell.Q<Button>("BuyButton");
+
+                // checking if item is bought or not, if not, register the buying callback
+                if (shopManager.IsItemPurchased(item))
+                {
+                    buyButton.text = "Owned";
+                    buyButton.SetEnabled(false);
+                }
+                else
+                {
+                    buyButton.text = "Buy";
+                    buyButton.RegisterCallback<ClickEvent, Button>(OnBuyButtonClicked, buyButton);
+                }
+
+                page.Add(shopItemCell);
+            }
         }
     }
 

@@ -62,10 +62,6 @@ public class UIMenusProcesses : MonoBehaviour
         _audioManager = AudioManager.Instance;
         _audioManager.bgmSource.Stop();
         _audioManager.sfxSource.Stop();
-
-        // TODO: Add shop menu exit button and subscribe to SwitchToPostGameMenu
-
-        // TODO: Read a JSON File that stores which biomes are unlocked and disable those panels
     }
 
     void Start()
@@ -155,7 +151,6 @@ public class UIMenusProcesses : MonoBehaviour
                 shopKeepsObj.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 break;
         }
-        
     }
 
     private void SwitchToBiomeMenu()
