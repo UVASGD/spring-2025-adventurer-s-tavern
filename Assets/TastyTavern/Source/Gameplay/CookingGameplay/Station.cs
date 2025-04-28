@@ -125,9 +125,9 @@ public class Station {
 
     public void AssembleOrder()
     {
+        // TODO: Change ingredients from stored to stock --> display disabled
         ActiveIngredients.AddRange(StoredIngredients);
         StoredIngredients.Clear();
-        // TODO: Render finished food image
     }
 
     public void Reset(StationData firstStation, List<IngredientData> firstStock)

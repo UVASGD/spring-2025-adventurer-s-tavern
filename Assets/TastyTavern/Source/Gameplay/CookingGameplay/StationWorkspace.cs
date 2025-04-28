@@ -59,4 +59,9 @@ public class StationWorkspace : MonoBehaviour
             slot.sprite = null; 
         }
     }
+
+    public void AssembleOrder(Sprite sprite){
+        _slots[0].gameObject.SetActive(true);
+        _slots[0].sprite = sprite;
+    }
 }

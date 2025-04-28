@@ -31,7 +31,6 @@ public class StationWorkspaceController : MonoBehaviour
         _EquipmentTop.sprite = null; //no equipment yet.
         _EquipmentBottom.sprite = null; //no equipment yet.
         _StationBackground.sprite = null; //no background yet.
-
     }
 
     void OnEnable()
@@ -39,6 +38,7 @@ public class StationWorkspaceController : MonoBehaviour
         // Subscribe to events
         cookingUIEventChannel.OnLoadStationView += RotateStation;
         cookingUIEventChannel.OnUpdateWorkspace += UpdateStationWorkspace;
+        cookingUIEventChannel.OnWorkspaceAssemble += AssembleOrder;
     }
 
     void OnDisable()
@@ -46,6 +46,7 @@ public class StationWorkspaceController : MonoBehaviour
         // Unsubscribe from events
         cookingUIEventChannel.OnLoadStationView -= RotateStation;
         cookingUIEventChannel.OnUpdateWorkspace -= UpdateStationWorkspace;
+        cookingUIEventChannel.OnWorkspaceAssemble -= AssembleOrder;
     }
 
     private void RotateStation(Station station){
@@ -88,8 +89,12 @@ public class StationWorkspaceController : MonoBehaviour
         _CurrentWorkspace.stationData = station.Data;
     }
 
+    // can probably director call in subscription
     private void UpdateStationWorkspace(Ingredient ingredient){
         _CurrentWorkspace.AddToWorkspace(ingredient);
     }
 
+    private void AssembleOrder(Sprite sprite){
+        _CurrentWorkspace.AssembleOrder(sprite);
+    }
 }

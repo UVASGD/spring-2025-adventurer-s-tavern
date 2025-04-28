@@ -41,6 +41,8 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnChangeNextStation += ChangeNextStation;
         cookingUIEventChannel.OnTrashCurrentOrderFood += OnTrashCurrentOrderFood;
         cookingUIEventChannel.OnAssembleOrder += SetOrderAsAssembled;
+        //TEMP - I think you need to be in order to determine this, so prolly keep this?
+        cookingUIEventChannel.OnAssembleOrder += DetermineWorkspaceAssemble;
     }
 
     private void OnDisable()
@@ -52,6 +54,8 @@ public class OrderManager : MonoBehaviour
         cookingUIEventChannel.OnChangeNextStation -= ChangeNextStation;
         cookingUIEventChannel.OnTrashCurrentOrderFood -= OnTrashCurrentOrderFood;
         cookingUIEventChannel.OnAssembleOrder -= SetOrderAsAssembled;
+        //TEMP
+        cookingUIEventChannel.OnAssembleOrder -= DetermineWorkspaceAssemble;
     }
 
     private void SetOrderAsAssembled()
@@ -163,5 +167,11 @@ public class OrderManager : MonoBehaviour
     // Pass event channel trigger to order
     public void ChangeNextStation(){
         currentOrder.ChangeStation();
+    }
+
+    public void DetermineWorkspaceAssemble()
+    {
+        // check if the order is correct here, then send the right sprite
+        cookingUIEventChannel.RaiseOnWorkspaceAssemble(currentOrder.Recipe.DoneIcon);
     }
 }
