@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff6caae4df5339488dbf83f80cb6288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Menu:
-  - {fileID: 11400000, guid: b57b1b53da1e4e742b7bf1989a8fac48, type: 2}
-  - {fileID: 11400000, guid: 04b89bd6c3d3fed4595e31d42b275635, type: 2}
+  ForestMenu: []
+  OceanMenu: []
+  CavesMenu: []
 --- !u!1 &652298024
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookingUIEventChannel: {fileID: 11400000, guid: 98faadf6e98d87049badef501f757299, type: 2}
-  selectedBiome: {fileID: 0}
   Difficulty: 1
   baseDelay: 2
   randomOffset: 0
@@ -802,6 +801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6658849458178890244, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
+      propertyPath: MenuManager
+      value: 
+      objectReference: {fileID: 263837436}
     - target: {fileID: 8773687604976073682, guid: 814fd13a3d3f91c4491c231b728d4a82, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
