@@ -77,10 +77,10 @@
                         </engine:VisualElement>
                     </engine:VisualElement>
                     <engine:VisualElement style="flex-grow: 1; min-width: 100%; min-height: 5%; color: rgb(228, 155, 74);">
-                        <engine:Label text="Recipe Directions" style="height: 45px; width: 379px; font-size: 43px; -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/GorckHelozatTrialRegular-dr876.ttf?fileID=12800000&amp;guid=c974ae8a27d6bdd429cfc670e17d0cce&amp;type=3#GorckHelozatTrialRegular-dr876&quot;); -unity-text-align: upper-center; margin-bottom: 17px; -unity-font-style: normal;" />
+                        <engine:Label text="Recipe Directions" style="height: 45px; width: 379px; font-size: 43px; -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/GorckHelozatTrialRegular-dr876.ttf?fileID=12800000&amp;guid=c974ae8a27d6bdd429cfc670e17d0cce&amp;type=3#GorckHelozatTrialRegular-dr876&quot;); -unity-text-align: upper-center; margin-bottom: 17px; -unity-font-style: normal; color: rgb(192, 136, 81);" />
                     </engine:VisualElement>
-                    <engine:VisualElement name="RecipePanel" style="flex-grow: 1; min-height: 32%;">
-                        <engine:Label text="insert order requirements here" style="height: auto; width: auto; font-size: 36px; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); align-self: center; align-items: auto; color: rgb(228, 155, 74); -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&amp;guid=43cb84234405f2042bb3a98a53562dc8&amp;type=3#Chalkboard-Regular&quot;);" />
+                    <engine:VisualElement name="RecipePanel" style="flex-grow: 1; min-height: 32%; background-color: rgb(184, 145, 101); border-top-left-radius: 29px; border-top-right-radius: 29px; border-left-width: 9px; border-top-width: 6px; border-right-width: 9px;">
+                        <engine:Label text="insert order requirements here" style="height: auto; width: auto; font-size: 36px; white-space: pre-wrap; background-color: rgba(0, 0, 0, 0); align-self: center; align-items: auto; color: rgb(0, 0, 0); -unity-font-definition: url(&quot;project://database/Assets/TastyTavern/Art/Fonts/Chalkboard-Regular.ttf?fileID=12800000&amp;guid=43cb84234405f2042bb3a98a53562dc8&amp;type=3#Chalkboard-Regular&quot;); margin-left: 9px; margin-top: 9px;" />
                     </engine:VisualElement>
                 </engine:VisualElement>
             </engine:VisualElement>
