@@ -27,6 +27,13 @@ public class UIMenusProcesses : MonoBehaviour
 
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private ShopManager shopManager;
+    
+    private AudioManager _audioManager;
+    private bool isIntroPlaying = true;
+    private AudioSource audioSource;
+    private string introClipName;
+    private string loopClipName;
+
 
     void Awake()
     {
@@ -49,6 +56,9 @@ public class UIMenusProcesses : MonoBehaviour
         
         playerManager.LoadPlayer();
         
+        _audioManager = AudioManager.Instance;
+
+
         // TODO: Add shop menu exit button and subscribe to SwitchToPostGameMenu
 
         // TODO: Read a JSON File that stores which biomes are unlocked and disable those panels
@@ -68,6 +78,7 @@ public class UIMenusProcesses : MonoBehaviour
 
         ShopBackButton.clicked += SwitchToPostGameMenu;
         
+        _audioManager.PlayBGM("MainTheme");
         
         SwitchToPostGameMenu();
         GenerateStats();
@@ -101,6 +112,7 @@ public class UIMenusProcesses : MonoBehaviour
     
     private void SwitchToPostGameMenu()
     {
+        _audioManager.PlaySFX("ButtonClick");
         postGameUIroot.visible = true;
         postGameUI.sortingOrder = 1;
         shopMenuUIroot.visible = false;
@@ -111,6 +123,7 @@ public class UIMenusProcesses : MonoBehaviour
 
     private void SwitchToShopMenu()
     {
+        _audioManager.PlaySFX("ButtonClick");
         postGameUIroot.visible = false;
         postGameUI.sortingOrder = 0;
         shopMenuUIroot.visible = true;
@@ -123,6 +136,7 @@ public class UIMenusProcesses : MonoBehaviour
 
     private void SwitchToBiomeMenu()
     {
+        _audioManager.PlaySFX("ButtonClick");
         RefreshBiomeButtons();
         postGameUIroot.visible = false;
         postGameUI.sortingOrder = 0;
@@ -164,10 +178,11 @@ public class UIMenusProcesses : MonoBehaviour
         playerManager.SavePlayer();// PLEASE SET BIOME TO SWITCH TO :)
         SwitchToPostGameMenu();
     }
-
+    
     private void GoToNextDay()
     {
         playerManager.SavePlayer();
         SceneManager.LoadScene("TestSceneA 2");
+
     }
 }
