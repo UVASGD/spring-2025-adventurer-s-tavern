@@ -34,7 +34,9 @@ public class CustomerController : MonoBehaviour
     public int max_patience = 160; // Maximum patience level for customers.
 
     //TEMPORARY until customer sprites corrected
-    public List<Sprite> customerSprites;
+    public List<Sprite> forestCustomerSprites;
+    public List<Sprite> oceanCustomerSprites;
+    public List<Sprite> cavesCustomerSprites;
     public int spriteIdx = 0;
 
     [SerializeField]
@@ -111,8 +113,8 @@ public class CustomerController : MonoBehaviour
     
     public bool CreateCustomer()
     {
-        if (RoundManager.customersToPass <= RoundManager.customersServed + getAmtOfCustomers())
-        {
+        //if (RoundManager.customersToPass <= RoundManager.customersServed + getAmtOfCustomers())
+        //{
             // Inefficiency: For loop will always be running. Technically it's O(1) every frame since the length of the customers list is a constant 3, but still. 
             // Could be optimized to only run when a spot in customers is null, but I can't use customers.Length b/c it is always 3 since I set it that way. 
             for (int i = 0; i < CustomerSpots.Count; i++)
@@ -134,8 +136,22 @@ public class CustomerController : MonoBehaviour
                     // Instantiate prefab and initialize
                     GameObject customerObj =
                         Instantiate(customerPrefab, CustomerSpots[i].position, Quaternion.identity);
-                    customerObj.GetComponent<SpriteRenderer>().sprite =
-                        customerSprites[Random.Range(0, customerSprites.Count)];
+
+                    switch (OrderManager.playerManager.currentBiome.Name)
+                    {
+                        case "Riko Wilds":
+                            customerObj.GetComponent<SpriteRenderer>().sprite =
+                                forestCustomerSprites[Random.Range(0, forestCustomerSprites.Count)];
+                            break;
+                        case "Nipawpwa Waves":
+                            customerObj.GetComponent<SpriteRenderer>().sprite =
+                                oceanCustomerSprites[Random.Range(0, oceanCustomerSprites.Count)];
+                            break;
+                        case "Mungtown Caverns":
+                            customerObj.GetComponent<SpriteRenderer>().sprite =
+                                cavesCustomerSprites[Random.Range(0, cavesCustomerSprites.Count)];
+                            break;
+                    }
 
                     Customer customerScript = customerObj.GetComponent<Customer>();
                     customerScript.MenuManager = MenuManager;
@@ -149,7 +165,7 @@ public class CustomerController : MonoBehaviour
                     return true;
                 }
             }
-        }
+        //}
         return false;
     }
 

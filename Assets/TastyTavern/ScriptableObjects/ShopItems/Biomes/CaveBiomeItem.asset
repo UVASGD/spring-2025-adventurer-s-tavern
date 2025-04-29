@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Mungtown Caverns
   <Type>k__BackingField: 3
-  <Price>k__BackingField: 2000
+  <Price>k__BackingField: 0
   <Description>k__BackingField: An expansive village known for its valuable gemstones
     and flourishing inter-species trade.
   <Icon>k__BackingField: {fileID: 21300000, guid: 562714436c1c0944a890d0837411478e, type: 3}

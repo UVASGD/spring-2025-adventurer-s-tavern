@@ -1152,7 +1152,7 @@ Transform:
   m_GameObject: {fileID: 670271783}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.43, y: 0.09, z: 0}
+  m_LocalPosition: {x: -6.43, y: -0.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1517,10 +1517,55 @@ MonoBehaviour:
   customerPrefab: {fileID: 6330402158794385807, guid: f757c88ac6cd8cb41aee001271e1b24c, type: 3}
   min_patience: 160
   max_patience: 400
-  customerSprites:
-  - {fileID: 667455983226642150, guid: e8401f791d8f55d4cb772f8bcd53a37e, type: 3}
-  - {fileID: 107909794284205028, guid: daad98cf6ca460c49932680d565141ed, type: 3}
-  - {fileID: 1872567538823083923, guid: 57c89df98f3b8144f9d3088cc1dd73db, type: 3}
+  forestCustomerSprites:
+  - {fileID: 21300000, guid: 6101348f1282034499a0ceb03ca9c610, type: 3}
+  - {fileID: 21300000, guid: b1064e807893eca41af11823044a96b1, type: 3}
+  - {fileID: 21300000, guid: 5a9ea16a0dd372f49b3f5753aa19eb2f, type: 3}
+  - {fileID: 21300000, guid: 23633aaf552478647b4e0b963149d1c4, type: 3}
+  - {fileID: 21300000, guid: 51ef0f3b2eca6984facb0b2c03056f32, type: 3}
+  - {fileID: 21300000, guid: 07ab73c6533577a4b821fb507b76bf5c, type: 3}
+  - {fileID: 21300000, guid: 39e6687455f54b9408336d08f331817e, type: 3}
+  - {fileID: 21300000, guid: 829b13393551b924ca701e6676df1bb5, type: 3}
+  - {fileID: 21300000, guid: 148b17173016cd14ea9b3830350d4816, type: 3}
+  - {fileID: 21300000, guid: dc17c2c08ca825b45bd3f1c7afa5f6dd, type: 3}
+  - {fileID: 21300000, guid: 65339ac3eabfe5a418e180f41b70f952, type: 3}
+  - {fileID: 21300000, guid: 34517c55591539a4f939b7c641ad427a, type: 3}
+  - {fileID: 21300000, guid: 29f8a84c5d8c88b4cbc52b10e6b877b4, type: 3}
+  oceanCustomerSprites:
+  - {fileID: 21300000, guid: 77692828eb2aaac47bb26ffa5f1e21cd, type: 3}
+  - {fileID: 21300000, guid: 7c1a4f76888682f4a9061b17a139a462, type: 3}
+  - {fileID: 21300000, guid: 052127aeeb62bef40ba5f91fa1928c8e, type: 3}
+  - {fileID: 21300000, guid: 927665043e9872540bc9a43323bc6957, type: 3}
+  - {fileID: 21300000, guid: 8317da4e3c7b8dc458e91895c310849e, type: 3}
+  - {fileID: 21300000, guid: abfb03b2900959343a5f32dc68ce2f29, type: 3}
+  - {fileID: 21300000, guid: 5d4fc9b627bcc7b48b23e0b27dc292de, type: 3}
+  - {fileID: 21300000, guid: d3a3d4f203aaf34408a38bda237e5af0, type: 3}
+  - {fileID: 21300000, guid: b2a096e2bc682064f95bc45638aa4201, type: 3}
+  - {fileID: 21300000, guid: fbbbe6cb072d2b04b8f06a0c02a04867, type: 3}
+  - {fileID: 21300000, guid: 394363491903ee54990461f3ecd121c6, type: 3}
+  - {fileID: 21300000, guid: 36d92ecd8a26d184e943e6ebd26b2831, type: 3}
+  - {fileID: 21300000, guid: cca8e15edfc056f4ab3cf73d35a56c5f, type: 3}
+  - {fileID: 21300000, guid: 0fed89d25e7e898458f357118bb5419a, type: 3}
+  - {fileID: 21300000, guid: fa8e958bbfd76d945baa93eb2a06f627, type: 3}
+  - {fileID: 21300000, guid: 7421c2183e273884e87343cae8a63f45, type: 3}
+  - {fileID: 21300000, guid: 6020836cedc457345a0cef2862d02e95, type: 3}
+  - {fileID: 21300000, guid: 6630acdec7015f44bbabdf728fb06dab, type: 3}
+  cavesCustomerSprites:
+  - {fileID: 21300000, guid: 4f9fe5a17088c704fb310f8b805bb13d, type: 3}
+  - {fileID: 21300000, guid: 0c374a4814f0d724b9db0a9029496cce, type: 3}
+  - {fileID: 21300000, guid: 04074b7dd2e2b054eb835c478b29718f, type: 3}
+  - {fileID: 21300000, guid: 28a6b09ccac97ed4193084e5c35dcd2c, type: 3}
+  - {fileID: 21300000, guid: e33c9dcde665f454888bd1d3588fa1a9, type: 3}
+  - {fileID: 21300000, guid: fb8aa698366e76049aba873e57e8c0e0, type: 3}
+  - {fileID: 21300000, guid: 66fdd563734115b45b2db9891e4c9d85, type: 3}
+  - {fileID: 21300000, guid: 1c5a5dd1895d20048b2576879b6881a0, type: 3}
+  - {fileID: 21300000, guid: 5ba9d238f5286c04f9a18d77b4852ab3, type: 3}
+  - {fileID: 21300000, guid: c2ce6d7bdf9a9374489c348393c328a1, type: 3}
+  - {fileID: 21300000, guid: dad11a6db402a484385b45facc7e481a, type: 3}
+  - {fileID: 21300000, guid: f2d08c308867bc845b453eff75f48c2b, type: 3}
+  - {fileID: 21300000, guid: c7acd33752f7ea649aad56e4cab35c90, type: 3}
+  - {fileID: 21300000, guid: 966882d5ea5b5434ab068c0719ee1f25, type: 3}
+  - {fileID: 21300000, guid: 19e0b7cecf82bf648b499706e174ad9f, type: 3}
   spriteIdx: 0
   CustomerSpots:
   - {fileID: 670271784}
@@ -1732,7 +1777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce83bf8d4e2e0947b8da6cf6353bb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customersToPass: 1
+  customersToPass: 5
   eventChannel: {fileID: 11400000, guid: 98faadf6e98d87049badef501f757299, type: 2}
   currentBiome: {fileID: 11400000, guid: c756598a859a6384786dfdf618921204, type: 2}
   playerManager: {fileID: 39318588}
@@ -2444,7 +2489,7 @@ Transform:
   m_GameObject: {fileID: 1489347290}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.35, y: 0.04, z: 0}
+  m_LocalPosition: {x: -2.35, y: -0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3276,7 +3321,7 @@ Transform:
   m_GameObject: {fileID: 2026663269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.08, y: 0.02, z: 0}
+  m_LocalPosition: {x: 1.08, y: -0.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
