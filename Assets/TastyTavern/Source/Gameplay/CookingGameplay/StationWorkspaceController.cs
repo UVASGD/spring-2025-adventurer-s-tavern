@@ -36,7 +36,7 @@ public class StationWorkspaceController : MonoBehaviour
     void OnEnable()
     {
         // Subscribe to events
-        cookingUIEventChannel.OnLoadStationView += RotateStation;
+        cookingUIEventChannel.OnLoadStationView += LoadWorkspace;
         cookingUIEventChannel.OnUpdateWorkspace += UpdateStationWorkspace;
         cookingUIEventChannel.OnWorkspaceAssemble += AssembleOrder;
         cookingUIEventChannel.OnStoreIngredient += ClearActiveWorkspace;
@@ -46,11 +46,21 @@ public class StationWorkspaceController : MonoBehaviour
     void OnDisable()
     {
         // Unsubscribe from events
-        cookingUIEventChannel.OnLoadStationView -= RotateStation;
+        cookingUIEventChannel.OnLoadStationView -= LoadWorkspace;
         cookingUIEventChannel.OnUpdateWorkspace -= UpdateStationWorkspace;
         cookingUIEventChannel.OnWorkspaceAssemble -= AssembleOrder;
         cookingUIEventChannel.OnStoreIngredient -= ClearActiveWorkspace;
         cookingUIEventChannel.OnSubmitOrder -= CloseWorkspace;
+    }
+
+    public void LoadWorkspace(Station station)
+    {
+        // Reloading workspace, typically from order switch
+        RotateStation(station);
+        foreach (Ingredient ingredient in station.ActiveIngredients)
+        {
+           UpdateStationWorkspace(ingredient); // Add all active ingredients back to the workspace
+        }
     }
 
     private void RotateStation(Station station){
@@ -93,7 +103,7 @@ public class StationWorkspaceController : MonoBehaviour
         _CurrentWorkspace.stationData = station.Data;
     }
 
-    // can probably director call in subscription
+    // can probably directly call in subscription
     private void UpdateStationWorkspace(Ingredient ingredient){
         _CurrentWorkspace.AddToWorkspace(ingredient);
     }
