@@ -344,7 +344,6 @@ public class StationView : MonoBehaviour {
     private void OnSelectOrder(OrderButton orderButton){
         audioManager.PlaySFX("ButtonClick");
         cookingUIEventChannel.RaiseOnSelectOrder(orderButton.Order);
-        cookingUIEventChannel.RaiseOnLoadStationView(orderButton.Order.Station);
     }
 
     // could consolidate into helper, hiding and showing station elements

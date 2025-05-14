@@ -127,19 +127,21 @@ public class OrderManager : MonoBehaviour
     /// <param name="orderData"></param>
     private void SelectOrder(Order selectedOrder)
     {
-        if (selectedOrder == currentOrder){ // for now, click again to deselect TODO: close X button
-            DeselectOrder();
+        if (selectedOrder == currentOrder) {
+            cookingUIEventChannel.RaiseOnDeselectOrder();
             return;
         }
+        DeselectOrder();
         currentOrder = selectedOrder;
         currentOrder.Station.Subscribe();
+        cookingUIEventChannel.RaiseOnLoadStationView(currentOrder.Station);
     }
 
     private void DeselectOrder()
     {
         if (currentOrder != null) currentOrder.Station.Unsubscribe();
         currentOrder = null;
-        cookingUIEventChannel.RaiseOnDeselectOrder();
+        // cookingUIEventChannel.RaiseOnDeselectOrder();
     }
     
     private void OnTrashCurrentOrderFood()
